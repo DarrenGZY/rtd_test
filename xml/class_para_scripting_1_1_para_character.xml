@@ -1,0 +1,1572 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_character" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaCharacter</compoundname>
+    <includes refid="_para_scripting_character_8h" local="no">ParaScriptingCharacter.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_character_1aafb00edfa2ee1d3a5989c326eba4445f" prot="public" static="no" mutable="no">
+        <type>CBipedObject::WeakPtr_type</type>
+        <definition>CBipedObject::WeakPtr_type ParaScripting::ParaCharacter::m_pCharacter</definition>
+        <argsstring></argsstring>
+        <name>m_pCharacter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="244" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a6f29063c5851a15494d1f12964d9e77f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="249" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a5918ebf3a85d7204b1577e338c4b6506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaCharacter::ParaCharacter</definition>
+        <argsstring>()</argsstring>
+        <name>ParaCharacter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="251" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ace39fa38fa222517e1079d766a32fd99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaCharacter::ParaCharacter</definition>
+        <argsstring>(CBaseObject *pObj)</argsstring>
+        <name>ParaCharacter</name>
+        <param>
+          <type>CBaseObject *</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="252" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad53d249e5ef04cd31fef830dd2c24633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaCharacter::~ParaCharacter</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaCharacter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="253" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9386b793ed8144a5360f37e6d4542059" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetSpeedScale</definition>
+        <argsstring>(float fSpeedScale)</argsstring>
+        <name>SetSpeedScale</name>
+        <param>
+          <type>float</type>
+          <declname>fSpeedScale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the default value of speed scale is 1.0f, which will use the character&apos;s default speed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="258" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1afe831d6e18dca9324a1b1aba2bc02c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaCharacter::GetSpeedScale</definition>
+        <argsstring>()</argsstring>
+        <name>GetSpeedScale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="259" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9e36d75f31c0078b58c6cfdcacb23b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::FallDown</definition>
+        <argsstring>()</argsstring>
+        <name>FallDown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if the biped is in air, it will fall down. In case a biped is put to stop and the terrain below it changes. one should manually call this function to let the biped fall down. Internally it just set the vertical speed to a small value </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="264" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad32b9d491dd3994159fc61cb08a82238" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetSizeScale</definition>
+        <argsstring>(float fScale)</argsstring>
+        <name>SetSizeScale</name>
+        <param>
+          <type>float</type>
+          <declname>fScale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the default value of size scale is 1.0f, which will use the character&apos;s default size. increasing this value will enlarge the character as well as its physical radius. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="270" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ac74ad74e17b640fa4ebbff13a65b6532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaCharacter::GetSizeScale</definition>
+        <argsstring>()</argsstring>
+        <name>GetSizeScale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="271" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af77c813d578bd702526de393b8384fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetFocus</definition>
+        <argsstring>()</argsstring>
+        <name>SetFocus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ask the camera to follow this character.The camera will be immediately focused on this character without translation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="276" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1add7504a5c7080e5e9e1c8b7d3fb6544f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AddAction2</definition>
+        <argsstring>(int nAction, const object &amp;param)</argsstring>
+        <name>AddAction2</name>
+        <param>
+          <type>int</type>
+          <declname>nAction</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add an action symbol, and let the character state manager determine which states it should go to. this function will not perform any concrete actions on the biped objects. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nAction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>please see script/ide/action_table.lua for a list of valid values. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the param specifying more details about the action. This value default to nil if nAct is S_ACTIONKEY, then this is const ActionKey* if nAct is S_WALK_POINT, then this is nil or 1, specifying whether to use angle. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="284" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ab11d6e82b6332a4812af6634a4830c8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AddAction</definition>
+        <argsstring>(int nAction)</argsstring>
+        <name>AddAction</name>
+        <param>
+          <type>int</type>
+          <declname>nAction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="285" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9c425e6726d1d50c9a364f88e8a1657c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::WalkingOrRunning</definition>
+        <argsstring>()</argsstring>
+        <name>WalkingOrRunning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return true if character uses walk as the default moving animation.otherwise it uses running. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="288" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad9dfd4f10aa268419ac967f40f045e86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::HasAnimation</definition>
+        <argsstring>(int nAnimID)</argsstring>
+        <name>HasAnimation</name>
+        <param>
+          <type>int</type>
+          <declname>nAnimID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether an animation id exist. this function may have different return value when asset is async loaded. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nAnimID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>predefined id. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="293" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a917769fc3ea9c3c2f2100a39761f9862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::IsCustomModel</definition>
+        <argsstring>()</argsstring>
+        <name>IsCustomModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check whether this character is customizable. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="298" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a7786cc176a8090ea980afc7e0f76773a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::ResetBaseModel</definition>
+        <argsstring>(ParaAssetObject assetCharBaseModel)</argsstring>
+        <name>ResetBaseModel</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>assetCharBaseModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset base model. Base model is the frame model, to which other sub-models like weapons and clothing are attached. NOTE: the current version will delete the entire model instance, so that any sub-models attached to this model will be deleted and that the default appearance of the base model will show up, if one does not update its equipment after this call. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>assetCharBaseModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>It is the new base model asset;it should be a valid ParaX model asset. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="308" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a06711c42f36c88a5f3168f0d71a909ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetSkin</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>SetSkin</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the replaceable skin according to the skin database. this only applies to non-customizable characters.if the index exceeds, it will use the default one. the default skin is at index 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the skin index. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="315" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af3bcc68daef7abaeb042a4d896496a66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCharacter::GetSkin</definition>
+        <argsstring>()</argsstring>
+        <name>GetSkin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return the current skin index. the default skin is at index 0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="318" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1afc1c56041b71498c2e313099112b8f48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::LoadStoredModel</definition>
+        <argsstring>(int nModelSetID)</argsstring>
+        <name>LoadStoredModel</name>
+        <param>
+          <type>int</type>
+          <declname>nModelSetID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load a stored model in data base by the model set ID. A stored model usually contain the attachments and equipments, but not the base model. This function is only valid when the base model has already been set. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nModelSetID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ID of the model set in the database. Some ID may be reserved for user-specified model </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="327" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af698f2d85f5f68a6afa762f88bccb72b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::PlayAnimation</definition>
+        <argsstring>(const object &amp;anims)</argsstring>
+        <name>PlayAnimation</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>anims</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>play a specified animation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>anims</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><itemizedlist>
+<listitem><para>it can be int of animation ID(external animation id is supported) see local nAnimID = <ref refid="class_para_scripting_1_1_para_asset_1a1df9e3a95a9935b54d758798f733a140" kindref="member">ParaAsset.CreateBoneAnimProvider</ref>(-1, filename, filename, false);</para></listitem><listitem><para>it can also be string of animation file name</para></listitem><listitem><para>it can also be a table of {animID, animID}: currently only two are supported. The first one is usually a non-loop, and second one can be loop or non-loop. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="336" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad45a56c672f17cd4be43f4504d2c2add" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCharacter::GetAnimID</definition>
+        <argsstring>()</argsstring>
+        <name>GetAnimID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current animation ID of the character. Usually 0-46 is for normal animation like idle and walking; 0-1000 are reserved for internally animation. 1000-2000 are game specific; 2000 plus are automatically generated. One should call <ref refid="class_para_scripting_1_1_para_character_1aaddaadcfd49263fd80e5773c08467ccc" kindref="member">GetAnimFileName()</ref> for id above 2000. <simplesect kind="return"><para>: it may return -1 if invalid. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="343" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aaddaadcfd49263fd80e5773c08467ccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* ParaScripting::ParaCharacter::GetAnimFileName</definition>
+        <argsstring>()</argsstring>
+        <name>GetAnimFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current animation&apos;s filename. If it is an internal animation, it will return nil. If it is from bone animation provider, it returns the file name from which the animation is loaded. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="347" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a302c33e261651f16eb5933dad22df3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::EnableAnimIDMap</definition>
+        <argsstring>(bool bEnable)</argsstring>
+        <name>EnableAnimIDMap</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set whether the m_mapAnimIDs will be used. Disabled by default </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="352" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a441009813e6665669bf744af38abd2e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::IsAnimIDMapEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>IsAnimIDMapEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get whether the m_mapAnimIDs will be used.Disabled by default </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="357" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a5b9890a8e0d02f2f823ba2361a1d3621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::AddAnimIDMap</definition>
+        <argsstring>(int nFromID, int nToID)</argsstring>
+        <name>AddAnimIDMap</name>
+        <param>
+          <type>int</type>
+          <declname>nFromID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nToID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get whether the m_mapAnimIDs will be used.Disabled by default animation ID mapping is a mapping from one animation ID to another ID. This mapping is usually not used (empty). However, it is used when we can want to secretly replace animation used by this animation instance, by adding a ID to ID map. e.g. we can replace female walk animation ID with an external female walk animation ID. <simplesect kind="note"><para>: remember to <ref refid="class_para_scripting_1_1_para_character_1a302c33e261651f16eb5933dad22df3cd" kindref="member">EnableAnimIDMap()</ref> in order for the mapping to take effect. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nFromID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nToID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if it is negative, the mapping nFromID is removed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="368" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9b0d25612c81058b18abcf94f732f717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::ClearAllAnimIDMap</definition>
+        <argsstring>()</argsstring>
+        <name>ClearAllAnimIDMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove all mapping. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="371" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a1dfd27fb9117ee7f87430a1c1d86a243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::HasMountPoint</definition>
+        <argsstring>(int nMountPointID)</argsstring>
+        <name>HasMountPoint</name>
+        <param>
+          <type>int</type>
+          <declname>nMountPointID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether the character has a mount point at the given ID. Such characters are usually cars, horses, planes, etc. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nMountPointID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is usually 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="377" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a1b8093522c3911f449983aa9365e664c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::IsMounted</definition>
+        <argsstring>()</argsstring>
+        <name>IsMounted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether the object is mounted on another object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="380" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a2fbb0cfcb3625e9d5183eaa88ab41880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::MountOn_</definition>
+        <argsstring>(const char *sTarget)</argsstring>
+        <name>MountOn_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sTarget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>mount the current object on another object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the global target object on which the current character is mounted on. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="385" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af2a3ca2a19fc9fda7e16d2560ed500b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::MountOn</definition>
+        <argsstring>(ParaObject &amp;target)</argsstring>
+        <name>MountOn</name>
+        <param>
+          <type>ParaObject &amp;</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the target must contain at least one mount point. if there are multiple mount point, it will mount to the closet one. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the target object on which the current character is mounted on. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="391" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a78a3752aa964cfa8d30550f786857d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::MountOn2</definition>
+        <argsstring>(ParaObject &amp;target, int nMountID)</argsstring>
+        <name>MountOn2</name>
+        <param>
+          <type>ParaObject &amp;</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nMountID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the target must contain at least one mount point. if there are multiple mount point, it will mount to the closet one. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the target object on which the current character is mounted on. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nMountID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the attachment ID of the model. if -1 (default), we will attach to the nearest mount position. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="398" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a449546034f29e6c5335a8fdff98c4043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::UnMount</definition>
+        <argsstring>()</argsstring>
+        <name>UnMount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this will force unmount the characer. However, it is usually not natural to do this explicitly, since we do not know how the character should behave after mount. Instead, one can call player_obj:ToCharacter():AddAction(action_table.ActionSymbols.S_JUMP_START) to unmount by jumping off. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="404" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a965cdb8e5d4f33d8b4c95caf1a079343" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetBodyParams</definition>
+        <argsstring>(int skinColor, int faceType, int hairColor, int hairStyle, int facialHair)</argsstring>
+        <name>SetBodyParams</name>
+        <param>
+          <type>int</type>
+          <declname>skinColor</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>faceType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hairColor</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hairStyle</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>facialHair</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the character body parameters. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after finished with the settings. All body parameters are integer ranging from 0 to maxType, where maxType is the maximum number of types of of a certain body parameter. For each body parameter, one can specify -1 to retain its current value. This is useful, when the caller only wants to change one or several of the body parameters. The default body parameters is (0,0,0,0,0). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="414" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1add38b5aaad2e6ce1c813ea75a888861f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCharacter::GetBodyParams</definition>
+        <argsstring>(int type)</argsstring>
+        <name>GetBodyParams</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the character body parameters. @ param type: the body parameter type of the character BP_SKINCOLOR =0, BP_FACETYPE = 1, BP_HAIRCOLOR = 2, BP_HAIRSTYLE = 3, BP_FACIALHAIR = 4 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="425" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a5ce98ef65ee8914355c4e0622f04e0cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetDisplayOptions</definition>
+        <argsstring>(int bShowUnderwear, int bShowEars, int bShowHair)</argsstring>
+        <name>SetDisplayOptions</name>
+        <param>
+          <type>int</type>
+          <declname>bShowUnderwear</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>bShowEars</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>bShowHair</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the display options for the character. in case of boolean input: 1 stands for true; 0 stands for false, -1 stands for retaining its current value. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after finished with the settings. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="431" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a8a01dcc228062c9e7e6f6660184969a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::GetDisplayOptions</definition>
+        <argsstring>(int type)</argsstring>
+        <name>GetDisplayOptions</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the display option parameters. @ param type: the display option parameter of the character DO_SHOWUNDERWEAR =0, DO_SHOWEARS = 1, DO_SHOWHAIR = 2 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="440" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a0b671e90c7465f9abb92f3d27647da6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetCharacterSlot</definition>
+        <argsstring>(int nSlotID, int nItemID)</argsstring>
+        <name>SetCharacterSlot</name>
+        <param>
+          <type>int</type>
+          <declname>nSlotID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nItemID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the model ID of a specified character slot. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after finished with the settings. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nSlotID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ID of the slot to be set for the character. Normally there are 16 slots on the character. CS_HEAD =0, CS_NECK = 1, CS_SHOULDER = 2, CS_BOOTS = 3, CS_BELT = 4, CS_SHIRT = 5, CS_PANTS = 6, CS_CHEST = 7, CS_BRACERS = 8, CS_GLOVES = 9, CS_HAND_RIGHT = 10, CS_HAND_LEFT = 11, CS_CAPE = 12, CS_TABARD = 13, CS_FACE_ADDON = 14, // newly added by andy <ndash/> 2009.5.10, Item type: IT_MASK 26 CS_WINGS = 15, // newly added by andy <ndash/> 2009.5.11, Item type: IT_WINGS 27 CS_ARIES_CHAR_SHIRT = 16, // newly added by andy <ndash/> 2009.6.16, Item type: IT_WINGS 28 CS_ARIES_CHAR_PANT = 17, CS_ARIES_CHAR_HAND = 18, CS_ARIES_CHAR_FOOT = 19, CS_ARIES_CHAR_GLASS = 20, CS_ARIES_CHAR_WING = 21, CS_ARIES_PET_HEAD = 22, CS_ARIES_PET_BODY = 23, CS_ARIES_PET_TAIL = 24, CS_ARIES_PET_WING = 25, CS_ARIES_CHAR_SHIRT_TEEN = 28, // newly added by andy <ndash/> 2011.8.13, Item type: IT_ARIES_CHAR_SHIRT_TEEN 40 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nItemID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ID of the item to be put into the character slot. The default value for all slots is 0. One may empty a certain slots by setting its nItemID to 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="474" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aaf62e78261ffe675e24f328b54c4eb5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCharacter::GetCharacterSlotItemID</definition>
+        <argsstring>(int nSlotID)</argsstring>
+        <name>GetCharacterSlotItemID</name>
+        <param>
+          <type>int</type>
+          <declname>nSlotID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the model ID of a specified character slot. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nSlotID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ID of the slot to be set for the character. Normally there are 16 slots on the character. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the item ID on the given slot. 0 stands for empty. -1 if invalid slot ID </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="480" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1afbd1d6043a9ed0c6c2f57ce3559e33fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::LoadFromFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>LoadFromFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load all settings of the model to file. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after loading. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="486" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a8fadb628af8ddff6c1186d12dfa5d66e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SaveToFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>SaveToFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save all settings of the model to file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="488" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::RefreshModel</definition>
+        <argsstring>()</argsstring>
+        <name>RefreshModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>update the entire model from its characters settings, such as body parameters and equipments. This will rebuild the composed character texture. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="492" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ae3afbabc4b8eacaacf12e3a6e948df84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::UseAIModule</definition>
+        <argsstring>(const char *sAIType)</argsstring>
+        <name>UseAIModule</name>
+        <param>
+          <type>const char *</type>
+          <declname>sAIType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>use a specified AI object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sAIType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>valid AI object is: &quot;NPC&quot;|&quot;&quot;|&quot;NULL&quot; &quot;&quot; is the same as &quot;NPC&quot; &quot;NULL&quot; means no AI module. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="500" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ab58251bf3cb736e9ca1beca869c117ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AssignAIController</definition>
+        <argsstring>(const char *sAICtrlerName, const char *sParam1)</argsstring>
+        <name>AssignAIController</name>
+        <param>
+          <type>const char *</type>
+          <declname>sAICtrlerName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sParam1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>assign a new controller to the current AI object. if there is no AI object, we will create a default one to use. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sAICtrlerName:valid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>AI controller name is: &quot;sequence&quot;|&quot;movie&quot;|&quot;face&quot;|&quot;follow&quot;|&quot;avoid&quot; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sParam1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this format of this parameter is dependent on the sAICtrlerName. see below:</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true&quot;|&quot;false&quot;: &quot;true&quot; to enable face tracking. e.g. Char:AssignAIController(&quot;face&quot;, true);</para><para>sAICtrlerName = &quot;follow&quot;: follow another named biped: sParam1 = &quot;&quot; | &quot;sName&quot; | &quot;sName radius angle&quot; : &quot;&quot; to disable following, or follow a biped called sName.<itemizedlist>
+<listitem><para>sName: the name of the biped to follow,</para></listitem><listitem><para>radius: [optional, default to 2.5f] it is the default radius around the target biped. it will control the biped to try it best to stand on this circle.</para></listitem><listitem><para>angle: [optional, default to Pi] it will control the biped to stand beside the target with the target facing shifted by this value. note that +-Pi means behind the biped;0 means in front of the character. e.g. &quot;playername&quot;, &quot;playername 2.5 3.14&quot;, &quot;playername 3.0 0&quot;, &quot;playername 3.0 1.57&quot;, &quot;playername 3.0 -1.57&quot; e.g. Char:AssignAIController(&quot;follow&quot;, &quot;player1&quot;); e.g. Char:AssignAIController(&quot;follow&quot;, &quot;player1 2.5 3.14&quot;);</para></listitem></itemizedlist>
+</para><para>sAICtrlerName = &quot;movie&quot;: enable a movie controller. sParam1 = &quot;&quot;|&quot;true&quot;|&quot;false&quot;: &quot;&quot; or &quot;true&quot; to enable a movie, or &quot;false&quot; to disable it. e.g. Char:AssignAIController(&quot;movie&quot;, &quot;true&quot;);Char:AssignAIController(&quot;movie&quot;, &quot;false&quot;); use <ref refid="class_para_scripting_1_1_para_character_1a7b4c8d6051a677af7a693929bd83b3dc" kindref="member">GetMovieController()</ref> to get the controller</para><para>sAICtrlerName = &quot;sequence&quot;: enable a sequence controller. sParam1 = &quot;&quot;|&quot;true&quot;|&quot;false&quot;: &quot;&quot; or &quot;true&quot; to enable a sequence, or &quot;false&quot; to disable it. e.g. Char:AssignAIController(&quot;sequence&quot;, &quot;true&quot;);Char:AssignAIController(&quot;sequence&quot;, &quot;false&quot;); use <ref refid="class_para_scripting_1_1_para_character_1a069c0469aefc21d4b8184d77e4b7182e" kindref="member">GetSeqController()</ref> to get the controller</para><para><simplesect kind="see"><para>: <ref refid="class_para_scripting_1_1_para_character_1ae3afbabc4b8eacaacf12e3a6e948df84" kindref="member">UseAIModule()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="532" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a1e2d5b2772c0495e7d177190dfcba9da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::IsAIControllerEnabled</definition>
+        <argsstring>(const char *sAICtrlerName)</argsstring>
+        <name>IsAIControllerEnabled</name>
+        <param>
+          <type>const char *</type>
+          <declname>sAICtrlerName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether a certain controller is enabled. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sAICtrlerName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>&quot;sequence&quot;|&quot;movie&quot;|&quot;face&quot;|&quot;follow&quot;|&quot;avoid&quot; see also <ref refid="class_para_scripting_1_1_para_character_1ab58251bf3cb736e9ca1beca869c117ac" kindref="member">AssignAIController()</ref>; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="537" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a7b4c8d6051a677af7a693929bd83b3dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_movie_ctrler" kindref="compound">ParaMovieCtrler</ref></type>
+        <definition>ParaMovieCtrler ParaScripting::ParaCharacter::GetMovieController</definition>
+        <argsstring>()</argsstring>
+        <name>GetMovieController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the movie controller. the movie controller will be created if it does not exist. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="542" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a069c0469aefc21d4b8184d77e4b7182e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_seq_ctrler" kindref="compound">ParaSeqCtrler</ref></type>
+        <definition>ParaSeqCtrler ParaScripting::ParaCharacter::GetSeqController</definition>
+        <argsstring>()</argsstring>
+        <name>GetSeqController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the sequence controller. the sequence controller will be created if it does not exist. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="547" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a8ed880dc88142efa854be976628c41da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_face_tracking_ctrler" kindref="compound">ParaFaceTrackingCtrler</ref></type>
+        <definition>ParaFaceTrackingCtrler ParaScripting::ParaCharacter::GetFaceTrackingController</definition>
+        <argsstring>()</argsstring>
+        <name>GetFaceTrackingController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the face tracking controller. the sequence controller will be created if it does not exist. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="552" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a54cccc4581fd48e01f2bcfc438abf816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::CastEffect</definition>
+        <argsstring>(int nEffectID)</argsstring>
+        <name>CastEffect</name>
+        <param>
+          <type>int</type>
+          <declname>nEffectID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>cast a magic effect by the effect ID. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nEffectID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>effect ID in the effect database if effect id is negative, the effect will be removed from the object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="558" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a3cc64a1f92cc18a7f660e679ad045906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::CastEffect2</definition>
+        <argsstring>(int nEffectID, const char *sTarget)</argsstring>
+        <name>CastEffect2</name>
+        <param>
+          <type>int</type>
+          <declname>nEffectID</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sTarget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>cast a magic effect by the effect ID. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nEffectID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>effect ID in the effect database if effect id is negative, the effect will be removed from the object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>target of the effect, if there is any. it can either to the name of the target object, or an attachment ID on the current character. in case it is an attachment ID. It should be in the following format. &lt;d&gt; d is the attachment ID. For customizable characters, some IDs are: 0 ATT_ID_SHIELD, 1 ATT_ID_HAND_RIGHT, 2 ATT_ID_HAND_LEFT, <ndash/> default value 5 ATT_ID_SHOULDER_RIGHT, 6 ATT_ID_SHOULDER_LEFT, 11 ATT_ID_HEAD, e.g. char:CastEffect(1, &quot;NPC0&quot;); <ndash/> fire missile 1 at NPC0. char:CastEffect(2, &quot;&lt;2&gt;&quot;); <ndash/> attach the effect 2 to the current character&apos;s hand. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="575" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a45c436d7c195fd5298e58184a73972bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AddAttachment</definition>
+        <argsstring>(ParaAssetObject ModelAsset, int nAttachmentID)</argsstring>
+        <name>AddAttachment</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>ModelAsset</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ModelAsset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the model to be attached. This can be both ParaX model or static mesh model. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nAttachmentID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to which part of the character, the effect model is attached. ATT_ID_SHIELD = 0, ATT_ID_HAND_RIGHT = 1, ATT_ID_HAND_LEFT = 2, ATT_ID_TEXT = 3, ATT_ID_GROUND = 4, ATT_ID_SHOULDER_RIGHT = 5, ATT_ID_SHOULDER_LEFT = 6, ATT_ID_HEAD = 11, ATT_ID_FACE_ADDON = 12, ATT_ID_EAR_LEFT_ADDON = 13, ATT_ID_EAR_RIGHT_ADDON = 14, ATT_ID_BACK_ADDON = 15, ATT_ID_WAIST = 16, ATT_ID_NECK = 17, ATT_ID_BOOTS = 18, ATT_ID_MOUTH = 19, ATT_ID_MOUNT1 = 20, </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nSlotID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the slot id of the effect. default value is -1. if there is already an effect with the same ID it will be replaced with this new one. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scaling</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>scaling of the texture </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ReplaceableTexture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>replace the texture. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="602" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a010462532362335b4db907f96c52abbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AddAttachment3</definition>
+        <argsstring>(ParaAssetObject ModelAsset, int nAttachmentID, int nSlotID)</argsstring>
+        <name>AddAttachment3</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>ModelAsset</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSlotID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="603" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ac2ff21ad40c219468e944e9b3aea6553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AddAttachment4</definition>
+        <argsstring>(ParaAssetObject ModelAsset, int nAttachmentID, int nSlotID, float fScaling)</argsstring>
+        <name>AddAttachment4</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>ModelAsset</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSlotID</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaling</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="604" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad4b7e8b797816319531bdda2d4371e04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::AddAttachment5</definition>
+        <argsstring>(ParaAssetObject ModelAsset, int nAttachmentID, int nSlotID, float fScaling, ParaAssetObject ReplaceableTexture)</argsstring>
+        <name>AddAttachment5</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>ModelAsset</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSlotID</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaling</declname>
+        </param>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>ReplaceableTexture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="605" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aa604acbec82fc0365dba365fdeb7cedb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ParaAttributeObject</type>
+        <definition>ParaAttributeObject ParaScripting::ParaCharacter::GetAttachmentAttObj</definition>
+        <argsstring>(int nAttachmentID)</argsstring>
+        <name>GetAttachmentAttObj</name>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attachment object&apos;s attribute field. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="608" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a4a33265441899e08faed8db40aa64eb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::RemoveAttachment</definition>
+        <argsstring>(int nAttachmentID)</argsstring>
+        <name>RemoveAttachment</name>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the model to be detached. <simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_character_1a45c436d7c195fd5298e58184a73972bf" kindref="member">AddAttachment()</ref>; </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nAttachmentID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this value is reserved and can be any value. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nSlotID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the slot id of the effect. default value is -1. all attachments with the SlotID will be removed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="615" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a0e92cf46ef29e76a04b529034f9847c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::RemoveAttachment2</definition>
+        <argsstring>(int nAttachmentID, int nSlotID)</argsstring>
+        <name>RemoveAttachment2</name>
+        <param>
+          <type>int</type>
+          <declname>nAttachmentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSlotID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="616" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a20224968f7086f28687f62f596685ffd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stop the biped if it is moving. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="619" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aa1a5a48993fe8ac12cf55084e1f0b913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::MoveTo</definition>
+        <argsstring>(double x, double y, double z)</argsstring>
+        <name>MoveTo</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>move (using the current style i.e. walk or run) to a position relative to the current position. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="621" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a78bd7d4547da25e327c7dcf559158408" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::MoveAndTurn</definition>
+        <argsstring>(double x, double y, double z, float facing)</argsstring>
+        <name>MoveAndTurn</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>facing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>move (using the current style i.e. walk or run) to a position relative to the current position and turn. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="623" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ae22233179e3cc67aa7fd7f33bd8dc817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaScripting::ParaCharacter::GetCartoonFaceComponent</definition>
+        <argsstring>(int nComponentID, int SubType)</argsstring>
+        <name>GetCartoonFaceComponent</name>
+        <param>
+          <type>int</type>
+          <declname>nComponentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>SubType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the cartoon face associated with this object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nComponentID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>one of the following value. cartoon face slots on the face of the character enum CartoonFaceSlots { CFS_FACE = 0, CFS_WRINKLE = 1, CFS_EYE = 2, CFS_EYEBROW = 3, CFS_MOUTH = 4, CFS_NOSE = 5, CFS_MARKS = 6,</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+CFS_TOTAL_NUM, };  SubType:<itemizedlist>
+<listitem><para>0: style: int [0,00]</para></listitem><listitem><para>1: color: 32bits ARGB</para></listitem><listitem><para>2: scale: float in [-1,1]</para></listitem><listitem><para>3: rotation: float in (-3.14,3.14]</para></listitem><listitem><para>4: x: (-128,128]</para></listitem><listitem><para>5: y: (-128,128] <simplesect kind="note"><para>: check <ref refid="class_para_scripting_1_1_para_character_1a6f86758efd75b187a5ab4df55c2fd3cf" kindref="member">IsSupportCartoonFace()</ref> before using this function </para></simplesect>
+</para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="655" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ac7e6ca7efced2cc56e74014348626a50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaCharacter::GetCartoonFaceComponentCode</definition>
+        <argsstring>(int nComponentID, int SubType)</argsstring>
+        <name>GetCartoonFaceComponentCode</name>
+        <param>
+          <type>int</type>
+          <declname>nComponentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>SubType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>same as GetCartoonFaceComponent, except that the returned value is a string code. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nComponentID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enum CartoonFaceSlots, in most cases, this is CFS_FACE(0).  SubType:<itemizedlist>
+<listitem><para>0: style: int [0,00]: code is the string presentation of int.</para></listitem><listitem><para>1: color: 32bits ARGB: code is hex presentation of RGB of the value, such as &quot;ffffff&quot;</para></listitem><listitem><para>2: scale: float in [-1,1]: code is one hex number, where &quot;0&quot; is 0, &quot;9&quot; is 9/9, &quot;a&quot; is -1/7, &quot;f&quot; is -7/7.</para></listitem><listitem><para>3: rotation: float in (-3.14,3.14]: code is at most 2 hex number, where &quot;0&quot; is 0.</para></listitem><listitem><para>4: x: (-128,128]: code is at most 2 hex number, where &quot;0&quot; is 0.</para></listitem><listitem><para>5: y: (-128,128]: code is at most 2 hex number, where &quot;0&quot; is 0. return the code usually hex format, such as &quot;ffffff&quot; </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="667" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9a0cb4d0d80a739807e635b730c64715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetCartoonFaceComponent</definition>
+        <argsstring>(int nComponentID, int SubType, double value)</argsstring>
+        <name>SetCartoonFaceComponent</name>
+        <param>
+          <type>int</type>
+          <declname>nComponentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>SubType</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>see <ref refid="class_para_scripting_1_1_para_character_1ae22233179e3cc67aa7fd7f33bd8dc817" kindref="member">GetCartoonFaceComponent()</ref> <simplesect kind="note"><para>: check <ref refid="class_para_scripting_1_1_para_character_1a6f86758efd75b187a5ab4df55c2fd3cf" kindref="member">IsSupportCartoonFace()</ref> before using this function </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="671" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a463ad4e8e8e566c8d028dfa03a8bb0f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetCartoonFaceComponentCode</definition>
+        <argsstring>(int nComponentID, int SubType, const char *color)</argsstring>
+        <name>SetCartoonFaceComponentCode</name>
+        <param>
+          <type>int</type>
+          <declname>nComponentID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>SubType</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>see <ref refid="class_para_scripting_1_1_para_character_1ac7e6ca7efced2cc56e74014348626a50" kindref="member">GetCartoonFaceComponentCode()</ref> <simplesect kind="note"><para>: check <ref refid="class_para_scripting_1_1_para_character_1a6f86758efd75b187a5ab4df55c2fd3cf" kindref="member">IsSupportCartoonFace()</ref> before using this function </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="675" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a6f86758efd75b187a5ab4df55c2fd3cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaCharacter::IsSupportCartoonFace</definition>
+        <argsstring>()</argsstring>
+        <name>IsSupportCartoonFace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check whether the associated cartoon model supports cartoon face. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="678" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af4105c566f8a23c721436c542df00502" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCharacter::SetSkinColorMask</definition>
+        <argsstring>(const char *strColor)</argsstring>
+        <name>SetSkinColorMask</name>
+        <param>
+          <type>const char *</type>
+          <declname>strColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the color mask to be applied to cartoon face and ccs base layer. It can be used to fine tune skin color on top of exiting base skin and face textures. Default value is &quot;ffffff&quot;. setting this to a different value will degrade the performance a little. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hex string of RGB, such as &quot;RGB&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="685" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad81cf1fefd946b4ee1af6c6f082f4024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaCharacter::GetSkinColorMask</definition>
+        <argsstring>()</argsstring>
+        <name>GetSkinColorMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the color mask to be applied to cartoon face and ccs base layer. It can be used to fine tune skin color on top of exiting base skin and face textures. Default value is &quot;ffffff&quot;. setting this to a different value will degrade the performance a little. <simplesect kind="return"><para>the hex string of RGB, such as &quot;fffff&quot; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="692" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a7c645c633ba83bc75224098932d821c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCharacter::GetGender</definition>
+        <argsstring>()</argsstring>
+        <name>GetGender</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the character gender. <simplesect kind="return"><para>: 0 if male, 1 if female, -1 if error </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="697" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ae7f7d1d4c8142601d5d6a5de34c1842c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCharacter::GetRaceID</definition>
+        <argsstring>()</argsstring>
+        <name>GetRaceID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the character race ID according to CharRacesDB table <simplesect kind="return"><para>: race ID, -1 if error </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="701" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ParaObject class: it is used to control game scene objects from scripts. </para>    </detaileddescription>
+    <location file="ParaScriptingCharacter.h" line="242" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="241" bodyend="703"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_character_1ab11d6e82b6332a4812af6634a4830c8a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAction</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1add7504a5c7080e5e9e1c8b7d3fb6544f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAction2</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a5b9890a8e0d02f2f823ba2361a1d3621" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAnimIDMap</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a45c436d7c195fd5298e58184a73972bf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAttachment</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a010462532362335b4db907f96c52abbd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAttachment3</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ac2ff21ad40c219468e944e9b3aea6553" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAttachment4</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ad4b7e8b797816319531bdda2d4371e04" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAttachment5</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ab58251bf3cb736e9ca1beca869c117ac" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AssignAIController</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a54cccc4581fd48e01f2bcfc438abf816" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>CastEffect</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a3cc64a1f92cc18a7f660e679ad045906" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>CastEffect2</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a9b0d25612c81058b18abcf94f732f717" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>ClearAllAnimIDMap</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a302c33e261651f16eb5933dad22df3cd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>EnableAnimIDMap</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a9e36d75f31c0078b58c6cfdcacb23b99" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>FallDown</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1aaddaadcfd49263fd80e5773c08467ccc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAnimFileName</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ad45a56c672f17cd4be43f4504d2c2add" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAnimID</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1aa604acbec82fc0365dba365fdeb7cedb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAttachmentAttObj</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1add38b5aaad2e6ce1c813ea75a888861f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetBodyParams</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ae22233179e3cc67aa7fd7f33bd8dc817" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetCartoonFaceComponent</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ac7e6ca7efced2cc56e74014348626a50" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetCartoonFaceComponentCode</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1aaf62e78261ffe675e24f328b54c4eb5f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetCharacterSlotItemID</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a8a01dcc228062c9e7e6f6660184969a9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetDisplayOptions</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a8ed880dc88142efa854be976628c41da" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetFaceTrackingController</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a7c645c633ba83bc75224098932d821c9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetGender</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a7b4c8d6051a677af7a693929bd83b3dc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetMovieController</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ae7f7d1d4c8142601d5d6a5de34c1842c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetRaceID</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a069c0469aefc21d4b8184d77e4b7182e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetSeqController</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ac74ad74e17b640fa4ebbff13a65b6532" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetSizeScale</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1af3bcc68daef7abaeb042a4d896496a66" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetSkin</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ad81cf1fefd946b4ee1af6c6f082f4024" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetSkinColorMask</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1afe831d6e18dca9324a1b1aba2bc02c1a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetSpeedScale</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ad9dfd4f10aa268419ac967f40f045e86" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>HasAnimation</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a1dfd27fb9117ee7f87430a1c1d86a243" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>HasMountPoint</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a1e2d5b2772c0495e7d177190dfcba9da" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>IsAIControllerEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a441009813e6665669bf744af38abd2e1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>IsAnimIDMapEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a917769fc3ea9c3c2f2100a39761f9862" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>IsCustomModel</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a1b8093522c3911f449983aa9365e664c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>IsMounted</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a6f86758efd75b187a5ab4df55c2fd3cf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>IsSupportCartoonFace</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a6f29063c5851a15494d1f12964d9e77f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1afbd1d6043a9ed0c6c2f57ce3559e33fb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>LoadFromFile</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1afc1c56041b71498c2e313099112b8f48" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>LoadStoredModel</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1aafb00edfa2ee1d3a5989c326eba4445f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>m_pCharacter</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1af2a3ca2a19fc9fda7e16d2560ed500b1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>MountOn</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a78a3752aa964cfa8d30550f786857d5f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>MountOn2</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a2fbb0cfcb3625e9d5183eaa88ab41880" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>MountOn_</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a78bd7d4547da25e327c7dcf559158408" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>MoveAndTurn</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1aa1a5a48993fe8ac12cf55084e1f0b913" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>MoveTo</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a5918ebf3a85d7204b1577e338c4b6506" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>ParaCharacter</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ace39fa38fa222517e1079d766a32fd99" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>ParaCharacter</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1af698f2d85f5f68a6afa762f88bccb72b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>PlayAnimation</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>RefreshModel</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a4a33265441899e08faed8db40aa64eb3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>RemoveAttachment</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a0e92cf46ef29e76a04b529034f9847c7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>RemoveAttachment2</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a7786cc176a8090ea980afc7e0f76773a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>ResetBaseModel</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a8fadb628af8ddff6c1186d12dfa5d66e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SaveToFile</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a965cdb8e5d4f33d8b4c95caf1a079343" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetBodyParams</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a9a0cb4d0d80a739807e635b730c64715" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetCartoonFaceComponent</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a463ad4e8e8e566c8d028dfa03a8bb0f0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetCartoonFaceComponentCode</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a0b671e90c7465f9abb92f3d27647da6c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetCharacterSlot</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a5ce98ef65ee8914355c4e0622f04e0cb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetDisplayOptions</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1af77c813d578bd702526de393b8384fec" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetFocus</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ad32b9d491dd3994159fc61cb08a82238" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetSizeScale</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a06711c42f36c88a5f3168f0d71a909ae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetSkin</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1af4105c566f8a23c721436c542df00502" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetSkinColorMask</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a9386b793ed8144a5360f37e6d4542059" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>SetSpeedScale</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a20224968f7086f28687f62f596685ffd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>Stop</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a449546034f29e6c5335a8fdff98c4043" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>UnMount</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ae3afbabc4b8eacaacf12e3a6e948df84" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>UseAIModule</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a9c425e6726d1d50c9a364f88e8a1657c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>WalkingOrRunning</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ad53d249e5ef04cd31fef830dd2c24633" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>~ParaCharacter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

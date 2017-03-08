@@ -1,0 +1,934 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_seq_ctrler" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaSeqCtrler</compoundname>
+    <includes refid="_para_scripting_character_8h" local="no">ParaScriptingCharacter.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_seq_ctrler_1a29824fca4c3f2421ff3db0e64fbce5ad" prot="public" static="no" mutable="no">
+        <type>CSequenceCtler *</type>
+        <definition>CSequenceCtler* ParaScripting::ParaSeqCtrler::m_pSequenceCtrler</definition>
+        <argsstring></argsstring>
+        <name>m_pSequenceCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="109" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a4f0334f1aaf1f8863c875c4f883fa257" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSeqCtrler::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="114" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a18bc684066eec072bbfe83e2851f6ed3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaSeqCtrler::ParaSeqCtrler</definition>
+        <argsstring>()</argsstring>
+        <name>ParaSeqCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="116" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a5daaf3b2ad8d956d3eebec568f0a713f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaSeqCtrler::ParaSeqCtrler</definition>
+        <argsstring>(CSequenceCtler *pObj)</argsstring>
+        <name>ParaSeqCtrler</name>
+        <param>
+          <type>CSequenceCtler *</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="117" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a17e01750c2954273bc20a961a31ea90c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaSeqCtrler::~ParaSeqCtrler</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaSeqCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="118" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a08fe5195c332f2b4e5b0dc182c98aa98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSeqCtrler::Save</definition>
+        <argsstring>(bool bOverride)</argsstring>
+        <name>Save</name>
+        <param>
+          <type>bool</type>
+          <declname>bOverride</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="120" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1aaae24bbacb877d413c7127a52e54dd4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSeqCtrler::LoadByID</definition>
+        <argsstring>(int nSequenceID)</argsstring>
+        <name>LoadByID</name>
+        <param>
+          <type>int</type>
+          <declname>nSequenceID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="121" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ada0a8039c40d9a4c1b5d5d6ce5b9c9a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSeqCtrler::LoadFromFile</definition>
+        <argsstring>(const char *fileName)</argsstring>
+        <name>LoadFromFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="122" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a881c214960dd075758b8036e671930e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSeqCtrler::Create</definition>
+        <argsstring>(const char *name, const char *description, const char *pData, bool bInMemory)</argsstring>
+        <name>Create</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>pData</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bInMemory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="123" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1adeb960f7c1befa77d5e16f7573444699" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaSeqCtrler::ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="124" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1aabc1b0c01e39df64c3736cbbb72e7bbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSeqCtrler::GetKeyPos</definition>
+        <argsstring>()</argsstring>
+        <name>GetKeyPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current absolute playing cursor position </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="127" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a23765e5205c73eabfd85d52dae1d3f97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetKeyPos</definition>
+        <argsstring>(int nPos)</argsstring>
+        <name>SetKeyPos</name>
+        <param>
+          <type>int</type>
+          <declname>nPos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the current absolute playing cursor position </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="129" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1abe7c21dab10e9569f0976475d4c25924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSeqCtrler::GetTotalKeys</definition>
+        <argsstring>()</argsstring>
+        <name>GetTotalKeys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get total key count </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="132" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1af9aea0876c4c610f722744a79986743e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSeqCtrler::AdvanceKey</definition>
+        <argsstring>(int nOffset)</argsstring>
+        <name>AdvanceKey</name>
+        <param>
+          <type>int</type>
+          <declname>nOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>offset the key index according to the current play mode. i.e. it will automatically wrap to the beginning if looping. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nOffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of keys to advance. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the number of keys that have been successfully offseted. Usually if the returned value is not equal to the input value, it means that the sequence should be paused. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="137" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1aad52c7d94e1aeb91f00283f1435ab134" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::BeginAddKeys</definition>
+        <argsstring>()</argsstring>
+        <name>BeginAddKeys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>call the command functions(RunTo, MoveTo, etc) only between the matching pair of <ref refid="class_para_scripting_1_1_para_seq_ctrler_1aad52c7d94e1aeb91f00283f1435ab134" kindref="member">BeginAddKeys()</ref> and <ref refid="class_para_scripting_1_1_para_seq_ctrler_1a60d8d7c2eded187005317504c55a264f" kindref="member">EndAddKeys()</ref> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="139" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a60d8d7c2eded187005317504c55a264f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::EndAddKeys</definition>
+        <argsstring>()</argsstring>
+        <name>EndAddKeys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>call the command functions(RunTo, MoveTo, etc) only between the matching pair of <ref refid="class_para_scripting_1_1_para_seq_ctrler_1aad52c7d94e1aeb91f00283f1435ab134" kindref="member">BeginAddKeys()</ref> and <ref refid="class_para_scripting_1_1_para_seq_ctrler_1a60d8d7c2eded187005317504c55a264f" kindref="member">EndAddKeys()</ref> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="141" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a34633bfea8e1d2320830ed6b63ffd7b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSeqCtrler::GetSequenceID</definition>
+        <argsstring>()</argsstring>
+        <name>GetSequenceID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a52e23a153d354ea22bf1a98d551c1b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSeqCtrler::DeleteKeysRange</definition>
+        <argsstring>(int nFrom, int nTo)</argsstring>
+        <name>DeleteKeysRange</name>
+        <param>
+          <type>int</type>
+          <declname>nFrom</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete keys range <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nFrom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0 based index. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0 based index, if -1, it means the last one. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="147" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a7c24f7b67c6d34bbe8e9c5d3c2edb37e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSeqCtrler::GetPlayDirection</definition>
+        <argsstring>()</argsstring>
+        <name>GetPlayDirection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the play direction. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="150" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a856c193877a838d57f52727af57e5825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetPlayDirection</definition>
+        <argsstring>(bool bForward)</argsstring>
+        <name>SetPlayDirection</name>
+        <param>
+          <type>bool</type>
+          <declname>bForward</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the play direction. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="152" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a10094b6a4b876ec2e3cda62b73a71ec4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaSeqCtrler::GetInterval</definition>
+        <argsstring>()</argsstring>
+        <name>GetInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the minimum time between two successive calls. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="155" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1aa03ee7e8b2c8bdd3587077c8c6562cda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetInterval</definition>
+        <argsstring>(float fInterval)</argsstring>
+        <name>SetInterval</name>
+        <param>
+          <type>float</type>
+          <declname>fInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the minimum time between two successive calls. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="157" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ac3231a74c60253a8fc220a47b653e277" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::GetStartPos</definition>
+        <argsstring>(float &amp;x, float &amp;y, float &amp;z)</argsstring>
+        <name>GetStartPos</name>
+        <param>
+          <type>float &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the starting position. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="160" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a71bc50fb825bb4e110e0f08d846fa7cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetStartPos</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>SetStartPos</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the starting position. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="162" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1aef25bede42e3de69687526a75b6877cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaSeqCtrler::GetStartFacing</definition>
+        <argsstring>()</argsstring>
+        <name>GetStartFacing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the start facing. usually default to 0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="165" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1aaa8647898480594b516b99f54c2038e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetStartFacing</definition>
+        <argsstring>(float facing)</argsstring>
+        <name>SetStartFacing</name>
+        <param>
+          <type>float</type>
+          <declname>facing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the start facing. usually default to 0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="167" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a6bf08e75433f19f4b54cdacac42cef45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSeqCtrler::GetPlayMode</definition>
+        <argsstring>()</argsstring>
+        <name>GetPlayMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current play mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a2ee7751e9c307d179eeeda0430ae3686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetPlayMode</definition>
+        <argsstring>(int mode)</argsstring>
+        <name>SetPlayMode</name>
+        <param>
+          <type>int</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the current play mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="172" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ab9073ba219441401e7543479ff441644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaSeqCtrler::GetMovingTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>GetMovingTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the number of seconds after which all move commands will be treated as finished. default value is 30 seconds. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="176" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a663fe6742a9dee40c503eecff6a31734" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::SetMovingTimeout</definition>
+        <argsstring>(float fTimeout)</argsstring>
+        <name>SetMovingTimeout</name>
+        <param>
+          <type>float</type>
+          <declname>fTimeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the number of seconds after which all move commands will be treated as finished. default value is 30 seconds. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="179" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a6d8c62caf17f70df0952787992d85cca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Suspend</definition>
+        <argsstring>()</argsstring>
+        <name>Suspend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>suspend </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="182" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a3fee07586248ebd8397030546ab71dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Resume</definition>
+        <argsstring>()</argsstring>
+        <name>Resume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>resume </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="184" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ac0b4debbe5d5a7b3d21794b216abc2df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::RunTo</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>RunTo</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="189" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a4c843ebf85b303aead74e37a1a41bc94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::WalkTo</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>WalkTo</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="190" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1add77105d4e9f8f8378628bdc1d31a750" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::MoveTo</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>MoveTo</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="191" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a76a12d5c0701246858b0db31ab92d76b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::MoveAndTurn</definition>
+        <argsstring>(float x, float y, float z, float facing)</argsstring>
+        <name>MoveAndTurn</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>facing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="192" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a9f584553d4b1b03a94b35a682a605d9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::PlayAnim</definition>
+        <argsstring>(const char *sAnim)</argsstring>
+        <name>PlayAnim</name>
+        <param>
+          <type>const char *</type>
+          <declname>sAnim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="193" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a38a0806a247b5b8ad95477d83fa766bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::PlayAnim1</definition>
+        <argsstring>(int nAnimID)</argsstring>
+        <name>PlayAnim1</name>
+        <param>
+          <type>int</type>
+          <declname>nAnimID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="194" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a4c09e619228c4100c7eb912b64e180ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Wait</definition>
+        <argsstring>(float fSeconds)</argsstring>
+        <name>Wait</name>
+        <param>
+          <type>float</type>
+          <declname>fSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="195" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a5d0193c540d2cca30c843d2467f7c0b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Exec</definition>
+        <argsstring>(const char *sCmd)</argsstring>
+        <name>Exec</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCmd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="196" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a1a113fbd50f5f31b34a191b95a629072" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Pause</definition>
+        <argsstring>()</argsstring>
+        <name>Pause</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="197" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ab8422b4e82b7bee5c26f5d89c3071972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Turn</definition>
+        <argsstring>(float fAngleAbsolute)</argsstring>
+        <name>Turn</name>
+        <param>
+          <type>float</type>
+          <declname>fAngleAbsolute</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="198" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ad228a33995039f06a5571dc66aafc725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::MoveForward</definition>
+        <argsstring>(float fDistance)</argsstring>
+        <name>MoveForward</name>
+        <param>
+          <type>float</type>
+          <declname>fDistance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="199" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1ac37457bed7061402aef4e4cfb11c9078" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::MoveBack</definition>
+        <argsstring>(float fDistance)</argsstring>
+        <name>MoveBack</name>
+        <param>
+          <type>float</type>
+          <declname>fDistance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="200" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a4afb23deeeeeec5e445a454ac3fd0b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::MoveLeft</definition>
+        <argsstring>(float fDistance)</argsstring>
+        <name>MoveLeft</name>
+        <param>
+          <type>float</type>
+          <declname>fDistance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="201" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a2514093c0d991c5260141d09b66a744a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::MoveRight</definition>
+        <argsstring>(float fDistance)</argsstring>
+        <name>MoveRight</name>
+        <param>
+          <type>float</type>
+          <declname>fDistance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="202" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a534e03ec6fb63b233efd11b22622f094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Jump</definition>
+        <argsstring>()</argsstring>
+        <name>Jump</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="203" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a7c177e1d7c4319ec92a6dfdc83b507b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Goto</definition>
+        <argsstring>(int nOffset)</argsstring>
+        <name>Goto</name>
+        <param>
+          <type>int</type>
+          <declname>nOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="204" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a1d08c12eaf60003a94187d5842cce0b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Goto1</definition>
+        <argsstring>(const char *sLable)</argsstring>
+        <name>Goto1</name>
+        <param>
+          <type>const char *</type>
+          <declname>sLable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="205" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_seq_ctrler_1a7bd6f30417a59d754967adadc9cd8fc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSeqCtrler::Lable</definition>
+        <argsstring>(const char *sLable)</argsstring>
+        <name>Lable</name>
+        <param>
+          <type>const char *</type>
+          <declname>sLable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="206" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_seq_ctrler" kindref="compound">ParaSeqCtrler</ref> object: A sequence controller is a biped controller which moves the biped according to some predefined sequence. it is used to control sequence based commands of character object. </para>    </detaileddescription>
+    <location file="ParaScriptingCharacter.h" line="107" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="106" bodyend="207"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1af9aea0876c4c610f722744a79986743e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>AdvanceKey</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1aad52c7d94e1aeb91f00283f1435ab134" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>BeginAddKeys</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a881c214960dd075758b8036e671930e7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Create</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a52e23a153d354ea22bf1a98d551c1b1d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>DeleteKeysRange</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a60d8d7c2eded187005317504c55a264f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>EndAddKeys</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a5d0193c540d2cca30c843d2467f7c0b5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Exec</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a10094b6a4b876ec2e3cda62b73a71ec4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetInterval</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1aabc1b0c01e39df64c3736cbbb72e7bbe" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetKeyPos</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ab9073ba219441401e7543479ff441644" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetMovingTimeout</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a7c24f7b67c6d34bbe8e9c5d3c2edb37e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetPlayDirection</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a6bf08e75433f19f4b54cdacac42cef45" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetPlayMode</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a34633bfea8e1d2320830ed6b63ffd7b4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetSequenceID</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1aef25bede42e3de69687526a75b6877cf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetStartFacing</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ac3231a74c60253a8fc220a47b653e277" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetStartPos</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1abe7c21dab10e9569f0976475d4c25924" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>GetTotalKeys</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a7c177e1d7c4319ec92a6dfdc83b507b1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Goto</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a1d08c12eaf60003a94187d5842cce0b6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Goto1</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a4f0334f1aaf1f8863c875c4f883fa257" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a534e03ec6fb63b233efd11b22622f094" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Jump</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a7bd6f30417a59d754967adadc9cd8fc6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Lable</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1aaae24bbacb877d413c7127a52e54dd4b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>LoadByID</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ada0a8039c40d9a4c1b5d5d6ce5b9c9a6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>LoadFromFile</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a29824fca4c3f2421ff3db0e64fbce5ad" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>m_pSequenceCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a76a12d5c0701246858b0db31ab92d76b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>MoveAndTurn</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ac37457bed7061402aef4e4cfb11c9078" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>MoveBack</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ad228a33995039f06a5571dc66aafc725" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>MoveForward</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a4afb23deeeeeec5e445a454ac3fd0b36" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>MoveLeft</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a2514093c0d991c5260141d09b66a744a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>MoveRight</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1add77105d4e9f8f8378628bdc1d31a750" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>MoveTo</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a18bc684066eec072bbfe83e2851f6ed3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>ParaSeqCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a5daaf3b2ad8d956d3eebec568f0a713f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>ParaSeqCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a1a113fbd50f5f31b34a191b95a629072" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Pause</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a9f584553d4b1b03a94b35a682a605d9c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>PlayAnim</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a38a0806a247b5b8ad95477d83fa766bf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>PlayAnim1</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a3fee07586248ebd8397030546ab71dd7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Resume</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ac0b4debbe5d5a7b3d21794b216abc2df" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>RunTo</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a08fe5195c332f2b4e5b0dc182c98aa98" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Save</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1aa03ee7e8b2c8bdd3587077c8c6562cda" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetInterval</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a23765e5205c73eabfd85d52dae1d3f97" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetKeyPos</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a663fe6742a9dee40c503eecff6a31734" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetMovingTimeout</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a856c193877a838d57f52727af57e5825" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetPlayDirection</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a2ee7751e9c307d179eeeda0430ae3686" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetPlayMode</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1aaa8647898480594b516b99f54c2038e3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetStartFacing</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a71bc50fb825bb4e110e0f08d846fa7cf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>SetStartPos</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a6d8c62caf17f70df0952787992d85cca" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Suspend</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1adeb960f7c1befa77d5e16f7573444699" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>ToString</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1ab8422b4e82b7bee5c26f5d89c3071972" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Turn</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a4c09e619228c4100c7eb912b64e180ae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>Wait</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a4c843ebf85b303aead74e37a1a41bc94" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>WalkTo</name></member>
+      <member refid="class_para_scripting_1_1_para_seq_ctrler_1a17e01750c2954273bc20a961a31ea90c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSeqCtrler</scope><name>~ParaSeqCtrler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

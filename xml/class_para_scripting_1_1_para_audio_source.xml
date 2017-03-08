@@ -1,0 +1,1100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_audio_source" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaAudioSource</compoundname>
+    <includes refid="_para_scripting_audio_8h" local="no">ParaScriptingAudio.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_audio_source_1a99eb8c5eb0774163b99d48afa1470005" prot="public" static="no" mutable="no">
+        <type>CAudioSource2_ptr</type>
+        <definition>CAudioSource2_ptr ParaScripting::ParaAudioSource::m_pAudioSource</definition>
+        <argsstring></argsstring>
+        <name>m_pAudioSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="31" column="1" bodyfile="ParaScriptingAudio.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a964efce0d04d6831e2e13f5b2c7abdde" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaAudioSource::ParaAudioSource</definition>
+        <argsstring>()</argsstring>
+        <name>ParaAudioSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="33" column="1" bodyfile="ParaScriptingAudio.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a4d218b834496aa1e27a669f2a7036c60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaAudioSource::ParaAudioSource</definition>
+        <argsstring>(CAudioSource2_ptr &amp;pSource)</argsstring>
+        <name>ParaAudioSource</name>
+        <param>
+          <type>CAudioSource2_ptr &amp;</type>
+          <declname>pSource</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="34" column="1" bodyfile="ParaScriptingAudio.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a5960049c381c153a642bc940ce869348" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::IsValid</definition>
+        <argsstring>() const</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>true if valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1abb76b3d5ce45aa0b1c14f29665e280fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::release</definition>
+        <argsstring>()</argsstring>
+        <name>release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stop and unload this audio source from memory. It will make the sound source invalid after calling this function. it is good practice to unload unused sound. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1a322e1e5037730c83c11c23a7662937" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::play</definition>
+        <argsstring>()</argsstring>
+        <name>play</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Plays the source with the last set parameters. <simplesect kind="return"><para>True if the source is playing, false if not. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1acfc1b2116928c21b115f09d3d9d2f95f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* ParaScripting::ParaAudioSource::GetName</definition>
+        <argsstring>()</argsstring>
+        <name>GetName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the source name. (this may not be the file name) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a389c7372264059a84e2971b2d76f3b39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::play2d</definition>
+        <argsstring>(bool toLoop)</argsstring>
+        <name>play2d</name>
+        <param>
+          <type>bool</type>
+          <declname>toLoop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Plays the source in 2D mode. No automatic attenuation or panning will take place in this mode, but using setPosition will allow you to manually pan mono audio streams. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>toLoop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to loop (restart) the audio when the end is reached. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the source is playing, false if not. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a74c736fdfcf49dedf92e3bae94afab99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::play3d</definition>
+        <argsstring>(float x, float y, float z, float soundstr, bool toLoop)</argsstring>
+        <name>play3d</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>soundstr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>toLoop</declname>
+        </param>
+        <briefdescription>
+<para>Plays the source in 3D mode. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position to start the sound off at. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>soundstr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Affects how the source attenuates due to distance. Higher values cause the source to stand out more over distance. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>toLoop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to loop (restart) the audio when the end is reached. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the source is playing, false if not. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a59b632010958754d8366c8edaf8cba63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::pause</definition>
+        <argsstring>()</argsstring>
+        <name>pause</name>
+        <briefdescription>
+<para>Pauses playback of the sound source. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af9295bbf785b2ecb03aa4f4c853eed96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Stops playback of the sound source. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="70" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ae18cbc3488cc4189e8d2f27f0baf6c50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::loop</definition>
+        <argsstring>(bool toLoop)</argsstring>
+        <name>loop</name>
+        <param>
+          <type>bool</type>
+          <declname>toLoop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Controls whether the source should loop or not. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>toLoop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to loop (restart) the audio when the end is reached. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="74" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a0a7a751a99dd6d8cee2f7c40aac8e93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::seek</definition>
+        <argsstring>(float seconds, bool relative)</argsstring>
+        <name>seek</name>
+        <param>
+          <type>float</type>
+          <declname>seconds</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>relative</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Seeks through the audio stream to a specific spot. Note: May not be supported by all codecs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>seconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of seconds to seek. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>relative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to seek from the current position or the start of the stream. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True on success, False if the codec does not support seeking. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="81" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aecaf7dd2bb94cb820d0fe5c8a0581391" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getTotalAudioTime</definition>
+        <argsstring>()</argsstring>
+        <name>getTotalAudioTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the total amount of time in the audio stream. See IAudioDecoder for details. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="84" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9e55f8bf8e77ede47419a515e0ba49ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAudioSource::getTotalAudioSize</definition>
+        <argsstring>()</argsstring>
+        <name>getTotalAudioSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the total decoded size of the audio stream. See IAudioDecoder for details. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a36d7d3961147b9dfadb4137b70ab80f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getCurrentAudioTime</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentAudioTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current position in the audio stream in seconds. See IAudioDecoder for details. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="90" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af2d78c9b41f1e622526aee433c11a12e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAudioSource::getCurrentAudioPosition</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentAudioPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current position in the decoded audio stream in bytes. See IAudioDecoder for details. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="93" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aef30b35c0ba9dc1a13c694878f88347a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>if the source is ready to be used. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="97" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a74a7f2ec22c2c618a91ac4646aaa3d26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::isPlaying</definition>
+        <argsstring>() const</argsstring>
+        <name>isPlaying</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>if the source is playing. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1acaee142a4f092ef49211bc773f4f8590" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::isPaused</definition>
+        <argsstring>() const</argsstring>
+        <name>isPaused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>if the source is paused. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="103" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a66273e468e0a9a188618c4e39b638252" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::isStopped</definition>
+        <argsstring>() const</argsstring>
+        <name>isStopped</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>if the source is stopped. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="106" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a611cf3cb8413d4e0920399a245d707d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAudioSource::isLooping</definition>
+        <argsstring>() const</argsstring>
+        <name>isLooping</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>if the source is looping. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="109" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9d8f70061514c68bcc0f85f4f51f8e24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setPosition</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>setPosition</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the position of the source in 3D space. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A 3D vector giving the new location to put this source. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="113" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a942ff0d7eda18a651708fc21fc81c919" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setVelocity</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>setVelocity</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current velocity of the source for doppler effects. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A 3D vector giving the speed and direction that the source is moving. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="117" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aaec30231c9d1d6a7c433a7c3fb329def" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setDirection</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>setDirection</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Sets the direction the source is facing. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A 3D vector giving the direction that the source is aiming. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="122" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1bdc19ddaf047bcf24fd969f9027f806" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setRolloffFactor</definition>
+        <argsstring>(float rolloff)</argsstring>
+        <name>setRolloffFactor</name>
+        <param>
+          <type>float</type>
+          <declname>rolloff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the factor used in attenuating the source over distance. Larger values make it attenuate faster, smaller values make the source carry better. Range: 0.0f to +inf (Default: 1.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rolloff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The rolloff factor to apply to the attenuation calculation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="128" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a2ac4ac4cb1061ac69c37da42426215df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setStrength</definition>
+        <argsstring>(float soundstrength)</argsstring>
+        <name>setStrength</name>
+        <param>
+          <type>float</type>
+          <declname>soundstrength</declname>
+        </param>
+        <briefdescription>
+<para>Sets how well the source carries over distance. </para>        </briefdescription>
+        <detaileddescription>
+<para>Same as setRolloffFactor(1.0f/soundstrength). Range: 0.0f to +inf (Default: 1.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>soundstrength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How well the sound carries over distance. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="134" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ab5c066d83a3fcc47bf851ca27ebec7fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setMinDistance</definition>
+        <argsstring>(float minDistance)</argsstring>
+        <name>setMinDistance</name>
+        <param>
+          <type>float</type>
+          <declname>minDistance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the distance from the source where attenuation will begin. Range: 0.0f to +inf <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>minDistance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Distance from the source where attenuation begins. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="139" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ad75caa48764566cf376f58dcf0e08bd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setMaxDistance</definition>
+        <argsstring>(float maxDistance)</argsstring>
+        <name>setMaxDistance</name>
+        <param>
+          <type>float</type>
+          <declname>maxDistance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the distance from the source where attenuation will stop. Range: 0.0f to +inf <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxDistance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Distance where attenuation will cease. Normally the farthest range you can hear the source. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="144" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a005496f26906e201389bf4919e8ae86f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setPitch</definition>
+        <argsstring>(float pitch)</argsstring>
+        <name>setPitch</name>
+        <param>
+          <type>float</type>
+          <declname>pitch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pitch of the source. Range: 0.0f to +inf (Default: 1.0f) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New pitch level. Note that higher values will speed up the playback of the sound. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="149" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1afab55e4761588ab312624035722d9872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setVolume</definition>
+        <argsstring>(float volume)</argsstring>
+        <name>setVolume</name>
+        <param>
+          <type>float</type>
+          <declname>volume</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the source volume before attenuation and other effects. Range: 0.0f to +inf (Default: 1.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New volume of the source. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="154" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a7daf0478800f46ebf23a699ff5027c60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setMinVolume</definition>
+        <argsstring>(float minVolume)</argsstring>
+        <name>setMinVolume</name>
+        <param>
+          <type>float</type>
+          <declname>minVolume</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the minimum volume that the source can be attenuated to. Range: 0.0f to +inf (Default: 0.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>minVolume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New minimum volume of the source. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="159" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a4518b7a28d77100b24c041934f7a79a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setMaxVolume</definition>
+        <argsstring>(float maxVolume)</argsstring>
+        <name>setMaxVolume</name>
+        <param>
+          <type>float</type>
+          <declname>maxVolume</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the maximum volume that the source can achieve. Range: 0.0f to +inf (Default: 1.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxVolume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New maximum volume of the source. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="164" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ae9e4452825650fc71192852efca07d56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setInnerConeAngle</definition>
+        <argsstring>(float innerAngle)</argsstring>
+        <name>setInnerConeAngle</name>
+        <param>
+          <type>float</type>
+          <declname>innerAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the angle of the inner sound cone of the source. The cone opens up in the direction of the source as set by <ref refid="class_para_scripting_1_1_para_audio_source_1aaec30231c9d1d6a7c433a7c3fb329def" kindref="member">setDirection()</ref>. Note: This causes the sound to be loudest only if the listener is inside this cone. Range: 0.0f to 360.0f (Default: 360.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>innerAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inside angle of the cone. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ae4446b977d0ba4821159a44da768ab31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setOuterConeAngle</definition>
+        <argsstring>(float outerAngle)</argsstring>
+        <name>setOuterConeAngle</name>
+        <param>
+          <type>float</type>
+          <declname>outerAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the angle of the outer sound cone of the source. The cone opens up in the direction of the source as set by <ref refid="class_para_scripting_1_1_para_audio_source_1aaec30231c9d1d6a7c433a7c3fb329def" kindref="member">setDirection()</ref>. Note: If the listener is outside of this cone, the sound cannot be heard. Between the inner cone angle and this angle, the sound volume will fall off. Range: 0.0f to 360.0f (Default: 360.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>outerAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Outside angle of the cone. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="176" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a2979601f01be7f794f5eca42b4b2d48a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::setOuterConeVolume</definition>
+        <argsstring>(float outerVolume)</argsstring>
+        <name>setOuterConeVolume</name>
+        <param>
+          <type>float</type>
+          <declname>outerVolume</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets how much the volume of the source is scaled in the outer cone. Range: 0.0f to +inf (Default: 0.0f). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>outerVolume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Volume of the source in the outside cone. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="181" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ac76154cb09f0488c70fa662dd5c4a306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::move</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>move</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convenience function to automatically set the velocity and position for you in a single call. Velocity will be set to new position - last position. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position to move the source to. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="186" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9acbddb10bd85bb086946c4224b30199" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::getPosition</definition>
+        <argsstring>(float &amp;x, float &amp;y, float &amp;z) const</argsstring>
+        <name>getPosition</name>
+        <param>
+          <type>float &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the audio objects position </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="189" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af3c550f27705f41ebb5741e616fa0934" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::getVelocity</definition>
+        <argsstring>(float &amp;x, float &amp;y, float &amp;z) const</argsstring>
+        <name>getVelocity</name>
+        <param>
+          <type>float &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the audio objects velocity </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="192" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1a1b6cc6bc02be723582165060074199" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAudioSource::getDirection</definition>
+        <argsstring>(float &amp;x, float &amp;y, float &amp;z) const</argsstring>
+        <name>getDirection</name>
+        <param>
+          <type>float &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the audio objects direction </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="195" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a343ae119156df2d813a5509f1f876a3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getRolloffFactor</definition>
+        <argsstring>() const</argsstring>
+        <name>getRolloffFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the factor used in attenuating the source over distance </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="198" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1e5d311a0ac437d892c35a52ca3b63f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getStrength</definition>
+        <argsstring>() const</argsstring>
+        <name>getStrength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the strength of the source </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="201" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aba04de170f58975bda8c53c060b7aaa1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getMinDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>getMinDistance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the distance from the source where attenuation will begin </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="204" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ad989e50ca9d3455a3053475f0ea17748" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getMaxDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>getMaxDistance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the distance from the source where attenuation will stop </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="207" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9871306e9809933ccea6ed4781b5cea8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getPitch</definition>
+        <argsstring>() const</argsstring>
+        <name>getPitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the pitch of the source </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="210" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af077dea1fafdadbb2b4f6087da0ea9dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getVolume</definition>
+        <argsstring>() const</argsstring>
+        <name>getVolume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the source volume before attenuation and other effects </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="213" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aac13263d9ea267204aad7ff912a486a4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getMinVolume</definition>
+        <argsstring>() const</argsstring>
+        <name>getMinVolume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the minimum volume that the source can be attenuated to </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="216" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1cbc0977253f68d96367f6cd690ec0e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getMaxVolume</definition>
+        <argsstring>() const</argsstring>
+        <name>getMaxVolume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the maximum volume that the source can achieve </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="219" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a7b50d2ca75c9b61dbaced34d727e9f57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getInnerConeAngle</definition>
+        <argsstring>() const</argsstring>
+        <name>getInnerConeAngle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the angle of the inner sound cone of the source </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="222" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a484203de6b01f71e0002ec4f3fff16ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getOuterConeAngle</definition>
+        <argsstring>() const</argsstring>
+        <name>getOuterConeAngle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the angle of the outer sound cone of the source </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="225" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a2970c17976aac56d01168882a0e00983" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaAudioSource::getOuterConeVolume</definition>
+        <argsstring>() const</argsstring>
+        <name>getOuterConeVolume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>how much the volume of the source is scaled in the outer cone </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingAudio.h" line="228" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>It represents a 2D or 3D audio source object. </para>    </detaileddescription>
+    <location file="ParaScriptingAudio.h" line="29" column="1" bodyfile="ParaScriptingAudio.h" bodystart="28" bodyend="229"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_audio_source_1af2d78c9b41f1e622526aee433c11a12e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getCurrentAudioPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a36d7d3961147b9dfadb4137b70ab80f8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getCurrentAudioTime</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a1a1b6cc6bc02be723582165060074199" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getDirection</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a7b50d2ca75c9b61dbaced34d727e9f57" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getInnerConeAngle</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ad989e50ca9d3455a3053475f0ea17748" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMaxDistance</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a1cbc0977253f68d96367f6cd690ec0e2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMaxVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1aba04de170f58975bda8c53c060b7aaa1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMinDistance</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1aac13263d9ea267204aad7ff912a486a4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMinVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1acfc1b2116928c21b115f09d3d9d2f95f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>GetName</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a484203de6b01f71e0002ec4f3fff16ac" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getOuterConeAngle</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a2970c17976aac56d01168882a0e00983" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getOuterConeVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a9871306e9809933ccea6ed4781b5cea8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getPitch</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a9acbddb10bd85bb086946c4224b30199" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a343ae119156df2d813a5509f1f876a3b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getRolloffFactor</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a1e5d311a0ac437d892c35a52ca3b63f3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getStrength</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a9e55f8bf8e77ede47419a515e0ba49ef" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getTotalAudioSize</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1aecaf7dd2bb94cb820d0fe5c8a0581391" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getTotalAudioTime</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1af3c550f27705f41ebb5741e616fa0934" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getVelocity</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1af077dea1fafdadbb2b4f6087da0ea9dc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a611cf3cb8413d4e0920399a245d707d2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>isLooping</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1acaee142a4f092ef49211bc773f4f8590" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>isPaused</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a74a7f2ec22c2c618a91ac4646aaa3d26" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>isPlaying</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a66273e468e0a9a188618c4e39b638252" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>isStopped</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1aef30b35c0ba9dc1a13c694878f88347a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>isValid</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a5960049c381c153a642bc940ce869348" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ae18cbc3488cc4189e8d2f27f0baf6c50" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>loop</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a99eb8c5eb0774163b99d48afa1470005" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>m_pAudioSource</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ac76154cb09f0488c70fa662dd5c4a306" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>move</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a964efce0d04d6831e2e13f5b2c7abdde" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>ParaAudioSource</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a4d218b834496aa1e27a669f2a7036c60" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>ParaAudioSource</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a59b632010958754d8366c8edaf8cba63" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>pause</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a1a322e1e5037730c83c11c23a7662937" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>play</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a389c7372264059a84e2971b2d76f3b39" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>play2d</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a74c736fdfcf49dedf92e3bae94afab99" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>play3d</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1abb76b3d5ce45aa0b1c14f29665e280fd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>release</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a0a7a751a99dd6d8cee2f7c40aac8e93f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>seek</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1aaec30231c9d1d6a7c433a7c3fb329def" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setDirection</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ae9e4452825650fc71192852efca07d56" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setInnerConeAngle</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ad75caa48764566cf376f58dcf0e08bd1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setMaxDistance</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a4518b7a28d77100b24c041934f7a79a5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setMaxVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ab5c066d83a3fcc47bf851ca27ebec7fc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setMinDistance</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a7daf0478800f46ebf23a699ff5027c60" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setMinVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1ae4446b977d0ba4821159a44da768ab31" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setOuterConeAngle</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a2979601f01be7f794f5eca42b4b2d48a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setOuterConeVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a005496f26906e201389bf4919e8ae86f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setPitch</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a9d8f70061514c68bcc0f85f4f51f8e24" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a1bdc19ddaf047bcf24fd969f9027f806" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setRolloffFactor</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a2ac4ac4cb1061ac69c37da42426215df" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setStrength</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a942ff0d7eda18a651708fc21fc81c919" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setVelocity</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1afab55e4761588ab312624035722d9872" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>setVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1af9295bbf785b2ecb03aa4f4c853eed96" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

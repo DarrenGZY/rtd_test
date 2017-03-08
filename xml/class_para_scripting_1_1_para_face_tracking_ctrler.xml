@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_face_tracking_ctrler" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaFaceTrackingCtrler</compoundname>
+    <includes refid="_para_scripting_character_8h" local="no">ParaScriptingCharacter.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_face_tracking_ctrler_1a33fe569cc025ad7c8d00f8d5ceb2a489" prot="public" static="no" mutable="no">
+        <type>CFaceTrackingCtrler *</type>
+        <definition>CFaceTrackingCtrler* ParaScripting::ParaFaceTrackingCtrler::m_pFaceTrackingCtrler</definition>
+        <argsstring></argsstring>
+        <name>m_pFaceTrackingCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="217" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1a02ea018deb0fab79da111a4dc22f1a1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaFaceTrackingCtrler::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="222" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="222" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1aeebb04fb54d433e91fb031f417020140" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFaceTrackingCtrler::ParaFaceTrackingCtrler</definition>
+        <argsstring>()</argsstring>
+        <name>ParaFaceTrackingCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="224" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="224" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1ab356dfd65f2ec7106a3c192a6c4c9a0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFaceTrackingCtrler::ParaFaceTrackingCtrler</definition>
+        <argsstring>(CFaceTrackingCtrler *pObj)</argsstring>
+        <name>ParaFaceTrackingCtrler</name>
+        <param>
+          <type>CFaceTrackingCtrler *</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="225" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="225" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1a4a35bec5a05f50d3ee265f087866ac41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFaceTrackingCtrler::~ParaFaceTrackingCtrler</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaFaceTrackingCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="226" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="226" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1ac04e32a843f016a4ef381a1328837cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFaceTrackingCtrler::FaceTarget</definition>
+        <argsstring>(float x, float y, float z, float fDuration)</argsstring>
+        <name>FaceTarget</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fDuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>instruct a character to face a target for a certain duration. It will smoothly rotate the character neck to face it <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+<parametername>y</parametername>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which point in world space to face to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fDuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>how many seconds the character should keeps facing the target. Set zero or a negative value to cancel facing previous point. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="233" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_face_tracking_ctrler" kindref="compound">ParaFaceTrackingCtrler</ref> object: it will allow the biped to always face to a given target or another biped. </para>    </detaileddescription>
+    <location file="ParaScriptingCharacter.h" line="215" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="214" bodyend="234"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1ac04e32a843f016a4ef381a1328837cb5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>FaceTarget</name></member>
+      <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1a02ea018deb0fab79da111a4dc22f1a1e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1a33fe569cc025ad7c8d00f8d5ceb2a489" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>m_pFaceTrackingCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1aeebb04fb54d433e91fb031f417020140" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>ParaFaceTrackingCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1ab356dfd65f2ec7106a3c192a6c4c9a0f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>ParaFaceTrackingCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1a4a35bec5a05f50d3ee265f087866ac41" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>~ParaFaceTrackingCtrler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

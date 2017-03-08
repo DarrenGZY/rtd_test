@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_movie_ctrler" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaMovieCtrler</compoundname>
+    <includes refid="_para_scripting_character_8h" local="no">ParaScriptingCharacter.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_movie_ctrler_1ab55b8dcf2fc56eba89ad22cf63f9e70e" prot="public" static="no" mutable="no">
+        <type>CMovieCtrler *</type>
+        <definition>CMovieCtrler* ParaScripting::ParaMovieCtrler::m_pMovieCtrler</definition>
+        <argsstring></argsstring>
+        <name>m_pMovieCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="35" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a65780ad75555cb1eb0b65f28474fc429" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovieCtrler::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="40" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1afd961a6584b569242c2149d640cf03df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaMovieCtrler::ParaMovieCtrler</definition>
+        <argsstring>()</argsstring>
+        <name>ParaMovieCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="42" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a3dc9d9d886139300a60b21d23185cbdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaMovieCtrler::ParaMovieCtrler</definition>
+        <argsstring>(CMovieCtrler *pObj)</argsstring>
+        <name>ParaMovieCtrler</name>
+        <param>
+          <type>CMovieCtrler *</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="43" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1ad2fe37482f1d453a005768829e12cf52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaMovieCtrler::~ParaMovieCtrler</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaMovieCtrler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="44" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1aa38ba360ab8e5c4cf04393211f5e5639" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaMovieCtrler::GetTime</definition>
+        <argsstring>(const char *sFormat)</argsstring>
+        <name>GetTime</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFormat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the local time of a module of the character <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFormat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the format of the time in the returning string &quot;&quot;: in seconds Formated: The format argument consists of one or more codes; as in printf, the formatting codes are preceded by a percent sign (%). Characters that do not begin with % are copied unchanged. H : Hour in 24-hour format (00 C 23) M : Minute as decimal number (00 C 59) S : Second as decimal number (00 C 59) e.g.: GetTime(&quot;movie&quot;, &quot;time elapsed: %H:%M:%S&quot;); </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a72961a284e49ac39fbc00d3f47d0a15f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::SetTime</definition>
+        <argsstring>(float fTime)</argsstring>
+        <name>SetTime</name>
+        <param>
+          <type>float</type>
+          <declname>fTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the current time of the movie <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in seconds. 0 is the beginning of the movie </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="62" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a2aee13004a62298a9a9349fad1eb5345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::Suspend</definition>
+        <argsstring>()</argsstring>
+        <name>Suspend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>suspend the movie </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a3b941ab34372107c57b397c76486e56d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::Resume</definition>
+        <argsstring>()</argsstring>
+        <name>Resume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>resume the movie </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="66" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a229c95383274cef9ca617c4bd24f5474" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::Play</definition>
+        <argsstring>()</argsstring>
+        <name>Play</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>play the movie </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="68" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a56ff5274c7aa4c66de5296fa20654f26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::Record</definition>
+        <argsstring>()</argsstring>
+        <name>Record</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>record the movie from its current position. all movies behind will be erased. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="72" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1ab7ab55c66aa965f127f1fe76b71ccc4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::RecordNewDialog</definition>
+        <argsstring>(const char *sDialog)</argsstring>
+        <name>RecordNewDialog</name>
+        <param>
+          <type>const char *</type>
+          <declname>sDialog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new dialog record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="75" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a50a655cbec96fe4d759802c0cbea56fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovieCtrler::RecordNewAction</definition>
+        <argsstring>(const char *sActionName)</argsstring>
+        <name>RecordNewAction</name>
+        <param>
+          <type>const char *</type>
+          <declname>sActionName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new action record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="77" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a5311da1c3fd1da991426a4416e252f0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovieCtrler::RecordNewAction_</definition>
+        <argsstring>(const char *sActionName, float fTime)</argsstring>
+        <name>RecordNewAction_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sActionName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new action record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="79" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a669b41f65a31196eafdf9b5182bace74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::RecordNewEffect</definition>
+        <argsstring>(int effectID, const char *sTarget)</argsstring>
+        <name>RecordNewEffect</name>
+        <param>
+          <type>int</type>
+          <declname>effectID</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sTarget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new effect record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="81" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a4b3de9e250ecbc9393b42ea5d43c9915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::GetOffsetPosition</definition>
+        <argsstring>(float *x, float *y, float *z)</argsstring>
+        <name>GetOffsetPosition</name>
+        <param>
+          <type>float *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the offset position of the movie. All movie&apos;s position key are relative to it. if there is no position key, 0,0,0 is returned e.g. x,y,z = movieCtrler:<ref refid="class_para_scripting_1_1_para_movie_ctrler_1a4b3de9e250ecbc9393b42ea5d43c9915" kindref="member">GetOffsetPosition()</ref>; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1adce0458cb748602a8b15f06740e819d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::SetOffsetPosition</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>SetOffsetPosition</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the offset position of the movie. All movie&apos;s position key are relative to it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a740456a571197fc228942f11c200a455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::SaveMovie</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>SaveMovie</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save recorded movie to file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename:file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>path to save the movie </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="94" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1aa87414035ab875420a7a6f19e007ce9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovieCtrler::LoadMovie</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>LoadMovie</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load a recorded movie from file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename:file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>path to load the movie </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingCharacter.h" line="98" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_movie_ctrler" kindref="compound">ParaMovieCtrler</ref> object: it is used to control time based movie of character object. </para>    </detaileddescription>
+    <location file="ParaScriptingCharacter.h" line="33" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="32" bodyend="99"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a4b3de9e250ecbc9393b42ea5d43c9915" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>GetOffsetPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1aa38ba360ab8e5c4cf04393211f5e5639" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>GetTime</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a65780ad75555cb1eb0b65f28474fc429" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1aa87414035ab875420a7a6f19e007ce9e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>LoadMovie</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1ab55b8dcf2fc56eba89ad22cf63f9e70e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>m_pMovieCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1afd961a6584b569242c2149d640cf03df" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>ParaMovieCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a3dc9d9d886139300a60b21d23185cbdf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>ParaMovieCtrler</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a229c95383274cef9ca617c4bd24f5474" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>Play</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a56ff5274c7aa4c66de5296fa20654f26" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>Record</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a50a655cbec96fe4d759802c0cbea56fb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>RecordNewAction</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a5311da1c3fd1da991426a4416e252f0a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>RecordNewAction_</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1ab7ab55c66aa965f127f1fe76b71ccc4e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>RecordNewDialog</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a669b41f65a31196eafdf9b5182bace74" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>RecordNewEffect</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a3b941ab34372107c57b397c76486e56d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>Resume</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a740456a571197fc228942f11c200a455" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>SaveMovie</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1adce0458cb748602a8b15f06740e819d7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>SetOffsetPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a72961a284e49ac39fbc00d3f47d0a15f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>SetTime</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1a2aee13004a62298a9a9349fad1eb5345" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>Suspend</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_ctrler_1ad2fe37482f1d453a005768829e12cf52" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>~ParaMovieCtrler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
