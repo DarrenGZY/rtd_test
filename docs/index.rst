@@ -10,14 +10,6 @@ Welcome to test's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   ParaMovieCtrler
+   ParaBlockWorld
 
-
-Indices and tables
-==================
-
-.. doxygenclass:: ParaScripting::ParaNPLRuntimeState
-   :project: nutshell
-   :members:
-.. doxygenclass:: ParaScripting::CNPL
-   :project: nutshell
-   :members:
