@@ -2,12 +2,20 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespace_para_scripting" kind="namespace" language="C++">
     <compoundname>ParaScripting</compoundname>
-    <innerclass refid="class_para_scripting_1_1_c_n_p_l" prot="public">ParaScripting::CNPL</innerclass>
-    <innerclass refid="class_para_scripting_1_1_para_n_p_l_runtime_state" prot="public">ParaScripting::ParaNPLRuntimeState</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_asset" prot="public">ParaScripting::ParaAsset</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_asset_object" prot="public">ParaScripting::ParaAssetObject</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_audio" prot="public">ParaScripting::ParaAudio</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_audio_source" prot="public">ParaScripting::ParaAudioSource</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_block_world" prot="public">ParaScripting::ParaBlockWorld</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_character" prot="public">ParaScripting::ParaCharacter</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_face_tracking_ctrler" prot="public">ParaScripting::ParaFaceTrackingCtrler</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_movie_ctrler" prot="public">ParaScripting::ParaMovieCtrler</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_param_block" prot="public">ParaScripting::ParaParamBlock</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_seq_ctrler" prot="public">ParaScripting::ParaSeqCtrler</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="ParaScriptingNPL.h" line="11" column="1"/>
+    <location file="ParaScripting.h" line="6" column="1"/>
   </compounddef>
 </doxygen>
