@@ -1,0 +1,2077 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_c_n_p_l" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::CNPL</compoundname>
+    <includes refid="_para_scripting_n_p_l_8h" local="no">ParaScriptingNPL.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a591209748e681bbccbb58d09922c9129" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::activate</definition>
+        <argsstring>(const object &amp;sNPLFilename, const object &amp;sCode)</argsstring>
+        <name>activate</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>activate the specified file. It can either be local or remote file.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pState</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source runtime state that initiated this activation. If pState is NULL, the main runtime state is used. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sNPLFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a globally unique name of a NPL file name instance. The string format of an NPL file name is like below. [(sRuntimeStateName|gl)][sNID:]sRelativePath[]</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+the following is a list of all valid file name combinations: &quot;user001@paraengine.com:script/hello.lua&quot; <ndash/> a file of user001 in its default gaming thread &quot;(world1)server001@paraengine.com:script/hello.lua&quot; <ndash/> a file of server001 in its thread world1 &quot;(worker1)script/hello.lua&quot; <ndash/> a local file in the thread worker1 &quot;(gl)script/hello.lua&quot; <ndash/> a glia (local) file in the current runtime state&apos;s thread &quot;script/hello.lua&quot; <ndash/> a file in the current thread. For a single threaded application, this is usually enough. &quot;(worker1)NPLRouter.dll&quot; <ndash/> activate a C++ or C# dll. Please note that, in windows, it looks for NPLRonter.dll; in linux, it looks for ./libNPLRouter.so &quot;plugin/libNPLRouter.dll&quot; <ndash/> almost same as above, it is recommented to remove the heading &apos;lib&apos; when loading. In windows, it looks for plugin/NPLRonter.dll; in linux, it looks for ./plugin/libNPLRouter.so</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it is a chunk of pure data table init code that would be transmitted to the destination file. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code length. if this is 0, length is determined from code by finding &apos;\0&apos;, but, it must not exceed 4096 bytes. If length is explicitly specified, there is no such a limit. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel:On</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which channel to send the package. It can be a number in [0,15]. In case it is nil, the default channel (0) is used. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>From high to low.If this is nil, medium priority(0) is used. following enumerations are used to describe when packets are delivered. enum PacketPriority { SYSTEM_PRIORITY, /// internally Used to send above-high priority messages. HIGH_PRIORITY, /// High priority messages are send before medium priority messages. MEDIUM_PRIORITY, /// Medium priority messages are send before low priority messages. LOW_PRIORITY, /// Low priority messages are only sent when no other messages are waiting. }; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reliability:From</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>unreliable to reliable sequenced. 0 stands for unreliable. If this is nil, RELIABLE_ORDERED(3) is used. following enumerations are used to describe how packets are delivered. enum PacketReliability { UNRELIABLE, /// Same as regular UDP, except that it will also discard duplicate datagrams. It adds (6 to 17) + 21 bits of overhead, 16 of which is used to detect duplicate packets and 6 to 17 of which is used for message length. UNRELIABLE_SEQUENCED, /// Regular UDP with a sequence counter. Out of order messages will be discarded. This adds an additional 13 bits on top what is used for UNRELIABLE. RELIABLE, /// The message is sent reliably, but not necessarily in any order. Same overhead as UNRELIABLE. RELIABLE_ORDERED, /// This message is reliable and will arrive in the order you sent it. Messages will be delayed while waiting for out of order messages. Same overhead as UNRELIABLE_SEQUENCED. RELIABLE_SEQUENCED /// This message is reliable and will arrive in the sequence you sent it. Out or order messages will be dropped. Same overhead as UNRELIABLE_SEQUENCED. }; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>: pure data table is defined as table consisting of only string, number and other table of the above type. NPL.activate function also accepts ParaFileObject typed message data type. ParaFileObject will be converted to base64 string upon transmission. There are size limit though of 10MB. one can also programmatically check whether a script object is pure date by calling NPL.SerializeToSCode() function. Please note that data types that is not pure data in sCode will be ignored instead of reporting an error. </para></simplesect>
+<simplesect kind="return"><para>: NPLReturnCode. 0 means succeed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="165" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ab369248d4b107e4bd4ec81107bea07ed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::activate1</definition>
+        <argsstring>(const object &amp;sNPLFilename)</argsstring>
+        <name>activate1</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="166" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a99c667f081f71c6d00a742971c997cba" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::activate3</definition>
+        <argsstring>(const object &amp;sNPLFilename, const object &amp;sCode, int channel)</argsstring>
+        <name>activate3</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sCode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="167" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a12f95b9ed76b83870771c3afc9452c97" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::activate5</definition>
+        <argsstring>(const object &amp;sNPLFilename, const object &amp;sCode, int channel, int priority, int reliability)</argsstring>
+        <name>activate5</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sCode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reliability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="168" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ae7423b73e3ab116132f199da32311b4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::activate2_</definition>
+        <argsstring>(const char *sNPLFilename, const char *sCode)</argsstring>
+        <name>activate2_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is only called by .Net API. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a8f1787c48883b6481b1a6c9ae8642f8b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::activate_</definition>
+        <argsstring>(const char *sNPLFilename, const char *sCode, int channel, int priority, int reliability)</argsstring>
+        <name>activate_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reliability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is only called by .Net API. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="172" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1af7fa617479dc58faab8616165bc1d2a7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::call</definition>
+        <argsstring>(const object &amp;sNPLFilename, const object &amp;sCode)</argsstring>
+        <name>call</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to activate a local file synchronously in the current runtime state. Use <ref refid="class_para_scripting_1_1_c_n_p_l_1a591209748e681bbccbb58d09922c9129" kindref="member">activate()</ref> if you need an asynchronous activation. for more information, please see <ref refid="class_para_scripting_1_1_c_n_p_l_1a591209748e681bbccbb58d09922c9129" kindref="member">activate()</ref>; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="178" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a6fd0f068762381a9cdf12424577a9084" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::call_</definition>
+        <argsstring>(const char *sNPLFilename, const char *sCode)</argsstring>
+        <name>call_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sNPLFilename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is only called by .Net API. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="180" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ab6c89914240f8a6a303b1e0f2f68eb72" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char* ParaScripting::CNPL::GetFileName</definition>
+        <argsstring>()</argsstring>
+        <name>GetFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return the NPL file name that is being loaded. Only call this function when the file is being initialized. i.e. at the root level. Note: calling this function inside other functions will lead to unexpected result. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="186" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a82ec18e764ff71ec24a00ceb09c69748" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::this_</definition>
+        <argsstring>(const object &amp;funcActivate)</argsstring>
+        <name>this_</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>funcActivate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: the function name is &quot;this&quot; in NPL, not &quot;this_&quot;. associate a user defined function as the activation function of this file. add the current file name to the __act table. create the activate table, if it does not exist. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>funcActivate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the function pointer to the activation function. It can either be local or global. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nil or a table {[PreemptiveCount=number,] [MsgQueueSize=number,] [filename|name=string,]}<itemizedlist>
+<listitem><para>PreemptiveCount: if PreemptiveCount is omitted (default), the activate function will run non-preemptive (it is the programmer&apos;s job to let the function finish in short time). If PreemptiveCount &gt; 0, the activate function will be preemptive (yield) after this number of virtual instructions. which allows us to run tens of thousands of jobs concurrently. Each job has its own stack and but the programmer should pay attention when making changes to shared data.</para></listitem><listitem><para>MsgQueueSize: Max message queue size of this file, if not specified it is same as the NPL thread&apos;s message queue size.</para></listitem><listitem><para>filename|name: virtual filename, if not specified, the current file being loaded is used.</para></listitem><listitem><para>clear: clear all memory used by the file, including its message queue. Normally one never needs to clear. A neuron file without messages takes less than 100 bytes of memory (mostly depending on the length&apos;s of its filename) </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="205" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a0a9939e47f602c0f45d0e60437c22621" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::this2_</definition>
+        <argsstring>(const object &amp;funcActivate, const object &amp;params)</argsstring>
+        <name>this2_</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>funcActivate</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="206" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a67069efc589be67e014c7576527770b3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ParaAttributeObject</type>
+        <definition>static ParaAttributeObject ParaScripting::CNPL::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object. This function return a clone of this object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="209" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a779f440ba5097a31468dc339b95fa46b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::load</definition>
+        <argsstring>(const object &amp;filePath, bool bReload)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bReload</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load a new file (in the current runtime state) without activating it. If the file is already loaded, it will not be loaded again unless bReload is true. IMPORTANT: this function is synchronous; unlike the asynchronous activation function. LoadFile is more like &quot;include in C++&quot;.When the function returns, contents in the file is loaded to memory. <simplesect kind="note"><para>: in NPL/lua, function is first class object, so loading a file means executing the code chunk in protected mode with pcall, in most cases, this means injecting new code to the global table. Since there may be recursions (such as A load B, while B also load A), your loading code should not reply on the loading order to work. You need to follow basic code injection principles. For example, commonlib.gettable(&quot;&quot;) is the the commended way to inject new code to the current thread&apos;s global table. Be careful not to pollute the global table too much, use nested table/namespace. Different NPL applications may have their own sandbox environments, which have their own dedicated global tables, for example all <computeroutput>*.page</computeroutput> files use a separate global table per URL request in NPL Web Server App. </para></simplesect>
+<simplesect kind="note"><para>: when loading an NPL file, we will first find if there is an up to date compiled version in the bin directory. if there is, we will load the compiled version, otherwise we will use the text version. use bin version, if source version does not exist; use bin version, if source and bin versions are both on disk (instead of zip) and that bin version is newer than the source version. e.g. we can compile source to bin directory with file extension &quot;.o&quot;, e.g. &quot;script/abc.lua&quot; can be compiled to &quot;bin/script/abc.o&quot;, The latter will be used if available and up-to-date. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the local relative file path. If the file extension is &quot;.dll&quot;, it will be treated as a plug-in. Examples: &quot;NPLRouter.dll&quot; <ndash/> load a C++ or C# dll. Please note that, in windows, it looks for NPLRonter.dll; in linux, it looks for ./libNPLRouter.so &quot;plugin/libNPLRouter.dll&quot; <ndash/> almost same as above, it is reformatted to remove the heading &apos;lib&apos; when loading. In windows, it looks for plugin/NPLRonter.dll; in linux, it looks for ./plugin/libNPLRouter.so </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bReload</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true, the file will be reloaded even if it is already loaded. otherwise, the file will only be loaded if it is not loaded yet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>: one should be very careful when calling with bReload set to true, since this may lead to recursive reloading of the same file. If this occurs, it will generate C Stack overflow error message. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="235" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac07debc17edbf7b6fc2743f2ad30711a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::load_</definition>
+        <argsstring>(const char *filePath, bool bReload)</argsstring>
+        <name>load_</name>
+        <param>
+          <type>const char *</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bReload</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>for NPL managed only. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="237" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ad76ff47ddba4df992cf25861063ed778" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::load1</definition>
+        <argsstring>(const object &amp;filePath)</argsstring>
+        <name>load1</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>same as NPL.load(filepath, false); </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="239" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1afc5547aa1d450d38c69937dee097c76a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::DoString</definition>
+        <argsstring>(const object &amp;sCode)</argsstring>
+        <name>DoString</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>execute a given string immediately in protected mode. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: the code to run. the code can not be longer than some internally defined value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>:caution: there may be a security issue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="246" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a761edab69ba58a0ce44775a8eb9ef8b0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::DoString2</definition>
+        <argsstring>(const object &amp;sCode, const char *sFilename)</argsstring>
+        <name>DoString2</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sCode</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sFilename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>execute a given string immediately in protected mode. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: the code to run. the code can not be longer than some internally defined value. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sFilename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be nil, a filename to be associated with the chunk of code for debuggin purposes. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>:caution: there may be a security issue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="254" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a4a78cb05bcaa2cc18a299d790ac42cbe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::DoString_</definition>
+        <argsstring>(const char *sCode)</argsstring>
+        <name>DoString_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>only for NPL managed only </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="257" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a1db8d79366f5ddccb6955fb76e22939a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::test</definition>
+        <argsstring>(const object &amp;input)</argsstring>
+        <name>test</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function should be removed in release build. it just run NPL C++ test cases <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which test case to run. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="262" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a21e6162e4f6094b920f2307a1df479bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::SetTimer</definition>
+        <argsstring>(const object &amp;nIDEvent, float fElapse, const object &amp;sNeuronFile)</argsstring>
+        <name>SetTimer</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>nIDEvent</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fElapse</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sNeuronFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates a timer with the specified time-out value <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIDEvent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies a positive timer identifier. For nIDEvent&lt;=0, they are reserved for internal uses. If the NPL runtime already has a timer with the value nIDEvent, then the existing timer is replaced by the new timer. When SetTimer replaces a timer, the timer is reset. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fElapse</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the time-out value, in seconds. Please note that a timer will not be repeatedly activated if its timeout is shorter than the frame rate of the NPL simulation pipeline . </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sNeuronFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The NPL file to be activated when the time-out value elapses. it can also carry sCode. e.g. &quot;script/hello.lua;funcABC();&quot;, &quot;;funcABC();&quot;, &quot;(gl)script/hello.lua&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: true if succeeds.An application can pass the value of the nIDEvent parameter to the NPL.KillTimer function to destroy the timer. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="274" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a6574011380421df8cc323557a1934f4e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::KillTimer</definition>
+        <argsstring>(const object &amp;nIDEvent)</argsstring>
+        <name>KillTimer</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>nIDEvent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroys the specified timer <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIDEvent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the timer to be destroyed.For nIDEvent&lt;=0, they are reserved for internal uses can not be killed by this function. This value must be the same as the nIDEvent value passed to the SetTimer function that created the timer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: If the function succeeds, the return value is true </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="282" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1aad92af58ea79277f4e553681a4d5ee69" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::ChangeTimer</definition>
+        <argsstring>(const object &amp;nIDEvent, int dueTime, int period)</argsstring>
+        <name>ChangeTimer</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>nIDEvent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dueTime</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Changes the start time and the interval between method invocations for a timer, using 32-bit signed integers to measure time intervals. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIDEvent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the timer to be destroyed.For nIDEvent&lt;=0, they are reserved for internal uses can not be killed by this function. This value must be the same as the nIDEvent value passed to the SetTimer function that created the timer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dueTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of time to delay before the invoking the callback method specified when the Timer was constructed, in milliseconds. Specify zero (0) to restart the timer immediately. however, the current implementation does not accept dueTime that is larger than MAX_TIMER_DUE_TIME 10000000, which is 10000 seconds. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period:The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>time interval between invocations of the callback method specified when the Timer was constructed, in milliseconds. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: If the function succeeds, the return value is true </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="293" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a5f8b21a49f1cbab2ee57791f0d0470ac" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const string &amp;</type>
+        <definition>static const string&amp; ParaScripting::CNPL::SerializeToSCode</definition>
+        <argsstring>(const char *sStorageVar, const object &amp;input)</argsstring>
+        <name>SerializeToSCode</name>
+        <param>
+          <type>const char *</type>
+          <declname>sStorageVar</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>serialize a luabind object into sCode. The object could be a value, string or a table of the above type. input also accepts ParaFileObject typed data. ParaFileObject will be converted to base64 string internally.There are size limit though of 10MB. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sStorageVar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is &quot;&quot;, the scode contains only the object. otherwise an assignment is made, by prefixing the scode with &quot;[sStorageVar = &quot;. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input luabind object </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sCode the output scode </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="303" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1afaf92ff5b4f2487a69ba7e0ac12b2d2d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::IsSCodePureData</definition>
+        <argsstring>(const char *sCode)</argsstring>
+        <name>IsSCodePureData</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>verify the script code. it returns true if the script code contains pure msg data or table. this function is used to verify scode received from the network. So that the execution of a pure data in the local runtime is harmless. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="308" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ae9af841475a28b8fa4a12e3e124c7126" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::IsPureData</definition>
+        <argsstring>(const char *sCode)</argsstring>
+        <name>IsPureData</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>it will return true if input string is &quot;false&quot;, &quot;true&quot;, NUMBER, STRING, and {table} </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="311" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac8c829f8743e30dfff01f1804c2f17e7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::IsPureTable</definition>
+        <argsstring>(const char *sCode)</argsstring>
+        <name>IsPureTable</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>it will return true if input string is a {table} containing only &quot;false&quot;, &quot;true&quot;, NUMBER, STRING, and other such {table} </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="314" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ab8af793466cd9a1eae7b5d6a2c1deb02" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>luabind::object</type>
+        <definition>static luabind::object ParaScripting::CNPL::LoadTableFromString</definition>
+        <argsstring>(const object &amp;input)</argsstring>
+        <name>LoadTableFromString</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load a table from string. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="317" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a57fab3ce6f8a33a73ad96ddfa2ac7d0d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>luabind::object</type>
+        <definition>static luabind::object ParaScripting::CNPL::LoadObjectFromString</definition>
+        <argsstring>(const object &amp;input)</argsstring>
+        <name>LoadObjectFromString</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load a table,string, anything from string. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="319" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ad98adfe5dc304cef97631c4040b14964" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::StartNetServer</definition>
+        <argsstring>(const object &amp;server, const object &amp;port)</argsstring>
+        <name>StartNetServer</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>server</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>start the NPL net server&apos;s io_service loop. This function returns immediately. it will spawn the accept and dispatcher thread. call this function only once per process. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>server</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if nil, it defaults to &quot;127.0.0.1&quot; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if nil, it defaults to &quot;60001&quot;; if &quot;0&quot;, we will not listen or accept incoming connections. This is usually the setting for pure client application. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="328" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1af54114e8a15bc452ba5b170db839962a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::StopNetServer</definition>
+        <argsstring>()</argsstring>
+        <name>StopNetServer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stop the net server </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="331" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1aef18686561582d4d5984e00319d686a7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::AddPublicFile</definition>
+        <argsstring>(const string &amp;filename, int nID)</argsstring>
+        <name>AddPublicFile</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a nID, filename pair to the public file list. we only allow remote NPL runtime to activate files in the public file list. Each public file has a user defined ID. The NPL network layer always try to use its ID for transmission to minimize bandwidth. There are some negotiations between sender and receiver to sync the string to ID map before they use it. [thread safe] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the integer to encode the string. it is usually small and positive number. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sString</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string for the id. if input is empty, it means removing the mapping of nID. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="341" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a4894b8796719f5de0aec7baa0c24484b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::RegisterEvent</definition>
+        <argsstring>(int nType, const char *sID, const char *sScript)</argsstring>
+        <name>RegisterEvent</name>
+        <param>
+          <type>int</type>
+          <declname>nType</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sID</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>register a network event handler <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reserved, this is always 0. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string identifier of the network event handler. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sScript</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the script to be executed when the event is triggered.This is usually a function call in NPL. sScript should be in the following format &quot;{NPL filename};{sCode};&quot;. this is the same format in the UI event handler. Please note, it is slightly faster when there is no sCode, and we can register the callback script to be in a different NPL state(thread), such as &quot;(gateway)script/apps/GameServer/GSL_NPLEvent.lua&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="351" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ab4e5399c95b222e8335b2279d56bd64e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::UnregisterEvent</definition>
+        <argsstring>(int nType, const char *sID)</argsstring>
+        <name>UnregisterEvent</name>
+        <param>
+          <type>int</type>
+          <declname>nType</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>unregister a network event handler <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reserved, this is always 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="356" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac481e6d4578664331f8f5d9c65b52a9d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>static object ParaScripting::CNPL::GetStats</definition>
+        <argsstring>(const object &amp;inout)</argsstring>
+        <name>GetStats</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>inout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get statistics about this runtime environment. e.g. local stats = NPL.GetStats({connection_count = true, nids_str=true, nids = true}); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this should be a table containing mapping from string to true. function will return a new table by replacing true with the actual data. such as {[&quot;connection_count&quot;] = true, [&quot;nids_str&quot;] = true }, supported fields are &quot;connection_count&quot; : total connection. &quot;nids_str&quot;: commar separated list of nids. &quot;nids&quot;: a table array of nids </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>{connection_count = 10, nids_str=&quot;101,102,&quot;} </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="367" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a733bf6b23fa71a05c18b2982dcf68f84" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::ClearPublicFiles</definition>
+        <argsstring>()</argsstring>
+        <name>ClearPublicFiles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>clear all public files, so that the NPL server will be completely private. [thread safe] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="372" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ade353a439932b8ecf1847647c129c14a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::AddNPLRuntimeAddress</definition>
+        <argsstring>(const object &amp;npl_address)</argsstring>
+        <name>AddNPLRuntimeAddress</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>npl_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a given NPL runtime address to the fully trusted server addresses list. whenever an address is added, one can activate any public files in that runtime. Please note that connection is only established on first activation. In most cases, one should add all trusted servers at start up time. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>npl_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this should be a table of { host = &quot;127.0.0.1&quot;, port = &quot;60001&quot;, nid = &quot;MyServer&quot;, } [thread safe] </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: true if successfully added. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="387" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1adf2ab7aa191493a66594f0e6191468b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>static string ParaScripting::CNPL::GetIP</definition>
+        <argsstring>(const char *nid)</argsstring>
+        <name>GetIP</name>
+        <param>
+          <type>const char *</type>
+          <declname>nid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the ip address of given NPL connection. this function is usually called by the server for connected clients. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nid or tid. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the ip address in dot format. empty string is returned if connection can not be found. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="394" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a13c4886a6b60611d8d0c010ce62bf791" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::accept</definition>
+        <argsstring>(const object &amp;tid, const object &amp;nid)</argsstring>
+        <name>accept</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>tid</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>nid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>accept a given connection. The connection will be regarded as authenticated once accepted. [thread safe] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the temporary id or NID of the connection to be accepted. usually it is from msg.tid or msg.nid. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is not nil, tid will be renamed to nid after accepted. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="401" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a3142aef09303e7940c33b07f1933f2df" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::accept_</definition>
+        <argsstring>(const char *tid, const char *nid)</argsstring>
+        <name>accept_</name>
+        <param>
+          <type>const char *</type>
+          <declname>tid</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>nid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is used by C++ API interface. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="404" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a0251821cd68f68e8d1118de4872e629d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::reject</definition>
+        <argsstring>(const object &amp;nid)</argsstring>
+        <name>reject</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>nid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reject and close a given connection. The connection will be closed once rejected. [thread safe] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the temporary id or NID of the connection to be rejected. usually it is from msg.tid or msg.nid. it can also be {nid=number|string, reason=0|1|-1} reason:<itemizedlist>
+<listitem><para>0 or positive value is forcibly reset/disconnect (it will abort pending read/write immediately).</para></listitem><listitem><para>1 is another user with same nid is authenticated. The server should send a message to tell the client about this.</para></listitem><listitem><para>-1 or negative value means gracefully close the connection when all pending data has been sent. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="415" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac9c311b3931b461df58933db4447a1e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::reject_</definition>
+        <argsstring>(const char *nid, int nReason=0)</argsstring>
+        <name>reject_</name>
+        <param>
+          <type>const char *</type>
+          <declname>nid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nReason</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is used by C++ API interface. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="418" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1abcf3fc3972f75a7be885dc124a7d5d54" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::SetUseCompression</definition>
+        <argsstring>(bool bCompressIncoming, bool bCompressOutgoing)</argsstring>
+        <name>SetUseCompression</name>
+        <param>
+          <type>bool</type>
+          <declname>bCompressIncoming</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bCompressOutgoing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether to use compression on transport layer for incoming and outgoing connections <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bCompressIncoming</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true, compression is used for all incoming connections. default to false. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bCompressIncoming</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true, compression is used for all outgoing connections. default to false. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="424" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a60a61783bf1bcc0c7ded7a1b93a26f08" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::SetCompressionKey</definition>
+        <argsstring>(const object &amp;input)</argsstring>
+        <name>SetCompressionKey</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the compression method of incoming the outgoing messages. If this is not called, the default internal key is used for message encoding. [Not Thread Safe]: one must call this function before sending or receiving any encoded messages. so it is usually called when the game engine starts. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a table, such as { key = &quot;&quot;, size = 100, UsePlainTextEncoding = 1}, or {UsePlainTextEncoding = 1} input.key: the byte array of key. the generic key that is used for encoding/decoding input.size: size in bytes of the sKey. default is 64 bytes input.UsePlainTextEncoding: default to 0. if 0, the key is used as it is. if 1, the input key will be modified so that the encoded message looks like plain text(this can be useful to pass some firewalls). if -1, the input key will be modified so that the encoded message is binary. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="439" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ab922b92d68f3f1566753bdca3fd7dbc8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char* ParaScripting::CNPL::GetSourceName</definition>
+        <argsstring>()</argsstring>
+        <name>GetSourceName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current activation&apos;s source name. Each NPL activation has a source name which started the activation. This is usually &quot;&quot; for local activation and some kind of &quot;name@server&quot; for network activation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="449" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a318fdf2bc58d3c7ebadd3043f0a9df9f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::SetSourceName</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>SetSourceName</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current activation&apos;s source name. Each NPL activation has a source name which started the activation. This function is called automatically when a new activation occurs.So only call this function if one wants to override the old one for special code logics. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This is usually &quot;&quot; for local activation and some kind of &quot;name@server&quot; for network activation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="455" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ae200ff1a6b5f0860c87275e29d041189" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::EnableNetwork</definition>
+        <argsstring>(bool bEnable, const char *CenterName, const char *password)</argsstring>
+        <name>EnableNetwork</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>CenterName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enable the network, by default the network layer is disabled. calling this function multiple time with different CenterName will restart the network layer with a different center name. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bEnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to enable, false to disable.If this is false, the CenterName and Password are ignored. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CenterName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the local nerve center name. it is also the user name which local receptor will use in the credentials to login in other NPL runtime. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeeded. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="466" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1aac3f22810623e5d5c0238d91d8fe908d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::AddDNSRecord</definition>
+        <argsstring>(const char *sDNSName, const char *sAddress)</argsstring>
+        <name>AddDNSRecord</name>
+        <param>
+          <type>const char *</type>
+          <declname>sDNSName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sAddress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a DNS server record to the current NPL runtime. DNS server record is a mapping from name to (IP:port) if one maps several IP:port to the same name, the former ones will be overridden. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sDNSName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the DNS server name. the DNS name &quot;_world&quot; is used for the current world DNS server. It is commonly used as a DNS reference to the current world that the user is exploring. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>&quot;IP:port&quot;. e.g. &quot;192.168.1.10:4000&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="477" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac5fc604314ff1ff119a106a8ca08a4b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::SetDefaultChannel</definition>
+        <argsstring>(int channel_ID)</argsstring>
+        <name>SetDefaultChannel</name>
+        <param>
+          <type>int</type>
+          <declname>channel_ID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the default channel ID, default value is 0. Default channel is used when NPL.activate() calls does not contain the channel property. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>It can be a number in [0,15].default is 0 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="483" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a5eb8f3e25129fe365b57f3ea0c7aac3b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::GetDefaultChannel</definition>
+        <argsstring>()</argsstring>
+        <name>GetDefaultChannel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the default channel ID, default value is 0. Default channel is used when NPL.activate() calls does not contain the channel property. <simplesect kind="return"><para>channel_ID It can be a number in [0,15].default is 0 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="489" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a31e610a950f12b8716701dbf3e21334f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::SetChannelProperty</definition>
+        <argsstring>(int channel_ID, int priority, int reliability)</argsstring>
+        <name>SetChannelProperty</name>
+        <param>
+          <type>int</type>
+          <declname>channel_ID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reliability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Messages can be sent via predefined channels. There are 16 channels from 0 to 15 to be used. 0 is the default channel. This method sets the channel property for a given channel. The default channel property is given in table. The following table shows the default NPL channel properties. It is advised for users to stick to this default mapping when developing their own applications. Table 1. Default NPL channel properties channel_ID Priority Reliability Usage 0 med RELIABLE_ORDERED System message 1 med UNRELIABLE_SEQUENCED Character positions 2 med RELIABLE_ORDERED Large Simulation Object transmission, such as terrain height field. 4 med RELIABLE_ORDERED Chat message 14 med RELIABLE files transmission and advertisement 15 med RELIABLE_SEQUENCED Voice transmission 11-15 med RELIABLE_ORDERED</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reliability</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="509" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1adac07ff1507a52d0bcda7e3538c6c67a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::ResetChannelProperties</definition>
+        <argsstring>()</argsstring>
+        <name>ResetChannelProperties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reset all 16 predefined channel properties. according to table1. Default NPL channel properties. see also NPL_SetChannelProperty The following table shows the default NPL channel properties. It is advised for users to stick to this default mapping when developing their own applications. Table 1. Default NPL channel properties channel_ID Priority Reliability Usage 0 med RELIABLE_ORDERED System message 1 med UNRELIABLE_SEQUENCED Character positions 2 med RELIABLE_ORDERED Large Simulation Object transmission, such as terrain height field. 4 med RELIABLE_ORDERED Chat message 14 med RELIABLE files transmission and advertisement 15 med RELIABLE_SEQUENCED Voice transmission 11-15 med RELIABLE_ORDERED </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="524" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a39a1b4c033f7416d63d6edb6064f4b3d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::GetChannelProperty</definition>
+        <argsstring>(int channel_ID, int *priority, int *reliability)</argsstring>
+        <name>GetChannelProperty</name>
+        <param>
+          <type>int</type>
+          <declname>channel_ID</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>reliability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>see also NPL_SetChannelProperty <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reliability</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="532" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a5152fce2f1c38cf254c1dbb56bb2610c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::RegisterWSCallBack</definition>
+        <argsstring>(const char *sWebServiceFile, const char *sCode)</argsstring>
+        <name>RegisterWSCallBack</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWebServiceFile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this method will associate a web service (method) with either a sCode, which will be called when the web service returned. The returned message, if any, will be passed via a global parameter called msg. If msg == nil, it always means that there is an error during processing, such as HTTP 404 not found. the error code either string or number will be returned in a global variable called msgerror. For example: function callbackFunc1() if(msg~=nil) then log(msg.username); <ndash/> error code in msgerror else log(tostring(msgerror)); <ndash/> error code in msgerror end end NPL.RegisterWSCallBack(&quot;http://paraengine.com/login.aspx&quot;,callbackFunc1); NPL.activate(&quot;http://paraengine.com/login.aspx&quot;, {username=lxz}); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sWebServiceFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>URL of the web service </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>code to be executed when the web service is called. When a two-way web service call is invoked; it internally will create a thread for the returning message. Please refer to .Net 3.0 network communication architecture. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="553" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ae068c5d5b6f7899d071e53013d4b4f9c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::UnregisterWSCallBack</definition>
+        <argsstring>(const char *sWebServiceFile)</argsstring>
+        <name>UnregisterWSCallBack</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWebServiceFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>unregister web service call back for a given file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sWebServiceFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is nil or &quot;&quot;, all call backs will be unregistered. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="558" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ad8a5e7bc1b299e845cdce8e0cff475a5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::AsyncDownload</definition>
+        <argsstring>(const char *url, const char *destFolder, const char *callbackScript, const char *DownloaderName)</argsstring>
+        <name>AsyncDownload</name>
+        <param>
+          <type>const char *</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>destFolder</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>callbackScript</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>DownloaderName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Asynchronously download a file or an HTTP web page from the url. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>destFolder:folder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>path or file path. if the destFolder contains a file extension, we will save the downloaded file as the destFolder otherwise, we will save the file as the combination of the destFolder and the filename returned from the remote target. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callbackScript</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>script code to be called, a global variable called msg is assigned, as below if url is a file: msg = {DownloadState=&quot;&quot;|&quot;complete&quot;|&quot;terminated&quot;, totalFileSize=number, currentFileSize=number, PercentDone=number} if url is a web page: msg = {DownloadState=&quot;&quot;|&quot;complete&quot;|&quot;terminated&quot;, ContentType=string that contains &quot;text/html&quot;, Headers=string of {name:value<linebreak/>
+}, StatusCode=int, StatusDescription=string, ResponseUri=string of actual url that is responding. totalFileSize=number, currentFileSize=number, PercentDone=number} </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="578" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a1001b10226e0629ae32c9a64b905608b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::CancelDownload</definition>
+        <argsstring>(const char *DownloaderName)</argsstring>
+        <name>CancelDownload</name>
+        <param>
+          <type>const char *</type>
+          <declname>DownloaderName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>cancel all asynchronous downloads that matches a certain downloader name pattern <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>DownloaderName:regular</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>expression. such as &quot;proc1&quot;, &quot;proc1.*&quot;, &quot;.*&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="584" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a67f37ccaedfd42428489efc5508aa4be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::CNPL::Download</definition>
+        <argsstring>(const char *url, const char *destFolder, const char *callbackScript, const char *DownloaderName)</argsstring>
+        <name>Download</name>
+        <param>
+          <type>const char *</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>destFolder</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>callbackScript</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>DownloaderName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Synchronous call of the function <ref refid="class_para_scripting_1_1_c_n_p_l_1ad8a5e7bc1b299e845cdce8e0cff475a5" kindref="member">AsyncDownload()</ref>. This function will not return until download is complete or an error occurs. this function is rarely used. <ref refid="class_para_scripting_1_1_c_n_p_l_1ad8a5e7bc1b299e845cdce8e0cff475a5" kindref="member">AsyncDownload()</ref> is used. <simplesect kind="return"><para>:1 if succeed, 0 if fail </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="591" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ad93a8ad46c4738b3d590f18c39ba5261" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_n_p_l_runtime_state" kindref="compound">ParaNPLRuntimeState</ref></type>
+        <definition>static ParaNPLRuntimeState ParaScripting::CNPL::CreateRuntimeState</definition>
+        <argsstring>(const string &amp;name, int type_)</argsstring>
+        <name>CreateRuntimeState</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a new runtime state. this function is thread safe <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if &quot;&quot;, it is an anonymous runtime state. otherwise it should be a unique name. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NPLRuntimeStateType, the runtime state type. enum NPLRuntimeStateType { / the default NPL runtime state, with all NPL and ParaEngine functions loaded. it will consume about 1MB memory at start up. NPLRuntimeStateType_NPL = 0, / the light-weighter NPL runtime state, with only NPL and very limited functions loaded. NPLRuntimeStateType_NPL_LITE, / it consumes nothing. and is usually used with DLL plugins. NPLRuntimeStateType_DLL, }; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly created state is returned. If an runtime state with the same non-empty name already exist, the old one is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="614" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac120f24d45249c2088a15dc220974718" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_n_p_l_runtime_state" kindref="compound">ParaNPLRuntimeState</ref></type>
+        <definition>static ParaNPLRuntimeState ParaScripting::CNPL::GetRuntimeState</definition>
+        <argsstring>(const string &amp;name)</argsstring>
+        <name>GetRuntimeState</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get a runtime state with an explicit name. this function is thread safe </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="619" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a75583357bc88a40406a62ebf07d7c4bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_n_p_l_runtime_state" kindref="compound">ParaNPLRuntimeState</ref></type>
+        <definition>static ParaNPLRuntimeState ParaScripting::CNPL::CreateGetRuntimeState</definition>
+        <argsstring>(const string &amp;name, int type_)</argsstring>
+        <name>CreateGetRuntimeState</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>it get runtime state first, if none exist, it will create one and add it to the main threaded state </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="622" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ac10723d9a4e874008f33b0deaf85d4c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::DeleteRuntimeState</definition>
+        <argsstring>(ParaNPLRuntimeState runtime_state)</argsstring>
+        <name>DeleteRuntimeState</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_n_p_l_runtime_state" kindref="compound">ParaNPLRuntimeState</ref></type>
+          <declname>runtime_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a given runtime state. this function is thread safe </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="626" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a0cccd726b100347366e1b89fd1df36ef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::CNPL::Compile</definition>
+        <argsstring>(const char *arguments)</argsstring>
+        <name>Compile</name>
+        <param>
+          <type>const char *</type>
+          <declname>arguments</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>compile source The main advantages of precompiling chunks are: faster loading, protecting source code from accidental user changes, and off-line syntax checking. Precompiling does not imply faster execution because in npl chunks are always compiled into bytecodes before being executed. compiling simply allows those bytecodes to be saved in a file for later execution. compiling can produce a single output file containing the bytecodes for all source files given. By default, the output file is named luac.out, but you can change this with the -o option. e.g. NPL.Compile(&quot;-p -o bin/script/config.o script/config.lua&quot;); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arguments</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>&quot;%s [options] [filenames]&quot; &quot;Available options are:\n&quot; &quot;  -        process stdin\n&quot; &quot;  -l       list\n&quot; &quot;  -o name  output to file &quot; LUA_QL(&quot;name&quot;) &quot; (default is \&quot;s")<linebreak/>
+&quot;
+&quot; -p parse only<linebreak/>
+&quot;
+&quot; -s strip debug information<linebreak/>
+&quot;
+&quot; -v show version information<linebreak/>
+&quot;
+&quot; -- stop handling options<linebreak/>
+", </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="644" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a7b7130b062d8116bcbba53f058b1f256" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::AppendURLRequest1</definition>
+        <argsstring>(const object &amp;url, const char *sCallback, const object &amp;sForm, const char *sPoolName)</argsstring>
+        <name>AppendURLRequest1</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCallback</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sForm</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sPoolName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append URL request to a pool. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pUrlTask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be new CURLRequestTask(), the ownership of the task is transfered to the manager. so the caller should never delete the pointer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sPoolName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request pool name. If the pool does not exist, it will be created. If null, the default pool is used. Append URL request to a pool. HTTP Get: NPL.AppendURLRequest(&quot;paraengine.com&quot;, &quot;callbackFunc()&quot;, {&quot;name1&quot;, &quot;value1&quot;, &quot;name2&quot;, &quot;value2&quot;, }, &quot;r&quot;) HTTP Post: NPL.AppendURLRequest(&quot;paraengine.com&quot;, &quot;callbackFunc()&quot;, {name1=&quot;value1&quot;, name2=&quot;value2&quot;}, &quot;r&quot;) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>usually a rest url. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sCallback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string callback function. it may begin with (runtime_state_name) such as &quot;(main)my_function()&quot;, if no runtime state is provided, it is the main state(Not the calling thread). This prevents the user to use multiple threads to download to the same file location by mistake. the callback function to be called. a global msg={data, header, code, rcode} contains the result. the msg.data contains the response data, and msg.header contains the http header, and msg.code contains the return code from libcurl, msg.rcode contains HTTP/FTP status code(200 if succeed) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sForm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if it contains name value pairs, HTTP POST is used, otherwise HTTP GET is used. note that if it contains an array of name, value, name, value, ..., they will be regarded as url parameters can inserted to url automatically. This applies regardless of whether http get or post is used. one can also post a file, like belows {name = {file=&quot;/tmp/test.txt&quot;, type=&quot;text/plain&quot;}} {name = {file=&quot;dummy.html&quot;, data=&quot;&lt;html&gt;&lt;bold&gt;bold&lt;/bold&gt;&lt;/html&gt;, type=&quot;text/html"}} some predefined field name in sForm is request_timeout: milliseconds of request timeout e.g. {request_timeout=50000,} </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sPoolName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request pool name. If the pool does not exist, it will be created. If null, the default pool is used. there are some reserved pool names used by ParaEngine. They are:<itemizedlist>
+<listitem><para>&quot;d&quot;: download pool. default size is 2, for downloading files.</para></listitem><listitem><para>&quot;r&quot;: rest pool. default size is 5, for REST like HTTP get/post calls.</para></listitem><listitem><para>&quot;w&quot;: web pool. default size is 5, for web based requests. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="680" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1adcfcf70beb5ba880ee3c0bdc5b87e0b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>static string ParaScripting::CNPL::EncodeURLQuery</definition>
+        <argsstring>(const char *baseUrl, const object &amp;sParams)</argsstring>
+        <name>EncodeURLQuery</name>
+        <param>
+          <type>const char *</type>
+          <declname>baseUrl</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sParams</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>build a use query using base url plus additional query parameters. NPL.BuildURLQuery(&quot;paraengine.com&quot;, {&quot;name1&quot;, &quot;value1&quot;, &quot;name2&quot;, &quot;value2&quot;, }) [thread safe] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sParams;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an array table, where odd index is name, even index is value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: result is like &quot;paraengine.com?name1=value1&amp;name2=value2&quot;, they already in encoded form. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="688" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ad9fc2cd2d4ad8423200861a74e894b95" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string ParaScripting::CNPL::GetExternalIP</definition>
+        <argsstring>()</argsstring>
+        <name>GetExternalIP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get extern IP address of this computer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="691" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ad9c8643f19e99decbcd346d73336ef93" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::ChangeRequestPoolSize</definition>
+        <argsstring>(const char *sPoolName, int nCount)</argsstring>
+        <name>ChangeRequestPoolSize</name>
+        <param>
+          <type>const char *</type>
+          <declname>sPoolName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>There is generally no limit to the number of requests sent. However, each pool has a specified maximum number of concurrent worker slots. the default number is 1. One can change this number with this function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="697" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a02fb7079806013a8ef8f910f1e6ffaed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::FromJson</definition>
+        <argsstring>(const char *sJson, const object &amp;output)</argsstring>
+        <name>FromJson</name>
+        <param>
+          <type>const char *</type>
+          <declname>sJson</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>convert json string to NPL object. Internally TinyJson is used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sJson</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the json code to parse. the first level must be array or table. otherwise, false is returned. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in|out] it must be a table. and usually empty table. the output is written to this table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeed. false if parsing failed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="704" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1adfc86ea7e364f5acf3da554dbef396a6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const string &amp;</type>
+        <definition>static const string&amp; ParaScripting::CNPL::ToJson</definition>
+        <argsstring>(const object &amp;output)</argsstring>
+        <name>ToJson</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>convert from NPL/lua table object to json string. /uXXXX encoding is recognized in string. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="707" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a2dd2199658b80eb35a1c78616809a67c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const string &amp;</type>
+        <definition>static const string&amp; ParaScripting::CNPL::ToJson2</definition>
+        <argsstring>(const object &amp;output, bool bUseEmptyArray)</argsstring>
+        <name>ToJson2</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bUseEmptyArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="708" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1a7eec0a2924dc3995c8e08a4d3e081cda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::Compress</definition>
+        <argsstring>(const object &amp;output)</argsstring>
+        <name>Compress</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>compress using zlib/gzip, etc <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>{method=&quot;zlib|gzip&quot;, content=string, [level=number, windowBits=number,] result=string} </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>return true if success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="714" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_n_p_l_1ab517de774dd08521e372acce3f809db0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::CNPL::Decompress</definition>
+        <argsstring>(const object &amp;output)</argsstring>
+        <name>Decompress</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>compress using zlib/gzip, etc <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>{method=&quot;zlib|gzip&quot;, content=string, [level=number, windowBits=number,] result=string} </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="719" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Neural Parallel Language functions are in this namespace. </para>    </detaileddescription>
+    <location file="ParaScriptingNPL.h" line="117" column="1" bodyfile="ParaScriptingNPL.h" bodystart="116" bodyend="720"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a13c4886a6b60611d8d0c010ce62bf791" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>accept</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a3142aef09303e7940c33b07f1933f2df" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>accept_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a591209748e681bbccbb58d09922c9129" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>activate</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ab369248d4b107e4bd4ec81107bea07ed" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>activate1</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ae7423b73e3ab116132f199da32311b4c" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>activate2_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a99c667f081f71c6d00a742971c997cba" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>activate3</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a12f95b9ed76b83870771c3afc9452c97" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>activate5</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a8f1787c48883b6481b1a6c9ae8642f8b" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>activate_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1aac3f22810623e5d5c0238d91d8fe908d" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>AddDNSRecord</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ade353a439932b8ecf1847647c129c14a" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>AddNPLRuntimeAddress</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1aef18686561582d4d5984e00319d686a7" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>AddPublicFile</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a7b7130b062d8116bcbba53f058b1f256" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>AppendURLRequest1</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ad8a5e7bc1b299e845cdce8e0cff475a5" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>AsyncDownload</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1af7fa617479dc58faab8616165bc1d2a7" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>call</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a6fd0f068762381a9cdf12424577a9084" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>call_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a1001b10226e0629ae32c9a64b905608b" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>CancelDownload</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ad9c8643f19e99decbcd346d73336ef93" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>ChangeRequestPoolSize</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1aad92af58ea79277f4e553681a4d5ee69" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>ChangeTimer</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a733bf6b23fa71a05c18b2982dcf68f84" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>ClearPublicFiles</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a0cccd726b100347366e1b89fd1df36ef" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>Compile</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a7eec0a2924dc3995c8e08a4d3e081cda" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>Compress</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a75583357bc88a40406a62ebf07d7c4bc" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>CreateGetRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ad93a8ad46c4738b3d590f18c39ba5261" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>CreateRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ab517de774dd08521e372acce3f809db0" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>Decompress</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac10723d9a4e874008f33b0deaf85d4c5" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>DeleteRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1afc5547aa1d450d38c69937dee097c76a" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>DoString</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a761edab69ba58a0ce44775a8eb9ef8b0" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>DoString2</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a4a78cb05bcaa2cc18a299d790ac42cbe" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>DoString_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a67f37ccaedfd42428489efc5508aa4be" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>Download</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ae200ff1a6b5f0860c87275e29d041189" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>EnableNetwork</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1adcfcf70beb5ba880ee3c0bdc5b87e0b6" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>EncodeURLQuery</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a02fb7079806013a8ef8f910f1e6ffaed" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>FromJson</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a67069efc589be67e014c7576527770b3" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a39a1b4c033f7416d63d6edb6064f4b3d" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetChannelProperty</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a5eb8f3e25129fe365b57f3ea0c7aac3b" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetDefaultChannel</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ad9fc2cd2d4ad8423200861a74e894b95" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetExternalIP</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ab6c89914240f8a6a303b1e0f2f68eb72" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetFileName</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1adf2ab7aa191493a66594f0e6191468b6" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetIP</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac120f24d45249c2088a15dc220974718" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ab922b92d68f3f1566753bdca3fd7dbc8" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetSourceName</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac481e6d4578664331f8f5d9c65b52a9d" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>GetStats</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ae9af841475a28b8fa4a12e3e124c7126" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>IsPureData</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac8c829f8743e30dfff01f1804c2f17e7" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>IsPureTable</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1afaf92ff5b4f2487a69ba7e0ac12b2d2d" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>IsSCodePureData</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a6574011380421df8cc323557a1934f4e" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>KillTimer</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a779f440ba5097a31468dc339b95fa46b" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>load</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ad76ff47ddba4df992cf25861063ed778" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>load1</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac07debc17edbf7b6fc2743f2ad30711a" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>load_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a57fab3ce6f8a33a73ad96ddfa2ac7d0d" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>LoadObjectFromString</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ab8af793466cd9a1eae7b5d6a2c1deb02" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>LoadTableFromString</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a4894b8796719f5de0aec7baa0c24484b" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>RegisterEvent</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a5152fce2f1c38cf254c1dbb56bb2610c" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>RegisterWSCallBack</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a0251821cd68f68e8d1118de4872e629d" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>reject</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac9c311b3931b461df58933db4447a1e0" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>reject_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1adac07ff1507a52d0bcda7e3538c6c67a" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>ResetChannelProperties</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a5f8b21a49f1cbab2ee57791f0d0470ac" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SerializeToSCode</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a31e610a950f12b8716701dbf3e21334f" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SetChannelProperty</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a60a61783bf1bcc0c7ded7a1b93a26f08" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SetCompressionKey</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ac5fc604314ff1ff119a106a8ca08a4b4" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SetDefaultChannel</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a318fdf2bc58d3c7ebadd3043f0a9df9f" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SetSourceName</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a21e6162e4f6094b920f2307a1df479bc" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SetTimer</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1abcf3fc3972f75a7be885dc124a7d5d54" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>SetUseCompression</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ad98adfe5dc304cef97631c4040b14964" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>StartNetServer</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1af54114e8a15bc452ba5b170db839962a" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>StopNetServer</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a1db8d79366f5ddccb6955fb76e22939a" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>test</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a0a9939e47f602c0f45d0e60437c22621" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>this2_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a82ec18e764ff71ec24a00ceb09c69748" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>this_</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1adfc86ea7e364f5acf3da554dbef396a6" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>ToJson</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1a2dd2199658b80eb35a1c78616809a67c" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>ToJson2</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ab4e5399c95b222e8335b2279d56bd64e" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>UnregisterEvent</name></member>
+      <member refid="class_para_scripting_1_1_c_n_p_l_1ae068c5d5b6f7899d071e53013d4b4f9c" prot="public" virt="non-virtual"><scope>ParaScripting::CNPL</scope><name>UnregisterWSCallBack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

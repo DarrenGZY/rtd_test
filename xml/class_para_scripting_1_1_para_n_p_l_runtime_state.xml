@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_n_p_l_runtime_state" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaNPLRuntimeState</compoundname>
+    <includes refid="_para_scripting_n_p_l_8h" local="no">ParaScriptingNPL.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a3f433fe3cfdc0d45ca52b529044735a7" prot="public" static="no" mutable="no">
+        <type>NPL::CNPLRuntimeState *</type>
+        <definition>NPL::CNPLRuntimeState* ParaScripting::ParaNPLRuntimeState::m_rts</definition>
+        <argsstring></argsstring>
+        <name>m_rts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="30" column="1" bodyfile="ParaScriptingNPL.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a54debb9953a9eb21f9a8a13da3d56546" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaNPLRuntimeState::ParaNPLRuntimeState</definition>
+        <argsstring>()</argsstring>
+        <name>ParaNPLRuntimeState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a760778679f012b25892ed3071486ad12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaNPLRuntimeState::ParaNPLRuntimeState</definition>
+        <argsstring>(NPL::CNPLRuntimeState *rts_)</argsstring>
+        <name>ParaNPLRuntimeState</name>
+        <param>
+          <type>NPL::CNPLRuntimeState *</type>
+          <declname>rts_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a5bd065db8b7f6a67b0702b0b8c522d3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaNPLRuntimeState::ParaNPLRuntimeState</definition>
+        <argsstring>(NPL::NPLRuntimeState_ptr rts_)</argsstring>
+        <name>ParaNPLRuntimeState</name>
+        <param>
+          <type>NPL::NPLRuntimeState_ptr</type>
+          <declname>rts_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a84b97b01e1e49cdcf172480e7b113c2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaNPLRuntimeState::~ParaNPLRuntimeState</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaNPLRuntimeState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1aa17fdee2304b48750278aa1773ec09b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaNPLRuntimeState::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if this is a valid state. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a764b55b6d4afe3f2337b73da7f9749f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* ParaScripting::ParaNPLRuntimeState::GetName</definition>
+        <argsstring>() const</argsstring>
+        <name>GetName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return the name of this runtime state. if &quot;&quot;, it is considered an anonymous name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1ab63c518a48e050d9988c967213a35f3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaNPLRuntimeState::Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>start this runtime state in a worker thread <simplesect kind="return"><para>the number of threads that are currently working on the runtime state. normally this is 1. only dll runtime state may have more than one worker thread. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a8f226bd3b27f262d0b8a4b8fd70f1a41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaNPLRuntimeState::Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stop the worker thread. this will stop processing messages in the thread. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a2de1be60d2571a39e7cd8edf7503c5f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNPLRuntimeState::Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>it is like starting a fresh new runtime state. All memory, tables, timers, pending messages are removed. this function only takes effect on the next message loop. So there can be other clean up code following this function. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>onResetScode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code to be executed immediately after runtime state is reset. default to NULL. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a6802c813d03f3b50ad8e58e982bc54bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNPLRuntimeState::Reset1</definition>
+        <argsstring>(const char *onResetScode)</argsstring>
+        <name>Reset1</name>
+        <param>
+          <type>const char *</type>
+          <declname>onResetScode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="55" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a36f60f827683d11a46e783e8ce8a4b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaNPLRuntimeState::GetStats</definition>
+        <argsstring>(const object &amp;inout)</argsstring>
+        <name>GetStats</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>inout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>TODO: get statistics about this runtime environment. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="60" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1aed6d65fbd12a2b0ca8f040e9db8d1a3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaNPLRuntimeState::GetCurrentQueueSize</definition>
+        <argsstring>()</argsstring>
+        <name>GetCurrentQueueSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current number of messages in the input message queue. Sometimes, a monitor or dispatcher logics may need to know the queue size of all NPL runtime states. and a dispatcher will usually need to add new messages to the NPL state with smallest queue size. This function will lock the message queue to retrieve the queue size, so do not call it very often, but use a timer to query it on some interval. [thread safe] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1ade6e98a5d8b520db07472890165874dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaNPLRuntimeState::GetProcessedMsgCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetProcessedMsgCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the total number of message processed by this runtime state since start. If this number does not increase, perhaps the processing is blocking somewhere, and we should take actions. [Not thread safe] in most cases, it will return correct result even in multi-threaded environment, but since we do not use lock, unexpected result may return. This function is usually used for stat printing and monitoring. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="74" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a74d972cce5425ec686549b36eb1aa927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaNPLRuntimeState::GetMsgQueueSize</definition>
+        <argsstring>()</argsstring>
+        <name>GetMsgQueueSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the message queue size. default to 500. For busy server side, we can set this to something like 5000 [thread safe] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="79" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1ae7820e714d606875d975018224467b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNPLRuntimeState::SetMsgQueueSize</definition>
+        <argsstring>(int nSize=500)</argsstring>
+        <name>SetMsgQueueSize</name>
+        <param>
+          <type>int</type>
+          <declname>nSize</declname>
+          <defval>500</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the message queue size. default to 500. For busy server side, we can set this to something like 5000 [thread safe] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="84" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a08a20fca2a8ea78e745c8a3dba7d0b86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNPLRuntimeState::WaitForMessage</definition>
+        <argsstring>()</argsstring>
+        <name>WaitForMessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>simply wait for the next message to arrive. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="88" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1af4f82447b7c52ea272172227ab79d168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNPLRuntimeState::WaitForMessage2</definition>
+        <argsstring>(int nMessageCount)</argsstring>
+        <name>WaitForMessage2</name>
+        <param>
+          <type>int</type>
+          <declname>nMessageCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nMessageCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if not negative, this function will immediately return when the message queue size is bigger than this value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="93" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a7a5a4ce3b0092cbd8e2f600370a697e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaNPLRuntimeState::PeekMessage</definition>
+        <argsstring>(int nIndex, const object &amp;inout)</argsstring>
+        <name>PeekMessage</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>inout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this should be a table {filename=true, code=true, msg=true}, specify which part of the message to retrieve in return value. {filename=true} will only retrieve the filename, because it is faster if code is big. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: msg table {filename, code, msg} if exist, or nil. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_n_p_l_runtime_state_1a220f820d2f8fdff2bd0616c4b7918823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaNPLRuntimeState::PopMessageAt</definition>
+        <argsstring>(int nIndex, const object &amp;inout)</argsstring>
+        <name>PopMessageAt</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>inout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pop message at given index. usually we need to call peek() first. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this should be a table {filename=true, code=true, process=true}, specify which part of the message to retrieve in return value. {filename=true} will only retrieve the filename, because it is faster if code is big. if inout.process == true, we will pop and process the message via standard activation. if inout.process == false, we will pop without processing the message, in which case the caller may need to process it manually </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: msg table {filename, code, msg, result} if exist, or filename will be false. result is only available if process is true </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptingNPL.h" line="109" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A runtime state contains the scripting runtime stack and can be run in a single thread.</para><para>An NPL runtime state is message driven, however we also support timer and several other event callbacks. Normally we only use this class to start a new runtime, or get statistics about a runtime </para>    </detaileddescription>
+    <location file="ParaScriptingNPL.h" line="23" column="1" bodyfile="ParaScriptingNPL.h" bodystart="22" bodyend="110"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1aed6d65fbd12a2b0ca8f040e9db8d1a3f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>GetCurrentQueueSize</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a74d972cce5425ec686549b36eb1aa927" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>GetMsgQueueSize</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a764b55b6d4afe3f2337b73da7f9749f4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>GetName</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1ade6e98a5d8b520db07472890165874dd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>GetProcessedMsgCount</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a36f60f827683d11a46e783e8ce8a4b6f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>GetStats</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1aa17fdee2304b48750278aa1773ec09b7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a3f433fe3cfdc0d45ca52b529044735a7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>m_rts</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a54debb9953a9eb21f9a8a13da3d56546" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>ParaNPLRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a760778679f012b25892ed3071486ad12" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>ParaNPLRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a5bd065db8b7f6a67b0702b0b8c522d3d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>ParaNPLRuntimeState</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a7a5a4ce3b0092cbd8e2f600370a697e7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>PeekMessage</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a220f820d2f8fdff2bd0616c4b7918823" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>PopMessageAt</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a2de1be60d2571a39e7cd8edf7503c5f9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>Reset</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a6802c813d03f3b50ad8e58e982bc54bc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>Reset1</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1ae7820e714d606875d975018224467b9d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>SetMsgQueueSize</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1ab63c518a48e050d9988c967213a35f3e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>Start</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a8f226bd3b27f262d0b8a4b8fd70f1a41" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>Stop</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a08a20fca2a8ea78e745c8a3dba7d0b86" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>WaitForMessage</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1af4f82447b7c52ea272172227ab79d168" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>WaitForMessage2</name></member>
+      <member refid="class_para_scripting_1_1_para_n_p_l_runtime_state_1a84b97b01e1e49cdcf172480e7b113c2f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNPLRuntimeState</scope><name>~ParaNPLRuntimeState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

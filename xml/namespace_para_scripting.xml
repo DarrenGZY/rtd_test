@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespace_para_scripting" kind="namespace" language="C++">
+    <compoundname>ParaScripting</compoundname>
+    <innerclass refid="class_para_scripting_1_1_c_n_p_l" prot="public">ParaScripting::CNPL</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_n_p_l_runtime_state" prot="public">ParaScripting::ParaNPLRuntimeState</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ParaScriptingNPL.h" line="11" column="1"/>
+  </compounddef>
+</doxygen>
