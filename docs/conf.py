@@ -47,7 +47,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'test'
+project = u'NPL'
 copyright = u'2017, Zhiyuan'
 author = u'Zhiyuan'
 
