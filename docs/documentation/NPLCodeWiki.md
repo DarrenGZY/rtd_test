@@ -1,5 +1,5 @@
-NPL Code Wiki
-==================
+# NPL Code Wiki
+
 NPL Code Wiki is a web site which can be served directly from your local computer using NPL Runtime. 
 It provides you a way to communicate with NPL Runtime via any web browser. 
 * NPL Code Wiki is designed to help people learn and practice NPL programming. 

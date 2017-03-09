@@ -1,5 +1,5 @@
-Multi-Threading
-----------------------
+# Multi-Threading
+
 In NPL, multi-threading is handled in the same way as networking communication. 
 In other words, activating scripts in other local threads is virtually the same as calling scripts running on another computer. You simply communicate with remote script file with the `NPL.activate` in the same way for both local threads and remote computers. The only difference is that the target script url is different. 
 

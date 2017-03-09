@@ -1,5 +1,4 @@
-Bootstrapping
-===================
+# Bootstrapping
 
 Bootstrapping is to specify the first script file to load when starting NPL runtime, it will also be activated every 0.5 seconds. There are several ways to do it via [[command line|NPLCommandLine]]. 
 

@@ -1,4 +1,4 @@
-## MCML Markup Language For 2D GUI
+# MCML Markup Language For 2D GUI
 MCML or Micro Cosmos Markup Language is a meta language written in NPL since 2008, since then it has become the standard of writing 2D user interface in NPL. MCML is inspired by early version of ASP.net, however it uses local architecture for local user interface. 
 
 ### Quick Sample

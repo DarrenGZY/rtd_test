@@ -1,4 +1,4 @@
-## 2D GUI Windows
+# 2D GUI Windows
 
 A `System.Windows.Window` is the primary container for 2D GUI. There are multiple ways to create windows. 
 The most common way is to use `mcml` markup language. The programing model is like writing `HTML/js` web page. 

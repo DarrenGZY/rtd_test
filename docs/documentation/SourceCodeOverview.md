@@ -1,5 +1,5 @@
-NPL Source Code Overview
---------------------------
+# NPL Source Code Overview
+
 This is a brief overview of NPL source code. The best way to learn NPL is to read its source code. 
 
 All NPL related source code is distributed as [packages](npl_packages). 

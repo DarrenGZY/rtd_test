@@ -1,6 +1,6 @@
 > We highly recommend the native database system in NPL: [[TableDatabase|UsingTableDatabase]]. It is way faster and built-in with NPL runtime. 
 
-## Using MySql Client
+# Using MySql Client
 
 ### Install Guide
 * On linux platform, mysql client is by default installed when you build NPLRuntime from source code. You should find a `libluasql.so` in NPL runtime directory.

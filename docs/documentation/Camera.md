@@ -1,4 +1,4 @@
-## Camera
+# Camera
 ParaEngine has build-in C++ support for a very versatile camera object, called AutoCamera. 
 AutoCamera is the default camera used when you are inside a 3d world. 
 

@@ -1,4 +1,4 @@
-## Debugging And Logs
+# Debugging And Logs
 There are many ways to debug your NPL scripts, including printing logs, via [[NPL Code Wiki|NPLCodeWiki]], or via IDE like visual studio or vscode, etc.  
 
 ## Logs in NPL

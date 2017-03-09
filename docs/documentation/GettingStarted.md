@@ -1,5 +1,4 @@
-Getting Started with NPL
-----------------------------
+# Getting Started with NPL
 
 The syntax of NPL is 100% compatible with lua. If you are unfamiliar with lua, the only book you need is 
 > Book: [Programming in Lua](http://www.lua.org/pil/contents.html)

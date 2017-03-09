@@ -1,4 +1,4 @@
-## Serialization, Encoding and Logging
+# Serialization, Encoding and Logging
 
 - Serialization: [script/ide/serialization.lua](https://github.com/NPLPackages/main/tree/master/script/ide/serialization.lua)
 - Encoding: [script/ide/Encoding.lua](https://github.com/NPLPackages/main/tree/master/script/ide/Encoding.lua)

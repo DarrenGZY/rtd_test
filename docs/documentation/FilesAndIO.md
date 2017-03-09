@@ -1,4 +1,4 @@
-## Files API
+# Files API
 
 ### Search Files
 - Files: [script/ide/Files.lua](https://github.com/NPLPackages/main/tree/master/script/ide/Files.lua)

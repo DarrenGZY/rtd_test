@@ -1,4 +1,4 @@
-## Deploy NPL Web Server With SSL (https)
+# Deploy NPL Web Server With SSL (https)
 This post shows `How To Configure Nginx with SSL as a Reverse Proxy for NPL Web Server`.
 
 ### Why NPL Does Not Support SSL Natively?

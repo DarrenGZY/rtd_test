@@ -1,4 +1,4 @@
-## Asset Manifest & Asynchronous Asset Loading 
+# Asset Manifest & Asynchronous Asset Loading 
 A graphical application usually depends on tons of assets (textures, models, etc) to process and render. It is usually not possible deploy all assets to client machine at installation time, instead assets are downloaded from the server usually on first use. 
 
 NPL/ParaEngine has built-in support for asynchronous asset loading via asset manifest system. Basically it resolves two problems:

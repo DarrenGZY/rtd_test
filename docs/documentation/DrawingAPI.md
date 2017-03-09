@@ -1,4 +1,4 @@
-## Drawing With 2D API
+# Drawing With 2D API
 There are two low-level ways to draw 2d graphical objects. 
 
 - One is via creating ParaUIObject controls (like buttons, containers, editbox). These controls are managed in C++ and created in NPL scripts. 

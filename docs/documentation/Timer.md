@@ -1,4 +1,4 @@
-## Timer
+# Timer
 - Encoding: [script/ide/timer.lua](https://github.com/NPLPackages/main/tree/master/script/ide/timer.lua)
 
 ```lua

@@ -1,5 +1,4 @@
-Hello World in NPL
-========================
+# Hello World in NPL
 
 This tutorial demonstrates 
 * how to setup a simple development environment 

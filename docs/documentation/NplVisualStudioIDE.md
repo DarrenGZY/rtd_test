@@ -1,4 +1,4 @@
-## Developing With Visual Studio IDE
+# Developing With Visual Studio IDE
 Although one can use any text editor that support lua syntax highlighting to develop/debug NPL program fairly easily, we recommend using the free visual studio community edition. We have developed several useful plugins to help you write code faster in visual studio. 
 
 ### Install IDE and Plugins

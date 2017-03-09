@@ -1,4 +1,4 @@
-## NPL Load File
+# NPL Load File
 In NPL code, one may call something like `NPL.load("script/ide/commonlib.lua")` to load a file. 
 All NPL code needs to be compiled in order to run. `NPL.load` does following things automatically for you. 
 - find the correct file either in NPL zip package or according to NPL search path defined in [[npl_packages]] and automatically use precompiled binary version (`*.o`) if available (see [[DeployGuide]]).

@@ -1,4 +1,4 @@
-##  Embedding NPLRuntime
+#  Embedding NPLRuntime
 NPLRuntime comes with a general purpose executable for launching NPL based applications. This is the standard usage of NPLRuntime. 
 
 However, some client application may prefer embedding NPLRuntime in their own executable file, or even as child window of their own application. This is possible via NPLRuntime dll or (`paraengineclient.dll`) under windows platform. 

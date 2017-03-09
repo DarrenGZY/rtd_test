@@ -1,5 +1,5 @@
-File Activation
-----------------
+# File Activation
+
 NPL can communicate with remote NPL script using the `NPL.activate` function. It is a powerful function, and is available in C++, mono plugin too. 
 
 ## Basic Syntax

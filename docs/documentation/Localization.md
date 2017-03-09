@@ -1,4 +1,4 @@
-## Localization
+# Localization
 
 There are some helper class for you to implement localization. For best practices, please see example in paracraft package, which uses `poedit` to edit and store localization strings with multi-languages.
 

@@ -1,4 +1,4 @@
-## NPL vs Lua
+# NPL vs Lua
 NPL embeds the small Lua/luajit compiler, and adds tons of native C/C++ API and new programming paradigms, making NPL a general purpose language/runtime. 
 
 Lua is an embedded language with the world fastest JIT compiler. The entire lua runtime is written in 6000 lines of code, making it very small and memory efficient to be embedded in another host language/runtime. 

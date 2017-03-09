@@ -1,4 +1,4 @@
-## NPL Architecture
+# NPL Architecture
 
 Figure 1.0: [NPL Architecture Stack](https://sketchboard.me/NzZQDl1sCrGu#/)
 
