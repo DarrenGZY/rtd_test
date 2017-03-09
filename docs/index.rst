@@ -10,6 +10,7 @@ Welcome to test's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   3DOverview
    ParaMovieCtrler
    ParaBlockWorld
 

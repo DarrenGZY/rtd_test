@@ -19,6 +19,7 @@
 import os
 import sys
 import sphinx_rtd_theme
+from recommonmark.parser import CommonMarkParser
 # sys.path.insert(0, os.path.abspath('.'))
 sys.path.append('../breathe')
 
@@ -41,7 +42,12 @@ templates_path = ['']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']
 
 # The master toctree document.
 master_doc = 'index'
