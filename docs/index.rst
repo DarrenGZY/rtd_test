@@ -14,7 +14,7 @@ The main documentation for the site is organized into two sections:
 
    documentation/WhatIsNPL
    documentation/InstallGuide
-   documentation/ProjectsWrittenInNPL
+   documentation/projects
 
 .. _references:
 
