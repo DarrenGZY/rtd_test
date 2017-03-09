@@ -3,6 +3,7 @@ Install NPL Runtime
 You can redistribute NPLRuntime side-by-side with your scripts and resource files on windows/linux/iOS, etc.
 However, this section is only about installing NPL runtime to your development computer and setting up a recommended coding environment for NPL. 
 
+#Installation
 ## Install on Windows
 ### Install from Windows Installer 
 It is very easy to install on windows. The win32 executable of NPL runtime is currently released in two forms, choose one that is most suitable to you:
