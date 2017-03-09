@@ -1,5 +1,5 @@
 ParaBlockWorld
 ============
-.. doxygenclass:: ParaScripting::ParaBlockWorld
+.. doxygennamespace:: ParaScripting
    :project: nutshell
    :members:

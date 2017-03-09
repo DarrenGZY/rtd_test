@@ -1,11 +1,6 @@
 Welcome to NPL
 ========================
 
-The main documentation for the site is organized into two sections:
-
-* :ref:`whatisnpl`
-* :ref:`references`
-
 .. _whatisnpl:
 
 .. toctree::
