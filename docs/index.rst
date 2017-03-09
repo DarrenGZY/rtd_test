@@ -1,16 +1,27 @@
-.. test documentation master file, created by
-   sphinx-quickstart on Wed Mar 08 14:33:50 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to NPL
+========================
 
-Welcome to test's documentation!
-================================
+The main documentation for the site is organized into two sections:
+
+* :ref:`docs`
+* :ref:`references`
+
+.. _docs:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Documentation
+
+   documentation/WhatIsNPL
+   documentation/InstallGuide
+   documentation/ProjectsWrittenInNPL
+
+.. _references:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: API References
 
-   3DOverview
-   ParaMovieCtrler
-   ParaBlockWorld
+   reference/ParaBlockWorld
+
 
