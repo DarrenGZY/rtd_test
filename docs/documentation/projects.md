@@ -1,5 +1,4 @@
-Projects Written in NPL
--------------------------
+#Projects Written in NPL
 
 The following applications are completely written in NPL. 
 
