@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_c_asset_script_callback_data" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::CAssetScriptCallbackData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_c_asset_script_callback_data_1a53ee26603d935acb17a75d4ad8f2b08a" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ParaScripting::CAssetScriptCallbackData::m_sCallbackScript</definition>
+        <argsstring></argsstring>
+        <name>m_sCallbackScript</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="192" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_c_asset_script_callback_data_1a6d077e3e8b455828c4315bcef3e444a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::CAssetScriptCallbackData::CAssetScriptCallbackData</definition>
+        <argsstring>(const char *sCallbackScript)</argsstring>
+        <name>CAssetScriptCallbackData</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCallbackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="191" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="191" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_asset_script_callback_data_1a0931d60c5a6543ef1280c1d3b22f0b48" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::CAssetScriptCallbackData::operator()</definition>
+        <argsstring>(int nResult, AssetFileEntry *pAssetFileEntry)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>int</type>
+          <declname>nResult</declname>
+        </param>
+        <param>
+          <type>AssetFileEntry *</type>
+          <declname>pAssetFileEntry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="193" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="193" bodyend="209"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>terrain mask file callback data </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="189" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="188" bodyend="210"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_c_asset_script_callback_data_1a6d077e3e8b455828c4315bcef3e444a0" prot="public" virt="non-virtual"><scope>ParaScripting::CAssetScriptCallbackData</scope><name>CAssetScriptCallbackData</name></member>
+      <member refid="class_para_scripting_1_1_c_asset_script_callback_data_1a53ee26603d935acb17a75d4ad8f2b08a" prot="public" virt="non-virtual"><scope>ParaScripting::CAssetScriptCallbackData</scope><name>m_sCallbackScript</name></member>
+      <member refid="class_para_scripting_1_1_c_asset_script_callback_data_1a0931d60c5a6543ef1280c1d3b22f0b48" prot="public" virt="non-virtual"><scope>ParaScripting::CAssetScriptCallbackData</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

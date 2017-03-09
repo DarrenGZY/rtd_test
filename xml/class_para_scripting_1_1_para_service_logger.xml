@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_service_logger" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaServiceLogger</compoundname>
+    <includes refid="_para_scripting_global_8h" local="no">ParaScriptingGlobal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_service_logger_1a0f62b4b16035d012bbdcff16b45d9ce6" prot="public" static="no" mutable="no">
+        <type>ParaEngine::CServiceLogger_ptr</type>
+        <definition>ParaEngine::CServiceLogger_ptr ParaScripting::ParaServiceLogger::m_logger_ptr</definition>
+        <argsstring></argsstring>
+        <name>m_logger_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="137" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1a13e11673cba30747961662280bc36b16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaServiceLogger::ParaServiceLogger</definition>
+        <argsstring>()</argsstring>
+        <name>ParaServiceLogger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="139" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1af33c7f89815ed58611ac425948956442" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaServiceLogger::ParaServiceLogger</definition>
+        <argsstring>(ParaEngine::CServiceLogger_ptr &amp;logger)</argsstring>
+        <name>ParaServiceLogger</name>
+        <param>
+          <type>ParaEngine::CServiceLogger_ptr &amp;</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="140" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1ad0b76b5c72b813745b497df92493d902" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaServiceLogger::~ParaServiceLogger</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaServiceLogger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="141" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1a2fb9279872da32cc808e4380af4ffcf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaServiceLogger::log</definition>
+        <argsstring>(int level, const object &amp;message)</argsstring>
+        <name>log</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>log to the current logger </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="144" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="65" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1a3e08ba40e1cf1747e6eb1f51b564156e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaServiceLogger::GetLevel</definition>
+        <argsstring>()</argsstring>
+        <name>GetLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the assigned Level <simplesect kind="return"><para>Level - the assigned Level </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="150" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="78" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1af83ea1dddb9e381b38400c71940fa718" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaServiceLogger::SetLevel</definition>
+        <argsstring>(const int level1)</argsstring>
+        <name>SetLevel</name>
+        <param>
+          <type>const int</type>
+          <declname>level1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set level of this logger. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="153" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="86" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1a28cd416fde8e62c1003a6446816a8c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaServiceLogger::IsEnabledFor</definition>
+        <argsstring>(int level)</argsstring>
+        <name>IsEnabledFor</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check whether this logger is enabled for a given Level passed as parameter. <simplesect kind="return"><para>bool True if this logger is enabled for level. It just checks (level&gt;=this-&gt;m_level) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="159" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="95" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1acde158a770159fc5b1d7e18b174c1a50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaServiceLogger::SetAppendMode</definition>
+        <argsstring>(bool bAppendToExistingFile)</argsstring>
+        <name>SetAppendMode</name>
+        <param>
+          <type>bool</type>
+          <declname>bAppendToExistingFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>by default, append mode is enabled in server mode, and disabled in client build. <simplesect kind="note"><para>: only call this function when no log is written before using the logger. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="164" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="111" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1a1226bd92e484790fdd585b49b4d22700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaServiceLogger::SetLogFile</definition>
+        <argsstring>(const char *sFileName)</argsstring>
+        <name>SetLogFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>change the log file. <simplesect kind="note"><para>: only call this function when no log is written before using the logger. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>such as &quot;log/test.log&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="170" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="119" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_service_logger_1a542794f6c854bb6ce8eeafdaa1a89e62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaServiceLogger::SetForceFlush</definition>
+        <argsstring>(bool bForceFlush)</argsstring>
+        <name>SetForceFlush</name>
+        <param>
+          <type>bool</type>
+          <declname>bForceFlush</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if true we will flush the new log to file immediately. otherwise, flush operation is determined by the system. default to true for client log and false for service log. <simplesect kind="note"><para>: only call this function when no log is written before using the logger. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="176" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="103" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>service logger </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="135" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="134" bodyend="177"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a3e08ba40e1cf1747e6eb1f51b564156e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>GetLevel</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a28cd416fde8e62c1003a6446816a8c1b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>IsEnabledFor</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a2fb9279872da32cc808e4380af4ffcf5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>log</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a0f62b4b16035d012bbdcff16b45d9ce6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>m_logger_ptr</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a13e11673cba30747961662280bc36b16" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>ParaServiceLogger</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1af33c7f89815ed58611ac425948956442" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>ParaServiceLogger</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1acde158a770159fc5b1d7e18b174c1a50" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>SetAppendMode</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a542794f6c854bb6ce8eeafdaa1a89e62" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>SetForceFlush</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1af83ea1dddb9e381b38400c71940fa718" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>SetLevel</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1a1226bd92e484790fdd585b49b4d22700" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>SetLogFile</name></member>
+      <member refid="class_para_scripting_1_1_para_service_logger_1ad0b76b5c72b813745b497df92493d902" prot="public" virt="non-virtual"><scope>ParaScripting::ParaServiceLogger</scope><name>~ParaServiceLogger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

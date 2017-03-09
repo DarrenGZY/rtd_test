@@ -1,0 +1,782 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Table Database &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using MySql Client" href="UsingMySql.html" />
+    <link rel="prev" title="NPL Admin Site Framework" href="AdminSiteFramework.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="table-database">
+<span id="table-database"></span><h1>Table Database<a class="headerlink" href="#table-database" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">Table</span> <span class="pre">database</span></code> is implemented in NPL and is the default and recommended database engine. It can be used without any external dependency or configuration.</p>
+<div class="section" id="introduction-to-table-database">
+<span id="introduction-to-table-database"></span><h2>Introduction to Table Database<a class="headerlink" href="#introduction-to-table-database" title="Permalink to this headline">¶</a></h2>
+<p>A schema-less, server-less, NoSQL database able to process big data in multiple NPL threads, with extremly intuitive table-like API,
+automatic indexing and extremely fast searching, keeping data and algorithm in one system <em>just like how the human brain works</em>.</p>
+</div>
+<div class="section" id="local-storage-api-vs-full-featured-database-solution">
+<span id="local-storage-api-vs-full-featured-database-solution"></span><h2>Local Storage API vs Full-Featured Database Solution<a class="headerlink" href="#local-storage-api-vs-full-featured-database-solution" title="Permalink to this headline">¶</a></h2>
+<p>The raw table database has no configuration file. Please regard the raw table database as a local storage API provided by NPL, rather than a full-featured database solution. However its performance is good enough to be used as the database engine for medium sized projects. You need to write application-level code to have something like authentication, and data replication/hashing on multiple computers, etc. However, in future, some of these functions may be provided as additional libraries on top of the raw table database to provide enterprise level database solution that runs on multiple nodes.</p>
+</div>
+<div class="section" id="performance">
+<span id="performance"></span><h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>Following is tested on my Intel-i7-3GHZ CPU. See <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Database/test/test_TableDatabase.lua">test folder</a> for test source code.</p>
+<div class="section" id="run-with-conservative-mode">
+<span id="run-with-conservative-mode"></span><h3>Run With Conservative Mode<a class="headerlink" href="#run-with-conservative-mode" title="Permalink to this headline">¶</a></h3>
+<p>Following is averaged value from 100000+ operations in a single thread</p>
+<ul class="simple">
+<li>Random non-index insert: <code class="docutils literal"><span class="pre">43478</span> <span class="pre">inserts/second</span></code><ul>
+<li>Async API tested with default configuration with 1 million records on a single thread.</li>
+</ul>
+</li>
+<li>Round trip latency call:<ul>
+<li>Blocking API: <code class="docutils literal"><span class="pre">20000</span> <span class="pre">query/s</span></code></li>
+<li>Non-blocking API: <code class="docutils literal"><span class="pre">11ms</span></code> or <code class="docutils literal"><span class="pre">85</span> <span class="pre">query/s</span></code> (due to NPL time slice)</li>
+<li>i.e. Round strip means start next operation after previous one is returned. This is latency test.</li>
+</ul>
+</li>
+<li>Random indexed inserts: <code class="docutils literal"><span class="pre">17953</span> <span class="pre">query/s</span></code><ul>
+<li>i.e. start next operation immediately, without waiting for the first one to return.</li>
+</ul>
+</li>
+<li>Random select with auto-index: <code class="docutils literal"><span class="pre">18761</span> <span class="pre">query/s</span></code><ul>
+<li>i.e. same as above, but with findOne operation.</li>
+</ul>
+</li>
+<li>Randomly mixing CRUD operations: <code class="docutils literal"><span class="pre">965-7518</span></code> query/s<ul>
+<li>i.e. same as above, but randomly calling Create/Read/Update/Delete (CRUD) on the same auto-indexed table.</li>
+<li>Mixing read/write can be slow when database grows bigger. e.g. you can get <code class="docutils literal"><span class="pre">18000</span> <span class="pre">CRUD/s</span></code> for just 10000 records.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="run-with-aggressive-mode">
+<span id="run-with-aggressive-mode"></span><h3>Run With Aggressive Mode<a class="headerlink" href="#run-with-aggressive-mode" title="Permalink to this headline">¶</a></h3>
+<p>One can also use in-memory journal file or ignore OS disk write feedback to further increase DB throughput by 30-100% percent.
+See <code class="docutils literal"><span class="pre">Store.lua</span></code> for details. By default, this feature is off.</p>
+<p>Code Examples:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+    <span class="c1">-- this will start both db client and db server if not.</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">);</span>
+    
+    <span class="c1">-- Note: `db.User` will automatically create the `User` collection table if not.</span>
+    <span class="c1">-- clear all data</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">makeEmpty</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;deleted&quot;</span><span class="o">..</span><span class="p">(</span><span class="n">count</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">))</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- insert 1</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;1@1&quot;</span><span class="p">,},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">email</span><span class="o">==</span><span class="s2">&quot;1@1&quot;</span><span class="p">)</span>     <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- insert 1 with duplicate name</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;1@1.dup&quot;</span><span class="p">,},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">email</span><span class="o">==</span><span class="s2">&quot;1@1.dup&quot;</span><span class="p">)</span>     <span class="kr">end</span><span class="p">)</span>
+    
+    <span class="c1">-- find or findOne will automatically create index on `name` and `email` field.</span>
+    <span class="c1">-- indices are NOT forced to be unique. The caller needs to ensure this see `insertOne` below. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">2</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;1@1&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">email</span><span class="o">==</span><span class="s2">&quot;1@1&quot;</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- find with compound index of name and email</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="p">[</span><span class="s2">&quot;+name+email&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1@1&quot;</span><span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    
+    <span class="c1">-- force insert</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;123&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>  <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- this is an update or insert command, if the query has result, it will actually update first matching row rather than inserting one. </span>
+    <span class="c1">-- this is usually a good way to force uniqueness on key or compound keys, </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>   <span class="kr">end</span><span class="p">)</span>
+
+    <span class="c1">-- insert another one</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>     <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- update one</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">updateOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- remove and update fields</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">updateOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,},</span> <span class="p">{</span><span class="n">_unset</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;password&quot;</span><span class="p">},</span> <span class="n">updated</span><span class="o">=</span><span class="s2">&quot;with unset&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="kc">nil</span> <span class="ow">and</span> <span class="n">data</span><span class="p">.</span><span class="n">updated</span><span class="o">==</span><span class="s2">&quot;with unset&quot;</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- replace the entire document</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">replaceOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">updated</span><span class="o">==</span><span class="kc">nil</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- force flush to disk, otherwise the db IO thread will do this at fixed interval</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">flush</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">bFlushed</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">bFlushed</span><span class="o">==</span><span class="kc">true</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- select one, this will automatically create `name` index</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">findOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">);</span>   <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- array field such as {&quot;password&quot;, &quot;1&quot;} are additional checks, but does not use index. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">findOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">);</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- search on non-unqiue-indexed rows, this will create index `email` (not-unique index)</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">2</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- search and filter result with password==&quot;1&quot;</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">},</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- find all rows with custom timeout 1 second</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">4</span><span class="p">);</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="c1">-- remove item</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">deleteOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">count</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- wait flush may take up to 3 seconds</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">waitflush</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">bFlushed</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">bFlushed</span><span class="o">==</span><span class="kc">true</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- set cache to 2000KB</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">exec</span><span class="p">({</span><span class="n">CacheSize</span><span class="o">=-</span><span class="mi">2000</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- run select command from Collection </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;Select * from Collection&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- remove index fields</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">removeIndex</span><span class="p">({</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">bSucceed</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="n">bSucceed</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- full table scan without using index by query with array items.</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;LXZ&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span><span class="o">==</span><span class="s2">&quot;LXZ&quot;</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- find with left subset of previously created compound key &quot;+name+email&quot;</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="p">[</span><span class="s2">&quot;+name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">2</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- return at most 1 row whose id is greater than -1</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">_id</span> <span class="o">=</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">skip</span> <span class="o">==</span> <span class="mi">1</span><span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">rows</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;all tests succeed!&quot;</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="why-a-new-database-system">
+<span id="why-a-new-database-system"></span><h2>Why A New Database System?<a class="headerlink" href="#why-a-new-database-system" title="Permalink to this headline">¶</a></h2>
+<p>Current SQL/NoSQL implementation can not satisfy following requirements at the same time.</p>
+<ul class="simple">
+<li>Keeping data close to computation, much like our brain.</li>
+<li>Store arbitrary data without schema.</li>
+<li>Automatic indexing based on query usage.</li>
+<li>Provide both blocking/non-blocking API.</li>
+<li>Multithreaded architecture without using network connections for maximum local performance.</li>
+<li>Capable of storing hundreds of Giga Bytes of data locally.</li>
+<li>Native document storage format for NPL tables.</li>
+<li>Super easy client API just like manipulating standard NPL/lua tables.</li>
+<li>Easy to setup and deploy with NPL runtime.</li>
+<li>No server configuration, calling client API will automatically start the server on first use.</li>
+</ul>
+</div>
+<div class="section" id="about-transactions">
+<span id="about-transactions"></span><h2>About Transactions<a class="headerlink" href="#about-transactions" title="Permalink to this headline">¶</a></h2>
+<p>Each <code class="docutils literal"><span class="pre">write/insert</span></code> operation is by default a write command (virtual transaction).
+We will periodically (default is 50ms, see <code class="docutils literal"><span class="pre">Store.AutoFlushInterval</span></code>) flush all queued commands into disk.
+Everything during these period will either succeed or fail.
+If you are worried about data lose, you can manually invoke <code class="docutils literal"><span class="pre">flush</span></code> command, however doing so
+will greatly compromise performance. Please note <code class="docutils literal"><span class="pre">flush</span></code> command will affect the overall throughput of the entire DB system.
+In general, you can only get about <code class="docutils literal"><span class="pre">20-100</span></code> flush(real transactions) per second. Without enforcing transaction on each command, you can easily get a throughput of <code class="docutils literal"><span class="pre">6000</span></code> write commands per second (i.e. could be <code class="docutils literal"><span class="pre">100</span> <span class="pre">times</span></code> faster).</p>
+<blockquote>
+<div>There is one solution to get both high throughput and transaction.</div></blockquote>
+<p>The following solution give you ACID of a single command. After issuing a really important group of commands, and you want to ensure that these commands are actually successful like a transaction, the client can issue a <code class="docutils literal"><span class="pre">waitflush</span></code> command to check if the previous commands are successful. Please note that <code class="docutils literal"><span class="pre">waitflush</span></code> command may take up to 50ms or <code class="docutils literal"><span class="pre">Store.AutoFlushInterval</span></code> to return. You can make all calls asynchronous, so 99.99% times user get a fast feed back, but there is a very low chance that user may be informed of failure after 50ms. On client side, you may also need to prevent user to issue next transaction in 50ms,In most cases, users do not click mouse that quick, so this hidden logic goes barely noticed.</p>
+<p>The limitation of the above approach is that you can only know whether a group of commands has been successfully flushed to disk, but you can not rollback your changes, nor can you know which commands fail and which are successful in case of multiple commands.</p>
+</div>
+<div class="section" id="opinion-on-software-achitecture">
+<span id="opinion-on-software-achitecture"></span><h2>Opinion on Software Achitecture<a class="headerlink" href="#opinion-on-software-achitecture" title="Permalink to this headline">¶</a></h2>
+<p>Like the brain, we recommend that each computer manages its own chunk of data.
+As modern computers are having more computing cores, it is possible for a single (virtual) machine
+to manage 100-500GB of data locally or 1000 requests per second. Using a local database engine is the best choice
+in such situation for both performance and ease of deployment.</p>
+<p>To scale up to even more data and requests, we devide data with machines and use higher level
+programming logics for communications. In this way, we control all the logics with our own code,
+rather than using general-purpose solutions like memcached, MangoDB(NoSQL), or SQLServer, etc.</p>
+</div>
+<div class="section" id="implementation-details">
+<span id="implementation-details"></span><h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Each data table(collections of data) is stored in a single sqlite database file.</li>
+<li>Each database file contains a indexed mapping from object-id to object-table(document).</li>
+<li>Each database file contains a schema table telling additional index keys used.</li>
+<li>Each database file contains a key to object-id table for each custom index key.</li>
+<li>All DB IO operations are performaned in a single dedicated NPL thread.</li>
+</ul>
+<p>The above general idea can also be found in commercial database engine like <a class="reference external" href="http://cortex-ag.com/">CortexDB</a>, see below.
+<img alt="tabledb" src="https://cloud.githubusercontent.com/assets/94537/15766809/45a99964-2975-11e6-8e02-0ee797b1d4ce.png" /></p>
+</div>
+<div class="section" id="user-guide">
+<span id="user-guide"></span><h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
+<p>Because Table database is schema-less.  It requires some caution of the programmer during development.</p>
+<div class="section" id="auto-key-index">
+<span id="auto-key-index"></span><h3>Auto Key Index<a class="headerlink" href="#auto-key-index" title="Permalink to this headline">¶</a></h3>
+<p>By default, when you are inserting records into the database, it will have only one internal unique key called <code class="docutils literal"><span class="pre">_id</span></code>.
+All subsequent query commands such as <code class="docutils literal"><span class="pre">findOne</span></code> or <code class="docutils literal"><span class="pre">find</span></code> or <code class="docutils literal"><span class="pre">insertOne</span></code>, <code class="docutils literal"><span class="pre">deleteOne</span></code>, <code class="docutils literal"><span class="pre">updateOne</span></code> command with query fields, such as <code class="docutils literal"><span class="pre">name</span></code> will automatically add a new index key with corresponding name such as <code class="docutils literal"><span class="pre">name</span></code>, and rebuild the index table for all existing records. Please note, all indices are NOT-constraint to be unique, it is up to the caller to ensure index usage. Different records with the same key value are all stored in the index table.</p>
+<blockquote>
+<div>One can also force not-to-use index when querying by using array items rather than key,value pairs in the query parameter, see below.</div></blockquote>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+    <span class="c1">-- this will start both db client and db server if not.</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">);</span>
+    
+    <span class="c1">-- Note: `db.User` will automatically create the `User` collection table if not.</span>
+    <span class="c1">-- clear all data</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">makeEmpty</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;deleted&quot;</span><span class="o">..</span><span class="p">(</span><span class="n">count</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">))</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- insert 1</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;1@1&quot;</span><span class="p">,},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>    <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- insert 1 with duplicate name</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;1@1.dup&quot;</span><span class="p">,},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>    <span class="kr">end</span><span class="p">)</span>
+    
+    <span class="c1">-- find or findOne will automatically create index on `name` and `email` field.</span>
+    <span class="c1">-- indices are NOT forced to be unique. The caller needs to ensure this see `insertOne` below. </span>
+    <span class="c1">-- this will return two records using one index table `name`</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="n">echo</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- this will return one record using two index table `name` and `email`</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;1@1&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span> <span class="n">echo</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span> <span class="kr">end</span><span class="p">);</span>
+    
+    <span class="c1">-- force insert, insertOne with no query parameter will force insertion.</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;123&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>    <span class="kr">end</span><span class="p">)</span>
+    <span class="c1">-- this is an update or insert command, if the query has result, it will actually update first matching row rather than inserting one. </span>
+    <span class="c1">-- this is usually a good way to force uniqueness on key or compound keys </span>
+    <span class="c1">-- so the following will update existing record rather than inserting a new one</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>   <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All query fields in <code class="docutils literal"><span class="pre">findOne</span></code>, <code class="docutils literal"><span class="pre">updateOne</span></code>, etc can contain array items, which performs additional filter checks without automatically create index, like below. <code class="docutils literal"><span class="pre">name</span></code> is an indexed key, where as <code class="docutils literal"><span class="pre">password</span></code> and <code class="docutils literal"><span class="pre">email</span></code> are not, so they need be specified as array items in the query parameter.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="c1">-- array fields such as {&quot;password&quot;, &quot;1&quot;} are additional checks, but does not use index. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">findOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="n">echo</span><span class="p">(</span><span class="n">user</span><span class="p">);</span> <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In case, you make a mistake with index during development, please use <code class="docutils literal"><span class="pre">DB</span> <span class="pre">manager</span></code> in NPL code wiki to remove any index that you accidentally create. or simply call <code class="docutils literal"><span class="pre">removeIndex</span></code> to remove all or given index keys.</p>
+<div class="section" id="force-key-uniqueness-and-upsert">
+<span id="force-key-uniqueness-and-upsert"></span><h4>Force Key Uniqueness and <code class="docutils literal"><span class="pre">Upsert</span></code><a class="headerlink" href="#force-key-uniqueness-and-upsert" title="Permalink to this headline">¶</a></h4>
+<p>If you want to force uniqueness on a given key, one can specify the unique key in query field when inserting a new record, which turns the <code class="docutils literal"><span class="pre">insertOne</span></code> command into an <code class="docutils literal"><span class="pre">Upsert</span></code> command. See below:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- this is an update or insert command, if the query has result, it will actually update first matching row rather than inserting one. </span>
+<span class="c1">-- this is usually a good way to force uniqueness on key or compound keys </span>
+<span class="c1">-- so the following will update existing record rather than inserting a new one</span>
+<span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>   <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Some notes:</p>
+<ul class="simple">
+<li>Query commands such as <code class="docutils literal"><span class="pre">find</span></code>, <code class="docutils literal"><span class="pre">findOne</span></code>, <code class="docutils literal"><span class="pre">insertOne</span></code> will automatically create index for fields in query parameter, unless field is specified in array format.</li>
+<li>Query with mixed index and non-index is done by fetching using index first and then filter result with non-indexed fields. If there is no indexed fields, then non-indexed query can be very slow, since it will linearly search on all records, which can be very slow.</li>
+<li>Query with multiple fields is supported. It will first fetch ids using each index field, and calculate the shared ids and then fetch these rows in a batch.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="write-ahead-log-and-checkpointing">
+<span id="write-ahead-log-and-checkpointing"></span><h3>Write-Ahead-Log and Checkpointing<a class="headerlink" href="#write-ahead-log-and-checkpointing" title="Permalink to this headline">¶</a></h3>
+<p>By default, TableDatabase uses <a class="reference external" href="https://www.sqlite.org/wal.html">write-ahead-log</a>.
+We will flush data to WAL file every 50ms; and we will do WAL checkpoint every 5 seconds or 1000 dirty pages.
+One can configure these two intervals, like below. However, it is not recommended to change these values.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/Store.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">Store</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.Store&quot;</span><span class="p">);</span>
+<span class="c1">-- We will wait for this many milliseconds when meeting the first non-queued command before commiting to disk. So if there are many commits in quick succession, it will not be IO bound. </span>
+<span class="n">Store</span><span class="p">.</span><span class="n">AutoFlushInterval</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">Store</span><span class="p">.</span><span class="n">AutoCheckPointInterval</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div>Checkpointing may take 10ms-1000ms depending on usage, during which time it will block all write operations, so one may experience a latency in API once in a while.</div></blockquote>
+</div>
+<div class="section" id="message-queue-size">
+<span id="message-queue-size"></span><h3>Message Queue Size<a class="headerlink" href="#message-queue-size" title="Permalink to this headline">¶</a></h3>
+<p>One can set the message queue size for both the calling thread and db processor thread.
+The default value is good enough for most situations.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">.</span><span class="n">name</span><span class="p">:</span><span class="n">exec</span><span class="p">({</span><span class="n">QueueSize</span><span class="o">=</span><span class="mi">10001</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="memory-cache-size">
+<span id="memory-cache-size"></span><h3>Memory Cache Size<a class="headerlink" href="#memory-cache-size" title="Permalink to this headline">¶</a></h3>
+<p>Change the suggested maximum number of database disk pages that TableDatabase will hold in memory at once per open database file. The default suggested cache size is -2000, which means the cache size is limited to 2048KB of memory. You can set it to a much bigger value, since it is only allocated on demand. Negative value is KB, Positive is number of pages, each page is 4KB.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">.</span><span class="n">name</span><span class="p">:</span><span class="n">exec</span><span class="p">({</span><span class="n">CacheSize</span><span class="o">=-</span><span class="mi">2000</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bulk-operations-and-message-deliver-guarantee">
+<span id="bulk-operations-and-message-deliver-guarantee"></span><h3>Bulk Operations and Message Deliver Guarantee<a class="headerlink" href="#bulk-operations-and-message-deliver-guarantee" title="Permalink to this headline">¶</a></h3>
+<p>Table database usually has a high throughout such as 5000-40000 requests/sec. However, if you are doing bulk insertion of millions of records. You should do chunk by chunk using callbacks, otherwise you will either reach the limit of NPL thread buffer or TCP socket buffer(in case it is remote process).  A good way is to keep at most 1000 active requests at any one time (<code class="docutils literal"><span class="pre">System.Concurrency</span></code> has helper class for this kind of jobs). This way you can get a good throughput with message delivery guarantees.</p>
+<p>Following is example of inserting 1 million records (takes about 23 seconds). You can paste following code to NPL Code Wiki&#8217;s console to test.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+
+        <span class="c1">-- this will start both db client and db server if not.</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">);</span>
+    
+    <span class="n">db</span><span class="p">.</span><span class="n">insertNoIndex</span><span class="p">:</span><span class="n">makeEmpty</span><span class="p">({});</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">insertNoIndex</span><span class="p">:</span><span class="n">flush</span><span class="p">({});</span>
+        
+    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/Debugger/NPLProfiler.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">npl_profiler</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;commonlib.npl_profiler&quot;</span><span class="p">);</span>
+    <span class="n">npl_profiler</span><span class="p">.</span><span class="n">perf_reset</span><span class="p">();</span>
+
+    <span class="n">npl_profiler</span><span class="p">.</span><span class="n">perf_begin</span><span class="p">(</span><span class="s2">&quot;tableDB_BlockingAPILatency&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">total_times</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span> <span class="c1">-- a million non-indexed insert operation</span>
+    <span class="kd">local</span> <span class="n">max_jobs</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">-- concurrent jobs count</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Concurrent/Parallel.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">Parallel</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Concurrent.Parallel&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">p</span><span class="p">:</span><span class="n">RunManyTimes</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">insertNoIndex</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">math.random</span><span class="p">()},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="kr">if</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="kr">then</span>
+                <span class="n">echo</span><span class="p">({</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">});</span>
+            <span class="kr">end</span>
+            <span class="n">p</span><span class="p">:</span><span class="n">Next</span><span class="p">();</span>
+        <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">,</span> <span class="n">total_times</span><span class="p">,</span> <span class="n">max_jobs</span><span class="p">):</span><span class="n">OnFinished</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+        <span class="n">npl_profiler</span><span class="p">.</span><span class="n">perf_end</span><span class="p">(</span><span class="s2">&quot;tableDB_BlockingAPILatency&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+        <span class="n">log</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">npl_profiler</span><span class="p">.</span><span class="n">perf_get</span><span class="p">(),</span> <span class="kc">true</span><span class="p">));</span>            
+    <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div>In future version, we may support build-in Bulk API.</div></blockquote>
+</div>
+<div class="section" id="async-vs-sync-api">
+<span id="async-vs-sync-api"></span><h3>Async vs Sync API<a class="headerlink" href="#async-vs-sync-api" title="Permalink to this headline">¶</a></h3>
+<p>Table database provides both sync and asynchronous API, and they can be use simultaneously.
+However, sync interface is disabled by default. One has to manually enable it, such as during initialization.
+In sync interface, if you do not provide a callback function, then the API block until result is returned, otherwise the API return AsyncTask object immediately. See following example:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- enable sync mode once and for all in current thread.</span>
+<span class="n">db</span><span class="p">:</span><span class="n">EnableSyncMode</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">-- synchronous call will block until data is fetched. </span>
+<span class="kd">local</span> <span class="n">err</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;sync mode&quot;</span><span class="p">})</span>
+<span class="c1">-- async call return a task object immediately without waiting result. </span>
+<span class="kd">local</span> <span class="n">task</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;sync mode&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Synchronous call will pause the entire NPL thread, and is <code class="docutils literal"><span class="pre">NOT</span></code> the recommended to use, that is why we disabled this feature by default.</p>
+<p>Instead, during web development, there is another way to use async API in synchronous way, which is to use coroutine.
+In NPL web server, we provide <code class="docutils literal"><span class="pre">resume/yield</span></code>. See [[NPLServerPage]]&#8216;s mixing sync/async code section.</p>
+</div>
+<div class="section" id="ranged-query-and-pagination">
+<span id="ranged-query-and-pagination"></span><h3>Ranged Query and Pagination<a class="headerlink" href="#ranged-query-and-pagination" title="Permalink to this headline">¶</a></h3>
+<p>Paging through your data is one of the most common operations with TableDB. A typical scenario is the need to display your results in chunks in your UI. If you are batch processing your data it is also important to get your paging strategy correct so that your data processing can scale.</p>
+<p>Let’s walk through an example to see the different ways of paging through data in TableDB. In this example, we have a database of user data that we need to page through and display 10 users at a time. So in effect, our page size is 10. Let us first create our db with 10000 users of scheme <code class="docutils literal"><span class="pre">{_id,</span> <span class="pre">name,</span> <span class="pre">company,</span> <span class="pre">state}</span></code>.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">);</span> 
+
+    <span class="c1">-- add some data</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span> <span class="kr">do</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">},</span> 
+            <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> <span class="n">company</span><span class="o">=</span><span class="s2">&quot;company&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;state&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">},</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+</pre></div>
+</div>
+<div class="section" id="approach-one-use-limit-and-skip">
+<span id="approach-one-use-limit-and-skip"></span><h4>Approach One: Use <code class="docutils literal"><span class="pre">limit</span></code> and <code class="docutils literal"><span class="pre">skip</span></code><a class="headerlink" href="#approach-one-use-limit-and-skip" title="Permalink to this headline">¶</a></h4>
+<p>TableDB support <code class="docutils literal"><span class="pre">limit</span></code> and <code class="docutils literal"><span class="pre">offset|skip</span></code> key words in query parameter on an indexed field or the internal <code class="docutils literal"><span class="pre">_id</span></code> field.
+<code class="docutils literal"><span class="pre">offset</span> <span class="pre">or</span> <span class="pre">skip</span></code> tells TableDB to skip some items before returning at most <code class="docutils literal"><span class="pre">limit</span></code> number of items. <code class="docutils literal"><span class="pre">gt</span></code> means <code class="docutils literal"><span class="pre">greater</span> <span class="pre">than</span></code> to select a given range of data.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="c1">-- page 1</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">gt</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">0</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- page 2</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">gt</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">10</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- page 3</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">gt</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">20</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You get the idea. In general to retrieve page <code class="docutils literal"><span class="pre">n</span></code> the code looks like this</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="kd">local</span> <span class="n">pagesize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="kd">local</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">gt</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">pagesize</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">pagesize</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>However as the <code class="docutils literal"><span class="pre">offset</span></code> of your data increases this approach has serious performance problems. The reason is that every time the query is executed, the server has to walk from the beginning of the first non-skipped row to the specified offset. As your offset increases this process gets slower and slower.  Also this process does not make efficient use of the indexes.  So typically the <code class="docutils literal"><span class="pre">skip</span></code> and <code class="docutils literal"><span class="pre">limit</span></code> approach is useful when you have small <code class="docutils literal"><span class="pre">offset</span></code>. If you are working with large data sets with very big <code class="docutils literal"><span class="pre">offset</span></code> values you need to consider other approaches.</p>
+</div>
+<div class="section" id="approach-two-using-find-and-limit">
+<span id="approach-two-using-find-and-limit"></span><h4>Approach Two: Using <code class="docutils literal"><span class="pre">find</span></code> and <code class="docutils literal"><span class="pre">limit</span></code><a class="headerlink" href="#approach-two-using-find-and-limit" title="Permalink to this headline">¶</a></h4>
+<p>The reason the previous approach does not scale very well is the <code class="docutils literal"><span class="pre">skip</span></code> command. So the goal in this section is to implement paging without using the <code class="docutils literal"><span class="pre">skip</span></code> command. For this we are going to leverage the natural order in the stored data like a time stamp or an id stored in the document. In this example we are going to use the <code class="docutils literal"><span class="pre">_id</span></code> stored in each document. <code class="docutils literal"><span class="pre">_id</span></code> is a TableDB auto-increased internal id.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="c1">-- page 1</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">_id</span> <span class="o">=</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="n">echo</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+        <span class="c1">-- Find the id of the last document in this page</span>
+        <span class="kd">local</span> <span class="n">last_id</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="o">#</span><span class="n">users</span><span class="p">].</span><span class="n">_id</span><span class="p">;</span>
+
+        <span class="c1">-- page 2</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">pagedUsers</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">_id</span> <span class="o">=</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="n">last_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+           <span class="n">echo</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+           <span class="c1">-- Find the id of the last document in this page</span>
+           <span class="kd">local</span> <span class="n">last_id</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="o">#</span><span class="n">users</span><span class="p">].</span><span class="n">_id</span><span class="p">;</span>
+           <span class="c1">-- page 3</span>
+           <span class="c1">-- ...</span>
+        <span class="kr">end</span><span class="p">);</span>
+    <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice how the <code class="docutils literal"><span class="pre">gt</span></code> keywords to select rows whose values is <code class="docutils literal"><span class="pre">greater</span> <span class="pre">than</span></code> the specified value and sort data in ascending order. One can do this for any indexed field, either it is number or string, see below for ranged query in TableDB:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+
+    <span class="c1">-- this will start both db client and db server if not.</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">);</span> 
+
+    <span class="c1">-- add some data</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="kr">do</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">rangedTest</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">},</span> <span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">},</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+    <span class="c1">-- return at most 5 records with i &gt; 90, skipping 2. result in ascending order</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">rangedTest</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">i</span> <span class="o">=</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="mi">95</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">2</span><span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span>
+        <span class="n">echo</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span> <span class="c1">--&gt; 98,99,100</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- return at most 20 records with _id &gt; 98, result in ascending order</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">rangedTest</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">_id</span> <span class="o">=</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="mi">98</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">20</span><span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span>
+        <span class="n">echo</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span> <span class="c1">--&gt; 99,100</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- do a full table scan without using index</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">rangedTest</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="mi">55</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span> <span class="p">},</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">lt</span><span class="o">=</span><span class="s2">&quot;data60&quot;</span><span class="p">}</span> <span class="p">},</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span>
+        <span class="n">echo</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span> <span class="c1">--&gt; 57,58</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="n">db</span><span class="p">.</span><span class="n">rangedTest</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">gt</span> <span class="o">=</span> <span class="mi">55</span><span class="p">}</span> <span class="p">},</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;data60&quot;</span><span class="p">},</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span>
+        <span class="n">echo</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span> <span class="c1">--&gt; 60</span>
+    <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div>Please note that array fields in query object will not auto-create or use any index, instead a full table scan is performed which can be slow. Ranged query is also supported in array fields, but it is implemented via full table scan.</div></blockquote>
+<blockquote>
+<div>Compound key is more suitable for ranged query see Compound keys section below for how to use it.</div></blockquote>
+</div>
+<div class="section" id="count-record">
+<span id="count-record"></span><h4>Count Record<a class="headerlink" href="#count-record" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>Rule of thumb: avoid using <code class="docutils literal"><span class="pre">count</span></code>!</div></blockquote>
+<p>Implementation of full paging usually requires you to get the count of all items in a database. However, it is not trivial to get accurate count. SQL query like <code class="docutils literal"><span class="pre">select</span> <span class="pre">count(*)</span> <span class="pre">as</span> <span class="pre">count</span> <span class="pre">from</span> <span class="pre">Collection</span></code> may take seconds or even minutes to return for tables with many rows like 100 millions. This is because almost every SQL engine uses B-tree, but B-tree does not store count. The same story is true for both TableDB, MySQL, etc.</p>
+<p>For a faster count, you can create a counter table and let your application update it according to the inserts and deletes it does. Or you may not allow the user to scroll to the last page, but show more pages progressively.</p>
+<p>If you do not mind the performance or your table size is small, TableDB provides the <code class="docutils literal"><span class="pre">count</span></code> query</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">);</span> 
+    
+    <span class="n">db</span><span class="p">.</span><span class="n">countTest</span><span class="p">:</span><span class="n">removeIndex</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">bRemoved</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- compound keys</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="kr">do</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">countTest</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">},</span> <span class="p">{</span> 
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> 
+            <span class="n">company</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;tatfook&quot;</span> <span class="ow">or</span> <span class="s2">&quot;paraengine&quot;</span><span class="p">,</span> 
+            <span class="n">state</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;china&quot;</span> <span class="ow">or</span> <span class="s2">&quot;usa&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+    <span class="c1">-- count all rows</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">countTest</span><span class="p">:</span><span class="n">count</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span> 
+    <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- count with compound keys</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">countTest</span><span class="p">:</span><span class="n">count</span><span class="p">({[</span><span class="s2">&quot;+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tatfook&quot;</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">50</span><span class="p">)</span> 
+    <span class="kr">end</span><span class="p">);</span>
+    <span class="c1">-- count with complex query</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">countTest</span><span class="p">:</span><span class="n">count</span><span class="p">({[</span><span class="s2">&quot;+state+name+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;china&quot;</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="s2">&quot;name50&quot;</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">19</span><span class="p">)</span> 
+    <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compound-indices">
+<span id="compound-indices"></span><h3>Compound Indices<a class="headerlink" href="#compound-indices" title="Permalink to this headline">¶</a></h3>
+<p>To efficiently query data with multiple key values, one needs to use compound indices.
+Please note a compound key of (key1, key2, key3) can also be used to query (key1, key2) and (key1), so the order of subkeys are very important.</p>
+<p>If you created a compound index say on (key1, key2, key3), then only the right most key in the query can contain ranged constraint, all other keys to its left such as (key1 and key2) must be present (no gaps) and specified in equal constraint.</p>
+<p>To understand compound indices, one needs to understand how index works in standard relational database engine, because a TableDB query usually use only one internal index to do all the complex queries and an index is a B-tree. So compound index can not be used where B-tree is not capable of. Read query planner of sqlite <a class="reference external" href="https://www.sqlite.org/optoverview.html">here</a> for more details.</p>
+<p>The syntax of using compound key is by prepending &#8220;+|-&#8221; to one or more field names, such as &#8220;+key1+key2+key3&#8221;, there can be at most 4 sub keys, see below for examples. &#8220;+&#8221; means ascending order, &#8220;-&#8221; means descending order.</p>
+<p>Examples:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Database/TableDatabase.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">TableDatabase</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Database.TableDatabase&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">TableDatabase</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;temp/mydatabase/&quot;</span><span class="p">);</span> 
+    
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">removeIndex</span><span class="p">({},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">bRemoved</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- compound keys</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="kr">do</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">insertOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">},</span> <span class="p">{</span> 
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> 
+            <span class="n">company</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;tatfook&quot;</span> <span class="ow">or</span> <span class="s2">&quot;paraengine&quot;</span><span class="p">,</span> 
+            <span class="n">state</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;china&quot;</span> <span class="ow">or</span> <span class="s2">&quot;usa&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+    <span class="c1">-- compound key can also be created on single field &quot;+company&quot;. it differs from standard key &quot;company&quot;. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">find</span><span class="p">({[</span><span class="s2">&quot;+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;paraengine&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">3</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">users</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- create a compound key on +company+name (only the right most key can be paged)</span>
+    <span class="c1">-- `+` means index should use ascending order, `-` means descending. such as &quot;+company-name&quot;</span>
+    <span class="c1">-- it will remove &quot;+company&quot; key, since the new component key already contains the &quot;+company&quot;. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">find</span><span class="p">({[</span><span class="s2">&quot;+company+name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tatfook&quot;</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">3</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">users</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- a query of exact same left keys after a compound key is created will automatically use </span>
+    <span class="c1">-- the previously created compound key, so &quot;+company&quot;,  &quot;+company+name&quot; in following query are the same.</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">find</span><span class="p">({[</span><span class="s2">&quot;+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tatfook&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">3</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">users</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- the order of key names in compound index is important. for example:</span>
+    <span class="c1">-- &quot;+company+state+name&quot; shares the same compound index with &quot;+company&quot; and &quot;+company+state&quot;</span>
+    <span class="c1">-- &quot;+state+name+company&quot; shares the same compound index with &quot;+state&quot; and &quot;+state+name&quot;</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">find</span><span class="p">({[</span><span class="s2">&quot;+state+name+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;china&quot;</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="s2">&quot;name50&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">3</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">users</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- compound keys with descending order. Notice the &quot;-&quot; sign before `name`.</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">find</span><span class="p">({[</span><span class="s2">&quot;+state-name+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;china&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">3</span><span class="p">}},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">users</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- updateOne with compound key</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">updateOne</span><span class="p">({[</span><span class="s2">&quot;+state-name+company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;usa&quot;</span><span class="p">,</span> <span class="s2">&quot;name1&quot;</span><span class="p">,</span> <span class="s2">&quot;paraengine&quot;</span><span class="p">}},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;name0_modified&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;name0_modified&quot;</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- this query is ineffient since it uses intersection of single keys (with many duplications). </span>
+    <span class="c1">-- one should consider use &quot;+state+company&quot;, instead of this. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;china&quot;</span><span class="p">,</span> <span class="n">company</span><span class="o">=</span><span class="s2">&quot;tatfook&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="o">#</span><span class="n">users</span> <span class="o">==</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+
+    <span class="c1">-- this query is ineffient since it uses intersection of single keys. </span>
+    <span class="c1">-- one should consider use &quot;+state+company&quot;, instead of this. </span>
+    <span class="n">db</span><span class="p">.</span><span class="n">compoundTest</span><span class="p">:</span><span class="n">count</span><span class="p">({</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;china&quot;</span><span class="p">,</span> <span class="n">company</span><span class="o">=</span><span class="s2">&quot;tatfook&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  
+        <span class="nb">assert</span><span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compound-key-vs-standard-key">
+<span id="compound-key-vs-standard-key"></span><h3>Compound key vs Standard key<a class="headerlink" href="#compound-key-vs-standard-key" title="Permalink to this headline">¶</a></h3>
+<p>Compound key is very different from standard key in terms of internal implementations. They can coexist in the same table even for the same key. For example:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- query with standard key &quot;name&quot;</span>
+<span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,});</span>
+<span class="c1">-- query with compound key &quot;+name&quot;</span>
+<span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">find</span><span class="p">({[</span><span class="s2">&quot;+name&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,});</span>
+</pre></div>
+</div>
+<p>The above code will create two different kinds of internal index tables for the &#8220;name&#8221; field.</p>
+<p>Compound key index table is more similar to traditional relational database table. For example, if one creates a compound key of &#8220;+key1+key2+key3&#8221;, then an internal index table of <code class="docutils literal"><span class="pre">(cid</span> <span class="pre">UNIQUE,</span> <span class="pre">name1,</span> <span class="pre">name2,</span> <span class="pre">name3)</span></code> is created with composite index of <code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">INDEX</span> <span class="pre">(name1,</span> <span class="pre">name2,</span> <span class="pre">name3)</span></code>. For each row in the collection, there is a matching row in its internal index table.</p>
+<p>However, a standard key in tableDB stores index table differently as <code class="docutils literal"><span class="pre">(name</span> <span class="pre">UNIQUE,</span> <span class="pre">cids)</span></code>, where cids is a text array of collection <code class="docutils literal"><span class="pre">cid</span></code>. There maybe far less rows in the internal index table than the actual collection.</p>
+<p>Both keys have advantages and disadvantages, generally speaking:</p>
+<ul class="simple">
+<li>standard key is faster and good for index intersections. Most suitable for keys with 1-1000 duplications.</li>
+<li>compound key is good for sorting and ranged query. Suitable for keys with any duplicated rows.</li>
+</ul>
+<p>The biggest factor that you should use a compound key is that your key&#8217;s values have many duplications.
+For example, if you want to query with <code class="docutils literal"><span class="pre">gender</span></code>+<code class="docutils literal"><span class="pre">age</span></code> with millions of <code class="docutils literal"><span class="pre">user</span></code> records, compound key is the only way to go.</p>
+<p>For other single key situations, standard key is recommended. For example, with standard keys you can get all <code class="docutils literal"><span class="pre">projects</span></code>
+that belongs to a given <code class="docutils literal"><span class="pre">userid</span></code> very efficiently, given that each user has far less than 1000 projects.</p>
+</div>
+<div class="section" id="database-viewer-tools">
+<span id="database-viewer-tools"></span><h3>Database Viewer Tools<a class="headerlink" href="#database-viewer-tools" title="Permalink to this headline">¶</a></h3>
+<p>[[NPLCodeWiki]] contains a <code class="docutils literal"><span class="pre">db</span> <span class="pre">manager</span></code> in its tools menu, which can be used to view and modify data, as well as examine and removing <code class="docutils literal"><span class="pre">table</span> <span class="pre">indices</span></code>. It is very important to examine and remove unnecessary indices due to coding mistakes.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19043995/0451b770-89c5-11e6-9eed-12ea7faa4302.png" /></p>
+</div>
+<div class="section" id="remove-table-fields">
+<span id="remove-table-fields"></span><h3>Remove Table Fields<a class="headerlink" href="#remove-table-fields" title="Permalink to this headline">¶</a></h3>
+<p>To remove table fields, use <code class="docutils literal"><span class="pre">updateOne</span></code> with <code class="docutils literal"><span class="pre">_unset</span></code> query parameter like below.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="c1">-- remove &quot;password&quot; field from the given row</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">updateOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,},</span> <span class="p">{</span><span class="n">_unset</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;password&quot;</span><span class="p">},</span> <span class="n">updated</span><span class="o">=</span><span class="s2">&quot;with unset&quot;</span><span class="p">},</span> 
+       <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>        
+          <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="kc">nil</span> <span class="ow">and</span> <span class="n">data</span><span class="p">.</span><span class="n">updated</span><span class="o">==</span><span class="s2">&quot;with unset&quot;</span><span class="p">)</span> 
+    <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another way is the use <code class="docutils literal"><span class="pre">replaceOne</span></code> to replace the entire document.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- replace the entire document</span>
+<span class="n">db</span><span class="p">.</span><span class="n">User</span><span class="p">:</span><span class="n">replaceOne</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LXZ2&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="nb">assert</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">updated</span><span class="o">==</span><span class="kc">nil</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="always-use-models">
+<span id="always-use-models"></span><h3>Always Use Models<a class="headerlink" href="#always-use-models" title="Permalink to this headline">¶</a></h3>
+<p>In typical web applications, we use model/view/controller (or MVC) architecture.
+A model is usually a wrapper of a single schema-less database record in TableDatabase.
+Usually a model should provide CRUD(create/read/update/delete) operations according to user-defined query.
+It is the model&#8217;s responsibility to ensure input/output are valid, such as whether a string is too long, or whether the caller is querying with a non-indexed key.</p>
+<p>In case, you are using client side controllers, one can use a router page to automatically redirect URL AJAX queries to the model&#8217;s function calls.</p>
+<p>For a complete example of url redirection and model class, please see <code class="docutils literal"><span class="pre">script/apps/WebServer/admin/wp-content/pages/wiki/routes.page</span></code> and <code class="docutils literal"><span class="pre">script/apps/WebServer/admin/wp-content/pages/models/abstract/base.page</span></code></p>
+<p>Following code illustrates the basic ideas.</p>
+<p>Router page such as in <code class="docutils literal"><span class="pre">routes.page</span></code></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>        <span class="kd">local</span> <span class="n">model</span> <span class="o">=</span> <span class="n">models</span> <span class="ow">and</span> <span class="n">models</span><span class="p">[</span><span class="n">modelname</span><span class="p">];</span>
+        <span class="kr">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">model</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="kr">return</span> <span class="n">response</span><span class="p">:</span><span class="n">status</span><span class="p">(</span><span class="mi">404</span><span class="p">):</span><span class="n">send</span><span class="p">({</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;model not found&quot;</span><span class="p">});</span>
+        <span class="kr">else</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+        <span class="kr">end</span>
+
+        <span class="c1">-- redirect CRUB URL to method in model.</span>
+        <span class="kr">if</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">GetMethod</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="kr">if</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">get</span><span class="p">)</span> <span class="kr">then</span>
+                <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">getparams</span><span class="p">());</span>
+                <span class="kr">return</span> <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+            <span class="kr">end</span>
+        <span class="kr">elseif</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">GetMethod</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PUT&quot;</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="kr">if</span><span class="p">(</span><span class="n">params</span> <span class="ow">and</span> <span class="n">params</span><span class="p">:</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^new&quot;</span><span class="p">))</span> <span class="kr">then</span>
+                <span class="kr">if</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">create</span><span class="p">)</span> <span class="kr">then</span>
+                    <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">:</span><span class="n">create</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">getparams</span><span class="p">());</span>
+                    <span class="kr">return</span> <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+                <span class="kr">end</span>
+            <span class="kr">else</span>
+                <span class="kr">if</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">update</span><span class="p">)</span> <span class="kr">then</span>
+                    <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">getparams</span><span class="p">());</span>
+                    <span class="kr">return</span> <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+                <span class="kr">end</span>
+            <span class="kr">end</span>
+        <span class="kr">elseif</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">GetMethod</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="kr">if</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">delete</span><span class="p">)</span> <span class="kr">then</span>
+                <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">request</span><span class="p">:</span><span class="n">getparams</span><span class="p">());</span>
+                <span class="kr">return</span> <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+            <span class="kr">end</span>
+        <span class="kr">end</span>
+</pre></div>
+</div>
+<p>And in model class, such as <code class="docutils literal"><span class="pre">models/site.page</span></code></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;?npl
+--[[
+Title: a single web site of a user
+Author: LiXizhi
+Date: 2016/6/28
+]]
+include_once(&quot;base.page&quot;);
+
+local site = inherit(models.base, gettable(&quot;models.site&quot;));
+
+site.db_name = &quot;site&quot;;
+
+function site:ctor()
+    -- unique name of the website, usually same as owner name
+    self:addfield(&quot;name&quot;, &quot;string&quot;, true, 30);
+    -- markdown text description
+    self:addfield(&quot;desc&quot;, &quot;string&quot;);
+    -- such as &quot;https://github.com/LiXizhi/wiki&quot;
+    self:addfield(&quot;store&quot;, &quot;string&quot;, false, 200);
+    -- owner name, not unique
+    self:addfield(&quot;owner&quot;, &quot;string&quot;, false, 30);
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-replication">
+<span id="data-replication"></span><h3>Data Replication<a class="headerlink" href="#data-replication" title="Permalink to this headline">¶</a></h3>
+<p>TableDB is a fully ACID and fast database (it uses <a class="reference external" href="https://www.sqlite.org/famous.html">Sqlite</a> as its internal storage engine). We are going to support tableDB very actively as an integral part of NPL.
+NPL language itself is designed for parallelism, the current version of tableDB is still a local SQL engine.
+It is hence not hard to use NPL to leverage TableDB to a fully distributed and fault-tolerant database system.</p>
+</div>
+<div class="section" id="todo-raft-implementation-coming-in-2017">
+<span id="todo-raft-implementation-coming-in-2017"></span><h3>TODO: RAFT implementation coming in 2017<a class="headerlink" href="#todo-raft-implementation-coming-in-2017" title="Permalink to this headline">¶</a></h3>
+<p>[[https://raft.github.io/]] is a concensus algorithm that we are going to implement using NPL and TableDB itself to leverage TableDB to support <code class="docutils literal"><span class="pre">master/slave</span></code> data replication for high-availability database systems.</p>
+<p>There are many existing distributed SQL server that are built over similar architecture and use <a class="reference external" href="https://www.sqlite.org/famous.html">Sqlite</a> as the storage engine, like these</p>
+<ul class="simple">
+<li>[[http://www.actordb.com/]]</li>
+<li>[[http://www.cortex-ag.com/]]</li>
+<li>[[https://github.com/rqlite/rqlite]]</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Table Database</a><ul>
+<li><a class="reference internal" href="#introduction-to-table-database">Introduction to Table Database</a></li>
+<li><a class="reference internal" href="#local-storage-api-vs-full-featured-database-solution">Local Storage API vs Full-Featured Database Solution</a></li>
+<li><a class="reference internal" href="#performance">Performance</a><ul>
+<li><a class="reference internal" href="#run-with-conservative-mode">Run With Conservative Mode</a></li>
+<li><a class="reference internal" href="#run-with-aggressive-mode">Run With Aggressive Mode</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#why-a-new-database-system">Why A New Database System?</a></li>
+<li><a class="reference internal" href="#about-transactions">About Transactions</a></li>
+<li><a class="reference internal" href="#opinion-on-software-achitecture">Opinion on Software Achitecture</a></li>
+<li><a class="reference internal" href="#implementation-details">Implementation Details</a></li>
+<li><a class="reference internal" href="#user-guide">User Guide</a><ul>
+<li><a class="reference internal" href="#auto-key-index">Auto Key Index</a><ul>
+<li><a class="reference internal" href="#force-key-uniqueness-and-upsert">Force Key Uniqueness and <code class="docutils literal"><span class="pre">Upsert</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#write-ahead-log-and-checkpointing">Write-Ahead-Log and Checkpointing</a></li>
+<li><a class="reference internal" href="#message-queue-size">Message Queue Size</a></li>
+<li><a class="reference internal" href="#memory-cache-size">Memory Cache Size</a></li>
+<li><a class="reference internal" href="#bulk-operations-and-message-deliver-guarantee">Bulk Operations and Message Deliver Guarantee</a></li>
+<li><a class="reference internal" href="#async-vs-sync-api">Async vs Sync API</a></li>
+<li><a class="reference internal" href="#ranged-query-and-pagination">Ranged Query and Pagination</a><ul>
+<li><a class="reference internal" href="#approach-one-use-limit-and-skip">Approach One: Use <code class="docutils literal"><span class="pre">limit</span></code> and <code class="docutils literal"><span class="pre">skip</span></code></a></li>
+<li><a class="reference internal" href="#approach-two-using-find-and-limit">Approach Two: Using <code class="docutils literal"><span class="pre">find</span></code> and <code class="docutils literal"><span class="pre">limit</span></code></a></li>
+<li><a class="reference internal" href="#count-record">Count Record</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compound-indices">Compound Indices</a></li>
+<li><a class="reference internal" href="#compound-key-vs-standard-key">Compound key vs Standard key</a></li>
+<li><a class="reference internal" href="#database-viewer-tools">Database Viewer Tools</a></li>
+<li><a class="reference internal" href="#remove-table-fields">Remove Table Fields</a></li>
+<li><a class="reference internal" href="#always-use-models">Always Use Models</a></li>
+<li><a class="reference internal" href="#data-replication">Data Replication</a></li>
+<li><a class="reference internal" href="#todo-raft-implementation-coming-in-2017">TODO: RAFT implementation coming in 2017</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="AdminSiteFramework.html" title="previous chapter">NPL Admin Site Framework</a></li>
+      <li>Next: <a href="UsingMySql.html" title="next chapter">Using MySql Client</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/UsingTableDatabase.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/UsingTableDatabase.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

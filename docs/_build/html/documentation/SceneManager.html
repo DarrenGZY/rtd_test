@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3D Scene &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Camera" href="Camera.html" />
+    <link rel="prev" title="File Format" href="FileFormat.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="d-scene">
+<span id="d-scene"></span><h1>3D Scene<a class="headerlink" href="#d-scene" title="Permalink to this headline">¶</a></h1>
+<p>There are a number of 3D objects which one can create via scripting API, such as mesh, physics mesh, sky box, camera, biped character, light, particles, containers, overlays, height map terrain, blocks, animations, shaders, 3D assets, etc.</p>
+<div class="section" id="triangle-limitations">
+<span id="triangle-limitations"></span><h2>Triangle Limitations<a class="headerlink" href="#triangle-limitations" title="Permalink to this headline">¶</a></h2>
+<p>One can set the maximum number of total triangles of animated characters in the 3d scene per frame, like below</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">ParaScene</span><span class="p">.</span><span class="n">GetAttributeObject</span><span class="p">():</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;MaxCharTriangles&quot;</span><span class="p">,</span> <span class="mi">150000</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Faraway objects exceeding this value will be skipped during rendering. Another way of reducing triangle count is via level-of-detail (LOD) when loading mesh or characters. Currently, one must manually provide all LOD of mesh when loading a 3d file.</p>
+</div>
+<div class="section" id="rendering-pipeline">
+<span id="rendering-pipeline"></span><h2>Rendering Pipeline<a class="headerlink" href="#rendering-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>Currently all fixed function, shaders and deferred shading share the same predefined rendering pipelines. The render order can be partially affected by <code class="docutils literal"><span class="pre">RenderImportance</span></code>, <code class="docutils literal"><span class="pre">RenderOrder</span></code>, several <code class="docutils literal"><span class="pre">Shader</span> <span class="pre">files</span></code> property. But in general, it is a fixed general purpose rendering pipeline suitable in most situations.</p>
+<p>The source code of the pipeline is hard-coded in <code class="docutils literal"><span class="pre">SceneObject.cpp's</span> <span class="pre">AdvanceScene()</span></code> function.</p>
+<p>Here is what it does:</p>
+<p>For each active viewport, we do the following:</p>
+<ul class="simple">
+<li>traverse the scene and quad-tree tile manager and call <code class="docutils literal"><span class="pre">PrepareRender()</span></code> for each visible scene object, which will insert the object into a number of predefined global render queues.</li>
+<li><code class="docutils literal"><span class="pre">PIPELINE_3D_SCENE</span></code><ul>
+<li>draw <code class="docutils literal"><span class="pre">MiniSceneGraph</span></code> with local cameras and render into textures</li>
+<li>draw owner-draw objects like render targets.</li>
+<li>draw all m_mirrorSurfaces into local textures</li>
+<li>tesselate <code class="docutils literal"><span class="pre">global</span> <span class="pre">terrain</span></code> according to current camera</li>
+<li>render shadow map for shadow casters queue, and other global object like blocks that cast shadows.</li>
+<li>draw block engine multiframe world texture</li>
+<li>render <code class="docutils literal"><span class="pre">global</span> <span class="pre">terrain</span></code></li>
+<li>draw opaque blocks in block engine</li>
+<li>draw alpha-test enabled blocks in block engine</li>
+<li>draw static meshes in big mesh queue from front to back</li>
+<li>draw static meshes in small mesh queue from back to front</li>
+<li>draw sprite objects queue</li>
+<li>draw animated characters queue</li>
+<li>render selection queue</li>
+<li>render current sky object</li>
+<li>draw block engine multiframe world texture on sky</li>
+<li>draw missile object queue</li>
+<li>draw block engine water reflection pass</li>
+<li>block engine deferred shading post processing for opaque objects</li>
+<li>draw batched transparent particles</li>
+<li>block engine draw all alpha blended blocks</li>
+<li>draw transparent animated characters in transparent biped queue</li>
+<li>block engine deferred shading post processing for alpha blended object</li>
+<li>draw block engine deferred lights</li>
+<li>draw all head-on display</li>
+<li>draw simulated global ocean surface</li>
+<li>draw transparent static mesh objects in transparent mesh queue</li>
+<li>draw transparent triangle face groups</li>
+<li>draw objects in <code class="docutils literal"><span class="pre">post</span> <span class="pre">render</span> <span class="pre">queue</span></code></li>
+<li>draw particle systems</li>
+<li>invoke custom post rendering shaders in NPL script for 3d scene</li>
+<li>draw water waves</li>
+<li>draw helpers for physics world debugging</li>
+<li>draw helpers for bounding boxes of scene objects</li>
+<li>draw portal system</li>
+<li>draw overlays</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">PIPELINE_UI</span></code><ul>
+<li>render all visible GUI objects by traversing the <code class="docutils literal"><span class="pre">GUIRoot</span></code> object.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">PIPELINE_POST_UI_3D_SCENE</span></code><ul>
+<li>only <code class="docutils literal"><span class="pre">MiniSceneGraph</span></code> whose <code class="docutils literal"><span class="pre">GetRenderPipelineOrder()</span> <span class="pre">==</span> <span class="pre">PIPELINE_POST_UI_3D_SCENE</span></code> will be rendered in this pipeline</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">PIPELINE_COLOR_PICKING</span></code></li>
+</ul>
+<div class="section" id="pipeline-customization">
+<span id="pipeline-customization"></span><h3>Pipeline customization<a class="headerlink" href="#pipeline-customization" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">RenderImportance</span></code> property of ParaObject only affects render order in a given queue.</li>
+<li><code class="docutils literal"><span class="pre">RenderOrder</span></code> property of ParaObject will affect which queue the object goes into, as well as the order inside the queue. However, only <code class="docutils literal"><span class="pre">RenderOrder&gt;100</span></code> is used to insert objects to <code class="docutils literal"><span class="pre">post</span> <span class="pre">render</span> <span class="pre">queue</span></code>.</li>
+</ul>
+<p>For example, the following code will ensure the two objects are rendered last and ztest is disabled.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="kd">local</span> <span class="n">asset</span> <span class="o">=</span> <span class="n">ParaAsset</span><span class="p">.</span><span class="n">LoadStaticMesh</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;model/common/editor/z.x&quot;</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">CreateMeshPhysicsObject</span><span class="p">(</span><span class="s2">&quot;blueprint_center&quot;</span><span class="p">,</span> <span class="n">asset</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;1,0,0,0,1,0,0,0,1,0,0,0&quot;</span><span class="p">);</span>
+    <span class="n">obj</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">ParaScene</span><span class="p">.</span><span class="n">GetPlayer</span><span class="p">():</span><span class="n">GetPosition</span><span class="p">());</span>
+    <span class="n">obj</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;progress&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">obj</span><span class="p">:</span><span class="n">GetEffectParamBlock</span><span class="p">():</span><span class="n">SetBoolean</span><span class="p">(</span><span class="s2">&quot;ztest&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="n">obj</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;RenderOrder&quot;</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+    <span class="n">ParaScene</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+
+    <span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">CreateCharacter</span> <span class="p">(</span><span class="s2">&quot;MyPlayer1&quot;</span><span class="p">,</span> <span class="n">ParaAsset</span><span class="p">.</span><span class="n">LoadParaX</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;character/v3/Elf/Female/ElfFemale.x&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">GetPlayer</span><span class="p">():</span><span class="n">GetPosition</span><span class="p">()</span>
+    <span class="n">player</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">);</span>
+    <span class="n">player</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;RenderOrder&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">player</span><span class="p">:</span><span class="n">GetEffectParamBlock</span><span class="p">():</span><span class="n">SetBoolean</span><span class="p">(</span><span class="s2">&quot;ztest&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="n">ParaScene</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3D Scene</a><ul>
+<li><a class="reference internal" href="#triangle-limitations">Triangle Limitations</a></li>
+<li><a class="reference internal" href="#rendering-pipeline">Rendering Pipeline</a><ul>
+<li><a class="reference internal" href="#pipeline-customization">Pipeline customization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="FileFormat.html" title="previous chapter">File Format</a></li>
+      <li>Next: <a href="Camera.html" title="next chapter">Camera</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/SceneManager.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/SceneManager.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

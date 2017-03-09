@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Video Tutorial: Create A Web Site &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Video Tutorial: Create Paracraft Mod" href="TutorialParacraftMod.html" />
+    <link rel="prev" title="Hello World in NPL" href="TutorialHelloWorld.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="video-tutorial-create-a-web-site">
+<span id="video-tutorial-create-a-web-site"></span><h1>Video Tutorial: Create A Web Site<a class="headerlink" href="#video-tutorial-create-a-web-site" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://pan.baidu.com/s/1c20GEi">video</a></p>
+<p>In this video tutorial, you will learn how to create a web site like <a class="reference external" href="https://github.com/tatfook/wikicraft">this</a> with NPL. The following topics will be covered:</p>
+<ul class="simple">
+<li>setup NPL web development environment</li>
+<li>NPL server page programming model</li>
+<li>Debugging and logs</li>
+<li>Use table database</li>
+<li>MVC frameworks for serious web development</li>
+</ul>
+<blockquote>
+<div>For complete explanation behind the scene, please read [[WebServer]]</div></blockquote>
+<div class="section" id="setup-npl-web-development-environment">
+<span id="setup-npl-web-development-environment"></span><h2>Setup NPL web development environment<a class="headerlink" href="#setup-npl-web-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>For more information, see [[Install Guide|InstallGuide]]. The following is only about setting up the recommended IDE under win32.</p>
+<ul class="simple">
+<li>Install <a class="reference external" href="https://git-scm.com/">Git</a> so that you can call <code class="docutils literal"><span class="pre">git</span></code> command from your cmd line.</li>
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/archive/master.zip">ParacraftSDK</a><ul>
+<li>or you can clone it by running:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">LiXizhi</span><span class="o">/</span><span class="n">ParaCraftSDK</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Make sure you have updated to the latest version, by running <code class="docutils literal"><span class="pre">./redist/paracraft.exe</span></code> at least once</li>
+<li>Run <code class="docutils literal"><span class="pre">./NPLRuntime/install.bat</span></code><ul>
+<li>The NPL Runtime will be automatically copied from <code class="docutils literal"><span class="pre">./redist</span></code> folder to <code class="docutils literal"><span class="pre">./NPLRuntime/win/bin</span></code></li>
+<li>The above path will be added to your <code class="docutils literal"><span class="pre">%path%</span></code> variable, so that you can run npl script from any folder.</li>
+</ul>
+</li>
+<li>Download and install <a class="reference external" href="https://www.visualstudio.com/">Visual Studio Community Edition</a>: the free version of <code class="docutils literal"><span class="pre">visual</span> <span class="pre">studio</span></code><ul>
+<li>In visual studio, select <code class="docutils literal"><span class="pre">menu::Tools::Extensions</span></code>, and search online for <code class="docutils literal"><span class="pre">npl</span></code> or <code class="docutils literal"><span class="pre">lua</span></code> to install following plugins:
+<a class="reference external" href="https://visualstudiogallery.msdn.microsoft.com/7782dc20-924a-4726-8656-d876cdbb3417">NPL/Lua language service for visual studio</a>: this will give you all the syntax highlighting, intellisense and debugging capability for NPL in visual studio.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="create-a-new-visual-studio-project">
+<span id="create-a-new-visual-studio-project"></span><h3>Create a New Visual Studio Project<a class="headerlink" href="#create-a-new-visual-studio-project" title="Permalink to this headline">¶</a></h3>
+<p>NPL is a dynamic language, it does not require you to build anything in order to run, so you can create any type of visual studio project you like and begin adding files to it.</p>
+<p>There are two ways to do it. Please use <code class="docutils literal"><span class="pre">the</span> <span class="pre">lazy</span> <span class="pre">way</span></code> but read <code class="docutils literal"><span class="pre">the</span> <span class="pre">manual</span> <span class="pre">one</span></code>.</p>
+<div class="section" id="the-lazy-way">
+<span id="the-lazy-way"></span><h4>The lazy way<a class="headerlink" href="#the-lazy-way" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>run <code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/tatfook/wikicraft.git</span></code></li>
+<li>cd into the source directory and run <code class="docutils literal"><span class="pre">./update_packages.bat</span></code></li>
+<li>open the <code class="docutils literal"><span class="pre">sln</span></code> file with visual studio</li>
+<li>run <code class="docutils literal"><span class="pre">start.bat</span></code>, you will see the npl server started.<ul>
+<li>visit [[http://localhost:8099]] for the main site.</li>
+<li>visit [[http://127.0.0.1:8099]] for the NPL code wiki web site.</li>
+</ul>
+</li>
+<li>rename the project to your preferred name and begin coding in the <code class="docutils literal"><span class="pre">./www</span></code> folder. (see next chapter)</li>
+<li>finally, see the <code class="docutils literal"><span class="pre">configure</span> <span class="pre">the</span> <span class="pre">project</span> <span class="pre">property</span></code> step in <code class="docutils literal"><span class="pre">the</span> <span class="pre">manual</span> <span class="pre">one</span></code> section.</li>
+</ul>
+</div>
+<div class="section" id="the-manual-one">
+<span id="the-manual-one"></span><h4>The manual one<a class="headerlink" href="#the-manual-one" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>create an empty visual studio project: such as a C# library or VC++ empty project.</li>
+<li>install the main <a class="reference external" href="npl_packages">npl package</a> into your project root directory.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">npl_packages</span>
+<span class="n">cd</span> <span class="n">npl_packages</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NPLPackages</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>configure the project property to tell <code class="docutils literal"><span class="pre">visual</span> <span class="pre">studio</span></code> to start NPLRuntime with proper command line parameters when we press <code class="docutils literal"><span class="pre">Ctrl+F5</span></code>.<ul>
+<li>For the external program: we can use either <code class="docutils literal"><span class="pre">npl.bat</span></code> or <code class="docutils literal"><span class="pre">ParaEngineClient.exe</span></code>, see below</li>
+<li>external program: <code class="docutils literal"><span class="pre">D:\lxzsrc\ParaCraftSDKGit\NPLRuntime\win\bin\ParaEngineClient.exe</span></code></li>
+<li>command line parameters: <code class="docutils literal"><span class="pre">bootstrapper=&quot;script/apps/WebServer/WebServer.lua&quot;</span> <span class="pre">port=&quot;8099&quot;</span> <span class="pre">root=&quot;www/&quot;</span> <span class="pre">servermode=&quot;true&quot;</span> <span class="pre">dev=&quot;D:/lxzsrc/wikicraft/&quot;</span></code></li>
+<li>working directory: <code class="docutils literal"><span class="pre">D:/lxzsrc/wikicraft/</span></code>
+<img alt="image" src="https://cloud.githubusercontent.com/assets/94537/18578343/05c96428-7c22-11e6-8f98-fffcd3d22c78.png" /><ul>
+<li>Note: the <code class="docutils literal"><span class="pre">dev</span></code> param and working directory should be the root of your web project directory.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>add main project at <code class="docutils literal"><span class="pre">npl_packages/main/*.csproj</span></code> to your newly created solution file, so that you have all the source code of NPL and NPL web server for debugging and documentation. <strong>Reopen your visual studio solution file for NPL documentation intellisense to take effect.</strong></li>
+<li>create <code class="docutils literal"><span class="pre">www/</span></code> directory and add <code class="docutils literal"><span class="pre">index.page</span></code> file to it.</li>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+F5</span></code> in visual studio, and you will launch the web server.<ul>
+<li>visit [[http://localhost:8099/index.page]] in your browser.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="npl-server-page-programming-model">
+<span id="npl-server-page-programming-model"></span><h2>NPL server page programming model<a class="headerlink" href="#npl-server-page-programming-model" title="Permalink to this headline">¶</a></h2>
+<p>NPL web server itself is an open source application written completely in NPL. For its complete source code, please see <code class="docutils literal"><span class="pre">script/apps/WebServer/WebServer.lua</span></code> in the <a class="reference external" href="https://github.com/NPLPackages/main/">main</a> npl_package.</p>
+<p>So to start a website in a given folder such as <code class="docutils literal"><span class="pre">./www/</span></code>, we need to call</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;script/apps/WebServer/WebServer.lua&quot;</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;8099&quot;</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;www/&quot;</span>
+</pre></div>
+</div>
+<p>Normally, we also need to place a file called <code class="docutils literal"><span class="pre">webserver.config.xml</span></code> in the web root folder.
+If no config file is found, <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/apps/WebServer/default.webserver.config.xml"><code class="docutils literal"><span class="pre">default.webserver.config.xml</span></code></a> is used, which will redirect all request without extension to <code class="docutils literal"><span class="pre">index.page</span></code> and serve <code class="docutils literal"><span class="pre">*.npl</span></code>, <code class="docutils literal"><span class="pre">*.page</span></code>, and all static files in the root directory and it will also host NPL code wiki at [[http://127.0.0.1:8099]]. For more information, please see [[WebServer]]</p>
+<div class="section" id="play-with-mixed-code-web-programming">
+<span id="play-with-mixed-code-web-programming"></span><h3>Play with Mixed Code Web Programming<a class="headerlink" href="#play-with-mixed-code-web-programming" title="Permalink to this headline">¶</a></h3>
+<p>NPL server page is a mixed HTML/NPL file, usually with the extension <code class="docutils literal"><span class="pre">.page</span></code>. You can now play with it by creating new <code class="docutils literal"><span class="pre">*.page</span></code> file in <code class="docutils literal"><span class="pre">./www/</span></code> directory under visual studio. For more information, see [[NPLServerPage]].</p>
+<p><strong>Intellisense in visual studio</strong></p>
+<p>If you have installed NPL language service plugin and added main package csproj to your solution, you should already noticed intellisense in your visual studio IDE for all <code class="docutils literal"><span class="pre">*.lua,</span> <span class="pre">*.npl,</span> <span class="pre">*.page</span></code> files.
+Everything under <code class="docutils literal"><span class="pre">./Documentation</span></code> folder is used for auto-code completion.  Please see <code class="docutils literal"><span class="pre">npl_packages/main/Documentation/</span></code>, you can also add your own intellisense by adding xml files to your own project&#8217;s &#8216;./Documentation&#8217; folder. For more information, please see [[NplVisualStudioIDE]].</p>
+<p><img alt="NPL language service" src="https://visualstudiogallery.msdn.microsoft.com/site/view/file/205772/1/NPLLanguageService2.png" /></p>
+</div>
+<div class="section" id="toggle-page-editing-mode">
+<span id="toggle-page-editing-mode"></span><h3>Toggle Page Editing Mode<a class="headerlink" href="#toggle-page-editing-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>One can toggle between two editing mode when writing <code class="docutils literal"><span class="pre">*.page</span></code> file in visual studio<ul>
+<li>right click the page file in solution manager, and select <code class="docutils literal"><span class="pre">open</span> <span class="pre">with...</span></code></li>
+<li>the default text editor will highlight NPL code in the page file, while all HTML text are greyed out</li>
+<li>the HTML editor will highlight all html tags and all npl code are greyed out. (see below)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/18735242/f9c59ce6-80ae-11e6-919e-f6d6c5bac157.png" /></p>
+<p>You can toggle between these mode depending on whether you are working on HTML or code.</p>
+</div>
+<div class="section" id="how-does-it-work">
+<span id="how-does-it-work"></span><h3>How Does It Work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h3>
+<p>At runtime, server page is preprocessed into pure NPL script and then executed.</p>
+<p>For example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;&lt;body&gt;</span>
+<span class="cp">&lt;?</span><span class="nx">npl</span>  <span class="k">for</span> <span class="nx">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span> <span class="k">do</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">   &lt;p&gt;hello&lt;/p&gt;</span>
+<span class="cp">&lt;?</span><span class="nx">npl</span>  <span class="nb">end</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/body&gt;&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>Above server page will be pre-processed into following NPL page script, and cached for subsequent requests.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;&quot;</span><span class="p">);</span>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span> <span class="kr">do</span>
+ <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;hello&lt;/p&gt;&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">echo</span> <span class="p">(</span><span class="s2">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>When running above page script, <code class="docutils literal"><span class="pre">echo</span></code> command will generate the final HTML response text to be sent back to client.</p>
+</div>
+<div class="section" id="internals-and-performance">
+<span id="internals-and-performance"></span><h3>Internals and Performance<a class="headerlink" href="#internals-and-performance" title="Permalink to this headline">¶</a></h3>
+<p>Normally, a single NPL server can serve over 1000 dynamic page requests per seconds and with millions of concurrent connections (limited by your OS). It can serve over 40000 req/sec if it is very simple dynamic page without database query. See [[NPLPerformance]] and [[WebServer]] for details.</p>
+<p>Unlike other preprocessed page language like <code class="docutils literal"><span class="pre">PHP</span></code>, database queries inside npl page file are actually invoked asynchronously, but written in the more human-friendly synchronous fashion. Please see <code class="docutils literal"><span class="pre">Use</span> <span class="pre">table</span> <span class="pre">database</span></code> chapter for details.</p>
+</div>
+</div>
+<div class="section" id="debugging-and-logs">
+<span id="debugging-and-logs"></span><h2>Debugging and logs<a class="headerlink" href="#debugging-and-logs" title="Permalink to this headline">¶</a></h2>
+<p>Most page errors are rendered to the HTTP stream, which is usually directly visible in your browser. For complete or more hidden errors, please keep <code class="docutils literal"><span class="pre">./log.txt</span></code> in your working directory open, so that you can read most recent error logs in it. Your error is usually either a <code class="docutils literal"><span class="pre">syntax</span></code> error or a <code class="docutils literal"><span class="pre">runtime</span></code> error.</p>
+<p><strong>To debug with NPL Code wiki</strong></p>
+<ul class="simple">
+<li>Launch your website</li>
+<li>Right click on a line in visual studio and select <code class="docutils literal"><span class="pre">NPL</span> <span class="pre">set</span> <span class="pre">breakpoint</span> <span class="pre">here</span></code> in the context menu.</li>
+<li>The <code class="docutils literal"><span class="pre">http://127.0.0.1:8099/debugger</span></code> page will be opened.<ul>
+<li>Please note, your actual web site is at <code class="docutils literal"><span class="pre">http://localhost:8099</span></code>. They are two different websites hosted on the same port by the same NPL process, you can use the first <code class="docutils literal"><span class="pre">127.0.0.1</span></code> website to debug the second <code class="docutils literal"><span class="pre">localhost</span></code> website, because both web sites share the same NPL runtime stack/memory/code.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="setbreakpoint" src="https://cloud.githubusercontent.com/assets/94537/16826877/ccc6e736-49b3-11e6-9937-a72703a84ef2.png" /></p>
+<p>Please see [[DebugAndLog]] for general purpose NPL debugging.</p>
+</div>
+<div class="section" id="use-table-database">
+<span id="use-table-database"></span><h2>Use table database<a class="headerlink" href="#use-table-database" title="Permalink to this headline">¶</a></h2>
+<p>Table database is written in NPL and is the default and recommended database engine for your website. It can be used without any external dependency or configuration.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;body&gt;
+&lt;?
+-- connect to TableDatabase (a NoSQL db engine written in NPL)
+db = TableDatabase:new():connect(&quot;database/npl/&quot;, function() end);
+
+db.TestUser:findOne({name=&quot;user1&quot;}, resume);
+local err, user = yield(); -- async wait when job is done
+
+if(not user) then
+    -- insert 5 records to database asynchronously.
+    local finishedCount = 0;
+    for i=1, 5 do
+        db.TestUser:insertOne({name=(&quot;user&quot;..i)}, {name=(&quot;user&quot;..i), password=&quot;1&quot;}, function(err, data)
+            finishedCount = finishedCount + 1;
+            if(finishedCount == 5) then
+                resume();
+            end
+        end);
+    end
+    yield(); -- async wait when job is done
+
+    echo(&quot;&lt;p&gt;we just created &quot;..finishedCount..&quot; users in `./database/npl/TestUser.db`&lt;/p&gt;&quot;)
+else
+    echo(&quot;&lt;p&gt;users already exist in database, print them&lt;/p&gt;&quot;)
+end
+
+-- fetch all users from database asynchronously.
+db.TestUser:find({}, function(err, users)  resume(err, users); end);
+err, users = yield(); -- async wait when job is done
+?&gt;
+
+&lt;?npl for i, user in ipairs(users) do ?&gt;
+    i = &lt;?=i?&gt;, name=&lt;? echo(user.name) ?&gt; &lt;br/&gt;
+&lt;?npl end ?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>Try above code. See [[UsingTableDatabase]] for details.</p>
+</div>
+<div class="section" id="mvc-frameworks-for-serious-web-development">
+<span id="mvc-frameworks-for-serious-web-development"></span><h2>MVC frameworks for serious web development<a class="headerlink" href="#mvc-frameworks-for-serious-web-development" title="Permalink to this headline">¶</a></h2>
+<p>There are many ways to write MVC framework with NPL. For robust web development, we will introduce the MVC coding style used in <a class="reference external" href="https://github.com/tatfook/wikicraft">this</a> sample web site.</p>
+<p>The pros of using MVC framework is that:</p>
+<ul class="simple">
+<li>Making your website robust and secure</li>
+<li>Reuse the same code for both client/server side API calls.</li>
+<li>Writing less code for robust http <code class="docutils literal"><span class="pre">rest</span> <span class="pre">API</span></code></li>
+</ul>
+<p><strong>It begins with a router page</strong></p>
+<p>All dynamic page requests are handled by a single file <a class="reference external" href="https://github.com/tatfook/wikicraft/blob/master/www/index.page"><code class="docutils literal"><span class="pre">index.page</span></code></a>, which calls <a class="reference external" href="https://github.com/tatfook/wikicraft/blob/master/www/wiki/routes.page"><code class="docutils literal"><span class="pre">routes.page</span></code></a>.</p>
+<p>The router page will check whether the request is a ajax rest API request or a normal page request according to its url.
+For example, every request url that begins with <code class="docutils literal"><span class="pre">/api/[name]/...</span></code> is regarded as an API request, and everything else is a normal page request.</p>
+<p>If it is a ajax API request, we will simply route it by loading the corresponding page file in <code class="docutils literal"><span class="pre">models/[name].page</span></code>.
+In other words, if you placed a <code class="docutils literal"><span class="pre">user.page</span></code> file in <code class="docutils literal"><span class="pre">models</span></code> directory, you have already created a set of ajax HTTP rest API on the url <code class="docutils literal"><span class="pre">/api/user/...</span></code>.</p>
+<p>Normally, all of your model file should inherit from a carefully-written <a class="reference external" href="https://github.com/tatfook/wikicraft/blob/master/www/wiki/models/abstract/base.page"><code class="docutils literal"><span class="pre">base</span></code></a> model class. So that you can define a robust data-binding interface to your low-level database system or anything else.</p>
+<p>For example, the <a class="reference external" href="https://github.com/tatfook/wikicraft/blob/master/www/wiki/models/project.page">models/project.page</a>, defines basic CRUD interface to <code class="docutils literal"><span class="pre">create/get/update/delete</span></code> records in the <code class="docutils literal"><span class="pre">project.db</span></code> database table. It also defines a custom ajax api at <code class="docutils literal"><span class="pre">project:api_getminiproject()</span></code> which is automatically mapped to the url <code class="docutils literal"><span class="pre">api/project/getminiproject/</span></code> in the router page (i.e. every method that begins with <code class="docutils literal"><span class="pre">api_</span></code> in the model class is a public rest API).</p>
+<p>How you write your model class and define the mapping rules are completely up to you. The example website just gives you an example of writing model class.</p>
+<p>As a website developer, you can choose to query model data on the client side with HTTP calls, or on the server side by directly calling model class method. Generally speaking, client side frameworks like <code class="docutils literal"><span class="pre">angular</span></code>, etc prefer everything to be called on the client side. We also favors client side query in most cases unless it is absolutely necessary to do it on the server side, such as content needs to be rendered on the server so that it is search-engine friendly.</p>
+</div>
+<div class="section" id="final-word">
+<span id="final-word"></span><h2>Final Word<a class="headerlink" href="#final-word" title="Permalink to this headline">¶</a></h2>
+<p>NPL used to be targeted at <code class="docutils literal"><span class="pre">3D/TCP</span> <span class="pre">server</span></code> development since 2005. NPL for Web development was introduced in early 2016, which is relatively new. So if there are errors or questions, please report on our <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/issues">issues</a>.</p>
+<p><strong>Hope you enjoy your NPL programming~</strong></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Video Tutorial: Create A Web Site</a><ul>
+<li><a class="reference internal" href="#setup-npl-web-development-environment">Setup NPL web development environment</a><ul>
+<li><a class="reference internal" href="#create-a-new-visual-studio-project">Create a New Visual Studio Project</a><ul>
+<li><a class="reference internal" href="#the-lazy-way">The lazy way</a></li>
+<li><a class="reference internal" href="#the-manual-one">The manual one</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-server-page-programming-model">NPL server page programming model</a><ul>
+<li><a class="reference internal" href="#play-with-mixed-code-web-programming">Play with Mixed Code Web Programming</a></li>
+<li><a class="reference internal" href="#toggle-page-editing-mode">Toggle Page Editing Mode</a></li>
+<li><a class="reference internal" href="#how-does-it-work">How Does It Work?</a></li>
+<li><a class="reference internal" href="#internals-and-performance">Internals and Performance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#debugging-and-logs">Debugging and logs</a></li>
+<li><a class="reference internal" href="#use-table-database">Use table database</a></li>
+<li><a class="reference internal" href="#mvc-frameworks-for-serious-web-development">MVC frameworks for serious web development</a></li>
+<li><a class="reference internal" href="#final-word">Final Word</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="TutorialHelloWorld.html" title="previous chapter">Hello World in NPL</a></li>
+      <li>Next: <a href="TutorialParacraftMod.html" title="next chapter">Video Tutorial: Create Paracraft Mod</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/TutorialWebSite.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/TutorialWebSite.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

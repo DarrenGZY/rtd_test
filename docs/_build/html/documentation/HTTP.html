@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTTP request &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Files API" href="FilesAndIO.html" />
+    <link rel="prev" title="Serialization, Encoding and Logging" href="Serialization.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="http-request">
+<span id="http-request"></span><h1>HTTP request<a class="headerlink" href="#http-request" title="Permalink to this headline">¶</a></h1>
+<p>http url request: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/os/GetUrl.lua">script/ide/System/os/GetUrl.lua</a></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- return the content of a given url. </span>
+<span class="c1">-- e.g.  echo(NPL.GetURL(&quot;www.paraengine.com&quot;))</span>
+<span class="c1">-- @param url: url string or a options table of {url=string, postfields=string, form={key=value}, headers={key=value, &quot;line strings&quot;}, json=bool, qs={}}</span>
+<span class="c1">-- if .json is true, code will be decoded as json.</span>
+<span class="c1">-- if .qs is query string table</span>
+<span class="c1">-- if .postfields is a binary string to be passed in the request body. If this is present, form parameter will be ignored. </span>
+<span class="c1">-- @param callbackFunc: a function(rcode, msg, data) end, if nil, the function will not return until result is returned(sync call).</span>
+<span class="c1">--  `rcode` is http return code, such as 200 for success, which is same as `msg.rcode`</span>
+<span class="c1">--  `msg` is the raw HTTP message {header, code=0, rcode=200, data}</span>
+<span class="c1">--  `data` contains the translated response data if data format is a known format like json</span>
+<span class="c1">--    or it contains the binary response body from server, which is same as `msg.data`</span>
+<span class="c1">-- @param option: mostly nil. &quot;-I&quot; for headers only</span>
+<span class="c1">-- @return: return nil if callbackFunc is a function. or the string content in sync call. </span>
+<span class="kr">function</span> <span class="nc">System</span><span class="p">.</span><span class="nc">os</span><span class="p">.</span><span class="nf">GetUrl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">callbackFunc</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/os/GetUrl.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>download file or making standard request</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>System.os.GetUrl(&quot;https://github.com/LiXizhi/HourOfCode/archive/master.zip&quot;, echo);`
+</pre></div>
+</div>
+<ul class="simple">
+<li>get headers only with &#8220;-I&#8221; option.</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">(</span><span class="s2">&quot;https://github.com/LiXizhi/HourOfCode/archive/master.zip&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kr">end</span><span class="p">,</span> <span class="s2">&quot;-I&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>send form KV pairs with http post</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/console?action=getparams&quot;</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>        <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>send multi-part binary forms with http post</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/console?action=printrequest&quot;</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="p">{</span><span class="n">file</span><span class="o">=</span><span class="s2">&quot;dummy.html&quot;</span><span class="p">,</span>    <span class="n">data</span><span class="o">=</span><span class="s2">&quot;&lt;html&gt;&lt;bold&gt;bold&lt;/bold&gt;&lt;/html&gt;&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/html&quot;</span><span class="p">},</span> <span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>     <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>To send any binary data, one can use</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/console?action=printrequest&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{[</span><span class="s2">&quot;content-type&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;application/json&quot;</span><span class="p">},</span> <span class="n">postfields</span><span class="o">=</span><span class="s1">&#39;{&quot;key&quot;:&quot;value&quot;}&#39;</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>       <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>To simplify json encoding, we can send form as json string using following shortcut</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/console?action=getparams&quot;</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">key2</span> <span class="o">=</span><span class="p">{</span><span class="n">subtable</span><span class="o">=</span><span class="s2">&quot;subvalue&quot;</span><span class="p">}</span> <span class="p">}</span> <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>      <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>HTTP PUT request:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/log?action=log&quot;</span><span class="p">,</span> 
+    <span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="n">filecontent</span> <span class="o">=</span> <span class="s2">&quot;binary string here&quot;</span><span class="p">,</span> <span class="p">}</span>
+<span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>     <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>HTTP DELETE request:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/log?action=log&quot;</span><span class="p">,</span> 
+    <span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="n">filecontent</span> <span class="o">=</span> <span class="s2">&quot;binary string here&quot;</span><span class="p">,</span> <span class="p">}</span>
+<span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>     <span class="n">echo</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>On the server side, suppose it is NPL web server, one can get the request body using <code class="docutils literal"><span class="pre">request:GetBody()</span></code> or <code class="docutils literal"><span class="pre">request:getparams()</span></code>. The former will only include request body, while the latter contains url parameters as well.</p>
+<div class="section" id="debugging-http-request">
+<span id="debugging-http-request"></span><h2>Debugging HTTP request<a class="headerlink" href="#debugging-http-request" title="Permalink to this headline">¶</a></h2>
+<p>In NPL Code Wiki&#8217;s console window, one can test raw http request by sending a request to <code class="docutils literal"><span class="pre">/ajax/console?action=printrequest</span></code>, and then check log console for raw request content.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">GetUrl</span><span class="p">({</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8099/ajax/console?action=printrequest&quot;</span><span class="p">,</span> <span class="n">echo</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-server">
+<span id="local-server"></span><h2>Local Server<a class="headerlink" href="#local-server" title="Permalink to this headline">¶</a></h2>
+<p>Local server offers a way for you to download files or making url requests with a cache policy. Local database system is used to backup all url requests. The cached files may be in the database or in native file system.</p>
+<p>For more information, please see <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/localserver">localserver</a></p>
+<div class="section" id="what-is-a-local-server">
+<span id="what-is-a-local-server"></span><h3>what is a local server?<a class="headerlink" href="#what-is-a-local-server" title="Permalink to this headline">¶</a></h3>
+<p>The LocalServer module allows a web application to cache and serve its HTTP resources locally, without a network connection.</p>
+</div>
+<div class="section" id="local-server-overview">
+<span id="local-server-overview"></span><h3>Local Server Overview<a class="headerlink" href="#local-server-overview" title="Permalink to this headline">¶</a></h3>
+<p>The LocalServer module is a specialized URL cache that the web application controls. Requests for URLs in the LocalServer&#8217;s cache are intercepted and served locally from the user&#8217;s disk.</p>
+</div>
+<div class="section" id="resource-stores">
+<span id="resource-stores"></span><h3>Resource stores<a class="headerlink" href="#resource-stores" title="Permalink to this headline">¶</a></h3>
+<p>A resource store is a container of URLs. Using the LocalServer module, applications can create any number of resource stores, and a resource store can contain any number of URLs.</p>
+<p>There are two types of resource stores:
+- ResourceStore - for capturing ad-hoc URLs using NPL. The ResourceStore allows an application to capture user data files that need to be addressed with a URL, such as a PDF file or an image.
+- ManagedResourceStore - for capturing a related set of URLs that are declared in a manifest file, and are updated automatically. The ManagedResourceStore allows the set of resources needed to run a web application to be captured.
+For both types of stores, the set of URLs captured is explicitly controlled by the web application.</p>
+</div>
+<div class="section" id="architecture-implementation-notes">
+<span id="architecture-implementation-notes"></span><h3>Architecture &amp; Implementation Notes<a class="headerlink" href="#architecture-implementation-notes" title="Permalink to this headline">¶</a></h3>
+<p>all sql database manipulation functions are exposed via WebCacheDB, whose implementation is split in WebCacheDB* files.
+localserver is the based class for two servers: ResourceStore and ManagedResourceStore.</p>
+<div class="section" id="using-local-server-as-a-local-database">
+<span id="using-local-server-as-a-local-database"></span><h4>Using Local server as a local database<a class="headerlink" href="#using-local-server-as-a-local-database" title="Permalink to this headline">¶</a></h4>
+<p>One can use local server as a simple (name, value) pair database with cache_policy functions.</p>
+<p>To query a database entry call below, here we will use web service store</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/localserver/factory.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">ls</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">CreateStore</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="kr">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">ls</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kr">return</span> 
+    <span class="kr">end</span>
+    <span class="n">cache_policy</span> <span class="o">=</span> <span class="n">cache_policy</span> <span class="ow">or</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">CachePolicy</span><span class="p">:</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;access plus 1 week&quot;</span><span class="p">);</span>
+    
+    <span class="kd">local</span> <span class="n">url</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">UrlHelper</span><span class="p">.</span><span class="n">WS_to_REST</span><span class="p">(</span><span class="n">fakeurl_query_miniprofile</span><span class="p">,</span> <span class="p">{</span><span class="n">JID</span><span class="o">=</span><span class="n">JID</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;JID&quot;</span><span class="p">});</span>
+    <span class="kd">local</span> <span class="n">item</span> <span class="o">=</span> <span class="n">ls</span><span class="p">:</span><span class="n">GetItem</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">item</span> <span class="ow">and</span> <span class="n">item</span><span class="p">.</span><span class="n">entry</span> <span class="ow">and</span> <span class="n">item</span><span class="p">.</span><span class="n">payload</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">cache_policy</span><span class="p">:</span><span class="n">IsExpired</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">creation_date</span><span class="p">))</span> <span class="kr">then</span>
+        <span class="c1">-- NOTE:item.payload.data is always a string, one may deserialize from it to obtain table object.</span>
+        <span class="kd">local</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+        <span class="kr">if</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">callbackFunc</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="n">callbackFunc</span><span class="p">(</span><span class="n">JID</span><span class="p">,</span> <span class="n">profile</span><span class="p">);</span>
+        <span class="kr">end</span>
+    <span class="kr">else</span>
+        
+    <span class="kr">end</span>
+</pre></div>
+</div>
+<p>To add(update) a database entry call below</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/localserver/factory.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">ls</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">CreateStore</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="kr">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">ls</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kr">return</span> 
+    <span class="kr">end</span>
+    <span class="c1">-- make url</span>
+    <span class="kd">local</span> <span class="n">url</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">UrlHelper</span><span class="p">.</span><span class="n">WS_to_REST</span><span class="p">(</span><span class="n">fakeurl_query_miniprofile</span><span class="p">,</span> <span class="p">{</span><span class="n">JID</span><span class="o">=</span><span class="n">JID</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;JID&quot;</span><span class="p">});</span>
+
+    <span class="c1">-- make entry</span>
+    <span class="kd">local</span> <span class="n">item</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">WebCacheDB</span><span class="p">.</span><span class="n">EntryInfo</span><span class="p">:</span><span class="n">new</span><span class="p">({</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span>
+        <span class="p">}),</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">WebCacheDB</span><span class="p">.</span><span class="n">PayloadInfo</span><span class="p">:</span><span class="n">new</span><span class="p">({</span>
+            <span class="n">status_code</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">localserver</span><span class="p">.</span><span class="n">HttpConstants</span><span class="p">.</span><span class="n">HTTP_OK</span><span class="p">,</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">profile</span><span class="p">,</span>
+        <span class="p">}),</span>
+    <span class="p">}</span>
+    <span class="c1">-- save to database entry</span>
+    <span class="kd">local</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ls</span><span class="p">:</span><span class="n">PutItem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> 
+    <span class="kr">if</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="kr">then</span> 
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;ls put JID mini profile for &quot;</span><span class="o">..</span><span class="n">url</span><span class="o">..</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="kr">else</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;warning: failed saving JID profile item to local server.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lazy-writing">
+<span id="lazy-writing"></span><h4>Lazy writing<a class="headerlink" href="#lazy-writing" title="Permalink to this headline">¶</a></h4>
+<p>For the URL history, this transaction commit overhead is unacceptably high(0.05s for the most simple write commit).
+On some systems, the cost of committing a new page to the history database was as high as downloading the entire page
+and rendering the page to the screen. As a result, ParaEngine&#8217;s localserver has implemented a lazy sync system.</p>
+<p>Please see  https://developer.mozilla.org/en/Storage/Performance, for a reference</p>
+<p>Localserver has relaxed the ACID requirements in order to speed up commits. In particular, we have dropped durability.
+This means that when a commit returns, you are not guaranteed that the commit has gone through. If the power goes out
+right away, that commit may (or may not) be lost. However, we still support the other (ACI) requirements.
+This means that the database will not get corrupted. If the power goes out immediately after a commit, the transaction
+will be like it was rolled back: the database will still be in a consistent state.</p>
+</div>
+</div>
+</div>
+<div class="section" id="send-email-via-smtp">
+<span id="send-email-via-smtp"></span><h2>Send Email Via SMTP<a class="headerlink" href="#send-email-via-smtp" title="Permalink to this headline">¶</a></h2>
+<p>It is not trivial to make a SMTP email server. However, it is fairly easy to send an email via an existing email server.
+One can do it manually via <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/os/GetUrl.lua"><code class="docutils literal"><span class="pre">System.os.GetUrl</span></code></a> with proper options, or we write the following handy function for you.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">SendEmail</span><span class="p">({</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;smtp://smtp.exmail.qq.com&quot;</span><span class="p">,</span> 
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;lixizhi@paraengine.com&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;XXXXX&quot;</span><span class="p">,</span> 
+    <span class="c1">-- ca_info = &quot;/path/to/certificate.pem&quot;,</span>
+    <span class="n">from</span><span class="o">=</span><span class="s2">&quot;lixizhi@paraengine.com&quot;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s2">&quot;lixizhi@yeah.net&quot;</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="s2">&quot;xizhi.li@gmail.com&quot;</span><span class="p">,</span> 
+    <span class="n">subject</span> <span class="o">=</span> <span class="s2">&quot;title here&quot;</span><span class="p">,</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;any body context here. can be very long&quot;</span><span class="p">,</span>
+<span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span> <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Here is what I receive in my mail box:</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19721841/9ee8ab84-9ba6-11e6-8b5e-a31533c6168c.png" /></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">HTTP request</a><ul>
+<li><a class="reference internal" href="#debugging-http-request">Debugging HTTP request</a></li>
+<li><a class="reference internal" href="#local-server">Local Server</a><ul>
+<li><a class="reference internal" href="#what-is-a-local-server">what is a local server?</a></li>
+<li><a class="reference internal" href="#local-server-overview">Local Server Overview</a></li>
+<li><a class="reference internal" href="#resource-stores">Resource stores</a></li>
+<li><a class="reference internal" href="#architecture-implementation-notes">Architecture &amp; Implementation Notes</a><ul>
+<li><a class="reference internal" href="#using-local-server-as-a-local-database">Using Local server as a local database</a></li>
+<li><a class="reference internal" href="#lazy-writing">Lazy writing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#send-email-via-smtp">Send Email Via SMTP</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Serialization.html" title="previous chapter">Serialization, Encoding and Logging</a></li>
+      <li>Next: <a href="FilesAndIO.html" title="next chapter">Files API</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/HTTP.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/HTTP.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

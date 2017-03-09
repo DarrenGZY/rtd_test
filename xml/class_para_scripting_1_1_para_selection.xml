@@ -1,0 +1,362 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_selection" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaSelection</compoundname>
+    <includes refid="_para_scripting_world_8h" local="no">ParaScriptingWorld.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1a2836bfad8e1d52fe139f62085b170726" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaSelection::RemoveObject</definition>
+        <argsstring>(const ParaObject &amp;obj)</argsstring>
+        <name>RemoveObject</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove a given object in all selections. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the object to delete </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="340" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="612" bodyend="616"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1a562dffe210bc2d5b50892fddeed8ebb1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaSelection::RemoveUIObject</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>RemoveUIObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove an UI object from all selection groups. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UI object name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>if if removed </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="346" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="671" bodyend="680"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1a3459206aefa9cb2af14657caaeda2386" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaSelection::AddObject</definition>
+        <argsstring>(const ParaObject &amp;obj, int nGroupID)</argsstring>
+        <name>AddObject</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a new object to a given group. An object may belong to multiple groups. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the object to add </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which group the should be added to. by default it is added to group 0. group ID must be smaller than 32. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="354" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="618" bodyend="622"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1ad2713fd291705381ee25dc8e54811ac0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaSelection::AddUIObject</definition>
+        <argsstring>(const char *sName, int nGroupID)</argsstring>
+        <name>AddUIObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Please note that UI object in selection is automatically highlighted using the default highlighting effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UI object name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which group the should be added to. by default it is added to group 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the object is found and highlighted(selected). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="361" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="682" bodyend="691"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1aedc42b26a0f5ff7c6397a499bf394d64" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+        <definition>ParaObject ParaSelection::GetObject</definition>
+        <argsstring>(int nGroupID, int nItemIndex)</argsstring>
+        <name>GetObject</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nItemIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the nItemIndex object in the nGroupID group. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>from which group the object is get </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nItemIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the item to be retrieved. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>selected item is returned </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="369" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="624" bodyend="633"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1aff01b6993134f6d40b82c8687ef5539a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaSelection::GetObject_</definition>
+        <argsstring>(ParaObject *pOut, int nGroupID, int nItemIndex)</argsstring>
+        <name>GetObject_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> *</type>
+          <declname>pOut</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nItemIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function shall never be called from the scripting interface. this is solely for exporting API. and should not be used from the scripting interface. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="371" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="634" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1a104b3db824bddad1b33797a2976614fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaSelection::GetItemNumInGroup</definition>
+        <argsstring>(int nGroupID)</argsstring>
+        <name>GetItemNumInGroup</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the total number item in the given group. This function can be used with <ref refid="class_para_scripting_1_1_para_selection_1aedc42b26a0f5ff7c6397a499bf394d64" kindref="member">GetObject()</ref> to iterate through all objects in any group. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>group ID. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="379" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="646" bodyend="649"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1ad3a643eeb41952c92d07301bf0cc1ecf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaSelection::SelectGroup</definition>
+        <argsstring>(int nGroupID, bool bSelect)</argsstring>
+        <name>SelectGroup</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSelect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>select the entire group. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bSelect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to select, false to de-select. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="386" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="651" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1a1711274302622272ab19a87ca49176d5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaSelection::ClearGroup</definition>
+        <argsstring>(int nGroupID)</argsstring>
+        <name>ClearGroup</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear a given group so that there are no objects in it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of the group. If ID is -1, all groups will be deleted. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="391" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="656" bodyend="659"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1a83fbd14fb2ffbb43b95b85e2ec98b9bb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaSelection::SetMaxItemNumberInGroup</definition>
+        <argsstring>(int nGroupID, int nMaxItemsNumber)</argsstring>
+        <name>SetMaxItemNumberInGroup</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nMaxItemsNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the maximum number of objects in the group. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>group ID group ID must be smaller than 32. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nMaxItemsNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number to set. default value is 1 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="399" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="661" bodyend="664"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_selection_1abd9a6ddcfa21c4b80130b1a9e670c136" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaSelection::GetMaxItemNumberInGroup</definition>
+        <argsstring>(int nGroupID)</argsstring>
+        <name>GetMaxItemNumberInGroup</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the maximum number of objects in the group. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>group ID,which ID must be smaller than 32. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the maximum number in the given group </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="406" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="666" bodyend="669"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A pool of currently selected objects. This is a singleton class. Object may be selected into different groups. Although, there are no limit to group number, better keep it smaller than 16 groups. Selected objected may be displayed or highlighted differently. When objects are deleted from the scene. It will be deleted from the selection automatically. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingWorld.h" line="334" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="333" bodyend="407"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_selection_1a3459206aefa9cb2af14657caaeda2386" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>AddObject</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1ad2713fd291705381ee25dc8e54811ac0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>AddUIObject</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1a1711274302622272ab19a87ca49176d5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>ClearGroup</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1a104b3db824bddad1b33797a2976614fd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>GetItemNumInGroup</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1abd9a6ddcfa21c4b80130b1a9e670c136" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>GetMaxItemNumberInGroup</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1aedc42b26a0f5ff7c6397a499bf394d64" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>GetObject</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1aff01b6993134f6d40b82c8687ef5539a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>GetObject_</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1a2836bfad8e1d52fe139f62085b170726" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>RemoveObject</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1a562dffe210bc2d5b50892fddeed8ebb1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>RemoveUIObject</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1ad3a643eeb41952c92d07301bf0cc1ecf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>SelectGroup</name></member>
+      <member refid="class_para_scripting_1_1_para_selection_1a83fbd14fb2ffbb43b95b85e2ec98b9bb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSelection</scope><name>SetMaxItemNumberInGroup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

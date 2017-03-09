@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kind="struct" language="C++" prot="public">
+    <compoundname>ParaEngine::IObjectScriptingInterface::ScriptCallback</compoundname>
+    <includes refid="_i_object_scripting_interface_8h" local="no">IObjectScriptingInterface.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ParaEngine::IObjectScriptingInterface::ScriptCallback::func_type</definition>
+        <argsstring></argsstring>
+        <name>func_type</name>
+        <briefdescription>
+<para>function type </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="15" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaEngine::IObjectScriptingInterface::ScriptCallback::script_func</definition>
+        <argsstring></argsstring>
+        <name>script_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the NPL file and function to be activated. Its format is similar to GUI events. e.g. &quot;(gl)script/NPC1.lua;NPC1.On_Click();&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="18" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a7262f3dd1ff3515cad04e2e16ddd28ea" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaEngine::IObjectScriptingInterface::ScriptCallback::m_sFilename</definition>
+        <argsstring></argsstring>
+        <name>m_sFilename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="19" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1ab956d49bbb477d1ac318eee5b9dcea76" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaEngine::IObjectScriptingInterface::ScriptCallback::m_sCode</definition>
+        <argsstring></argsstring>
+        <name>m_sCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="20" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ParaEngine::IObjectScriptingInterface::ScriptCallback::m_nLastTick</definition>
+        <argsstring></argsstring>
+        <name>m_nLastTick</name>
+        <briefdescription>
+<para>last time this function is called. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="22" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a86224d789abfc6fac89cca5e20f3e874" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaEngine::IObjectScriptingInterface::ScriptCallback::ScriptCallback</definition>
+        <argsstring>(int type, const std::string &amp;script)</argsstring>
+        <name>ScriptCallback</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>script</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="24" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1aea268375e793cae96fee99c76cdbd04a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaEngine::IObjectScriptingInterface::ScriptCallback::ScriptCallback</definition>
+        <argsstring>()</argsstring>
+        <name>ScriptCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="27" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a1daccdd58be30306ab91083c177350b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaEngine::IObjectScriptingInterface::ScriptCallback::SetScriptFunc</definition>
+        <argsstring>(const std::string &amp;script)</argsstring>
+        <name>SetScriptFunc</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>script</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the script function </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="30" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="71" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a32e66918f75f0609a39056f4d17ebe59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; ParaEngine::IObjectScriptingInterface::ScriptCallback::GetCode</definition>
+        <argsstring>()</argsstring>
+        <name>GetCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="32" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8fc6bcf01af65e84a9302ba94160225e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; ParaEngine::IObjectScriptingInterface::ScriptCallback::GetFileName</definition>
+        <argsstring>()</argsstring>
+        <name>GetFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="33" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1af7a3fe7af39908fb9c2153a1554f382f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; ParaEngine::IObjectScriptingInterface::ScriptCallback::GetScriptFunc</definition>
+        <argsstring>()</argsstring>
+        <name>GetScriptFunc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="34" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1ae6905290c050b43e672476d0249b9dfc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ParaEngine::IObjectScriptingInterface::ScriptCallback::GetLastTick</definition>
+        <argsstring>() const</argsstring>
+        <name>GetLastTick</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="36" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a9371a71d205715f1bc1fbf18b03e02a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaEngine::IObjectScriptingInterface::ScriptCallback::SetLastTick</definition>
+        <argsstring>(unsigned int nTick)</argsstring>
+        <name>SetLastTick</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nTick</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="37" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a561926be74fb162b85a59f202ef5f114" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaEngine::IObjectScriptingInterface::ScriptCallback::ActivateAsync</definition>
+        <argsstring>(const std::string &amp;code)</argsstring>
+        <name>ActivateAsync</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>activate the script callback with the given code. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="40" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a283d8fabb5bdf583d1aa9cc00b4b9ffa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaEngine::IObjectScriptingInterface::ScriptCallback::ActivateLocalNow</definition>
+        <argsstring>(const std::string &amp;script)</argsstring>
+        <name>ActivateLocalNow</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>script</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>activate the script callback locally now. when function returns, the script has returned. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="42" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="87" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>the game object will keep a list of script call backs. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="13" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="12" bodyend="43"/>
+    <listofallmembers>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a561926be74fb162b85a59f202ef5f114" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>ActivateAsync</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a283d8fabb5bdf583d1aa9cc00b4b9ffa" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>ActivateLocalNow</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>func_type</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a32e66918f75f0609a39056f4d17ebe59" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>GetCode</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8fc6bcf01af65e84a9302ba94160225e" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>GetFileName</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1ae6905290c050b43e672476d0249b9dfc" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>GetLastTick</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1af7a3fe7af39908fb9c2153a1554f382f" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>GetScriptFunc</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>m_nLastTick</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1ab956d49bbb477d1ac318eee5b9dcea76" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>m_sCode</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a7262f3dd1ff3515cad04e2e16ddd28ea" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>m_sFilename</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>script_func</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a86224d789abfc6fac89cca5e20f3e874" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>ScriptCallback</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1aea268375e793cae96fee99c76cdbd04a" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>ScriptCallback</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a9371a71d205715f1bc1fbf18b03e02a9" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>SetLastTick</name></member>
+      <member refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a1daccdd58be30306ab91083c177350b1" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface::ScriptCallback</scope><name>SetScriptFunc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

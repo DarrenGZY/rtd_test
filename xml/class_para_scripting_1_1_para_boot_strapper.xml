@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_boot_strapper" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaBootStrapper</compoundname>
+    <includes refid="_para_scripting_global_8h" local="no">ParaScriptingGlobal.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_boot_strapper_1a123c35e0059b111b2a011638e0823e2d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaBootStrapper::LoadFromFile</definition>
+        <argsstring>(const char *sXMLfile)</argsstring>
+        <name>LoadFromFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>sXMLfile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load from a given XML file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sXMLfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path of the file, if this is &quot;&quot;, the config/bootstrapper.xml will be used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if success </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="701" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1690" bodyend="1693"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_boot_strapper_1acfdb1bcd6ea0eb055b1caa4cfbb35e87" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaBootStrapper::SaveToFile</definition>
+        <argsstring>(const char *sXMLfile)</argsstring>
+        <name>SaveToFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>sXMLfile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save to a given XML file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sXMLfile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path of the file, if this is &quot;&quot;, the config/bootstrapper.xml will be used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if success </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="707" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1695" bodyend="1698"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_boot_strapper_1aec04d06341a110a4e913cabac4a009ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaBootStrapper::LoadDefault</definition>
+        <argsstring>()</argsstring>
+        <name>LoadDefault</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>load the default setting. this function is called at the constructor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="710" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1700" bodyend="1703"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_boot_strapper_1ada251d1736a9e5aebc8ae44760f90207" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaBootStrapper::GetMainLoopFile</definition>
+        <argsstring>()</argsstring>
+        <name>GetMainLoopFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the game loop file. the game loop file provides the heart beat of the application. It is also the very first(entry) script to be activated when the application starts up. The default game loop is ./script/gameinterface.lua </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="716" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1706" bodyend="1709"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_boot_strapper_1a61ffa26c2ace12044b61628a7914187a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaBootStrapper::SetMainLoopFile</definition>
+        <argsstring>(const char *sMainFile)</argsstring>
+        <name>SetMainLoopFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>sMainFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the game loop file. the game loop file provides the heart beat of the application. It is also the very first(entry) script to be activated when the application starts up. The default game loop is ./script/gameinterface.lua </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="721" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1711" bodyend="1714"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_global" kindref="compound">ParaGlobal</ref> namespace contains a list of HAPI functions to access the boot strapper functionality.</para><para>Bootstrapper file is a xml file to be executed at the very beginning of the game engine. Its main function is to specify the main game loop file to be activated. When the ParaIDE set a solution to be active, it actually modifies the bootstrapper file to load the main file of that application solution. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="694" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="693" bodyend="722"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_boot_strapper_1ada251d1736a9e5aebc8ae44760f90207" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBootStrapper</scope><name>GetMainLoopFile</name></member>
+      <member refid="class_para_scripting_1_1_para_boot_strapper_1aec04d06341a110a4e913cabac4a009ae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBootStrapper</scope><name>LoadDefault</name></member>
+      <member refid="class_para_scripting_1_1_para_boot_strapper_1a123c35e0059b111b2a011638e0823e2d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBootStrapper</scope><name>LoadFromFile</name></member>
+      <member refid="class_para_scripting_1_1_para_boot_strapper_1acfdb1bcd6ea0eb055b1caa4cfbb35e87" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBootStrapper</scope><name>SaveToFile</name></member>
+      <member refid="class_para_scripting_1_1_para_boot_strapper_1a61ffa26c2ace12044b61628a7914187a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBootStrapper</scope><name>SetMainLoopFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

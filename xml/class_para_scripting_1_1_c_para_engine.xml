@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_c_para_engine" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::CParaEngine</compoundname>
+    <includes refid="_para_scripting_misc_8h" local="no">ParaScriptingMisc.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a34f458ca0976403b44a96019436bb105" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaScripting::CParaEngine::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object of ParaEngine settings </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="93" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a8adb27d678e8666535a4f0c0d4d24f1b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::CParaEngine::GetAttributeObject_</definition>
+        <argsstring>(ParaAttributeObject &amp;output)</argsstring>
+        <name>GetAttributeObject_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>for API exportation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="95" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="131" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a123d6f114ad2a2fe160a4f7d1bdad726" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::CParaEngine::GetVersion</definition>
+        <argsstring>()</argsstring>
+        <name>GetVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get ParaEngine version </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1abb2ad98c668a29705115cf39edc3118e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::CParaEngine::GetViewportAttributeObject</definition>
+        <argsstring>(int nViewportIndex)</argsstring>
+        <name>GetViewportAttributeObject</name>
+        <param>
+          <type>int</type>
+          <declname>nViewportIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get attribute object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="108" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="255" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1aa566783d0621dabfae306ed151007c79" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::ForceRender</definition>
+        <argsstring>()</argsstring>
+        <name>ForceRender</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>render the current frame and does not return until everything is presented to screen. this function is usually used to draw the animated loading screen. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="112" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1ad259eea05e9dd9c3ba59316faac384d9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::Sleep</definition>
+        <argsstring>(float fSeconds)</argsstring>
+        <name>Sleep</name>
+        <param>
+          <type>float</type>
+          <declname>fSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>cause the main thread to sleep for the specified seconds. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="114" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="156" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a5583ee3ffb3ef871ccc42b67f6782e40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::SaveParaXMesh</definition>
+        <argsstring>(const char *filename, ParaAssetObject &amp;xmesh, bool bBinaryEncoding)</argsstring>
+        <name>SaveParaXMesh</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> &amp;</type>
+          <declname>xmesh</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bBinaryEncoding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save an existing mesh to file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file to be saved to. if this is &quot;&quot;, the xmesh entity&apos;s file name will be used and appended with &quot;.x&quot; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xmesh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ParaX mesh object to export. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bBinaryEncoding</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to use binary encoding. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return true if succeeds. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="122" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="161" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1add754cf5a5b84b41080759afce4d2c0d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+        <definition>ParaAssetObject ParaScripting::CParaEngine::GetRenderTarget</definition>
+        <argsstring>()</argsstring>
+        <name>GetRenderTarget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return the current render target. calling this function a second time will make the returned object from the previous call invalid. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="132" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="182" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a7781667889750da51d72d74f99289bcb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::SetRenderTarget</definition>
+        <argsstring>(ParaAssetObject &amp;pRenderTarget)</argsstring>
+        <name>SetRenderTarget</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> &amp;</type>
+          <declname>pRenderTarget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the render target of the object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="135" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="195" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1ac83e6359b74d27f74a3d5cfcf4bc6de1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::SetRenderTarget2</definition>
+        <argsstring>(int nIndex, const char *render_targetname)</argsstring>
+        <name>SetRenderTarget2</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>render_targetname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="136" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="204" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a7a50c5ec97acd4ed742798caacb33d00" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::StretchRect</definition>
+        <argsstring>(ParaAssetObject &amp;pSrcRenderTarget, ParaAssetObject &amp;pDestRenderTarget)</argsstring>
+        <name>StretchRect</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> &amp;</type>
+          <declname>pSrcRenderTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> &amp;</type>
+          <declname>pDestRenderTarget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy render target content from one surface to another. they may be of different resolution </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="139" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="227" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1a2358c6a9b5eea344e4f323d8cb13a3f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::DrawQuad</definition>
+        <argsstring>()</argsstring>
+        <name>DrawQuad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>draw a full screen quad. <simplesect kind="note"><para>: one need to set the vertex declaration to be S0_POS_TEX0 prior to calling this function </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="143" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="250" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_c_para_engine_1aeaea78e7d182fda1b5f16fbd02024b08" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CParaEngine::SetVertexDeclaration</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>SetVertexDeclaration</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set declaration by id enum VERTEX_DECLARATION { S0_POS_TEX0, // all data in stream 0: position and tex0 S0_POS_NORM_TEX0, // all data in stream 0: position, normal and tex0 S0_POS_NORM_TEX0_INSTANCED, // all data in stream 0: position, normal and tex0, stream1:instanced data S0_POS_TEX0_COLOR, // all data in stream 0: position, tex0 and color S0_S1_S2_OCEAN_FFT, // for FFT ocean S0_S1_S2_S3_OCEAN_FFT, // for FFT ocean with terrain height field S0_POS_NORM_TEX0_TEX1, // all data in stream 0: position, normal tex0 and tex1 MAX_DECLARATIONS_NUM, }; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value is in </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>VERTEX_DECLARATION </para></simplesect>
+<simplesect kind="return"><para>: return true if successful. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="160" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="240" bodyend="247"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>global game engine related functions, such as ParaEngineCore interface, copy right information, simple water marking </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingMisc.h" line="90" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.h" bodystart="89" bodyend="161"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a2358c6a9b5eea344e4f323d8cb13a3f6" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>DrawQuad</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1aa566783d0621dabfae306ed151007c79" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>ForceRender</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a34f458ca0976403b44a96019436bb105" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a8adb27d678e8666535a4f0c0d4d24f1b" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>GetAttributeObject_</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1add754cf5a5b84b41080759afce4d2c0d" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>GetRenderTarget</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a123d6f114ad2a2fe160a4f7d1bdad726" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>GetVersion</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1abb2ad98c668a29705115cf39edc3118e" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>GetViewportAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a5583ee3ffb3ef871ccc42b67f6782e40" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>SaveParaXMesh</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a7781667889750da51d72d74f99289bcb" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>SetRenderTarget</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1ac83e6359b74d27f74a3d5cfcf4bc6de1" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>SetRenderTarget2</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1aeaea78e7d182fda1b5f16fbd02024b08" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>SetVertexDeclaration</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1ad259eea05e9dd9c3ba59316faac384d9" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>Sleep</name></member>
+      <member refid="class_para_scripting_1_1_c_para_engine_1a7a50c5ec97acd4ed742798caacb33d00" prot="public" virt="non-virtual"><scope>ParaScripting::CParaEngine</scope><name>StretchRect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

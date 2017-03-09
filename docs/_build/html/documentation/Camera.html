@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Camera &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Block Engine" href="BlockEngine.html" />
+    <link rel="prev" title="3D Scene" href="SceneManager.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="camera">
+<span id="camera"></span><h1>Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h1>
+<p>ParaEngine has build-in C++ support for a very versatile camera object, called AutoCamera.
+AutoCamera is the default camera used when you are inside a 3d world.</p>
+<p>It can be configured in various ways to handle most key/mouse input for you, as well as controlling the biped object that it is focusing on.</p>
+<p>To get or set current camera&#8217;s attributes, one can use following code. Use Object Browser in NPL Code Wiki to see all of its attributes. Camera is a child of Scene object.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">attr</span> <span class="o">=</span> <span class="n">ParaCamera</span><span class="p">.</span><span class="n">GetAttributeObject</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="control-everything-in-your-own-code">
+<span id="control-everything-in-your-own-code"></span><h2>Control Everything In Your Own Code<a class="headerlink" href="#control-everything-in-your-own-code" title="Permalink to this headline">¶</a></h2>
+<p>In most cases, we can focus the camera to a Biped player object in the scene to control the motion of the player directly. Trust me, writing a robust and smooth player camera controller is difficult, at least 3000 lines of code.
+If you really want to handle everything yourself, there is an option. Create a dummy invisible object to let the camera to focus to. And then set <code class="docutils literal"><span class="pre">IsControlledExternally</span></code> property to true for the dummy object.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">your_dummy_obj</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;IsControlledExternally&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This way, the auto camera will not try to control the focused dummy object any more. And it is up to you to control the player, such as using <code class="docutils literal"><span class="pre">WASD</span></code> or arrow keys for movement and mouse to rotate its facing, etc.</p>
+</div>
+<div class="section" id="code-examples">
+<span id="code-examples"></span><h2>Code Examples<a class="headerlink" href="#code-examples" title="Permalink to this headline">¶</a></h2>
+<p>Following are from <code class="docutils literal"><span class="pre">ParaEngineExtension.lua</span></code>. They are provided as an example.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- set the look at position of the camera. It uses an invisible avatar as the camera look at position. </span>
+<span class="c1">-- after calling this function, please call ParaCamera.SetEyePos(facing, height, angle) to change the camera eye position. </span>
+<span class="kr">function</span> <span class="nc">ParaCamera</span><span class="p">.</span><span class="nf">SetLookAtPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">ParaCamera</span><span class="p">.</span><span class="n">GetDummyObject</span><span class="p">();</span>
+    <span class="n">player</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mf">0.35</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+    <span class="n">player</span><span class="p">:</span><span class="n">ToCharacter</span><span class="p">():</span><span class="n">SetFocus</span><span class="p">();</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">ParaCamera</span><span class="p">.</span><span class="nf">GetLookAtPos</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="n">unpack</span><span class="p">(</span><span class="n">ParaCamera</span><span class="p">.</span><span class="n">GetAttributeObject</span><span class="p">():</span><span class="n">GetField</span><span class="p">(</span><span class="s2">&quot;Lookat position&quot;</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">}));</span>
+<span class="kr">end</span>
+<span class="c1">-- it returns polar coordinate system.</span>
+<span class="c1">-- @return camobjDist, LifeupAngle, CameraRotY</span>
+<span class="kr">function</span> <span class="nc">ParaCamera</span><span class="p">.</span><span class="nf">GetEyePos</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">att</span> <span class="o">=</span> <span class="n">ParaCamera</span><span class="p">.</span><span class="n">GetAttributeObject</span><span class="p">();</span>
+    <span class="kr">return</span> <span class="n">att</span><span class="p">:</span><span class="n">GetField</span><span class="p">(</span><span class="s2">&quot;CameraObjectDistance&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">att</span><span class="p">:</span><span class="n">GetField</span><span class="p">(</span><span class="s2">&quot;CameraLiftupAngle&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">att</span><span class="p">:</span><span class="n">GetField</span><span class="p">(</span><span class="s2">&quot;CameraRotY&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="c1">-- create/get the dummy camera object for the camera look position. </span>
+<span class="kr">function</span> <span class="nc">ParaCamera</span><span class="p">.</span><span class="nf">GetDummyObject</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s2">&quot;invisible camera&quot;</span><span class="p">);</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">IsValid</span><span class="p">()</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">player</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">CreateCharacter</span> <span class="p">(</span><span class="s2">&quot;invisible camera&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="c1">--player:GetAttributeObject():SetField(&quot;SentientField&quot;, 0);--senses nobody</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">GetAttributeObject</span><span class="p">():</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;SentientField&quot;</span><span class="p">,</span> <span class="mi">65535</span><span class="p">);</span><span class="c1">--senses everybody</span>
+        <span class="c1">--player:SetAlwaysSentient(true);--senses everybody</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">SetDensity</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">-- make it flow in the air</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">SetPhysicsHeight</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">SetPhysicsRadius</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;SkipRender&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;SkipPicking&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="n">ParaScene</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">player</span><span class="p">;</span>
+<span class="kr">end</span>
+
+<span class="c1">-- set the camera eye position by camera object distance, life up angle and rotation around the y axis. One must call ParaCamera.SetLookAtPos() before calling this function. </span>
+<span class="c1">-- e.g.ParaCamera.SetEyePos(5, 1.3, 0.4);</span>
+<span class="kr">function</span> <span class="nc">ParaCamera</span><span class="p">.</span><span class="nf">SetEyePos</span><span class="p">(</span><span class="n">camobjDist</span><span class="p">,</span> <span class="n">LifeupAngle</span><span class="p">,</span> <span class="n">CameraRotY</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">att</span> <span class="o">=</span> <span class="n">ParaCamera</span><span class="p">.</span><span class="n">GetAttributeObject</span><span class="p">();</span>
+    <span class="n">att</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;CameraObjectDistance&quot;</span><span class="p">,</span> <span class="n">camobjDist</span><span class="p">);</span>
+    <span class="n">att</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;CameraLiftupAngle&quot;</span><span class="p">,</span> <span class="n">LifeupAngle</span><span class="p">);</span>
+    <span class="n">att</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;CameraRotY&quot;</span><span class="p">,</span> <span class="n">CameraRotY</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Camera</a><ul>
+<li><a class="reference internal" href="#control-everything-in-your-own-code">Control Everything In Your Own Code</a></li>
+<li><a class="reference internal" href="#code-examples">Code Examples</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="SceneManager.html" title="previous chapter">3D Scene</a></li>
+      <li>Next: <a href="BlockEngine.html" title="next chapter">Block Engine</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/Camera.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/Camera.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

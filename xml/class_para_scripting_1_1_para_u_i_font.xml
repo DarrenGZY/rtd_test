@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_u_i_font" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaUIFont</compoundname>
+    <includes refid="_para_scripting_graphics_8h" local="no">ParaScriptingGraphics.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_u_i_font_1a3e5c8df9db6ba00d9a65ebdf09b6d1d1" prot="protected" static="no" mutable="no">
+        <type>GUIFontElement *</type>
+        <definition>GUIFontElement* ParaScripting::ParaUIFont::m_pObj</definition>
+        <argsstring></argsstring>
+        <name>m_pObj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="52" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1aae6e3934a5e61d04d19ee2274f3e68b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaUIFont::ParaUIFont</definition>
+        <argsstring>(GUIFontElement *obj)</argsstring>
+        <name>ParaUIFont</name>
+        <param>
+          <type>GUIFontElement *</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="54" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1ac3dc7c02afc0115269546dc4cdd3b41b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUIFont::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="59" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1accf4d7ced2e37c4c0214d7d2eb077e3e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaUIFont::GetTransparency</definition>
+        <argsstring>() const</argsstring>
+        <name>GetTransparency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="62" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="152" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1acddd27c5f3f0cb3336be4aef9c382d0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUIFont::SetTransparency</definition>
+        <argsstring>(DWORD transparency)</argsstring>
+        <name>SetTransparency</name>
+        <param>
+          <type>DWORD</type>
+          <declname>transparency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="63" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="160" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1a2c7516d39d82a46f7558a17196c33da2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaUIFont::GetColor</definition>
+        <argsstring>() const</argsstring>
+        <name>GetColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="64" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="167" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1aef07d218c0333b2999056dbb734f456c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUIFont::SetColor</definition>
+        <argsstring>(const char *strColor)</argsstring>
+        <name>SetColor</name>
+        <param>
+          <type>const char *</type>
+          <declname>strColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="65" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="183" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1a5e7984ac3c1785deffc76a3e8ce1a4eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaUIFont::GetFormat</definition>
+        <argsstring>() const</argsstring>
+        <name>GetFormat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="66" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="202" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1aa36efc532278b09eaae5524a301da2ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUIFont::SetFormat</definition>
+        <argsstring>(DWORD format)</argsstring>
+        <name>SetFormat</name>
+        <param>
+          <type>DWORD</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the text align and other text displaying formats <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dwFormat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new format. It can be any combination of the following values. DT_BOTTOM (0x00000008) Justifies the text to the bottom of the rectangle. This value must be combined with DT_SINGLELINE. DT_CALCRECT (0x00000400) Determines the width and height of the rectangle. If there are multiple lines of text, ID3DXFont::DrawText uses the width of the rectangle pointed to by the pRect parameter and extends the base of the rectangle to bound the last line of text. If there is only one line of text, ID3DXFont::DrawText modifies the right side of the rectangle so that it bounds the last character in the line. In either case, ID3DXFont::DrawText returns the height of the formatted text but does not draw the text. DT_CENTER (0x00000001) Centers text horizontally in the rectangle. DT_EXPANDTABS (0x00000040) Expands tab characters. The default number of characters per tab is eight. DT_LEFT (0x00000000) Aligns text to the left. DT_NOCLIP (0x00000100) Draws without clipping. ID3DXFont::DrawText is somewhat faster when DT_NOCLIP is used. DT_RIGHT (0x00000002) Aligns text to the right. DT_RTLREADING Displays text in right-to-left reading order for bi-directional text when a Hebrew or Arabic font is selected. The default reading order for all text is left-to-right. DT_SINGLELINE (0x00000020) Displays text on a single line only. Carriage returns and line feeds do not break the line. DT_TOP (0x00000000) Top-justifies text. DT_VCENTER (0x00000004) Centers text vertically (single line only). DT_WORDBREAK (0x00000010) Breaks words. Lines are automatically broken between words if a word would extend past the edge of the rectangle specified by the pRect parameter. A carriage return/line feed sequence also breaks the line. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="96" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="210" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1a15c2d35bd4d28098c5761bde53eb4124" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaUIFont::GetFont</definition>
+        <argsstring>() const</argsstring>
+        <name>GetFont</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="97" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="217" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_font_1a3063845c32c1649c0affa61929df28f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUIFont::SetFont</definition>
+        <argsstring>(const char *fontname)</argsstring>
+        <name>SetFont</name>
+        <param>
+          <type>const char *</type>
+          <declname>fontname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="225" bodyend="237"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>a GUI font object <simplesect kind="par"><title>Class Properties</title><para><itemizedlist>
+<listitem><para>(&quot;transparency&quot;,&amp;ParaUIFont::GetTransparency,&amp;ParaUIFont::SetTransparency)</para></listitem><listitem><para>(&quot;color&quot;,&amp;ParaUIFont::GetColor,&amp;ParaUIFont::SetColor)</para></listitem><listitem><para>(&quot;font&quot;,&amp;ParaUIFont::GetFont,&amp;ParaUIFont::SetFont)</para></listitem><listitem><para>(&quot;format&quot;,&amp;ParaUIFont::GetFormat,&amp;<ref refid="class_para_scripting_1_1_para_u_i_font_1aa36efc532278b09eaae5524a301da2ad" kindref="member">ParaUIFont::SetFormat</ref>), </para></listitem></itemizedlist>
+</para></simplesect>
+</para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="50" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="50" bodyend="99"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1a2c7516d39d82a46f7558a17196c33da2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>GetColor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1a15c2d35bd4d28098c5761bde53eb4124" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>GetFont</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1a5e7984ac3c1785deffc76a3e8ce1a4eb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>GetFormat</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1accf4d7ced2e37c4c0214d7d2eb077e3e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>GetTransparency</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1ac3dc7c02afc0115269546dc4cdd3b41b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1a3e5c8df9db6ba00d9a65ebdf09b6d1d1" prot="protected" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>m_pObj</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1aae6e3934a5e61d04d19ee2274f3e68b6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>ParaUIFont</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1aef07d218c0333b2999056dbb734f456c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>SetColor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1a3063845c32c1649c0affa61929df28f2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>SetFont</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1aa36efc532278b09eaae5524a301da2ad" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>SetFormat</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_font_1acddd27c5f3f0cb3336be4aef9c382d0c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUIFont</scope><name>SetTransparency</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

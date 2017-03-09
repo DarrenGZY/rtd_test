@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2D GUI Windows &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MCML Markup Language For 2D GUI" href="mcml.html" />
+    <link rel="prev" title="Drawing With 2D API" href="DrawingAPI.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="d-gui-windows">
+<span id="d-gui-windows"></span><h1>2D GUI Windows<a class="headerlink" href="#d-gui-windows" title="Permalink to this headline">¶</a></h1>
+<p>A <code class="docutils literal"><span class="pre">System.Windows.Window</span></code> is the primary container for 2D GUI. There are multiple ways to create windows.
+The most common way is to use <code class="docutils literal"><span class="pre">mcml</span></code> markup language. The programing model is like writing <code class="docutils literal"><span class="pre">HTML/js</span></code> web page.</p>
+<div class="section" id="quick-sample">
+<span id="quick-sample"></span><h2>Quick Sample<a class="headerlink" href="#quick-sample" title="Permalink to this headline">¶</a></h2>
+<p>First you need to create a html file, such as  <code class="docutils literal"><span class="pre">source/HelloWorldMCML/mcml_window.html</span></code>.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">pe:mcml</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">refresh</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/npl&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;mcml_window.lua&quot;</span><span class="p">&gt;</span><span class="o">&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span>
+    <span class="kd">function</span> <span class="nx">OnClickOK</span><span class="p">()</span>
+        <span class="nx">local</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">Page</span><span class="o">:</span><span class="nx">GetValue</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">)</span> <span class="nx">or</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+        <span class="nx">_guihelper</span><span class="p">.</span><span class="nx">MessageBox</span><span class="p">(</span><span class="s2">&quot;你输入的是:&quot;</span><span class="p">..</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nx">end</span>
+<span class="p">]]</span><span class="o">&gt;</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:#33ff33;background-color:#808080&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:10px;&quot;</span><span class="p">&gt;</span>
+        Hello World from HTML page!
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:10px;&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:200px;height:25px;&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;ok&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;确定&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;OnClickOK&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">pe:mcml</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>To create and show the window using the html file, we simply do following code.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Windows/Window.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">Window</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Windows.Window&quot;</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">window</span><span class="p">:</span><span class="n">Show</span><span class="p">({</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;source/HelloWorldMCML/mcml_window.html&quot;</span><span class="p">,</span> 
+        <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;_lt&quot;</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="window-alignment">
+<span id="window-alignment"></span><h2>Window Alignment<a class="headerlink" href="#window-alignment" title="Permalink to this headline">¶</a></h2>
+<p>Notice the alignment parameter specify the relative position to its parent or the native screen window.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>        <span class="o">*</span> <span class="nd">@param</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">strings</span> <span class="ow">or</span> <span class="n">nil</span> <span class="ow">or</span> <span class="n">left</span> <span class="n">out</span> <span class="n">entirely</span><span class="p">:</span> 
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_lt&quot;</span> <span class="n">align</span> <span class="n">to</span> <span class="n">left</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_lb&quot;</span> <span class="n">align</span> <span class="n">to</span> <span class="n">left</span> <span class="n">bottom</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_ct&quot;</span> <span class="n">align</span> <span class="n">to</span> <span class="n">center</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_ctt&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">center</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_ctb&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">center</span> <span class="n">bottom</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_ctl&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">center</span> <span class="n">left</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_ctr&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">center</span> <span class="n">right</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_rt&quot;</span> <span class="n">align</span> <span class="n">to</span> <span class="n">right</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_rb&quot;</span> <span class="n">align</span> <span class="n">to</span> <span class="n">right</span> <span class="n">bottom</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_mt&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">middle</span> <span class="n">top</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_ml&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">middle</span> <span class="n">left</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_mr&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">middle</span> <span class="n">right</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_mb&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">middle</span> <span class="n">bottom</span>
+        <span class="o">*</span>   <span class="o">-</span> <span class="s2">&quot;_fi&quot;</span><span class="p">:</span> <span class="n">align</span> <span class="n">to</span> <span class="n">left</span> <span class="n">top</span> <span class="ow">and</span> <span class="n">right</span> <span class="n">bottom</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">like</span> <span class="n">fill</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">parent</span> <span class="n">window</span><span class="o">.</span>
+        <span class="o">*</span>
+        <span class="o">*</span>   <span class="n">the</span> <span class="n">layout</span> <span class="ow">is</span> <span class="n">given</span> <span class="n">below</span><span class="p">:</span>
+        <span class="o">*</span>   <span class="n">_lt</span> <span class="n">_mt</span> <span class="n">_rt</span> 
+        <span class="o">*</span>   <span class="n">_ml</span> <span class="n">_ct</span> <span class="n">_mr</span> 
+        <span class="o">*</span>   <span class="n">_lb</span> <span class="n">_mb</span> <span class="n">_rb</span> 
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">left,</span> <span class="pre">top,</span> <span class="pre">width,</span> <span class="pre">height</span></code> have different meanings for different alignment type. The most simple one is &#8220;_lt&#8221; which means left top alignment.</p>
+<ul class="simple">
+<li>center alignment:<ul>
+<li><code class="docutils literal"><span class="pre">alignment=&quot;_ct&quot;,</span> <span class="pre">left</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">top</span> <span class="pre">=</span> <span class="pre">-100,</span> <span class="pre">width</span> <span class="pre">=</span> <span class="pre">300,</span> <span class="pre">height</span> <span class="pre">=</span> <span class="pre">400</span></code> will display window at center.
+Normally, if you want to center a window with given <code class="docutils literal"><span class="pre">width</span></code> and <code class="docutils literal"><span class="pre">height</span></code>, one should use:
+<code class="docutils literal"><span class="pre">left</span> <span class="pre">=</span> <span class="pre">-width/2,</span> <span class="pre">top</span> <span class="pre">=</span> <span class="pre">-height/2,</span> <span class="pre">width,</span> <span class="pre">height</span></code>.  The left, top means relative to the center of the parent window. &#8220;_ctt&#8221; means center top.</li>
+</ul>
+</li>
+<li>middle alignment:<ul>
+<li>&#8220;_mt&#8221; middle top: it means that the pixels relative to left and right border of the parent window should be <code class="docutils literal"><span class="pre">fixed</span></code>.In other words, if the parent resizes, the width of the window also resize.</li>
+<li><code class="docutils literal"><span class="pre">_mt</span></code>: x is coordinate from the left. y is coordinate from the top, width is the coordinate from the right and height is the height</li>
+<li><code class="docutils literal"><span class="pre">_mb</span></code>: x is coordinate from the left. y is coordinate from the bottom, width is the coordinate from the right and height is the height</li>
+<li><code class="docutils literal"><span class="pre">_ml</span></code>: x is coordinate from the left. y is coordinate from the top, width is the width and height is the coordinate from the bottom</li>
+<li><code class="docutils literal"><span class="pre">_mr</span></code>: x is coordinate from the right. y is coordinate from the top, width is the width and height is the coordinate from the bottom</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="mcml-v1-vs-v2">
+<span id="mcml-v1-vs-v2"></span><h2>MCML V1 vs V2<a class="headerlink" href="#mcml-v1-vs-v2" title="Permalink to this headline">¶</a></h2>
+<p>There two implementations of MCML: <code class="docutils literal"><span class="pre">v1</span></code> and <code class="docutils literal"><span class="pre">v2</span></code>. The example above is given by v2, which is the preferred implementation. However, v1 is mature and stable implementation, v2 is new and currently does not have as many build-in controls as v1. We are still working on v2 and hope it can be 100% compatible and powerful with v1. To launch the same mcml page with v1, one can use</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/kids/3DMapSystemApp/mcml/PageCtrl.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="n">mcml</span><span class="p">.</span><span class="n">PageCtrl</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;source/HelloWorldMCML/mcml_window.html&quot;</span><span class="p">});</span>
+    <span class="n">page</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="s2">&quot;testpage&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;_lt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Difference between v1 and v2</strong></p>
+<ul class="simple">
+<li>v1 uses NPL&#8217;s build-in GUI objects written in C++, i.e. ParaUIObject like <code class="docutils literal"><span class="pre">button,</span> <span class="pre">container,</span> <span class="pre">editbox</span></code>. Their implementation is hidden from NPL scripts and user IO is exposed to NPL script via callback functions.</li>
+<li>v2 uses NPL script to draw all the GUI objects using 3d-triangle drawing API and handles user input in NPL script. Therefore the user has complete control over the look of their control in NPL script. One can read the source code of v2 in main package.</li>
+</ul>
+</div>
+<div class="section" id="ui-elements-controls">
+<span id="ui-elements-controls"></span><h2>UI Elements (Controls)<a class="headerlink" href="#ui-elements-controls" title="Permalink to this headline">¶</a></h2>
+<p>In mcml v2 implementation, mcml page are actually translated to UI Elements at runtime.
+UI Element contains a collection of GUI controls written completely in NPL. They all derive from <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/UIElement.lua">UIElement</a>, which contains virtual functions to paint the control and handle user IO event.</p>
+<p>The following are buildin-in UI elements or controls:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/Controls/Button.lua">Button</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/Controls/EditBox.lua">EditBox</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/Controls/Label.lua">Label</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/Controls/Canvas.lua">Canvas</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/Window.lua">Window</a></li>
+</ul>
+</div>
+<div class="section" id="creating-gui-without-mcml">
+<span id="creating-gui-without-mcml"></span><h2>Creating GUI Without MCML<a class="headerlink" href="#creating-gui-without-mcml" title="Permalink to this headline">¶</a></h2>
+<p>In most cases, we should use mcml to create GUI, however, there are places when you want to create your custom control or custom mcml tag, you will then need to write your own control.</p>
+<p>Following are some examples:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nc">test_Windows</span><span class="p">:</span><span class="nf">TestCreateWindow</span><span class="p">()</span>
+    
+    <span class="c1">-- create the native window</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+
+    <span class="c1">-- test UI element</span>
+    <span class="kd">local</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">UIElement</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">elem</span><span class="p">:</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">);</span>
+    <span class="n">elem</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">);</span>
+
+    <span class="c1">-- test create rectangle</span>
+    <span class="kd">local</span> <span class="n">rcRect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">rcRect</span><span class="p">:</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#ff0000&quot;</span><span class="p">);</span>
+    <span class="n">rcRect</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">);</span>
+
+    <span class="c1">-- test Button</span>
+    <span class="kd">local</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">Button</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#00ff00&quot;</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="n">_guihelper</span><span class="p">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="s2">&quot;you clicked me&quot;</span><span class="p">);</span>
+    <span class="kr">end</span><span class="p">)</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="s2">&quot;released&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="n">_guihelper</span><span class="p">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="s2">&quot;mouse up&quot;</span><span class="p">);</span>
+    <span class="kr">end</span><span class="p">)</span>
+    
+    <span class="c1">-- show the window natively</span>
+    <span class="n">window</span><span class="p">:</span><span class="n">Show</span><span class="p">(</span><span class="s2">&quot;my_window&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;_mt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">test_Windows</span><span class="p">:</span><span class="nf">TestMouseEnterLeaveEvents</span><span class="p">()</span>
+    <span class="c1">-- create the native window</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">window</span><span class="p">.</span><span class="n">mouseEnterEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;window enter&quot;</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span><span class="n">localPos</span><span class="p">()}));</span>  
+    <span class="kr">end</span>
+    <span class="n">window</span><span class="p">.</span><span class="n">mouseLeaveEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;window leave&quot;</span><span class="p">}));</span>    
+    <span class="kr">end</span>
+
+    <span class="c1">-- Parent1</span>
+    <span class="kd">local</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">UIElement</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">elem</span><span class="p">:</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">);</span>
+    <span class="n">elem</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">);</span>
+    <span class="n">elem</span><span class="p">.</span><span class="n">mouseEnterEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;parent1 enter&quot;</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span><span class="n">localPos</span><span class="p">()}));</span> 
+    <span class="kr">end</span>
+    <span class="n">elem</span><span class="p">.</span><span class="n">mouseLeaveEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;parent1 leave&quot;</span><span class="p">}));</span>   
+    <span class="kr">end</span>
+
+    <span class="c1">-- Parent1:Button1</span>
+    <span class="kd">local</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">Button</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#ff0000&quot;</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">.</span><span class="n">mouseEnterEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;btn1 enter&quot;</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span><span class="n">localPos</span><span class="p">()}));</span>    
+    <span class="kr">end</span>
+    <span class="n">btn</span><span class="p">.</span><span class="n">mouseLeaveEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;btn1 leave&quot;</span><span class="p">}));</span>  
+    <span class="kr">end</span>
+
+    <span class="c1">-- Button2</span>
+    <span class="kd">local</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">Button</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#00ff00&quot;</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">);</span>
+    <span class="n">btn</span><span class="p">.</span><span class="n">mouseEnterEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;btn2 enter&quot;</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span><span class="n">localPos</span><span class="p">()}));</span>    
+    <span class="kr">end</span>
+    <span class="n">btn</span><span class="p">.</span><span class="n">mouseLeaveEvent</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+        <span class="n">Application</span><span class="p">:</span><span class="n">postEvent</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Core</span><span class="p">.</span><span class="n">LogEvent</span><span class="p">:</span><span class="n">new</span><span class="p">({</span><span class="s2">&quot;btn2 leave&quot;</span><span class="p">}));</span>  
+    <span class="kr">end</span>
+    
+    <span class="c1">-- show the window natively</span>
+    <span class="n">window</span><span class="p">:</span><span class="n">Show</span><span class="p">(</span><span class="s2">&quot;my_window1&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;_mt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">test_Windows</span><span class="p">:</span><span class="nf">TestEditbox</span><span class="p">()</span>
+    
+    <span class="c1">-- create the native window</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+
+    <span class="c1">-- test UI element</span>
+    <span class="kd">local</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">EditBox</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">elem</span><span class="p">:</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">25</span><span class="p">);</span>
+    <span class="c1">-- elem:setMaxLength(6);</span>
+    <span class="c1">-- show the window natively</span>
+    <span class="n">window</span><span class="p">:</span><span class="n">Show</span><span class="p">(</span><span class="s2">&quot;my_window&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;_lt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-custom-mcml-v2-controls">
+<span id="creating-custom-mcml-v2-controls"></span><h2>Creating Custom MCML v2 Controls<a class="headerlink" href="#creating-custom-mcml-v2-controls" title="Permalink to this headline">¶</a></h2>
+<p>This is our custom control <code class="docutils literal"><span class="pre">MyApp.Controls.MyCustomControl</span></code>, whose implementation is defined in <code class="docutils literal"><span class="pre">test_pe_custom.lua</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">pe:mcml</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/npl&quot;</span> <span class="na">refresh</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;</span>
+<span class="o">&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span>
+<span class="p">]]</span><span class="o">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">pe:custom</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;test_pe_custom.lua&quot;</span> <span class="na">classns</span><span class="o">=</span><span class="s">&quot;MyApp.Controls.MyCustomControl&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:200px;height:200px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">pe:custom</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">pe:mcml</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now in <code class="docutils literal"><span class="pre">test_pe_custom.lua</span></code>, we create its implementation.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">MyCustomControl</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Windows.UIElement&quot;</span><span class="p">),</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;MyApp.Controls.MyCustomControl&quot;</span><span class="p">));</span>
+
+<span class="kr">function</span> <span class="nc">MyCustomControl</span><span class="p">:</span><span class="nf">paintEvent</span><span class="p">(</span><span class="n">painter</span><span class="p">)</span>
+    <span class="n">painter</span><span class="p">:</span><span class="n">SetPen</span><span class="p">(</span><span class="s2">&quot;#ff0000&quot;</span><span class="p">);</span>
+    <span class="n">painter</span><span class="p">:</span><span class="n">DrawText</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;MyCustomControl&quot;</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preview-and-debug-layout">
+<span id="preview-and-debug-layout"></span><h2>Preview and Debug Layout<a class="headerlink" href="#preview-and-debug-layout" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, we want to change the code and preview the result without restarting the whole application. If your windows contains no external logics and uses mcml v1 exclusively, you can preview using MCML browser, simply press <code class="docutils literal"><span class="pre">Ctrl+F3</span></code>.</p>
+<p>In most cases, you may need to write temporary or persistent test code for your new window class with data connected.
+This usually involves delete the old window object and create a new one like below. Run it repeatedly in NPL code wiki&#8217;s console to preview your updated mcml code.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="c1">-- remove old window</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;test.window&quot;</span><span class="p">)</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">window</span> <span class="ow">and</span> <span class="n">window</span><span class="p">.</span><span class="n">CloseWindow</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">window</span><span class="p">:</span><span class="n">CloseWindow</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="kr">end</span>
+
+    <span class="c1">-- create a new window</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Windows/Window.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">Window</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Windows.Window&quot;</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">window</span><span class="p">:</span><span class="n">Show</span><span class="p">({</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;script/ide/System/test/test_mcml_page.html&quot;</span><span class="p">,</span> 
+        <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;_lt&quot;</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="p">});</span>
+    <span class="c1">-- keep a reference for refresh</span>
+    <span class="n">test</span><span class="p">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2D GUI Windows</a><ul>
+<li><a class="reference internal" href="#quick-sample">Quick Sample</a></li>
+<li><a class="reference internal" href="#window-alignment">Window Alignment</a></li>
+<li><a class="reference internal" href="#mcml-v1-vs-v2">MCML V1 vs V2</a></li>
+<li><a class="reference internal" href="#ui-elements-controls">UI Elements (Controls)</a></li>
+<li><a class="reference internal" href="#creating-gui-without-mcml">Creating GUI Without MCML</a></li>
+<li><a class="reference internal" href="#creating-custom-mcml-v2-controls">Creating Custom MCML v2 Controls</a></li>
+<li><a class="reference internal" href="#preview-and-debug-layout">Preview and Debug Layout</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="DrawingAPI.html" title="previous chapter">Drawing With 2D API</a></li>
+      <li>Next: <a href="mcml.html" title="next chapter">MCML Markup Language For 2D GUI</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/System.Window.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/System.Window.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL编程语言 &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl">
+<span id="npl"></span><h1>NPL编程语言<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>1. 网站与文档（中文与英文）<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>NPL语言有完整的注释以及库，类，函数的解释及使用方法。现在都的在线文档存储在<a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/">CodeDocs</a>。未来的计划可以将文档以MarkDown的格式呈现，更符合现在人们查阅文档的习惯。</p>
+<ul class="simple">
+<li>建立统一的自动化文档发布机制：包括Core API, NPL packages, etc.  自动生成MarkDown</li>
+<li>建立NPL官网 www.nplproject.com ：中英文的学习网，引用NPL WIKI文档</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>2. 自动化部署与更新<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>NPL语言是一门不断的完善和进化的编程语言。每一次更新我们都会在Windows, Linux平台上自动化的部署，确保运行时环境每一次更新都可以在各个平台上的稳定运行和部署。</p>
+<ul class="simple">
+<li>NPL运行时环境：Windows, Linux, Mac版的自动化部署</li>
+</ul>
+</div>
+<div class="section" id="npl">
+<span id="id3"></span><h2>3. NPL语言的下载与安装，跨平台<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h2>
+<p>NPL语言的运行时环境现在还是跟ParaCraft整合在一起。我们正在进行的一项工作就是将NPL语言的运行时环境独立，提供独立的安装包，提供一个更轻便的运行时环境。同样，我们也会确保NPL语言的运行时环境在Windows，Linux，MacOS平台上均可以安装。</p>
+<ul class="simple">
+<li>NPL运行时安装包windows(32/64bits), NPL官网增加下载页面: 自动加入Path Env中</li>
+</ul>
+</div>
+<div class="section" id="vs-visual-studio">
+<span id="vs-visual-studio"></span><h2>4. VS(Visual Studio)编辑器与跨平台编辑器相关，模版插件<a class="headerlink" href="#vs-visual-studio" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>NPL ide command line: 所有的UI命令应该都对应NPL命令</li>
+<li>NPL for visual studio: 增加对基本框架和APP的模版，让初级程序员可以从UI创建初始程序。</li>
+<li>NPL for vs code</li>
+</ul>
+</div>
+<div class="section" id="vs-visual-studio">
+<span id="id4"></span><h2>5. 包管理命令与VS(Visual Studio)插件<a class="headerlink" href="#vs-visual-studio" title="Permalink to this headline">¶</a></h2>
+<p>NPL语言作为一门动态的编程语言，当编写前端或后端代码时，往往会依赖一些包或库。</p>
+<ul class="simple">
+<li>我们准备参考现在流行的JavaScript的包管理工具npm，编写一个NPL语言的包管理工具，服务于NPL语言相关的包和库的管理。<ul>
+<li>增加require, import独立模块的开发与管理机制</li>
+</ul>
+</li>
+<li>NPL语言的VS语言服务插件已经是一款成型的插件，提供高亮，语法检查，定义跳转，文件轮廓分析，格式化等常用功能。</li>
+<li>NPL语言的VS调试插件同样是一款成型的插件，提供断点调试，提供调用堆栈等功能。</li>
+</ul>
+</div>
+<div class="section" id="webserver-2d-ui-3d">
+<span id="webserver-2d-ui-3d"></span><h2>6. 常用基础类库框架：WebServer， 2D UI， 3D<a class="headerlink" href="#webserver-2d-ui-3d" title="Permalink to this headline">¶</a></h2>
+<p>NPL语言有着丰富的基础类库框架，使其作为一款动态脚本语言同样能完成一些大型，结构严谨的工程，比如服务器， 3D场景。</p>
+<ul class="simple">
+<li>WebServer已经提供了npl page 编程模式， 计划再引入一种类似nodejs express, mustache的代码与模版分离的编程方式</li>
+<li>2D UI： 计划移植qt的大部分UI到NPL中</li>
+<li>3D： 基于Paracraft编辑器。</li>
+</ul>
+</div>
+<div class="section" id="dsl-domain-specific-language">
+<span id="dsl-domain-specific-language"></span><h2>7. DSL(Domain-Specific Language)与中文语言<a class="headerlink" href="#dsl-domain-specific-language" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>我们已经现在NPL语言的基础上，衍生出一款适用于CAD编程的语言NPLCAD，这款语言用编程语言的形式完成3D模型的构建。</li>
+<li>同样，现在的另外一项工作是设计并实现一款中文编程语言，寻找将中文更好带入编程语言的方式。</li>
+<li>关于支持js：我们可以考虑提供一种方式将其他语言例如javascript动态翻译为NPL代码。 NPL运行环境和编译器会支持*.js，但是不推荐任何框架类应用使用它编码， 仅仅提供给初级程序员做一些简单的编码或临时性的JS类库的直接使用。 机器翻译的代码，会存在一些性能上的问题。</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL编程语言</a><ul>
+<li><a class="reference internal" href="#">1. 网站与文档（中文与英文）</a></li>
+<li><a class="reference internal" href="#">2. 自动化部署与更新</a></li>
+<li><a class="reference internal" href="#npl">3. NPL语言的下载与安装，跨平台</a></li>
+<li><a class="reference internal" href="#vs-visual-studio">4. VS(Visual Studio)编辑器与跨平台编辑器相关，模版插件</a></li>
+<li><a class="reference internal" href="#vs-visual-studio">5. 包管理命令与VS(Visual Studio)插件</a></li>
+<li><a class="reference internal" href="#webserver-2d-ui-3d">6. 常用基础类库框架：WebServer， 2D UI， 3D</a></li>
+<li><a class="reference internal" href="#dsl-domain-specific-language">7. DSL(Domain-Specific Language)与中文语言</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPL编程语言-工作列表.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPL编程语言-工作列表.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_e0c0eba744e8016448312981dea77c26" kind="dir">
+    <compoundname>ParaScriptBindings</compoundname>
+    <innerfile refid="_i_object_scripting_interface_8cpp">IObjectScriptingInterface.cpp</innerfile>
+    <innerfile refid="_i_object_scripting_interface_8h">IObjectScriptingInterface.h</innerfile>
+    <innerfile refid="local__bridge__manual_8cpp">local_bridge_manual.cpp</innerfile>
+    <innerfile refid="local__bridge__manual_8h">local_bridge_manual.h</innerfile>
+    <innerfile refid="_para_scripting_8cpp">ParaScripting.cpp</innerfile>
+    <innerfile refid="_para_scripting_8h">ParaScripting.h</innerfile>
+    <innerfile refid="_para_scripting2_8cpp">ParaScripting2.cpp</innerfile>
+    <innerfile refid="_para_scripting3_8cpp">ParaScripting3.cpp</innerfile>
+    <innerfile refid="_para_scripting4_8cpp">ParaScripting4.cpp</innerfile>
+    <innerfile refid="_para_scripting5_8cpp">ParaScripting5.cpp</innerfile>
+    <innerfile refid="_para_scripting_audio_8cpp">ParaScriptingAudio.cpp</innerfile>
+    <innerfile refid="_para_scripting_audio_8h">ParaScriptingAudio.h</innerfile>
+    <innerfile refid="_para_scripting_block_world_8cpp">ParaScriptingBlockWorld.cpp</innerfile>
+    <innerfile refid="_para_scripting_block_world_8h">ParaScriptingBlockWorld.h</innerfile>
+    <innerfile refid="_para_scripting_browser_manager_8cpp">ParaScriptingBrowserManager.cpp</innerfile>
+    <innerfile refid="_para_scripting_browser_manager_8h">ParaScriptingBrowserManager.h</innerfile>
+    <innerfile refid="_para_scripting_character_8cpp">ParaScriptingCharacter.cpp</innerfile>
+    <innerfile refid="_para_scripting_character_8h">ParaScriptingCharacter.h</innerfile>
+    <innerfile refid="_para_scripting_common_8cpp">ParaScriptingCommon.cpp</innerfile>
+    <innerfile refid="_para_scripting_common_8h">ParaScriptingCommon.h</innerfile>
+    <innerfile refid="_para_scripting_flash_player_8cpp">ParaScriptingFlashPlayer.cpp</innerfile>
+    <innerfile refid="_para_scripting_flash_player_8h">ParaScriptingFlashPlayer.h</innerfile>
+    <innerfile refid="_para_scripting_global_8cpp">ParaScriptingGlobal.cpp</innerfile>
+    <innerfile refid="_para_scripting_global_8h">ParaScriptingGlobal.h</innerfile>
+    <innerfile refid="_para_scripting_graphics_8cpp">ParaScriptingGraphics.cpp</innerfile>
+    <innerfile refid="_para_scripting_graphics_8h">ParaScriptingGraphics.h</innerfile>
+    <innerfile refid="_para_scripting_g_u_i_8cpp">ParaScriptingGUI.cpp</innerfile>
+    <innerfile refid="_para_scripting_g_u_i_8h">ParaScriptingGUI.h</innerfile>
+    <innerfile refid="_para_scripting_h_t_m_l_browser_8cpp">ParaScriptingHTMLBrowser.cpp</innerfile>
+    <innerfile refid="_para_scripting_h_t_m_l_browser_8h">ParaScriptingHTMLBrowser.h</innerfile>
+    <innerfile refid="_para_scripting_i_c_8cpp">ParaScriptingIC.cpp</innerfile>
+    <innerfile refid="_para_scripting_i_c_8h">ParaScriptingIC.h</innerfile>
+    <innerfile refid="_para_scripting_i_o_8cpp">ParaScriptingIO.cpp</innerfile>
+    <innerfile refid="_para_scripting_i_o_8h">ParaScriptingIO.h</innerfile>
+    <innerfile refid="_para_scripting_i_p_c_8cpp">ParaScriptingIPC.cpp</innerfile>
+    <innerfile refid="_para_scripting_i_p_c_8h">ParaScriptingIPC.h</innerfile>
+    <innerfile refid="_para_scripting_misc_8cpp">ParaScriptingMisc.cpp</innerfile>
+    <innerfile refid="_para_scripting_misc_8h">ParaScriptingMisc.h</innerfile>
+    <innerfile refid="_para_scripting_movie_8cpp">ParaScriptingMovie.cpp</innerfile>
+    <innerfile refid="_para_scripting_movie_8h">ParaScriptingMovie.h</innerfile>
+    <innerfile refid="_para_scripting_network_8cpp">ParaScriptingNetwork.cpp</innerfile>
+    <innerfile refid="_para_scripting_network_8h">ParaScriptingNetwork.h</innerfile>
+    <innerfile refid="_para_scripting_n_p_l_8cpp">ParaScriptingNPL.cpp</innerfile>
+    <innerfile refid="_para_scripting_n_p_l_8h">ParaScriptingNPL.h</innerfile>
+    <innerfile refid="_para_scripting_painter_8cpp">ParaScriptingPainter.cpp</innerfile>
+    <innerfile refid="_para_scripting_painter_8h">ParaScriptingPainter.h</innerfile>
+    <innerfile refid="_para_scripting_scene_8cpp">ParaScriptingScene.cpp</innerfile>
+    <innerfile refid="_para_scripting_scene_8h">ParaScriptingScene.h</innerfile>
+    <innerfile refid="_para_scripting_terrain_8cpp">ParaScriptingTerrain.cpp</innerfile>
+    <innerfile refid="_para_scripting_terrain_8h">ParaScriptingTerrain.h</innerfile>
+    <innerfile refid="_para_scripting_test_8cpp">ParaScriptingTest.cpp</innerfile>
+    <innerfile refid="_para_scripting_world_8cpp">ParaScriptingWorld.cpp</innerfile>
+    <innerfile refid="_para_scripting_world_8h">ParaScriptingWorld.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ParaScriptBindings/"/>
+  </compounddef>
+</doxygen>

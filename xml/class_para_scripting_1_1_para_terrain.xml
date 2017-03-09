@@ -1,0 +1,2889 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_terrain" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaTerrain</compoundname>
+    <includes refid="_para_scripting_terrain_8h" local="no">ParaScriptingTerrain.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a5b828f1d053133631b0eaf42ab2f436f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaTerrain::ParaTerrain</definition>
+        <argsstring>(void)</argsstring>
+        <name>ParaTerrain</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="26" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a2de92903892b64e361369a3f07aba09a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaTerrain::~ParaTerrain</definition>
+        <argsstring>(void)</argsstring>
+        <name>~ParaTerrain</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="27" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a72662566d98814c8983c68f8836e8494" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaScripting::ParaTerrain::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with the global terrain. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="30" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a196688e975f16e095ebf6a3385218c81" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::GetAttributeObject_</definition>
+        <argsstring>(ParaAttributeObject &amp;output)</argsstring>
+        <name>GetAttributeObject_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>used for API exportation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="32" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="287" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a8315c843e8e3aaac9a2d4aab6c85ac02" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaScripting::ParaTerrain::GetBlockAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetBlockAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get block terrain manager&apos;s attribute object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="35" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="293" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaTerrain::GetTextureCount</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetTextureCount</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the total number of textures in the texture set of the terrain tile specified by a world position (x,y) One can get each of the textures by calling <ref refid="class_para_scripting_1_1_para_terrain_1a293fedfbe1d55b3ac4da2c55b25c3273" kindref="member">GetTexture()</ref> function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="42" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="217" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a25e7b4ce083799a2b02bb78ca3828b50" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::GetTexturesInCell</definition>
+        <argsstring>(float x, float y, const object &amp;out)</argsstring>
+        <name>GetTexturesInCell</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get all texture indices in the cell specified by point(x,y) <ref refid="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" kindref="member">GetTextureCount()</ref> returns all textures used by the entire terrain tile (i.e. 500*500). however, each terrain tile is further subdevided into 8*8=64 terrain cell (each cell takes up about 64*64 meters). Alpha channels of a terrain texture is only created on a per cell basis. A single alpha image (128*128) will be created for each used texture in the cell. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this should be an empty table to be filled with textures in the cell, so that {[1]=tex_index, [2]=tex_index, ...}. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="52" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="234" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a48711fc33828d4f71ff2e6eea3e97fea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::RemoveTextureInCell</definition>
+        <argsstring>(float x, float y, int nIndex)</argsstring>
+        <name>RemoveTextureInCell</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove the given texture in the cell specified by the point(x,y). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Texture index in the current terrain tile. this should be smaller than the total number of textures in the texture set. see <ref refid="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" kindref="member">GetTextureCount()</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="60" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a293fedfbe1d55b3ac4da2c55b25c3273" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+        <definition>ParaAssetObject ParaScripting::ParaTerrain::GetTexture</definition>
+        <argsstring>(float x, float y, int nIndex)</argsstring>
+        <name>GetTexture</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the terrain detailed texture by index. Please note that each terrain tile contains its own texture set. the total number of textures can be returned by <ref refid="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" kindref="member">GetTextureCount()</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Texture index in the current terrain tile. this should be smaller than the total number of textures in the texture set. see <ref refid="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" kindref="member">GetTextureCount()</ref>. there are two reserved negative index for the common and main textures -1: common texture, which is repeated several times over each terrain tile surface. -2: main texture, which is chopped and mapped to the entire terrain surface. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: The texture entity object is returned. The returned object may be invalid if nIndex is invalid. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="71" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="222" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ac178f2696453e8d3560423ebc06c869a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::GetTexture__</definition>
+        <argsstring>(ParaAssetObject *pOut, float x, float y, int nIndex)</argsstring>
+        <name>GetTexture__</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> *</type>
+          <declname>pOut</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>only used for API exporting. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="73" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="226" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a0e4f378c55a7b2e57bfcad8cb0f14335" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::ReplaceTexture</definition>
+        <argsstring>(float x, float y, int nIndex, ParaAssetObject &amp;TextureAsset)</argsstring>
+        <name>ReplaceTexture</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> &amp;</type>
+          <declname>TextureAsset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>replace the texture at the given index. or append a new texture, or delete a texture if TextureAsset or sTextureAsset is NULL. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if it is smaller than the total number of textures in the texture set. see <ref refid="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" kindref="member">GetTextureCount()</ref>. there are two reserved negative index for the common and main textures -1: common texture, which is repeated several times over each terrain tile surface. -2: main texture, which is chopped and mapped to the entire terrain surface. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sTextureAsset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>filename. if nil, texture will be removed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="82" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="250" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ad5100a714c10c6fe7a053eddd2b30adc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::ReplaceTexture_</definition>
+        <argsstring>(float x, float y, int nIndex, const object &amp;sTextureAsset)</argsstring>
+        <name>ReplaceTexture_</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sTextureAsset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="83" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="269" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1afba1a37ec7947a9da41d683f3fe24419" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaScripting::ParaTerrain::GetAttributeObjectAt</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetAttributeObjectAt</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with the terrain tile that contains the given point. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in world unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="91" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="300" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ae2ba1d8dbee8910cd8dc6d2a3aa4d099" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::GetAttributeObjectAt_</definition>
+        <argsstring>(ParaAttributeObject &amp;output, float x, float y)</argsstring>
+        <name>GetAttributeObjectAt_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>used for API exportation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="93" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="304" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aeb9c63d02106f0aa552821a27012d530" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaTerrain::GetElevation</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetElevation</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the terrain height at the specified position. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>position in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>position in world unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the terrain height. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="101" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a9716b81a24ab28640fc00033fc30dc0f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaTerrain::GetRegionValue</definition>
+        <argsstring>(const char *sLayerName, float x, float y)</argsstring>
+        <name>GetRegionValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>sLayerName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get value of a given terrain region layer <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sLayerName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layer name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="108" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aed6ef5f2b7393698b03a67736357352c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaTerrain::GetRegionValue4</definition>
+        <argsstring>(const char *sLayerName, float x, float y, const char *argb)</argsstring>
+        <name>GetRegionValue4</name>
+        <param>
+          <type>const char *</type>
+          <declname>sLayerName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>argb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get value of a given terrain region layer <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sLayerName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layer name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it can be a string containing &quot;argb&quot;, where the sum of them are returned. for example, specify &quot;r&quot; to get only the red channel value. specify &quot;rgb&quot; for the sum of the grey scale image. if this is empty string &quot;&quot;, the 32bits color value is returned as int. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="117" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="64" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ad865359eb47f74aac2ec4158b2ff1829" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaTerrain::GetTerrainOnloadScript</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetTerrainOnloadScript</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the on load script which created all objects on this terrain that contains the point (x,y) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="120" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1af63e99da4a5ea68f263b78e79d7b97ab" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaTerrain::GetTerrainOnloadScript__</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetTerrainOnloadScript__</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solely used for API exporting. Not thread-safe </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="122" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="105" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a3c26dfbb832cb72ac084f7bfbb738ff0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaTerrain::GetTerrainElevFile</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetTerrainElevFile</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the height map file name for the terrain tile that contains the point (x,y) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="125" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a65171c3f44c76faee7304d6eb066f364" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaTerrain::GetTerrainElevFile__</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>GetTerrainElevFile__</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solely used for API exporting. Not thread-safe </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="127" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="117" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a9de057bf2c73d649c15e488945e14993" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SaveTerrain</definition>
+        <argsstring>(bool bHeightMap, bool bTextures)</argsstring>
+        <name>SaveTerrain</name>
+        <param>
+          <type>bool</type>
+          <declname>bHeightMap</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bTextures</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save modified terrain to disk. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bHeightMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to save height map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bTextures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to save textures: alpha maps, etc </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="134" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="124" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a4750097b6bfe05ce6e7ef291bbc9f1b8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::ReloadTerrain</definition>
+        <argsstring>(bool bHeightMap, bool bTextures)</argsstring>
+        <name>ReloadTerrain</name>
+        <param>
+          <type>bool</type>
+          <declname>bHeightMap</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bTextures</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reload terrain from disk. User will lose changes since last save operation. one can UNDO changes with this function. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bHeightMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to save height map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bTextures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to save textures: alpha maps, etc </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="141" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="129" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a491020839640c576a9b655e838c3be46" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::UpdateTerrain</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateTerrain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>update terrain. this function is called, when the user changes the terrain surface. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bForceUpdate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true it will update the terrain even if the camera does not moves. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="146" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a4940c478aeda22cd464085d76e591b8c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::UpdateTerrain1</definition>
+        <argsstring>(bool bForceUpdate)</argsstring>
+        <name>UpdateTerrain1</name>
+        <param>
+          <type>bool</type>
+          <declname>bForceUpdate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="147" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a50b172addfd825207afbe70303fa1ad7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SnapPointToVertexGrid</definition>
+        <argsstring>(float x, float y, float *vertex_x, float *vertex_y)</argsstring>
+        <name>SnapPointToVertexGrid</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>vertex_x</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>vertex_y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>snap any 2D point on the height map to a vertex position on the height map. in NPL, one should write as below: local x,y = ParaTerrain.SnapPointToVertexGrid(10,10); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>arbitrary 2D point on the height map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>arbitrary 2D point on the height map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vertex_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] vertex position on the height map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vertex_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] vertex position on the height map </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="158" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="309" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ab24743a0ce955edb9e681f61b6d69230" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaTerrain::GetVertexSpacing</definition>
+        <argsstring>()</argsstring>
+        <name>GetVertexSpacing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of real units between vertices in the terrain&apos;s mesh. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="161" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="314" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a8005187fdc1866b95053094529c09bd0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::Paint</definition>
+        <argsstring>(const char *detailTexture, float brushRadius, float brushIntensity, float maxIntensity, bool erase, float x, float y)</argsstring>
+        <name>Paint</name>
+        <param>
+          <type>const char *</type>
+          <declname>detailTexture</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>brushRadius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>brushIntensity</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>maxIntensity</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>erase</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>paint on the specified location of the global terrain. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>detailTexture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the texture entity to paint on the terrain. The texture is usually tilable such as road and grass. if this is &quot;&quot;, it means the base layer or layer 0. Since version 0.9.9, the base layer also has an editable alpha mask . </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>brushRadius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width of the brush to paint with in DetailTexture layer pixels. There are typically 256 of these pixels across a TextureCell. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>brushIntensity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The intensity with which to paint, ranging from 0.0 to 1.0. This determines how opaque the painted &quot;splat&quot; will be. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxIntensity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum intensity of the painted splat, ranging from 0.0 to 1.0, accounting for mixing with a splat that may already reside on the surface. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>erase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies whether to add the splat to the surface or remove existing splat texels already on the surface (pass false to paint and pass true to erase existing splats) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x location of the point to paint on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y location of the point to paint on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="177" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="141" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1af5ebe652c509a848610a4ee8769699b1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::Paint_</definition>
+        <argsstring>(int nDetailTextureID, float brushRadius, float brushIntensity, float maxIntensity, bool erase, float x, float y)</argsstring>
+        <name>Paint_</name>
+        <param>
+          <type>int</type>
+          <declname>nDetailTextureID</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>brushRadius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>brushIntensity</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>maxIntensity</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>erase</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_terrain_1a8005187fdc1866b95053094529c09bd0" kindref="member">Paint()</ref>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nDetailTextureID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>multi-texture layer ID, beginning from 0. Such as 0,1,2,3. -1,-2 are reserved for special terrain editor textures. -1 means the base layer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="182" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="135" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a92c96373de0368e380be1f30bba3e339" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::DigCircleFlat</definition>
+        <argsstring>(float x, float y, float radius, float fFlatPercentage, float factor)</argsstring>
+        <name>DigCircleFlat</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fFlatPercentage</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>flatten a land centered at x,y, with a specified radius. Algorithm: (1) flatten a circle with radius same as fFlatPercentage*radius (2) smooth the entire region twice. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>radius of the inner circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fFlatPercentage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value is between [0,1]. fFlatPercentage*radius is the actual radius that got flattened. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>factor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value is between [0,1]. 1 means fully transformed; 0 means nothing is changed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="194" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1afef40b4d85576f7f0607cecdd13aca0d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::Flatten</definition>
+        <argsstring>(float x, float y, float radius, int flatten_op, float elevation, float factor)</argsstring>
+        <name>Flatten</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flatten_op</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>elevation</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flatten the terrain both up and down to the specified elevation, using using the tightness parameter to determine how much the altered points are allowed to deviate from the specified elevation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>radius of the inner circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flatten_op</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>enum FlattenOperation{ Fill_Op=0, //Flatten the terrain up to the specified elevation ShaveTop_Op=1, //Flatten the terrain down to the specified elevation Flatten_Op=2, //Flatten the terrain up and down to the specified elevation }; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elevation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the desired height </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>factor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value is between [0,1]. 1 means fully transformed; 0 means nothing is changed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="210" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="149" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a1f2174be00206649de29d45f0b7afaad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::RadialScale</definition>
+        <argsstring>(float x, float y, float scale_factor, float min_dist, float max_dist, float smooth_factor)</argsstring>
+        <name>RadialScale</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scale_factor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_dist</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_dist</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>smooth_factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Note: terrain data should be in normalized space with height in the range [0,1]. Picks a point and scales the surrounding terrain in a circular manner. Can be used to make all sorts of circular shapes. Still needs some work. radial_scale: pick a point (center_x, center_y) and scale the points where distance is mindist&lt;=distance&lt;=maxdist linearly. The formula we&apos;ll use for a nice sloping smoothing factor is (-cos(x*3)/2)+0.5. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale_factor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>height of the scaled portion in world unit. This value can be negative. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="223" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a0750ac84c5a710c17aed82fd1f9bcb98" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::GaussianHill</definition>
+        <argsstring>(float x, float y, float radius, float hscale, float standard_deviation, float smooth_factor)</argsstring>
+        <name>GaussianHill</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>hscale</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>standard_deviation</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>smooth_factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="239" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a118c938fab929a235a1f047ad7c024bf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::Spherical</definition>
+        <argsstring>(float x, float y, float radius, float offset)</argsstring>
+        <name>Spherical</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>offset in a spherical region <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>radius of the inner circle in world unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="247" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a37289362300e39481d4749adc7a99bbb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::Roughen_Smooth</definition>
+        <argsstring>(float x, float y, float radius, bool roughen, bool big_grid, float factor)</argsstring>
+        <name>Roughen_Smooth</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>roughen</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>big_grid</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>square filter for sharpening and smoothing. Use neighbour-averaging to roughen or smooth the height field. The factor determines how much of the computed roughening is actually applied to the height field. In it&apos;s default invocation, the 4 directly neighboring squares are used to calculate the roughening. If you select big sampling grid, all 8 neighboring cells will be used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>radius of the inner circle in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roughen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true for sharpening, false for smoothing. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>big_grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true for 8 neighboring cells, false for 4. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>factor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value is between [0,1]. 1 means fully transformed; 0 means nothing is changed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="263" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="174" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ad1b086f0325aa2277405a9e45f724e31" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::Ramp</definition>
+        <argsstring>(float x1, float y1, float x2, float y2, float radius, float borderpercentage, float factor)</argsstring>
+        <name>Ramp</name>
+        <param>
+          <type>float</type>
+          <declname>x1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>borderpercentage</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a ramp (inclined slope) from (x1,y1) to (x2,y2). The ramp&apos;s half width is radius. this is usually used to created a slope path connecting a high land with a low land. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ramp&apos;s half width </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>borderpercentage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>borderpercentage*radius is how long the ramp boarder is to linearly interpolate with the original terrain. specify 0 for sharp ramp border. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>factor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in range[0,1]. it is the smoothness to merge with other border heights.Specify 1.0 for a complete merge </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="271" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1afd6a384f2a7b55abc7343a6df9ec7fc9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::AddHeightField</definition>
+        <argsstring>(float x, float y, const char *filename, int nSmoothPixels)</argsstring>
+        <name>AddHeightField</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSmoothPixels</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add rectangular height field from file to the current terrain. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the rect in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the rect in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: the raw elevation or gray scale image file that contains the height field. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nSmoothPixels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of pixels to smooth from the edge of the height field. if this is 0, the original height field will be loaded unmodified. if it is greater than 0, the loaded height field will be smoothed for nSmoothPixels from the edge, where the edge is always 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="282" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="183" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a2249d5baf19edbb70e9e98bd1284d584" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::MergeHeightField</definition>
+        <argsstring>(float x, float y, const char *filename, int mergeOperation=0, float weight1=1.0, float weight2=1.0, int nSmoothPixels=7)</argsstring>
+        <name>MergeHeightField</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mergeOperation</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight1</declname>
+          <defval>1.0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight2</declname>
+          <defval>1.0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSmoothPixels</declname>
+          <defval>7</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>merge a rectangular height field from file to the current terrain. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the rect in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the rect in world unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: the raw elevation or gray scale image file that contains the height field. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MergeOperation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>{ Addition=0, Subtract=1, Multiplication=2, Division=3, Minimum=4, Maximum=5, }; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the destination merging weight </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source file merging weight </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nSmoothPixels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of pixels to smooth from the edge of the height field. if this is 0, the original height field will be loaded unmodified. if it is greater than 0, the loaded height field will be smoothed for nSmoothPixels from the edge, where the edge is always 0. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="303" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="187" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a4ff6dba72d5f2cab064f8d2ac4ce1714" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::UpdateHoles</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>UpdateHoles</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update all holes in the terrain tile that contains the input point. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="309" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="319" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1afc404d2b4aa2a92bebb25ac6c728d047" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::IsHole</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>IsHole</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the terrain contains a hole at the specified location. Currently, we allow user to load a low resolution hole maps at the beginning of terrain creation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: true if the position specified by (x,y) is inside a terrain hole </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="317" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="324" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1abef13274d32fa7053391b4976f922c83" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetHole</definition>
+        <argsstring>(float x, float y, bool bIsHold)</argsstring>
+        <name>SetHole</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsHold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set a new terrain hole at the specified location. Currently, we will allow user to dynamically dig holes in terrain. After calling this function, the user must manually Call <ref refid="class_para_scripting_1_1_para_terrain_1a4ff6dba72d5f2cab064f8d2ac4ce1714" kindref="member">UpdateHoles()</ref> to inform that the holes in the terrain has been updated. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y location of the point on the Terrain&apos;s surface in world units. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_terrain_1a4ff6dba72d5f2cab064f8d2ac4ce1714" kindref="member">UpdateHoles()</ref>; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="326" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="329" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a5759a9841fe2a01678b8dcd57950ae83" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::IsModified</definition>
+        <argsstring>()</argsstring>
+        <name>IsModified</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return true, if the terrain is modified and should be saved. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="329" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="192" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a9c41d74e5a5dd60a1d53dc569f6edb59" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetContentModified</definition>
+        <argsstring>(float x, float y, bool bIsModified)</argsstring>
+        <name>SetContentModified</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsModified</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the content of the terrain modified. the terrain is specified by a 2D point. the on load script will be rebuilt once saving the terrain. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a position on the terrain where content is changed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a position on the terrain where content is changed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bIsModified</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to set modified. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="337" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="197" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a8f7705d2bd2fbcfc72a9270be341d115" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetContentModified4</definition>
+        <argsstring>(float x, float y, bool bIsModified, DWORD dwModifiedBits)</argsstring>
+        <name>SetContentModified4</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsModified</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>dwModifiedBits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the content of the terrain modified. the terrain is specified by a 2D point. the on load script will be rebuilt once saving the terrain. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bIsModified</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to set modified. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dwModifiedBits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is any combination of TERRAIN_MODIFIED_BITS. Default value is MODIFIED_ON_LOAD_SCRIPT (16) enum TERRAIN_MODIFIED_BITS { MODIFIED_NONE = 0, detailed terrain texture(with mask) has been modified. MODIFIED_TEXTURE = 0x1, height map has modified MODIFIED_HEIGHTMAP = 0x1&lt;&lt;1, configuration such as base texture, common file, holes, etc has been modified. MODIFIED_CONFIGURATION = 0x1&lt;&lt;2, holes have been changed. this should mean the same thing as MODIFIED_CONFIGURATION MODIFIED_HOLES = 0x1&lt;&lt;3, if static objects have been modified, so that we will need to update the on load script MODIFIED_ON_LOAD_SCRIPT = 0x1&lt;&lt;4, MODIFIED_ALL = 0xffff }; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="359" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="202" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a843b210bb2381dc545ca3befe9ed79d8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetAllLoadedModified</definition>
+        <argsstring>(bool bIsModified, DWORD dwModifiedBits)</argsstring>
+        <name>SetAllLoadedModified</name>
+        <param>
+          <type>bool</type>
+          <declname>bIsModified</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>dwModifiedBits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set all loaded terrain tile content modified. This is the refered way to perform a save all operation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="362" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="207" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ae0a24c003cb1b5a413bbe745c056a28c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::EnableLighting</definition>
+        <argsstring>(bool bEnable)</argsstring>
+        <name>EnableLighting</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enable both global and local lighting. Turn off lighting will greatly improve performance, such as on slower computers </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="372" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="212" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ac7ef35a9dbe03bd7c7742728abbd3ac5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::PaintTerrainData</definition>
+        <argsstring>(float x, float y, float radius, unsigned int data, unsigned int dataMask, unsigned int bitOffset)</argsstring>
+        <name>PaintTerrainData</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>dataMask</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>bitOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="379" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="334" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a6ecaf4ac78fc438dc3284eda5323c44b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32</type>
+        <definition>uint32 ParaScripting::ParaTerrain::GetTerrainData</definition>
+        <argsstring>(float x, float y, uint32 dataMask, byte bitOffset)</argsstring>
+        <name>GetTerrainData</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>dataMask</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>bitOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="381" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="339" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a70bb084ac265a2013278fdbfd3e2619c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetVisibleDataMask</definition>
+        <argsstring>(uint32 mask, byte bitOffset)</argsstring>
+        <name>SetVisibleDataMask</name>
+        <param>
+          <type>uint32</type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>bitOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="383" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="344" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a0ac1a4fe41ae1b361fee1eca1ac3e25c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::EnterBlockWorld</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>EnterBlockWorld</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="394" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="349" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a247aac507ee7bcdaeff55715435b5dbd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::LeaveBlockWorld</definition>
+        <argsstring>()</argsstring>
+        <name>LeaveBlockWorld</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="398" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="356" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a7c020cb03e24b59dfe7065e8b05e8399" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::IsInBlockWorld</definition>
+        <argsstring>()</argsstring>
+        <name>IsInBlockWorld</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="400" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="363" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a005d59cf730b06eb5e084208b0606a7d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SaveBlockWorld</definition>
+        <argsstring>(bool saveToTemp)</argsstring>
+        <name>SaveBlockWorld</name>
+        <param>
+          <type>bool</type>
+          <declname>saveToTemp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="402" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="371" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a47d7a81766bd5e8402e68d0ee8782c6c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::DeleteAllBlocks</definition>
+        <argsstring>()</argsstring>
+        <name>DeleteAllBlocks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="404" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="378" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a9cf6fcb06bbbb729f4bf609551fa7f40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetBlockTemplateId</definition>
+        <argsstring>(float x, float y, float z, uint16_t templateId)</argsstring>
+        <name>SetBlockTemplateId</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>templateId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="410" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="385" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1afbb400dbbfc7162f33a5a9c6f4f2c5ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetBlockTemplateIdByIdx</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z, uint32_t templateId)</argsstring>
+        <name>SetBlockTemplateIdByIdx</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>templateId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="412" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="392" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a53022110c4b20712e182c0328a4b54da" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ParaScripting::ParaTerrain::GetBlockTemplateId</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>GetBlockTemplateId</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="414" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="399" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a82ec3417c90123bba44fd73dd22e051c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ParaScripting::ParaTerrain::GetBlockTemplateIdByIdx</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z)</argsstring>
+        <name>GetBlockTemplateIdByIdx</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="416" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="407" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aa9cf5d803df51fce860cb9878ec79d6f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetBlockUserData</definition>
+        <argsstring>(float x, float y, float z, uint32_t data)</argsstring>
+        <name>SetBlockUserData</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="423" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="415" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a5f4aac5f111176217e797e2a245bb40e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetBlockUserDataByIdx</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z, uint32_t data)</argsstring>
+        <name>SetBlockUserDataByIdx</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="425" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="422" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a26fabd7bda4c841d89aa91eec7ab30be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ParaScripting::ParaTerrain::GetBlockUserData</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>GetBlockUserData</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="427" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="429" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ad7e02a3a4a8ce363f48a16e6efb815cd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ParaScripting::ParaTerrain::GetBlockUserDataByIdx</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z)</argsstring>
+        <name>GetBlockUserDataByIdx</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="429" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="437" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a40b3b85881b542859ca1bf073b1d1079" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaTerrain::Pick</definition>
+        <argsstring>(float rayX, float rayY, float rayZ, float dirX, float dirY, float dirZ, float fMaxDistance, const object &amp;result, uint32_t filter=0xffffffff)</argsstring>
+        <name>Pick</name>
+        <param>
+          <type>float</type>
+          <declname>rayX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rayY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rayZ</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dirX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dirY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dirZ</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fMaxDistance</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>filter</declname>
+          <defval>0xffffffff</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="444" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="462" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ac0aad8ab44cf545cd689a6608cad9775" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>luabind::object ParaScripting::ParaTerrain::MousePick</definition>
+        <argsstring>(float fMaxDistance, const object &amp;result, uint32_t filter=0xffffffff)</argsstring>
+        <name>MousePick</name>
+        <param>
+          <type>float</type>
+          <declname>fMaxDistance</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>filter</declname>
+          <defval>0xffffffff</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="445" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="587" bodyend="618"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aecfda62b67c7d236f705c399a2af14b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaTerrain::RegisterBlockTemplate</definition>
+        <argsstring>(uint16_t templateId, const object &amp;params)</argsstring>
+        <name>RegisterBlockTemplate</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>templateId</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it can be attFlag of int type. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="450" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="445" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a632aee721dbd7586d1620fe2ad378e34" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetTemplateTexture</definition>
+        <argsstring>(uint16_t templateId, const char *fileName)</argsstring>
+        <name>SetTemplateTexture</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>templateId</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="452" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="450" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1acb1aedcdf7ced9986c86dcab9e909f82" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetBlockWorldYOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>SetBlockWorldYOffset</name>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="454" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="457" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a515de93de6c7c966a26a5f19a6819a0a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaTerrain::GetBlocksInRegion</definition>
+        <argsstring>(int32_t startChunkX, int32_t startChunkY, int32_t startChunkZ, int32_t endChunkX, int32_t endChunkY, int32_t endChunkZ, uint32_t matchType, const object &amp;result)</argsstring>
+        <name>GetBlocksInRegion</name>
+        <param>
+          <type>int32_t</type>
+          <declname>startChunkX</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>startChunkY</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>startChunkZ</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>endChunkX</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>endChunkY</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>endChunkZ</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>matchType</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get block in [startChunk,endChunk] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startChunkY</parametername>
+<parametername>endChunkY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if negative, and startChunkY == endChunkY, -startChunkY will be used as verticalSectionFilter(a bitwise filter). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>{count,x{},y{},z{},tempId{}} </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="460" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="495" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a221551a56e9b22d5641905fd5b477d27" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaTerrain::GetVisibleChunkRegion</definition>
+        <argsstring>(const object &amp;result)</argsstring>
+        <name>GetVisibleChunkRegion</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="465" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="555" bodyend="585"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a9490cb186b7a2c7d10c2e40cdfedf09b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetBlockWorldSunIntensity</definition>
+        <argsstring>(float value)</argsstring>
+        <name>SetBlockWorldSunIntensity</name>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="467" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="664" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aad1078ec69b04d8f44412bdad886c24c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SelectBlock</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z, bool isSelect)</argsstring>
+        <name>SelectBlock</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isSelect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add/remove block to/from highlight block list <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+<parametername>y</parametername>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world space block id; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isSelect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: true to select block, false to de-select block </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>group id. 0 for highlight 1 for wireframe. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="474" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="633" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a59af04d183961f91442cbf55663efd6e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SelectBlock1</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z, bool isSelect, int nGroupID)</argsstring>
+        <name>SelectBlock1</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isSelect</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="475" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="621" bodyend="631"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a6f4d9ade4cde1a130f50b7c51ba935f4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::DeselectAllBlock1</definition>
+        <argsstring>(int nGroupID)</argsstring>
+        <name>DeselectAllBlock1</name>
+        <param>
+          <type>int</type>
+          <declname>nGroupID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nGroupID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0 for animated selection, 1 for wire frame selection. -1 for all </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="480" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="643" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1aff6a84b35bee091f80981a3a6128a6a8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::DeselectAllBlock</definition>
+        <argsstring>()</argsstring>
+        <name>DeselectAllBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="482" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="638" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a60a3e1f7846254cdb0e12ffd7814f953" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetDamagedBlock</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z)</argsstring>
+        <name>SetDamagedBlock</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="487" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="650" bodyend="655"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a3cc4beee6ebdc1444f5aba2270fd2c7b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetDamageDegree</definition>
+        <argsstring>(float damagedDegree)</argsstring>
+        <name>SetDamageDegree</name>
+        <param>
+          <type>float</type>
+          <declname>damagedDegree</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="491" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="657" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a0f6e38f5794f18cd2b80e91606c9a154" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaTerrain::FindFirstBlock</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z, uint16_t nSide=4, uint32_t max_dist=32, uint32_t attrFilter=0xffffffff, int nCategoryID=-1)</argsstring>
+        <name>FindFirstBlock</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>nSide</declname>
+          <defval>4</defval>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>max_dist</declname>
+          <defval>32</defval>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>attrFilter</declname>
+          <defval>0xffffffff</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCategoryID</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>find a block in the side direction that matched filter from block(x,y,z) this function can be used to check for free space upward or download <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>side</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>4 is top. 5 is bottom. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attrFilter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute to match. 0 means air. default to any block </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nCategoryID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>-1 means any category_id. default to -1 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-1 if not found. otherwise distance to the first block that match in the side direction is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="500" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="671" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1ac28cef6c8850974d615110aea90f7f62" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaTerrain::GetFirstBlock</definition>
+        <argsstring>(uint16_t x, uint16_t y, uint16_t z, int nBlockId, uint16_t nSide=4, uint32_t max_dist=32)</argsstring>
+        <name>GetFirstBlock</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nBlockId</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>nSide</declname>
+          <defval>4</defval>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>max_dist</declname>
+          <defval>32</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the y pos of the first block of nBlockID, start searching from x, y, z in the side direction </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="504" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="679" bodyend="685"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a911b769026418d4d0b113be2958d52c2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t ParaScripting::ParaTerrain::GetChunkColumnTimeStamp</definition>
+        <argsstring>(uint32_t chunkX, uint32_t chunkZ)</argsstring>
+        <name>GetChunkColumnTimeStamp</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkX</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the time stamp of for the given chunk column 0 means not available, &gt;1 means loaded before </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="509" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="687" bodyend="694"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1af254779fab0d83fa4d388432169c13fc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaTerrain::SetChunkColumnTimeStamp</definition>
+        <argsstring>(uint32_t chunkX, uint32_t chunkZ, uint32_t nTimeStamp)</argsstring>
+        <name>SetChunkColumnTimeStamp</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkX</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkZ</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nTimeStamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set chunk column time stamp. usually 0 for non-generated. 1 for generated. this is usually called by world generators, so that we will not generate again next time we load the world. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="513" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="696" bodyend="701"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a551776fea93012f5547d9516d022d06b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; ParaScripting::ParaTerrain::GetMapChunkData</definition>
+        <argsstring>(uint32_t chunkX, uint32_t chunkZ, bool bIncludeInit, uint32_t verticalSectionFilter)</argsstring>
+        <name>GetMapChunkData</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkX</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkZ</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIncludeInit</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>verticalSectionFilter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>verticalSectionFilter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default to 0xffff. each bit is for one of the 16 vertical sections. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="518" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="703" bodyend="715"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_terrain_1a041a89253e3e23e9ac94f52981b07b97" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaTerrain::ApplyMapChunkData</definition>
+        <argsstring>(uint32_t chunkX, uint32_t chunkZ, uint32_t verticalSectionFilter, const std::string &amp;chunkData, const object &amp;out)</argsstring>
+        <name>ApplyMapChunkData</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkX</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>chunkZ</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>verticalSectionFilter</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>chunkData</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="520" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.cpp" bodystart="717" bodyend="733"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains Terrain functions </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingTerrain.h" line="24" column="1" bodyfile="ParaScriptBindings/ParaScriptingTerrain.h" bodystart="23" bodyend="522"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_terrain_1afd6a384f2a7b55abc7343a6df9ec7fc9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>AddHeightField</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a041a89253e3e23e9ac94f52981b07b97" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>ApplyMapChunkData</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a47d7a81766bd5e8402e68d0ee8782c6c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>DeleteAllBlocks</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aff6a84b35bee091f80981a3a6128a6a8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>DeselectAllBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a6f4d9ade4cde1a130f50b7c51ba935f4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>DeselectAllBlock1</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a92c96373de0368e380be1f30bba3e339" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>DigCircleFlat</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ae0a24c003cb1b5a413bbe745c056a28c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>EnableLighting</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a0ac1a4fe41ae1b361fee1eca1ac3e25c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>EnterBlockWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a0f6e38f5794f18cd2b80e91606c9a154" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>FindFirstBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1afef40b4d85576f7f0607cecdd13aca0d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Flatten</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a0750ac84c5a710c17aed82fd1f9bcb98" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GaussianHill</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a72662566d98814c8983c68f8836e8494" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a196688e975f16e095ebf6a3385218c81" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetAttributeObject_</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1afba1a37ec7947a9da41d683f3fe24419" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetAttributeObjectAt</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ae2ba1d8dbee8910cd8dc6d2a3aa4d099" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetAttributeObjectAt_</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a8315c843e8e3aaac9a2d4aab6c85ac02" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetBlockAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a515de93de6c7c966a26a5f19a6819a0a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetBlocksInRegion</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a53022110c4b20712e182c0328a4b54da" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetBlockTemplateId</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a82ec3417c90123bba44fd73dd22e051c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetBlockTemplateIdByIdx</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a26fabd7bda4c841d89aa91eec7ab30be" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetBlockUserData</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ad7e02a3a4a8ce363f48a16e6efb815cd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetBlockUserDataByIdx</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a911b769026418d4d0b113be2958d52c2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetChunkColumnTimeStamp</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aeb9c63d02106f0aa552821a27012d530" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetElevation</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ac28cef6c8850974d615110aea90f7f62" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetFirstBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a551776fea93012f5547d9516d022d06b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetMapChunkData</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a9716b81a24ab28640fc00033fc30dc0f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetRegionValue</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aed6ef5f2b7393698b03a67736357352c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetRegionValue4</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a6ecaf4ac78fc438dc3284eda5323c44b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTerrainData</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a3c26dfbb832cb72ac084f7bfbb738ff0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTerrainElevFile</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a65171c3f44c76faee7304d6eb066f364" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTerrainElevFile__</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ad865359eb47f74aac2ec4158b2ff1829" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTerrainOnloadScript</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1af63e99da4a5ea68f263b78e79d7b97ab" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTerrainOnloadScript__</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a293fedfbe1d55b3ac4da2c55b25c3273" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ac178f2696453e8d3560423ebc06c869a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTexture__</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aa5dabb5d032915b0377f4ce349fc9031" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTextureCount</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a25e7b4ce083799a2b02bb78ca3828b50" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetTexturesInCell</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ab24743a0ce955edb9e681f61b6d69230" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetVertexSpacing</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a221551a56e9b22d5641905fd5b477d27" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>GetVisibleChunkRegion</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1afc404d2b4aa2a92bebb25ac6c728d047" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>IsHole</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a7c020cb03e24b59dfe7065e8b05e8399" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>IsInBlockWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a5759a9841fe2a01678b8dcd57950ae83" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>IsModified</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a247aac507ee7bcdaeff55715435b5dbd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>LeaveBlockWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a2249d5baf19edbb70e9e98bd1284d584" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>MergeHeightField</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ac0aad8ab44cf545cd689a6608cad9775" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>MousePick</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a8005187fdc1866b95053094529c09bd0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Paint</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1af5ebe652c509a848610a4ee8769699b1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Paint_</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ac7ef35a9dbe03bd7c7742728abbd3ac5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>PaintTerrainData</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a5b828f1d053133631b0eaf42ab2f436f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>ParaTerrain</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a40b3b85881b542859ca1bf073b1d1079" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Pick</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a1f2174be00206649de29d45f0b7afaad" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>RadialScale</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ad1b086f0325aa2277405a9e45f724e31" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Ramp</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aecfda62b67c7d236f705c399a2af14b5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>RegisterBlockTemplate</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a4750097b6bfe05ce6e7ef291bbc9f1b8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>ReloadTerrain</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a48711fc33828d4f71ff2e6eea3e97fea" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>RemoveTextureInCell</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a0e4f378c55a7b2e57bfcad8cb0f14335" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>ReplaceTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1ad5100a714c10c6fe7a053eddd2b30adc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>ReplaceTexture_</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a37289362300e39481d4749adc7a99bbb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Roughen_Smooth</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a005d59cf730b06eb5e084208b0606a7d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SaveBlockWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a9de057bf2c73d649c15e488945e14993" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SaveTerrain</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aad1078ec69b04d8f44412bdad886c24c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SelectBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a59af04d183961f91442cbf55663efd6e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SelectBlock1</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a843b210bb2381dc545ca3befe9ed79d8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetAllLoadedModified</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a9cf6fcb06bbbb729f4bf609551fa7f40" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetBlockTemplateId</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1afbb400dbbfc7162f33a5a9c6f4f2c5ae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetBlockTemplateIdByIdx</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1aa9cf5d803df51fce860cb9878ec79d6f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetBlockUserData</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a5f4aac5f111176217e797e2a245bb40e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetBlockUserDataByIdx</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a9490cb186b7a2c7d10c2e40cdfedf09b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetBlockWorldSunIntensity</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1acb1aedcdf7ced9986c86dcab9e909f82" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetBlockWorldYOffset</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1af254779fab0d83fa4d388432169c13fc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetChunkColumnTimeStamp</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a9c41d74e5a5dd60a1d53dc569f6edb59" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetContentModified</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a8f7705d2bd2fbcfc72a9270be341d115" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetContentModified4</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a60a3e1f7846254cdb0e12ffd7814f953" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetDamagedBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a3cc4beee6ebdc1444f5aba2270fd2c7b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetDamageDegree</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1abef13274d32fa7053391b4976f922c83" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetHole</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a632aee721dbd7586d1620fe2ad378e34" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetTemplateTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a70bb084ac265a2013278fdbfd3e2619c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SetVisibleDataMask</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a50b172addfd825207afbe70303fa1ad7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>SnapPointToVertexGrid</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a118c938fab929a235a1f047ad7c024bf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>Spherical</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a4ff6dba72d5f2cab064f8d2ac4ce1714" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>UpdateHoles</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a491020839640c576a9b655e838c3be46" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>UpdateTerrain</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a4940c478aeda22cd464085d76e591b8c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>UpdateTerrain1</name></member>
+      <member refid="class_para_scripting_1_1_para_terrain_1a2de92903892b64e361369a3f07aba09a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaTerrain</scope><name>~ParaTerrain</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_h_t_m_l_browser" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaHTMLBrowser</compoundname>
+    <includes refid="_para_scripting_h_t_m_l_browser_8h" local="no">ParaScriptingHTMLBrowser.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a833e6d3e0ec97fac7e978b32e9bf7550" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ParaScripting::ParaHTMLBrowser::m_nID</definition>
+        <argsstring></argsstring>
+        <name>m_nID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="17" column="1" bodyfile="ParaScriptBindings/ParaScriptingHTMLBrowser.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1aee42501486f719ae9d3990ded0c0f1c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaHTMLBrowser::ParaHTMLBrowser</definition>
+        <argsstring>()</argsstring>
+        <name>ParaHTMLBrowser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="14" column="1" bodyfile="ParaScriptBindings/ParaScriptingHTMLBrowser.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1ab22ee07233c9ece10a0f71571bcf9e98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaHTMLBrowser::ParaHTMLBrowser</definition>
+        <argsstring>(int nID)</argsstring>
+        <name>ParaHTMLBrowser</name>
+        <param>
+          <type>int</type>
+          <declname>nID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="15" column="1" bodyfile="ParaScriptBindings/ParaScriptingHTMLBrowser.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a8082cdd4403ab639a63b8b659efb9648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a19c88ea6d9e5e09d106c8c68cd8458e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* ParaScripting::ParaHTMLBrowser::GetName</definition>
+        <argsstring>()</argsstring>
+        <name>GetName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the window name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1afac96d4e1a6dc721c902e73bdc3a4a86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* ParaScripting::ParaHTMLBrowser::GetLastNavURL</definition>
+        <argsstring>()</argsstring>
+        <name>GetLastNavURL</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the last url when navigateTo() is called. default is &quot;&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a93896aff15b21f0407b5f864dbc43ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaHTMLBrowser::Release</definition>
+        <argsstring>()</argsstring>
+        <name>Release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>something like delete this </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a504a24a4eacac5bf18d3842c26ddb6d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::setSize</definition>
+        <argsstring>(int widthIn, int heightIn)</argsstring>
+        <name>setSize</name>
+        <param>
+          <type>int</type>
+          <declname>widthIn</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>heightIn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a1f4003e5c92b10dc618d94632ff1bb97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaHTMLBrowser::getBrowserWidth</definition>
+        <argsstring>()</argsstring>
+        <name>getBrowserWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a5066004a2e7b7e4a9c896936c1d480a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaHTMLBrowser::getBrowserHeight</definition>
+        <argsstring>()</argsstring>
+        <name>getBrowserHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a3a1507bc8101d9fd4d19f449ccb34c3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::scrollByLines</definition>
+        <argsstring>(int linesIn)</argsstring>
+        <name>scrollByLines</name>
+        <param>
+          <type>int</type>
+          <declname>linesIn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a4763f8538e83eccfe4519eba32e9567a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::setBackgroundColor</definition>
+        <argsstring>(int red, int green, int blue)</argsstring>
+        <name>setBackgroundColor</name>
+        <param>
+          <type>int</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a2217a5268750e6728de115554594676c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a9de2023a9daf46da1f8102cc09b4a3c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::navigateTo</definition>
+        <argsstring>(const char *url)</argsstring>
+        <name>navigateTo</name>
+        <param>
+          <type>const char *</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1aaea3ebc3b066401fb4efbb2034493837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::navigateStop</definition>
+        <argsstring>()</argsstring>
+        <name>navigateStop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1ad5715df37fe0f7dd76257d8a0aae38df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::canNavigateBack</definition>
+        <argsstring>()</argsstring>
+        <name>canNavigateBack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a7d715b85b46ef7b64da34beaa90cf44f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::navigateBack</definition>
+        <argsstring>()</argsstring>
+        <name>navigateBack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a7bb84bb89647f1ec2ac41a856b7dd823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::canNavigateForward</definition>
+        <argsstring>()</argsstring>
+        <name>canNavigateForward</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a90a01059480040fe9b7441022d295762" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::navigateForward</definition>
+        <argsstring>()</argsstring>
+        <name>navigateForward</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a99b4c09290a233cc1082754cc9779823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::mouseDown</definition>
+        <argsstring>(int xPos, int yPos)</argsstring>
+        <name>mouseDown</name>
+        <param>
+          <type>int</type>
+          <declname>xPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yPos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a11b04cf159d0ca21b8144b82b0bb346f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::mouseUp</definition>
+        <argsstring>(int xPos, int yPos)</argsstring>
+        <name>mouseUp</name>
+        <param>
+          <type>int</type>
+          <declname>xPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yPos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="52" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a0db5db876975b5df468f98e1c118eccb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::mouseMove</definition>
+        <argsstring>(int xPos, int yPos)</argsstring>
+        <name>mouseMove</name>
+        <param>
+          <type>int</type>
+          <declname>xPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yPos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a6ac82489845aa055d215e62866880659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::keyPress</definition>
+        <argsstring>(int keyCode)</argsstring>
+        <name>keyPress</name>
+        <param>
+          <type>int</type>
+          <declname>keyCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_h_t_m_l_browser_1a498dfc9a14d356d64540103a9f128a2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaHTMLBrowser::focusBrowser</definition>
+        <argsstring>(bool focusBrowser)</argsstring>
+        <name>focusBrowser</name>
+        <param>
+          <type>bool</type>
+          <declname>focusBrowser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="55" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>a HTML browser control and texture </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingHTMLBrowser.h" line="12" column="1" bodyfile="ParaScriptBindings/ParaScriptingHTMLBrowser.h" bodystart="11" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1ad5715df37fe0f7dd76257d8a0aae38df" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>canNavigateBack</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a7bb84bb89647f1ec2ac41a856b7dd823" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>canNavigateForward</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a498dfc9a14d356d64540103a9f128a2b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>focusBrowser</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a5066004a2e7b7e4a9c896936c1d480a8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>getBrowserHeight</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a1f4003e5c92b10dc618d94632ff1bb97" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>getBrowserWidth</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1afac96d4e1a6dc721c902e73bdc3a4a86" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>GetLastNavURL</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a19c88ea6d9e5e09d106c8c68cd8458e2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>GetName</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a8082cdd4403ab639a63b8b659efb9648" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a6ac82489845aa055d215e62866880659" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>keyPress</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a833e6d3e0ec97fac7e978b32e9bf7550" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>m_nID</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a99b4c09290a233cc1082754cc9779823" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>mouseDown</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a0db5db876975b5df468f98e1c118eccb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>mouseMove</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a11b04cf159d0ca21b8144b82b0bb346f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>mouseUp</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a7d715b85b46ef7b64da34beaa90cf44f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>navigateBack</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a90a01059480040fe9b7441022d295762" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>navigateForward</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1aaea3ebc3b066401fb4efbb2034493837" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>navigateStop</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a9de2023a9daf46da1f8102cc09b4a3c8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>navigateTo</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1aee42501486f719ae9d3990ded0c0f1c6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>ParaHTMLBrowser</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1ab22ee07233c9ece10a0f71571bcf9e98" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>ParaHTMLBrowser</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a93896aff15b21f0407b5f864dbc43ebd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>Release</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a3a1507bc8101d9fd4d19f449ccb34c3d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>scrollByLines</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a4763f8538e83eccfe4519eba32e9567a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>setBackgroundColor</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a2217a5268750e6728de115554594676c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>setEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_h_t_m_l_browser_1a504a24a4eacac5bf18d3842c26ddb6d0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaHTMLBrowser</scope><name>setSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

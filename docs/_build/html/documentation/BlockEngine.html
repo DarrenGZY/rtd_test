@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Block Engine &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Web Server" href="WebServer.html" />
+    <link rel="prev" title="Camera" href="Camera.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="block-engine">
+<span id="block-engine"></span><h1>Block Engine<a class="headerlink" href="#block-engine" title="Permalink to this headline">¶</a></h1>
+<p>The block engines can manage multiple <code class="docutils literal"><span class="pre">BlockWorld</span></code> object.</p>
+<div class="section" id="blockworld">
+<span id="blockworld"></span><h2>BlockWorld<a class="headerlink" href="#blockworld" title="Permalink to this headline">¶</a></h2>
+<p>Each <code class="docutils literal"><span class="pre">BlockWorld</span></code> represents a block world with at most <code class="docutils literal"><span class="pre">32000x32000x256</span></code>, where 256 is height of the world.
+Each BlockWorld will dynamically and asynchronously load <code class="docutils literal"><span class="pre">BlockRegion</span></code> on demand.</p>
+</div>
+<div class="section" id="blockregion">
+<span id="blockregion"></span><h2>BlockRegion<a class="headerlink" href="#blockregion" title="Permalink to this headline">¶</a></h2>
+<p>It manages 512x512x256 blocks, which are saved into a single file.</p>
+</div>
+<div class="section" id="blockchunk">
+<span id="blockchunk"></span><h2>BlockChunk<a class="headerlink" href="#blockchunk" title="Permalink to this headline">¶</a></h2>
+<p>It caches model and light Data for <code class="docutils literal"><span class="pre">16x16x16</span></code> region. Each chunk is converted and added to a queue into <code class="docutils literal"><span class="pre">BlockRenderTask</span></code> for sorting and rendering.</p>
+</div>
+<div class="section" id="blocklightgrid">
+<span id="blocklightgrid"></span><h2>BlockLightGrid<a class="headerlink" href="#blocklightgrid" title="Permalink to this headline">¶</a></h2>
+<p>It calculates sun and block lighting in a separate thread and save the result into <code class="docutils literal"><span class="pre">BlockChunk</span></code> for rendering.</p>
+</div>
+<div class="section" id="blockmodel">
+<span id="blockmodel"></span><h2>BlockModel<a class="headerlink" href="#blockmodel" title="Permalink to this headline">¶</a></h2>
+<p>BlockModel is usually cube 3D model, but it is not a 3D object directly used in rendering, instead it is actually used in <code class="docutils literal"><span class="pre">BlockTemplate</span></code> to provide rendering and physics data.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Block Engine</a><ul>
+<li><a class="reference internal" href="#blockworld">BlockWorld</a></li>
+<li><a class="reference internal" href="#blockregion">BlockRegion</a></li>
+<li><a class="reference internal" href="#blockchunk">BlockChunk</a></li>
+<li><a class="reference internal" href="#blocklightgrid">BlockLightGrid</a></li>
+<li><a class="reference internal" href="#blockmodel">BlockModel</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Camera.html" title="previous chapter">Camera</a></li>
+      <li>Next: <a href="WebServer.html" title="next chapter">NPL Web Server</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/BlockEngine.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/BlockEngine.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator" kind="struct" language="C++" prot="public">
+    <compoundname>ParaScripting::NPL_GetNidsArray_Iterator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NPLConnectionCallBack</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1a37020cf23a9d0a9e8d8e12fea174929a" prot="private" static="no" mutable="no">
+        <type>luabind::object &amp;</type>
+        <definition>luabind::object&amp; ParaScripting::NPL_GetNidsArray_Iterator::m_nids_array</definition>
+        <argsstring></argsstring>
+        <name>m_nids_array</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1610" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1610" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1ac13e744fcb8553b68b79e81b7bebb235" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ParaScripting::NPL_GetNidsArray_Iterator::m_nCount</definition>
+        <argsstring></argsstring>
+        <name>m_nCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1611" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1611" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1a4f075ca642019916824a7120d50dde63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::NPL_GetNidsArray_Iterator::NPL_GetNidsArray_Iterator</definition>
+        <argsstring>(luabind::object &amp;nids_array)</argsstring>
+        <name>NPL_GetNidsArray_Iterator</name>
+        <param>
+          <type>luabind::object &amp;</type>
+          <declname>nids_array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1592" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1592" bodyend="1592"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1af42ee143299f4a56a322b9e5931a16b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int ParaScripting::NPL_GetNidsArray_Iterator::DoCallBack</definition>
+        <argsstring>(const NPL::NPLConnection_ptr &amp;c)</argsstring>
+        <name>DoCallBack</name>
+        <param>
+          <type>const NPL::NPLConnection_ptr &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1594" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1594" bodyend="1606"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1aa3dfca6439a892b120555ce7dd3c05c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>luabind::object &amp;</type>
+        <definition>luabind::object&amp; ParaScripting::NPL_GetNidsArray_Iterator::GetNidArray</definition>
+        <argsstring>()</argsstring>
+        <name>GetNidArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1608" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1608" bodyend="1608"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="17">
+        <label>NPL::CNPLConnectionManager::NPLConnectionCallBack</label>
+      </node>
+      <node id="16">
+        <label>ParaScripting::NPL_GetNidsArray_Iterator</label>
+        <link refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="19">
+        <label>NPL::CNPLConnectionManager::NPLConnectionCallBack</label>
+      </node>
+      <node id="18">
+        <label>ParaScripting::NPL_GetNidsArray_Iterator</label>
+        <link refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1590" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1589" bodyend="1612"/>
+    <listofallmembers>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1af42ee143299f4a56a322b9e5931a16b2" prot="public" virt="virtual"><scope>ParaScripting::NPL_GetNidsArray_Iterator</scope><name>DoCallBack</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1aa3dfca6439a892b120555ce7dd3c05c5" prot="public" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsArray_Iterator</scope><name>GetNidArray</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1ac13e744fcb8553b68b79e81b7bebb235" prot="private" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsArray_Iterator</scope><name>m_nCount</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1a37020cf23a9d0a9e8d8e12fea174929a" prot="private" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsArray_Iterator</scope><name>m_nids_array</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator_1a4f075ca642019916824a7120d50dde63" prot="public" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsArray_Iterator</scope><name>NPL_GetNidsArray_Iterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

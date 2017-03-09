@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_browser_manager" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaBrowserManager</compoundname>
+    <includes refid="_para_scripting_browser_manager_8h" local="no">ParaScriptingBrowserManager.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a9737b1453e150481eea6d961561d696a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_h_t_m_l_browser" kindref="compound">ParaHTMLBrowser</ref></type>
+        <definition>static ParaHTMLBrowser ParaScripting::ParaBrowserManager::GetBrowserWindow</definition>
+        <argsstring>(const char *sFileName)</argsstring>
+        <name>GetBrowserWindow</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get <ref refid="class_para_scripting_1_1_para_h_t_m_l_browser" kindref="compound">ParaHTMLBrowser</ref> by name. this function does not create any player if there is no browser with the given name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1aad3cdb81558ae80d71814d88fc89ddf5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_h_t_m_l_browser" kindref="compound">ParaHTMLBrowser</ref></type>
+        <definition>static ParaHTMLBrowser ParaScripting::ParaBrowserManager::GetBrowserWindow1</definition>
+        <argsstring>(int nWindowID)</argsstring>
+        <name>GetBrowserWindow1</name>
+        <param>
+          <type>int</type>
+          <declname>nWindowID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get <ref refid="class_para_scripting_1_1_para_h_t_m_l_browser" kindref="compound">ParaHTMLBrowser</ref> by nWindowID. this function does not create any player if there is no browser at the given index. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a4d1a653859a080aba2cae0f5572c8609" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_h_t_m_l_browser" kindref="compound">ParaHTMLBrowser</ref></type>
+        <definition>static ParaHTMLBrowser ParaScripting::ParaBrowserManager::createBrowserWindow</definition>
+        <argsstring>(const char *sFileName, int browserWindowWidth, int browserWindowHeight)</argsstring>
+        <name>createBrowserWindow</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFileName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>browserWindowWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>browserWindowHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a new browser window with the given name and dimension in pixels. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a104f0f05daa8d33857456052e1f2ff5b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::ParaBrowserManager::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a3bd5c00e5e0dd68a4f01e43afb6bab2d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ParaScripting::ParaBrowserManager::clearCache</definition>
+        <argsstring>()</argsstring>
+        <name>clearCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="34" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1afa367ac9777196a1f4de9c13a8532394" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::ParaBrowserManager::getLastError</definition>
+        <argsstring>()</argsstring>
+        <name>getLastError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1aa38ecb3bab8193eb9dc81b1439b85ea1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char* ParaScripting::ParaBrowserManager::getVersion</definition>
+        <argsstring>()</argsstring>
+        <name>getVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a18c3961a4ab3e9de07d6be5339e2ecf7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::ParaBrowserManager::GetMaxWindowNum</definition>
+        <argsstring>()</argsstring>
+        <name>GetMaxWindowNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a3cab32aac4c4dfaa8c0ef32923dfc30b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::SetMaxWindowNum</definition>
+        <argsstring>(int nNum)</argsstring>
+        <name>SetMaxWindowNum</name>
+        <param>
+          <type>int</type>
+          <declname>nNum</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1ac73ac7e1308c71d13f671556ea47c946" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onPageChanged</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onPageChanged</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is nil <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a9561d5da169bcbf6ec2048d1a7d41dd4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onNavigateBegin</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onNavigateBegin</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is a string <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a41459a8dfba1bbdbce8a0a8afa7b9a3f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onNavigateComplete</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onNavigateComplete</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is a string <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a2fe62ad404b9c6c0c5ad916644f866a8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onUpdateProgress</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onUpdateProgress</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is a int of [0-100] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="72" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1add98f6610d9ce2a7615dc057953e7707" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onStatusTextChange</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onStatusTextChange</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is a string of status text <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="79" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a5529e9e1b439b7262d639024908a4682" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onLocationChange</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onLocationChange</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is a string <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="86" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_browser_manager_1a1fa3f61eab12403d002b2abf481b2763" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::ParaBrowserManager::onClickLinkHref</definition>
+        <argsstring>(const object &amp;strScriptName)</argsstring>
+        <name>onClickLinkHref</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strScriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set event handler. the scripting interface will receive a msg table for the following type msg={windowid=number, value=[ValueInt|ValueString|nil]} where value is a string of HRef <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strScriptName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is &quot;[neuronfile];sCode&quot;; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="93" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>managing HTML browsers </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingBrowserManager.h" line="14" column="1" bodyfile="ParaScriptBindings/ParaScriptingBrowserManager.h" bodystart="13" bodyend="94"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a3bd5c00e5e0dd68a4f01e43afb6bab2d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>clearCache</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a4d1a653859a080aba2cae0f5572c8609" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>createBrowserWindow</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a9737b1453e150481eea6d961561d696a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>GetBrowserWindow</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1aad3cdb81558ae80d71814d88fc89ddf5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>GetBrowserWindow1</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1afa367ac9777196a1f4de9c13a8532394" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>getLastError</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a18c3961a4ab3e9de07d6be5339e2ecf7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>GetMaxWindowNum</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1aa38ecb3bab8193eb9dc81b1439b85ea1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>getVersion</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a1fa3f61eab12403d002b2abf481b2763" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onClickLinkHref</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a5529e9e1b439b7262d639024908a4682" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onLocationChange</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a9561d5da169bcbf6ec2048d1a7d41dd4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onNavigateBegin</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a41459a8dfba1bbdbce8a0a8afa7b9a3f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onNavigateComplete</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1ac73ac7e1308c71d13f671556ea47c946" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onPageChanged</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1add98f6610d9ce2a7615dc057953e7707" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onStatusTextChange</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a2fe62ad404b9c6c0c5ad916644f866a8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>onUpdateProgress</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a104f0f05daa8d33857456052e1f2ff5b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>reset</name></member>
+      <member refid="class_para_scripting_1_1_para_browser_manager_1a3cab32aac4c4dfaa8c0ef32923dfc30b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBrowserManager</scope><name>SetMaxWindowNum</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

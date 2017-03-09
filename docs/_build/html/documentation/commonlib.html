@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Common Libraries &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Object Oriented Programming" href="ObjectOriented.html" />
+    <link rel="prev" title="Concurrency Model" href="Concurrency.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-common-libraries">
+<span id="npl-common-libraries"></span><h1>NPL Common Libraries<a class="headerlink" href="#npl-common-libraries" title="Permalink to this headline">¶</a></h1>
+<p>NPL common Libraries contains a rich and open source collection of libraries covering: io, networking, 2d/3d graphics, web server, data structure, and many other software frameworks.</p>
+<div class="section" id="library-installation">
+<span id="library-installation"></span><h2>Library Installation<a class="headerlink" href="#library-installation" title="Permalink to this headline">¶</a></h2>
+<p>NPL common libraries can be installed in <code class="docutils literal"><span class="pre">pkg</span></code> or <code class="docutils literal"><span class="pre">zip</span></code> or in plain source code. When you deploy your application, you can choose to use our pre-made zip file or deploy only used files in a zip package by yourself.</p>
+<p>If you installed NPL runtime via ParaCraftSDK on windows platform, you will already have NPL common library installed in <code class="docutils literal"><span class="pre">ParaCraftSDKGit/NPLRuntime/win/packages/main.pkg</span></code>.</p>
+<p>If you installed NPL runtime from source code on linux. It does not have NPL common libraries preinstalled. Instead you need to copy or link the <code class="docutils literal"><span class="pre">script</span></code> folder to your project&#8217;s working directory.
+The folder to link to can be found <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script">here</a>, which contains thousands of open source and documented files all written in NPL.</p>
+</div>
+<div class="section" id="major-libraries">
+<span id="major-libraries"></span><h2>Major Libraries<a class="headerlink" href="#major-libraries" title="Permalink to this headline">¶</a></h2>
+<p>For minimum server-side application development, include this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/commonlib.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/System.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>For full-fledged heavy 2d/3d application development, include this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/IDE.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/kids/ParaWorldCore.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<span id="documentation"></span><h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>NPL libraries are themselves written in pure NPL scripts. They usually have no external dependencies, but on the low level NPL API provided by NPL runtime. These API is in turn implemented in C/C++ in cross-platform ways.</p>
+<blockquote>
+<div>The documentation for low level API is here [[https://codedocs.xyz/LiXizhi/NPLRuntime/modules.html]]</div></blockquote>
+<p>However, it is not particularly useful to read low level API. All you need to do it is to glance over it, and then dive into the source code of NPL libraries <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script">here</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Common Libraries</a><ul>
+<li><a class="reference internal" href="#library-installation">Library Installation</a></li>
+<li><a class="reference internal" href="#major-libraries">Major Libraries</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Concurrency.html" title="previous chapter">Concurrency Model</a></li>
+      <li>Next: <a href="ObjectOriented.html" title="next chapter">Object Oriented Programming</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/commonlib.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/commonlib.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

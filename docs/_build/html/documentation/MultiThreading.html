@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Multi-Threading &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Concurrency Model" href="Concurrency.html" />
+    <link rel="prev" title="Networking" href="Networking.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="multi-threading">
+<span id="multi-threading"></span><h1>Multi-Threading<a class="headerlink" href="#multi-threading" title="Permalink to this headline">¶</a></h1>
+<p>In NPL, multi-threading is handled in the same way as networking communication.
+In other words, activating scripts in other local threads is virtually the same as calling scripts running on another computer. You simply communicate with remote script file with the <code class="docutils literal"><span class="pre">NPL.activate</span></code> in the same way for both local threads and remote computers. The only difference is that the target script url is different.</p>
+<p>For example, to activate a script on local thread <code class="docutils literal"><span class="pre">A</span></code>, one can use</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(A)helloworld.lua&quot;</span><span class="p">,</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<p>To activate the script in a remote computer <code class="docutils literal"><span class="pre">B</span></code>&#8216;s <code class="docutils literal"><span class="pre">C</span></code> thread, one can use</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(C)B:helloworld.lua&quot;</span><span class="p">,</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<p>For more information, please see [[file activation|ActivationFile]]</p>
+<div class="section" id="creating-npl-worker-thread">
+<span id="creating-npl-worker-thread"></span><h2>Creating NPL Worker Thread<a class="headerlink" href="#creating-npl-worker-thread" title="Permalink to this headline">¶</a></h2>
+<p>NPL worker thread must be created, before messages to it can be processed by script running in that thread.</p>
+<p><code class="docutils literal"><span class="pre">NPL.activate(&quot;(A)helloworld.lua&quot;,</span> <span class="pre">{});</span></code> does not automatically create thread <code class="docutils literal"><span class="pre">A</span></code>. You need to call following code to create NPL runtime on thread <code class="docutils literal"><span class="pre">A</span></code>.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span><span class="n">Start</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>After that, messages sent to <code class="docutils literal"><span class="pre">(A)helloworld.lua</span></code> will be processed in a real system-level thread called <code class="docutils literal"><span class="pre">A</span></code>.</p>
+</div>
+<div class="section" id="example-project">
+<span id="example-project"></span><h2>Example Project<a class="headerlink" href="#example-project" title="Permalink to this headline">¶</a></h2>
+<p>Now let us create a real multi-threaded application with just a single file <code class="docutils literal"><span class="pre">script/test/TestMultithread.lua</span></code>.
+The application print <code class="docutils literal"><span class="pre">helloworld</span></code> in 5 threads simultaneously.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/commonlib.lua&quot;</span><span class="p">);</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">Start</span><span class="p">()</span>
+   <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">thead_name</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">;</span>
+      <span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="n">thead_name</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span><span class="n">Start</span><span class="p">();</span>
+      <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;(%s)script/test/TestMultithread.lua&quot;</span><span class="p">,</span> <span class="n">thead_name</span><span class="p">),</span> <span class="p">{</span>
+       <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span><span class="p">,</span> 
+       <span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">math.random</span><span class="p">()</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span>
+      <span class="p">});</span>
+   <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">isStarted</span><span class="p">;</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="kr">if</span><span class="p">(</span><span class="n">msg</span> <span class="ow">and</span> <span class="n">msg</span><span class="p">.</span><span class="n">text</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="c1">-- sleep random seconds to simulate heavy task</span>
+      <span class="n">ParaEngine</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">sleep_time</span><span class="p">);</span>
+      <span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;MultiThread&quot;</span><span class="p">,</span> <span class="s2">&quot;%s from thread %s&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">text</span><span class="p">,</span>  <span class="n">__rts__</span><span class="p">:</span><span class="n">GetName</span><span class="p">());</span>
+   <span class="kr">elseif</span><span class="p">(</span><span class="ow">not</span> <span class="n">isStarted</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="c1">-- initialize on first call </span>
+      <span class="n">isStarted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="n">Start</span><span class="p">();</span>
+   <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To run above file, use</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(gl)script/test/TestMultithread.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>or from command line</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">script</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">TestMultithread</span><span class="o">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+<p>The output will be something like below</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">16</span> <span class="mi">6</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">00</span> <span class="n">PM</span><span class="o">|</span><span class="n">T1</span><span class="o">|</span><span class="n">info</span><span class="o">|</span><span class="n">MultiThread</span><span class="o">|</span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">thread</span> <span class="n">T1</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">16</span> <span class="mi">6</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">01</span> <span class="n">PM</span><span class="o">|</span><span class="n">T3</span><span class="o">|</span><span class="n">info</span><span class="o">|</span><span class="n">MultiThread</span><span class="o">|</span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">thread</span> <span class="n">T3</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">16</span> <span class="mi">6</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">03</span> <span class="n">PM</span><span class="o">|</span><span class="n">T2</span><span class="o">|</span><span class="n">info</span><span class="o">|</span><span class="n">MultiThread</span><span class="o">|</span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">thread</span> <span class="n">T2</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">16</span> <span class="mi">6</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">03</span> <span class="n">PM</span><span class="o">|</span><span class="n">T5</span><span class="o">|</span><span class="n">info</span><span class="o">|</span><span class="n">MultiThread</span><span class="o">|</span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">thread</span> <span class="n">T5</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">16</span> <span class="mi">6</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">04</span> <span class="n">PM</span><span class="o">|</span><span class="n">T4</span><span class="o">|</span><span class="n">info</span><span class="o">|</span><span class="n">MultiThread</span><span class="o">|</span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">thread</span> <span class="n">T4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-examples">
+<span id="advanced-examples"></span><h2>Advanced Examples<a class="headerlink" href="#advanced-examples" title="Permalink to this headline">¶</a></h2>
+<p>Following NPL modules utilize multiple local threads.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">script/apps/DBServer/DBServer.lua</span></code>:  a database server, each thread for processing SQL logics, a thread monitor is used to find the most free thread to route any sql query.</li>
+</ul>
+</div>
+<div class="section" id="other-options">
+<span id="other-options"></span><h2>Other Options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h2>
+<p>By design, threading should be avoided to simplify software design and debugging.
+In addition to real threads, it is usually preferred to use architecture to avoid using thread at all.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Timer/callbacks/events/signals</span></code> are good candidates for asynchronous tasks in a single thread. With <code class="docutils literal"><span class="pre">NPL.activate</span></code>, it even allows you to switch implementation without changing any code; and you can boost performance or debug code in a single thread more easily.</li>
+<li><code class="docutils literal"><span class="pre">Coroutine</span></code> is a lua language feature, which is also supported by NPL. In short, it uses a single thread to simulate multiple virtual threads, allowing you to share all data in the same thread without using locks, but still allowing the developer to <code class="docutils literal"><span class="pre">yield</span></code> CPU resource to other virtual threads at any time. The interactive debugging module in NPL is implemented with coroutines. Please see <code class="docutils literal"><span class="pre">script/ide/Debugger/IPCDebugger.lua</span></code> for details.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Multi-Threading</a><ul>
+<li><a class="reference internal" href="#creating-npl-worker-thread">Creating NPL Worker Thread</a></li>
+<li><a class="reference internal" href="#example-project">Example Project</a></li>
+<li><a class="reference internal" href="#advanced-examples">Advanced Examples</a></li>
+<li><a class="reference internal" href="#other-options">Other Options</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Networking.html" title="previous chapter">Networking</a></li>
+      <li>Next: <a href="Concurrency.html" title="next chapter">Concurrency Model</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/MultiThreading.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/MultiThreading.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

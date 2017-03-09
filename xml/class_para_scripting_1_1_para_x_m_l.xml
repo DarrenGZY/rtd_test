@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_x_m_l" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaXML</compoundname>
+    <includes refid="_para_scripting_i_o_8h" local="no">ParaScriptingIO.h</includes>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_x_m_l_1ac770dd3f43f3657d1378249d75cbd18e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaXML::LuaXML_ParseNode</definition>
+        <argsstring>(lua_State *L, void *pNode)</argsstring>
+        <name>LuaXML_ParseNode</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pNode</declname>
+          <defname>pNode_</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Produces an XMLTree like : &lt;paragraph justify=&quot;centered&quot;&gt;first child<bold>bold</bold>second child&lt;/paragraph&gt;</para><para>{name=&quot;paragraph&quot;, attr={justify=&quot;centered&quot;}, &quot;first child&quot;, {name=&quot;b&quot;, &quot;bold&quot;, n=1} &quot;second child&quot;, n=3 }</para><para>comments and other definitions are ignored </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="681" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1588" bodyend="1709"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_x_m_l_1a2b1e741b10759be86d84d342fa10565b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaXML::LuaXML_ParseString</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>LuaXML_ParseString</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>only used for documentation generation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>return a table containing the lua table of xml Specifications: A tree is a Lua table representation of an element and its contents. The table must have a name key, giving the element name. The tree may have a attr key, which gives a table of all of the attributes of the element. Only string keys are relevant. If the element is not empty, each child node is contained in tree[1], tree[2], etc. Child nodes may be either strings, denoting character data content, or other trees.</para></simplesect>
+Spec by example lz = <ref refid="class_para_scripting_1_1_para_x_m_l_1a2b1e741b10759be86d84d342fa10565b" kindref="member">ParaXML.LuaXML_ParseString</ref>[[&lt;paragraph justify=&quot;centered&quot;&gt;first child<bold>bold</bold>second child&lt;/paragraph&gt;]] lz = {name=&quot;paragraph&quot;, attr={justify=&quot;centered&quot;}, [1] = &quot;first child&quot;, [2] = {name=&quot;b&quot;, &quot;bold&quot;, n=1} [3] = &quot;second child&quot;, n=3 } </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="700" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1754" bodyend="1787"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_x_m_l_1a10da71c9e98f3b14c7963e53b798a92d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaXML::LuaXML_ParseFile</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>LuaXML_ParseFile</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="701" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1711" bodyend="1752"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_x_m_l_1aa5bfbc3873a5d0bf70f61c88a6c6c916" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaXML::SetCondenseWhiteSpace</definition>
+        <argsstring>(bool condense)</argsstring>
+        <name>SetCondenseWhiteSpace</name>
+        <param>
+          <type>bool</type>
+          <declname>condense</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The world does not agree on whether white space should be kept or not. In order to make everyone happy, these global, static functions are provided to set whether or not the parser will condense all white space into a single space or not. The default is to condense. Note changing this value is not thread safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="709" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1791" bodyend="1798"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_x_m_l_1a19eea2d8936fa8ed225db7d2c5e857ca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaXML::IsWhiteSpaceCondensed</definition>
+        <argsstring>()</argsstring>
+        <name>IsWhiteSpaceCondensed</name>
+        <briefdescription>
+<para>Return the current white space setting. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="712" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1800" bodyend="1807"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_x_m_l" kindref="compound">ParaXML</ref> class </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.h" line="679" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="678" bodyend="713"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_x_m_l_1a19eea2d8936fa8ed225db7d2c5e857ca" prot="public" virt="non-virtual"><scope>ParaScripting::ParaXML</scope><name>IsWhiteSpaceCondensed</name></member>
+      <member refid="class_para_scripting_1_1_para_x_m_l_1a10da71c9e98f3b14c7963e53b798a92d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaXML</scope><name>LuaXML_ParseFile</name></member>
+      <member refid="class_para_scripting_1_1_para_x_m_l_1ac770dd3f43f3657d1378249d75cbd18e" prot="private" virt="non-virtual"><scope>ParaScripting::ParaXML</scope><name>LuaXML_ParseNode</name></member>
+      <member refid="class_para_scripting_1_1_para_x_m_l_1a2b1e741b10759be86d84d342fa10565b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaXML</scope><name>LuaXML_ParseString</name></member>
+      <member refid="class_para_scripting_1_1_para_x_m_l_1aa5bfbc3873a5d0bf70f61c88a6c6c916" prot="public" virt="non-virtual"><scope>ParaScripting::ParaXML</scope><name>SetCondenseWhiteSpace</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

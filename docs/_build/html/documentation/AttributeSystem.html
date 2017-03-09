@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Attribute System &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Asset Manifest &amp; Asynchronous Asset Loading" href="AssetManifest.html" />
+    <link rel="prev" title="Core ParaEngine/NPL API" href="CoreAPI.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="attribute-system">
+<span id="attribute-system"></span><h1>Attribute System<a class="headerlink" href="#attribute-system" title="Permalink to this headline">¶</a></h1>
+<p>Almost all C++ API objects like <code class="docutils literal"><span class="pre">ParaUIObject</span></code>, <code class="docutils literal"><span class="pre">ParaObject</span></code>, and even some global table like <code class="docutils literal"><span class="pre">ParaEngine</span></code>, expose a data interface via <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/classParaScripting_1_1ParaAttributeObject.html"><code class="docutils literal"><span class="pre">ParaAttributeObject</span></code></a>.</p>
+<p>The attribute system allows us to easily get or set data in core C++ object via NPL scripts, like below.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">attr</span> <span class="o">=</span> <span class="n">ParaEngine</span><span class="p">.</span><span class="n">GetAttributeObject</span><span class="p">();</span>
+<span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attr</span><span class="p">:</span><span class="n">GetField</span><span class="p">(</span><span class="s2">&quot;IgnoreWindowSizeChange&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="n">attr</span><span class="p">:</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;IgnoreWindowSizeChange&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In <a class="reference external" href="NPLCodeWiki">NPL code wiki</a>, one can open from menu <code class="docutils literal"><span class="pre">view::object</span> <span class="pre">browser</span></code> to inspect all living core objects via the attribute system.</p>
+<blockquote>
+<div>Please note <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Core/DOM.lua">script/ide/System/Core/DOM.lua</a> provides a handy interface to iterate over existing core objects or even pure NPL tables.</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="CoreAPI.html" title="previous chapter">Core ParaEngine/NPL API</a></li>
+      <li>Next: <a href="AssetManifest.html" title="next chapter">Asset Manifest &amp; Asynchronous Asset Loading</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/AttributeSystem.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/AttributeSystem.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

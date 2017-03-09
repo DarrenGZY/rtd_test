@@ -1,0 +1,1489 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_mini_scene_graph" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaMiniSceneGraph</compoundname>
+    <includes refid="_para_scripting_scene_8h" local="no">ParaScriptingScene.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_mini_scene_graph_1ad4214381da494e2afda372aa9e71c027" prot="public" static="no" mutable="no">
+        <type>CMiniSceneGraph::WeakPtr_type</type>
+        <definition>CMiniSceneGraph::WeakPtr_type ParaScripting::ParaMiniSceneGraph::m_pSceneGraph</definition>
+        <argsstring></argsstring>
+        <name>m_pSceneGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="906" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.h" bodystart="906" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a918eadbeccfee57dbe69849c5c71922b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaMiniSceneGraph::ParaMiniSceneGraph</definition>
+        <argsstring>()</argsstring>
+        <name>ParaMiniSceneGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="907" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.h" bodystart="907" bodyend="907"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a09e522681d48f9d96b582d536f2a8ca0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaMiniSceneGraph::ParaMiniSceneGraph</definition>
+        <argsstring>(CMiniSceneGraph *pGraph)</argsstring>
+        <name>ParaMiniSceneGraph</name>
+        <param>
+          <type>CMiniSceneGraph *</type>
+          <declname>pGraph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="908" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.h" bodystart="908" bodyend="908"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a5cdef06957ac04a9197510c7f0712797" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaMiniSceneGraph::~ParaMiniSceneGraph</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaMiniSceneGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="909" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2765" bodyend="2768"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a408406f4927c916e7431c9f0a47117a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaMiniSceneGraph::GetName</definition>
+        <argsstring>()</argsstring>
+        <name>GetName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="912" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2851" bodyend="2856"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a207c5d4b5c92e43da2ff70ab65f4c697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetName</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>SetName</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the object name. this function can be used to rename this object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="915" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2858" bodyend="2862"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ad42b672fa67daeaf7860ca9d95ea1a4a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::IsValid</definition>
+        <argsstring>() const</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="920" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.h" bodystart="920" bodyend="920"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1aef5680e551e202eb2c9b48091fc9af6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaScripting::ParaMiniSceneGraph::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with the global scene. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="923" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3103" bodyend="3106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a8532bc967096cb3eb813ab8f8aef7c85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaMiniSceneGraph::GetAttributeObject1</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>GetAttributeObject1</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with the global scene. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>&quot;&quot; for global scene, &quot;sky&quot; for sky, &quot;camera&quot; for camera, &quot;sun&quot; for sun. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="927" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3204" bodyend="3226"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1acbb28404d1db686eb593f699460015e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::GetAttributeObject_</definition>
+        <argsstring>(ParaAttributeObject &amp;output)</argsstring>
+        <name>GetAttributeObject_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>used for API exportation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="930" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3108" bodyend="3111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1aa80c3684aa67862f43bea198705a5355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaMiniSceneGraph::GetAttributeObjectCamera</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObjectCamera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with the current camera object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="933" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3199" bodyend="3202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a3a261e4d8ce05b05aa8594a9a9c8e46b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::CreateSkyBox</definition>
+        <argsstring>(const char *strObjectName, const char *strMeshAssetName, float fScaleX, float fScaleY, float fScaleZ, float fHeightOffset)</argsstring>
+        <name>CreateSkyBox</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strMeshAssetName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaleX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaleY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaleZ</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fHeightOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a sky box and add it to the current list. sky box with the same name will not be recreated,but will be selected as the current sky box. It may be a sky box/dome/plane or whatever. The associated mesh will be scaled by the specified amount along x,y,z axis and then translate up or down along the y axis. in many cases, the mesh data in the mesh asset is of unit size. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sky name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strMeshAssetName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>mesh asset name. this is not the file name. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fScaleX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the static mesh local transform scale along the x axis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fScaleY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the static mesh local transform scale along the y axis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fScaleZ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the static mesh local transform scale along the z axis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fHeightOffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the translation along the y axis. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="948" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3148" bodyend="3155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ae0a7c8d0485631259f85b50772ea726a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::CreateSkyBox_</definition>
+        <argsstring>(const char *strObjectName, ParaAssetObject &amp;asset, float fScaleX, float fScaleY, float fScaleZ, float fHeightOffset)</argsstring>
+        <name>CreateSkyBox_</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> &amp;</type>
+          <declname>asset</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaleX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaleY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScaleZ</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fHeightOffset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="949" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3156" bodyend="3164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ad16c663d06cca6611111466156b9df83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::DeleteSkyBox</definition>
+        <argsstring>(const char *strObjectName)</argsstring>
+        <name>DeleteSkyBox</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete a name sky box. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is &quot;&quot;, all sky boxes will be deleted. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="952" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3166" bodyend="3170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a4b4b7c21172ca70072e7581e5412bb3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::EnableLighting</definition>
+        <argsstring>(bool bEnable)</argsstring>
+        <name>EnableLighting</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enable both global and local lighting. Turn off lighting will greatly improve performance, such as on slower computers </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="955" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3113" bodyend="3117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1abd286bc7e4a36249cfe9bfd689477450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::IsLightingEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>IsLightingEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="956" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3119" bodyend="3122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ada498b8cd65a43aa523706811de0933b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetTimeOfDaySTD</definition>
+        <argsstring>(float time)</argsstring>
+        <name>SetTimeOfDaySTD</name>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set standard time. see SetTimeOfDay() <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>always in the range [-1,1], 0 means at noon, -1 is morning. 1 is night. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="960" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3172" bodyend="3176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1adcae918e441d8da6b14eda29d208591c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaMiniSceneGraph::GetTimeOfDaySTD</definition>
+        <argsstring>()</argsstring>
+        <name>GetTimeOfDaySTD</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get standard time. see GetTimeOfDay() <simplesect kind="return"><para>: always in the range [-1,1], 0 means at noon, -1 is morning. 1 is night. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="964" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3178" bodyend="3181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a5619544b0b721bd43e95ad46d24d4a29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetFog</definition>
+        <argsstring>(bool bRenderFog, const char *strFogColor, float fFogStart, float fFogEnd, float fFogDensity)</argsstring>
+        <name>SetFog</name>
+        <param>
+          <type>bool</type>
+          <declname>bRenderFog</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strFogColor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fFogStart</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fFogEnd</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fFogDensity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the global fog effect <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bRenderFog</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>1 to enable fog. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strFogColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string of RGB value in the format &quot;%f %f %f&quot;, such as &quot;1.0 1.0 1.0&quot;, value must be in the range [0, 1.0]. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fFogDensity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>between (0,1) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fFogStart</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>unit in meters. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fFogEnd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>unit in meters. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="974" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3124" bodyend="3146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a95bc29e60876494b927cd9cf87269cdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::IsVisible</definition>
+        <argsstring>()</argsstring>
+        <name>IsVisible</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>invisible object will not be drawn. e.g. one can turn off the visibility of physics object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="977" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2900" bodyend="2907"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a31f450cc71e88d36316301cb54482355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetVisible</definition>
+        <argsstring>(bool bVisible)</argsstring>
+        <name>SetVisible</name>
+        <param>
+          <type>bool</type>
+          <declname>bVisible</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the visibility of this object. The visibility will recursively affect all its child objects. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="981" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2909" bodyend="2915"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a9b3e15ffcdc10d3f14a05247733f5bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::EnableCamera</definition>
+        <argsstring>(bool bEnable)</argsstring>
+        <name>EnableCamera</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>enable or disable a given camera </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="984" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2770" bodyend="2776"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1af74f43ef288abe20f322b78b8dc34fcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::IsCameraEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>IsCameraEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether camera is enabled. it is disabled by default. it is much faster to disable camera, because it will use the main scene&apos;s render pipeline and effects. Otherwise it will be rendered after the main scene is rendered, since the camera is different. TODO: currently mini scene graph is only rendered when its camera is disabled. local camera is not supported at the moment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="991" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2778" bodyend="2785"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a738745df65c3ff25ef86446889fc7850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+        <definition>ParaScripting::ParaObject ParaScripting::ParaMiniSceneGraph::GetObject</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>GetObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>update the camera parameter by providing the lookat and eye position get the camera parameter of the lookat and eye position in scripting interface all inputs are outputs. get object by name, if there are multiple objects with the same name, the last added one is inserted. <simplesect kind="note"><para>: This function will traverse the scene to search the object. So there might be some performance penalty. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1005" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2810" bodyend="2817"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a9aab04a6e2cf32449907930aceec4f37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+        <definition>ParaObject ParaScripting::ParaMiniSceneGraph::GetObject3</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>GetObject3</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the first object that matches the position. EPSILON is 0.01f </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1008" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2864" bodyend="2871"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a04c3565c7b7dbef5ac47ff6260292449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+        <definition>ParaObject ParaScripting::ParaMiniSceneGraph::GetObject4</definition>
+        <argsstring>(float x, float y, float z, float fEpsilon)</argsstring>
+        <name>GetObject4</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fEpsilon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the first object that matches the position within fEpsilon, which is usually 0.01f </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1011" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2873" bodyend="2880"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ab0263039ddb5331b338ffe2e1b1d7ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMiniSceneGraph::RemoveObject</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>RemoveObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove an object from this scene graph but do not destroy it. this function can be used to move a node from one scene graph to another </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1015" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2882" bodyend="2889"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a629f6a3dc85ce68969e6c2a6630c255d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMiniSceneGraph::RemoveObject_</definition>
+        <argsstring>(const ParaObject &amp;pObj)</argsstring>
+        <name>RemoveObject_</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove an object from this scene graph but do not destroy it. this function can be used to move a node from one scene graph to another </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1019" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2891" bodyend="2898"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ab2404350929908cd65ef2849ab17716b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::AddChild</definition>
+        <argsstring>(const ParaObject obj)</argsstring>
+        <name>AddChild</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>attach the object as its child object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the child object to attach </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1025" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2845" bodyend="2849"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a8b1d664315dda299b47075c63412cf9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMiniSceneGraph::DestroyObject</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>DestroyObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>destroy all objects with the given name. the current version will only destroy the first met child with the given name. <simplesect kind="return"><para>the number of objects deleted. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1031" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2819" bodyend="2826"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a9a4238fa386d0b0af3cecbda6289c115" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMiniSceneGraph::DestroyObject_</definition>
+        <argsstring>(const ParaObject &amp;pObj)</argsstring>
+        <name>DestroyObject_</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete an object from this scene graph but do not destroy it.This function will search the scene recursively this function can be used to move a node from one scene graph to another Note: this is like calling RemoveObject(pObj) and then delete the object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pObj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object to delete. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1038" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2828" bodyend="2835"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ad22eaea3bd58f08a3c421c78eb440b69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::DestroyChildren</definition>
+        <argsstring>()</argsstring>
+        <name>DestroyChildren</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>destroy all children of this mini-scenegraph. but still preserving other settings like camera and render target. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1041" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3193" bodyend="3197"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a259584f505d5a34bb82a4773160e3554" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>clear the entire scene graph </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1044" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2837" bodyend="2843"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1af518e57da08191dd00df7b80f350626c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetActor</definition>
+        <argsstring>(const ParaObject pActor)</argsstring>
+        <name>SetActor</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+          <declname>pActor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the actor: The camera always focuses on actor, so this actor can be used to control the current camera position. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pActor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it must be a valid object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1052" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2917" bodyend="2923"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a3676a9f296b44fbd6d725fe4d39e3244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+        <definition>ParaScripting::ParaObject ParaScripting::ParaMiniSceneGraph::GetActor</definition>
+        <argsstring>()</argsstring>
+        <name>GetActor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current actor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1055" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2925" bodyend="2928"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a85eed9ad6d2bdc54484f43b7fa1c0674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+        <definition>ParaScripting::ParaAssetObject ParaScripting::ParaMiniSceneGraph::GetTexture</definition>
+        <argsstring>()</argsstring>
+        <name>GetTexture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the canvas texture, which can be used as any other ordinary texture on 3D or 2D object. <simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1061" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2930" bodyend="2933"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a12c66fa6e334783422fc863ce563483f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraZoom</definition>
+        <argsstring>(float fAmount)</argsstring>
+        <name>CameraZoom</name>
+        <param>
+          <type>float</type>
+          <declname>fAmount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Zoom the camera <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fAmount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1068" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2935" bodyend="2941"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a26944591a268a2324460b2b8a55557f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraZoomSphere</definition>
+        <argsstring>(float center_x, float center_y, float center_z, float raduis)</argsstring>
+        <name>CameraZoomSphere</name>
+        <param>
+          <type>float</type>
+          <declname>center_x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>center_y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>center_z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>raduis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reset the camera parameters to view the entire sphere at best (default) distance <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>center_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sphere center x </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sphere center y </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sphere center z </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>raduis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sphere raduis </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1077" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2943" bodyend="2949"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ad7dd788436837b5a825c46930a03aef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraRotate</definition>
+        <argsstring>(float dx, float dy, float dz)</argsstring>
+        <name>CameraRotate</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>rotate the camera round the object on canvas <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>relative amount in radian. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1085" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2951" bodyend="2957"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1aa9851a46411c28fb37780036a2c11d92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraPan</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>CameraPan</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pan the camera <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>relative amount in pixels </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>relative amount in pixels </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1092" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2959" bodyend="2965"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1afd654d77fe1af5a55cff5952332e9c43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraSetLookAtPos</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>CameraSetLookAtPos</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the camera look at position </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1097" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3038" bodyend="3044"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ab6f3bd1c02c100e7442d3b5927143e05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraGetLookAtPos</definition>
+        <argsstring>(float *x, float *y, float *z)</argsstring>
+        <name>CameraGetLookAtPos</name>
+        <param>
+          <type>float *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1098" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3046" bodyend="3052"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ac6890f5fd75b6622e0b9cffa0c9cd7c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraSetEyePosByAngle</definition>
+        <argsstring>(float fRotY, float fLiftupAngle, float fCameraObjectDist)</argsstring>
+        <name>CameraSetEyePosByAngle</name>
+        <param>
+          <type>float</type>
+          <declname>fRotY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fLiftupAngle</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fCameraObjectDist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the camera eye position <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fRotY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation of the camera around the Y axis, in the world coordinate. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fLiftupAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lift up angle of the camera. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fCameraObjectDist</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the distance from the camera eye to the object being followed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1106" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3054" bodyend="3060"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ae6e3f32388b2d1bbe5c6fec845c06ace" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraGetEyePosByAngle</definition>
+        <argsstring>(float *fRotY, float *fLiftupAngle, float *fCameraObjectDist)</argsstring>
+        <name>CameraGetEyePosByAngle</name>
+        <param>
+          <type>float *</type>
+          <declname>fRotY</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>fLiftupAngle</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>fCameraObjectDist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1107" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3062" bodyend="3068"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1aa3ccd7143a1ead5ffbba46b71827e049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraSetEyePos</definition>
+        <argsstring>(double x, double y, double z)</argsstring>
+        <name>CameraSetEyePos</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1108" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3070" bodyend="3076"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ad59ca5bf9509cfff921a65a559a33bf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::CameraGetEyePos</definition>
+        <argsstring>(double *x, double *y, double *z)</argsstring>
+        <name>CameraGetEyePos</name>
+        <param>
+          <type>double *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1109" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3078" bodyend="3084"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a502bcce63477e6a4c9d37f28faa53b05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::Draw</definition>
+        <argsstring>(float fDeltaTime)</argsstring>
+        <name>Draw</name>
+        <param>
+          <type>float</type>
+          <declname>fDeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>draw the content of the scene graph to the current render target. If EnableActiveRendering is enabled, this function will be called each render frame after the main scene graph. however, if EnableActiveRendering is disabled, one can call this function to render a single frame to the render target on demand. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1116" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2967" bodyend="2978"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1ab08f2e60f078a323073a5f18f38f2cd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SaveToFile</definition>
+        <argsstring>(const char *sFileName, int nImageSize=0)</argsstring>
+        <name>SaveToFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFileName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nImageSize</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save to file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a texture file path to save the file to. we support &quot;.dds&quot;, &quot;.jpg&quot;, &quot;.png&quot; files. If the file extension is not recognized, &quot;.png&quot; file is used. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nImageSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is zero, the original size is used. If it is dds, all mip map levels are saved. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1124" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2980" bodyend="2986"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a09e52029844aa7a5daed8ffcc518ab14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SaveToFileEx</definition>
+        <argsstring>(const char *sFileName, int width=0, int height=0, DWORD dwFormat=3, UINT MipLevels=0, int srcLeft=0, int srcTop=0, int srcWidth=0, int srcHeight=0)</argsstring>
+        <name>SaveToFileEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFileName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>dwFormat</declname>
+          <defval>3</defval>
+        </param>
+        <param>
+          <type>UINT</type>
+          <declname>MipLevels</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcLeft</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcTop</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcWidth</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcHeight</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1125" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2988" bodyend="2994"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1aab5d8bfef9cad801b95c62e28ca8252d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetRenderTargetSize</definition>
+        <argsstring>(int nWidth, int nHeight)</argsstring>
+        <name>SetRenderTargetSize</name>
+        <param>
+          <type>int</type>
+          <declname>nWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the canvas size in pixels <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default to 512 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default to 512 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1132" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2996" bodyend="3002"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a0b5c87e28f1155ff26d3a9e677041192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetBackGroundColor</definition>
+        <argsstring>(const char *rgba)</argsstring>
+        <name>SetBackGroundColor</name>
+        <param>
+          <type>const char *</type>
+          <declname>rgba</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the color of the scene ground when it is not enabled.When scene is enabled, the background color is always the fog color. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rgba</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it can contain alpha channel, such as &quot;255 255 255 128&quot;. If no alpha is specified like &quot;255 255 255&quot;, alpha will be 1.0 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1137" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3183" bodyend="3191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a87f232404af25cb899a57aed826491c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::SetMaskTexture</definition>
+        <argsstring>(ParaAssetObject pTexture)</argsstring>
+        <name>SetMaskTexture</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
+          <declname>pTexture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this is an optional 2D mask, which is drawn over the entire canvas after scene is rendered in to it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pTexture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1142" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3004" bodyend="3010"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a8379f5e37a4745d97aa068e5a339e278" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::EnableActiveRendering</definition>
+        <argsstring>(bool bEnable)</argsstring>
+        <name>EnableActiveRendering</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if true, contents will be drawn to the current render target each frame. Default value is false. where the user can call DrawToTexture() on demand. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1145" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3012" bodyend="3018"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1aede837786768d480f6ff1fdb9869c9a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::IsActiveRenderingEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>IsActiveRenderingEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if true, contents will be drawn to the current render target each frame. Default value is false. where the user can call DrawToTexture() on demand. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1148" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3020" bodyend="3023"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1af4c2613446af60dc9ac2479e983e334e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+        <definition>ParaScripting::ParaObject ParaScripting::ParaMiniSceneGraph::MousePick</definition>
+        <argsstring>(float x, float y, float fMaxDistance, const char *sFilterFunc)</argsstring>
+        <name>MousePick</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fMaxDistance</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sFilterFunc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pick scene object at the current mouse cursor position. pick the smallest intersected object which is un-occluded by any objects. Object A is considered occluded by object B only if (1) both A and B intersect with the hit ray. (2) both A and B do not intersect with each other. (3) B is in front of A, with regard to the ray origin.</para><para>this function will ray-pick any loaded scene object(biped &amp; mesh, but excluding the terrain) using their oriented bounding box. a filter function may be provided to further filter selected object. this function will transform all objects to near-camera coordinate system. This will remove some floating point inaccuracy near the camera position.Hence this function is most suitable for testing object near the camera eye position. This function does not rely on the physics engine to perform ray-picking. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen position relative to the render target. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen position relative to the render target.  fMaxDistance: the longest distance from the ray origin to check for collision. If the value is 0 or negative, the view culling radius is used as the fMaxDistance. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sFnctFilter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it can be any of the following string or a number string &quot;mesh&quot;: mesh any mesh object in the scene. Usually for selection during scene editing. &quot;cmesh&quot;: mesh object that is clickable (associated with scripts). Usually for game playing. &quot;notplayer&quot;: any object in the scene except for the current player. Usually for selection during scene editing. &quot;&quot;: any object in the scene except. Usually for selection during scene editing. &quot;light&quot;: only pick light objects &quot;biped&quot;: any character objects :local or global. &quot;anyobject&quot;: any objects, including mesh and characters. but not including helper objects, such as light. &quot;global&quot;: all global objects, such as global character and mesh. This is usually for game mode. &quot;point&quot;: the returned object is invalid if there no collision with any physics faces. otherwise, one can use GetPosition function of the returned object to retrieve the intersection point. &quot;terrain&quot;: pick a point on the global terrain only. &quot;walkpoint&quot;: pick a point on the global terrain or any physical object with camera obstruction attribute set to true. &quot;actionmesh&quot;: mesh with action script. number: if it is a number, it is treated as a 32 bitwise DWORD filter code. see SetPickingFilter() for more example. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>:the scene object. if the object is invalid, it means that the ray has hit nothing. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1182" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3025" bodyend="3036"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a40f11c9a9f307d8ad2882cdafb05fc46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMiniSceneGraph::ShowHeadOnDisplay</definition>
+        <argsstring>(bool bShow)</argsstring>
+        <name>ShowHeadOnDisplay</name>
+        <param>
+          <type>bool</type>
+          <declname>bShow</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>show or hide all scene&apos;s objects&apos; head on display </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1185" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3086" bodyend="3092"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_mini_scene_graph_1a39943ed1f853fbc2e2fca8bf3067d26b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMiniSceneGraph::IsHeadOnDisplayShown</definition>
+        <argsstring>()</argsstring>
+        <name>IsHeadOnDisplayShown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether all scene&apos;s objects&apos; head on display </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1188" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="3094" bodyend="3101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_mini_scene_graph" kindref="compound">ParaMiniSceneGraph</ref> class: </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingScene.h" line="904" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.h" bodystart="903" bodyend="1189"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ab2404350929908cd65ef2849ab17716b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>AddChild</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ad59ca5bf9509cfff921a65a559a33bf7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraGetEyePos</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ae6e3f32388b2d1bbe5c6fec845c06ace" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraGetEyePosByAngle</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ab6f3bd1c02c100e7442d3b5927143e05" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraGetLookAtPos</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1aa9851a46411c28fb37780036a2c11d92" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraPan</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ad7dd788436837b5a825c46930a03aef0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraRotate</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1aa3ccd7143a1ead5ffbba46b71827e049" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraSetEyePos</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ac6890f5fd75b6622e0b9cffa0c9cd7c1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraSetEyePosByAngle</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1afd654d77fe1af5a55cff5952332e9c43" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraSetLookAtPos</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a12c66fa6e334783422fc863ce563483f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraZoom</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a26944591a268a2324460b2b8a55557f2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CameraZoomSphere</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a3a261e4d8ce05b05aa8594a9a9c8e46b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CreateSkyBox</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ae0a7c8d0485631259f85b50772ea726a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>CreateSkyBox_</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ad16c663d06cca6611111466156b9df83" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>DeleteSkyBox</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ad22eaea3bd58f08a3c421c78eb440b69" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>DestroyChildren</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a8b1d664315dda299b47075c63412cf9c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>DestroyObject</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a9a4238fa386d0b0af3cecbda6289c115" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>DestroyObject_</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a502bcce63477e6a4c9d37f28faa53b05" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>Draw</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a8379f5e37a4745d97aa068e5a339e278" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>EnableActiveRendering</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a9b3e15ffcdc10d3f14a05247733f5bfb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>EnableCamera</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a4b4b7c21172ca70072e7581e5412bb3e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>EnableLighting</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a3676a9f296b44fbd6d725fe4d39e3244" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetActor</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1aef5680e551e202eb2c9b48091fc9af6e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a8532bc967096cb3eb813ab8f8aef7c85" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetAttributeObject1</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1acbb28404d1db686eb593f699460015e4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetAttributeObject_</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1aa80c3684aa67862f43bea198705a5355" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetAttributeObjectCamera</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a408406f4927c916e7431c9f0a47117a8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetName</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a738745df65c3ff25ef86446889fc7850" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetObject</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a9aab04a6e2cf32449907930aceec4f37" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetObject3</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a04c3565c7b7dbef5ac47ff6260292449" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetObject4</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a85eed9ad6d2bdc54484f43b7fa1c0674" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1adcae918e441d8da6b14eda29d208591c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>GetTimeOfDaySTD</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1aede837786768d480f6ff1fdb9869c9a1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>IsActiveRenderingEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1af74f43ef288abe20f322b78b8dc34fcd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>IsCameraEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a39943ed1f853fbc2e2fca8bf3067d26b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>IsHeadOnDisplayShown</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1abd286bc7e4a36249cfe9bfd689477450" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>IsLightingEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ad42b672fa67daeaf7860ca9d95ea1a4a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a95bc29e60876494b927cd9cf87269cdc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>IsVisible</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ad4214381da494e2afda372aa9e71c027" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>m_pSceneGraph</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1af4c2613446af60dc9ac2479e983e334e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>MousePick</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a918eadbeccfee57dbe69849c5c71922b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>ParaMiniSceneGraph</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a09e522681d48f9d96b582d536f2a8ca0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>ParaMiniSceneGraph</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ab0263039ddb5331b338ffe2e1b1d7ba7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>RemoveObject</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a629f6a3dc85ce68969e6c2a6630c255d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>RemoveObject_</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a259584f505d5a34bb82a4773160e3554" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>Reset</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ab08f2e60f078a323073a5f18f38f2cd8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SaveToFile</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a09e52029844aa7a5daed8ffcc518ab14" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SaveToFileEx</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1af518e57da08191dd00df7b80f350626c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetActor</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a0b5c87e28f1155ff26d3a9e677041192" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetBackGroundColor</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a5619544b0b721bd43e95ad46d24d4a29" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetFog</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a87f232404af25cb899a57aed826491c3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetMaskTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a207c5d4b5c92e43da2ff70ab65f4c697" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetName</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1aab5d8bfef9cad801b95c62e28ca8252d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetRenderTargetSize</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1ada498b8cd65a43aa523706811de0933b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetTimeOfDaySTD</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a31f450cc71e88d36316301cb54482355" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>SetVisible</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a40f11c9a9f307d8ad2882cdafb05fc46" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>ShowHeadOnDisplay</name></member>
+      <member refid="class_para_scripting_1_1_para_mini_scene_graph_1a5cdef06957ac04a9197510c7f0712797" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMiniSceneGraph</scope><name>~ParaMiniSceneGraph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

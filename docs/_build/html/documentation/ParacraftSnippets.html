@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Useful Code Snippets in Paracraft &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="useful-code-snippets-in-paracraft">
+<span id="useful-code-snippets-in-paracraft"></span><h1>Useful Code Snippets in Paracraft<a class="headerlink" href="#useful-code-snippets-in-paracraft" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="paracraft-filters">
+<span id="paracraft-filters"></span><h2>Paracraft Filters<a class="headerlink" href="#paracraft-filters" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="FiltersAndEvents">Filters</a> is the recommended way for plugin/app developers to extend or modify paracraft.</p>
+<blockquote>
+<div><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/apps/Aries/Creator/Game/ParacraftFilters.md">Click here to see all Paracraft Filters</a></div></blockquote>
+<p>Mod interface also use filters to implement all plugin interface, therefore <a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/apps/Aries/Creator/Game/Mod/ModManager.lua">Mod Manager</a> is an example of how to add filters to various integration points in paracraft. To extend paracraft, one can either use filters or overwrite virtual functions on mod interface. It is therefore possible for an application to add high priority filters to disable/modify data after all mod interface filters.</p>
+<blockquote>
+<div>It is good practice to install filters only once at the very beginning. A good place to install filters is before <code class="docutils literal"><span class="pre">Game.Start</span></code> is called or in the <code class="docutils literal"><span class="pre">mod:init</span></code> function. One can also dynamically add/remove filters at runtime, just be sure to add your filters before they are applied.</div></blockquote>
+</div>
+<div class="section" id="what-is-the-filter-to-use-for-world-login">
+<span id="what-is-the-filter-to-use-for-world-login"></span><h2>What Is the Filter To Use For World Login<a class="headerlink" href="#what-is-the-filter-to-use-for-world-login" title="Permalink to this headline">¶</a></h2>
+<p>It is not trivial to define a filter (event) when a world is fully loaded, because everything is asynchronously loaded.
+The following filters are applied at various stage of world loading:</p>
+<ul class="simple">
+<li>&#8220;ActivateDesktop&#8221;, bIgnoreDefaultDesktop, mode: called when desktop mode is changed. This is the place to initialize your custom GUI.</li>
+<li>&#8220;handleLogin&#8221;, packet_login: whenever client received confirmed login packet from server. (only called in remote world)</li>
+<li><strong>&#8220;PlayerHasLoginPosition&#8221;, nil, x,y,z</strong>: called whenever the player is at its spawn position in both local or remote world.This filter is most close to when a world is fully loaded.</li>
+</ul>
+<blockquote>
+<div>One may start a one-time timer in any of these events to check if the world is fully loaded. If so, stop the timer and do whatever you want.</div></blockquote>
+</div>
+<div class="section" id="register-a-new-block">
+<span id="register-a-new-block"></span><h2>Register a New Block<a class="headerlink" href="#register-a-new-block" title="Permalink to this headline">¶</a></h2>
+<p>Please see <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/blob/master/_mod/Test/Mod/Test/DemoItem.lua">Test Sample</a> in ParacraftSDK&#8217;s <code class="docutils literal"><span class="pre">_mod</span></code> folder.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- register a new block item, id &lt; 512 is internal blocks, which is not recommended to modify. </span>
+<span class="n">GameLogic</span><span class="p">.</span><span class="n">GetFilters</span><span class="p">():</span><span class="n">add_filter</span><span class="p">(</span><span class="s2">&quot;block_types&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">xmlRoot</span><span class="p">)</span> 
+    <span class="kd">local</span> <span class="n">blocks</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">XPath</span><span class="p">.</span><span class="n">selectNode</span><span class="p">(</span><span class="n">xmlRoot</span><span class="p">,</span> <span class="s2">&quot;/blocks/&quot;</span><span class="p">);</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">blocks</span><span class="p">[</span><span class="o">#</span><span class="n">blocks</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;block&quot;</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="p">{</span>
+            <span class="n">id</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="n">threeSideTex</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Demo Item&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;DemoItem&quot;</span><span class="p">,</span>
+            <span class="n">texture</span><span class="o">=</span><span class="s2">&quot;Texture/blocks/bookshelf_three.png&quot;</span><span class="p">,</span>
+            <span class="n">obstruction</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">solid</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">cubeMode</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="p">}}</span>
+        <span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;DemoItem&quot;</span><span class="p">,</span> <span class="s2">&quot;a new block is registered&quot;</span><span class="p">);</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="n">xmlRoot</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-command">
+<span id="run-command"></span><h2>Run Command<a class="headerlink" href="#run-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="p">.</span><span class="n">RunCommand</span><span class="p">(</span><span class="s2">&quot;/startserver&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div>If you are inside a 3D world, one can call script using the <code class="docutils literal"><span class="pre">SpawnPoint</span></code> item.</div></blockquote>
+</div>
+<div class="section" id="create-win32-titlebar">
+<span id="create-win32-titlebar"></span><h2>Create Win32 TitleBar<a class="headerlink" href="#create-win32-titlebar" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, we need to hide the native win32 title bar and create our owner-draw title bar.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19351410/3f286224-918e-11e6-97d8-c2dbc06deb68.png" /></p>
+<p>The following mcml v1 code will do the job. see also <a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/test/test_window_title_bar.html">test code</a></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>&lt;pe:mcml&gt;
+&lt;pe:container name=&quot;titleBar&quot; alignment=&quot;_mt&quot; style=&quot;width:0px;height:64px;background:url(Texture/alphadot.png)&quot; &gt;
+    &lt;div style=&quot;position:relative;float:left;margin:5px;&quot;&gt;drag this title bar to move the native win32 window&lt;/div&gt;
+    &lt;pe:container name=&quot;winButtons&quot; alignment=&quot;_rt&quot; style=&quot;position:relative;padding:5px;margin:5px;width:100px;background:url(Texture/whitedot.png)&quot;&gt;
+        &lt;input type=&quot;button&quot; name=&quot;toggleBtn&quot; tooltip=&quot;press Z key to toggle&quot; onclick=&quot;toggleTitleBar&quot; value=&quot;ToggleTitle&quot; class=&quot;button&quot;/&gt;
+    &lt;/pe:container&gt;
+    &lt;pe:hotkey name=&quot;2&quot; hotkey=&quot;DIK_Z&quot; onclick=&quot;toggleTitleBar&quot; /&gt;
+&lt;/pe:container&gt;
+&lt;%
+-- This line will allow the user to drag this container to move the window.
+Page:FindControl(&quot;titleBar&quot;):SetField(&quot;EnableClientTest&quot;, true);
+
+function toggleTitleBar()
+    local bShowTitle = ParaEngine.GetAttributeObject():GetField(&quot;ShowWindowTitleBar&quot;, true)
+    ParaEngine.GetAttributeObject():SetField(&quot;ShowWindowTitleBar&quot;, not bShowTitle);
+end
+%&gt;
+&lt;/pe:mcml&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="defaultcontext-filter">
+<span id="defaultcontext-filter"></span><h2>&#8220;DefaultContext&#8221; filter<a class="headerlink" href="#defaultcontext-filter" title="Permalink to this headline">¶</a></h2>
+<p>Can be used to replace the default scene context in paracraft via paracraft mod interface.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Core/SceneContext.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">MySceneContext</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Core.SceneContext&quot;</span><span class="p">),</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Core.MySceneContext&quot;</span><span class="p">));</span>
+<span class="kr">function</span> <span class="nc">MySceneContext</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>
+    <span class="n">self</span><span class="p">:</span><span class="n">EnableAutoCamera</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">MySceneContext</span><span class="p">:</span><span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+    <span class="n">_guihelper</span><span class="p">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- when mod is loaded, register the filter</span>
+<span class="n">GameLogic</span><span class="p">.</span><span class="n">GetFilters</span><span class="p">():</span><span class="n">remove_all_filters</span><span class="p">(</span><span class="s2">&quot;DefaultContext&quot;</span><span class="p">)</span>
+<span class="n">GameLogic</span><span class="p">.</span><span class="n">GetFilters</span><span class="p">():</span><span class="n">add_filter</span><span class="p">(</span><span class="s2">&quot;DefaultContext&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+   <span class="kr">return</span> <span class="n">MySceneContext</span><span class="p">:</span><span class="n">CreateGetInstance</span><span class="p">(</span><span class="s2">&quot;MyDefaultSceneContext&quot;</span><span class="p">);</span>
+<span class="kr">end</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div>see also: <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/blob/master/_mod/Test/Mod/Test/DemoSceneContext.lua">TestMod</a> for a working sample.</div></blockquote>
+</div>
+<div class="section" id="client-server-gui">
+<span id="client-server-gui"></span><h2>Client/Server GUI<a class="headerlink" href="#client-server-gui" title="Permalink to this headline">¶</a></h2>
+<p>In many occasions, one needs to click a button in client side world to display some GUI and send result to server. But it is not trivial to implement.
+The logic is very similar to traditional web browser. But one can think of paracraft as a <code class="docutils literal"><span class="pre">3D</span> <span class="pre">web</span> <span class="pre">browser</span> <span class="pre">and</span> <span class="pre">server</span></code>. The server side database includes all blocks, NPCs, timelines, etc, which are shared (automatically synchronized) by all clients. However, each connected client has its own unique 2d/3d view into the server side database. For example, the changing of player positions automatically generate requests to fetch shared data from the server, so it is with GUI pages, except that the process is not automatic.</p>
+<p>The process of CS GUI request is like below:</p>
+<ul class="simple">
+<li>A client make a request to the server, such as clicking a button in 3d world, which will cause server side script to execute.</li>
+<li>The server side script may send back the proper GUI page content or url to display such as via <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;p</span></code> command to just the requested client.</li>
+<li>The client renders the GUI page to collect information from the user and send result back to server possibly via <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;admin</span></code> or other commands or messages.</li>
+<li>The server updated its database, such as changing blocks, modifying NPC positions, and updating data properties, etc. which will automatically be synchronized with other connected clients.</li>
+</ul>
+<blockquote>
+<div>Tips:</div></blockquote>
+<ul class="simple">
+<li>To send a message from client to server: <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;admin</span> <span class="pre">/any_command_here</span></code></li>
+<li>To send a message from server to client: <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;p</span> <span class="pre">/any_command_here</span></code></li>
+</ul>
+<blockquote>
+<div>Example 1: Simple C/S GUI</div></blockquote>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19636519/5d44e022-99fc-11e6-8ca1-442e6e6983ce.png" /></p>
+<p>Put <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;p</span> <span class="pre">/tip</span> <span class="pre">hi,</span> <span class="pre">username</span></code> inside a command block on server side. It will display a simple tip GUI whenever a client user clicks the button.</p>
+<p>Alternatively, one can also put <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;p</span> <span class="pre">/open</span> <span class="pre">test.html</span></code> inside a command block on server side. It will display any mcml GUI page on the client computer who triggers the button. <code class="docutils literal"><span class="pre">/open</span> <span class="pre">test.html</span></code> can <a class="reference external" href="https://github.com/LiXizhi/ParaCraft/wiki/cmd_open">open mcml GUI page</a> relative to world or root directory.</p>
+<blockquote>
+<div>Example 2: Custom C/S GUI</div></blockquote>
+<p>Custom GUI code must be pre-installed on both client and server, such as via a paracraft mod interface.
+The following code must be run on both client and server.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- register a new show GUI command </span>
+<span class="n">GameLogic</span><span class="p">.</span><span class="n">GetFilters</span><span class="p">():</span><span class="n">add_filter</span><span class="p">(</span><span class="s2">&quot;show&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bIsShow</span><span class="p">)</span> 
+    <span class="kr">if</span><span class="p">(</span><span class="n">name</span><span class="o">==</span><span class="s2">&quot;MyApp.TestCSGUI&quot;</span><span class="p">)</span> <span class="kr">then</span>
+               <span class="n">_guihelper</span><span class="p">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="s2">&quot;hello from custom gui&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+                       <span class="n">GameLogic</span><span class="p">.</span><span class="n">RunCommand</span><span class="p">(</span><span class="s2">&quot;/runat @admin /tip client pressed Yes&quot;</span><span class="p">);</span>
+               <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then put <code class="docutils literal"><span class="pre">/runat</span> <span class="pre">&#64;p</span> <span class="pre">/show</span> <span class="pre">MyApp.TestCSGUI</span></code> inside a command block on server side as in previous example. It will display a message box GUI whenever a client user clicks the button, and if the user pressed OK, it will send a message back to the server.</p>
+<blockquote>
+<div>Note: For security reasons, only the admin user can edit command blocks, some simple blocks like Sign and image block can be edited by both client and admin user. Changes to blocks are automatically applied to all connected client.</div></blockquote>
+</div>
+</div>
+<div class="section" id="chunk-generators">
+<span id="chunk-generators"></span><h1>Chunk Generators<a class="headerlink" href="#chunk-generators" title="Permalink to this headline">¶</a></h1>
+<p>There can be many custom chunk providers deriving from <a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/apps/Aries/Creator/Game/World/ChunkGenerator.lua">this base class</a>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Virtual</span> <span class="n">functions</span><span class="p">:</span>
+    <span class="n">Init</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+    <span class="n">GenerateChunkImp</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">external</span><span class="p">)</span>
+    <span class="n">PostGenerateChunkImp</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="n">OnExit</span><span class="p">()</span>
+
+    <span class="n">IsSupportAsyncMode</span>
+    <span class="n">GetClassAddress</span>
+    <span class="n">GenerateChunkAsyncImp</span>
+</pre></div>
+</div>
+<div class="section" id="synchronous-generator">
+<span id="synchronous-generator"></span><h2>Synchronous generator<a class="headerlink" href="#synchronous-generator" title="Permalink to this headline">¶</a></h2>
+<p>By default generator runs in the main thread, so that your generator can safely use all API.
+Simply derive from <code class="docutils literal"><span class="pre">ChunkGenerator</span></code> and overwrite <code class="docutils literal"><span class="pre">GenerateChunkImp</span></code>, and register the provider by name.</p>
+<blockquote>
+<div>see <a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/apps/Aries/Creator/Game/World/generators/FlatChunkGenerator.lua"><code class="docutils literal"><span class="pre">FlatChunkGenerator.lua</span></code></a> for example.</div></blockquote>
+</div>
+<div class="section" id="asynchronous-generator">
+<span id="asynchronous-generator"></span><h2>Asynchronous generator<a class="headerlink" href="#asynchronous-generator" title="Permalink to this headline">¶</a></h2>
+<p>Some generators may take a long time to compute and generate large number of blocks.
+It becomes impossible to run it in the main thread without dropping render frame rates.
+In such occasions, one needs to use asynchronous generator, which runs in one or more worker threads.
+Actually, you can turn your synchronous generator into asynchronous ones by simply
+overwriting <code class="docutils literal"><span class="pre">IsSupportAsyncMode</span></code> and <code class="docutils literal"><span class="pre">GetClassAddress</span></code> method.</p>
+<p>If <code class="docutils literal"><span class="pre">IsSupportAsyncMode</span></code> returns true, the chunk provider will send each chunk request
+to one of the worker threads for processing (see <code class="docutils literal"><span class="pre">SetWorkerThreadCount</span></code> function).
+The worker thread picks up the request and recreate the chunk provider instance
+based on <code class="docutils literal"><span class="pre">GetClassAddress</span></code> in that thread and pass a fake in-memory <code class="docutils literal"><span class="pre">Chunk</span></code> object (see also Chunk.lua)
+to its <code class="docutils literal"><span class="pre">GenerateChunkImp</span></code> function. Finally it sends back the data in <code class="docutils literal"><span class="pre">Chunk</span></code> object in compressed
+binary format to the main thread, which will apply the chunk data to the real <code class="docutils literal"><span class="pre">ChunkCpp</span></code> object (see also ChunkCpp.lua) in the main thread.
+BTW, applying all chunk data to chunk column in one API may be one-hundred times faster than setting individual blocks in the chunk.</p>
+<p>However, there is limitations of asynchronous generator. The <code class="docutils literal"><span class="pre">GenerateChunkImp</span></code> should only
+set or get chunk data based on the requested chunk only. It can not query or set entities or advanced information
+that is only available in the main thread. However, one can overwrite <code class="docutils literal"><span class="pre">PostGenerateChunkImp</span></code> to generate
+some add-on blocks/entities in the main thread, because <code class="docutils literal"><span class="pre">PostGenerateChunkImp</span></code> is always called for both async and sync mode in the main thread.</p>
+<blockquote>
+<div>See <code class="docutils literal"><span class="pre">NatureV1ChunkGenerator</span></code> generator for example.</div></blockquote>
+</div>
+<div class="section" id="programmatically-create-blocks">
+<span id="programmatically-create-blocks"></span><h2>Programmatically Create Blocks<a class="headerlink" href="#programmatically-create-blocks" title="Permalink to this headline">¶</a></h2>
+<p>Remember everything in paracraft originates from an <code class="docutils literal"><span class="pre">item</span></code>.
+So strictly speaking, one needs to call <code class="docutils literal"><span class="pre">item:TryCreate</span></code> to create an item in Paracraft.</p>
+<p>However, for very simple block based items, we offer other easier ways like command <a class="reference external" href="https://github.com/LiXizhi/ParaCraft/wiki/cmd_setblock"><code class="docutils literal"><span class="pre">/setblock</span></code></a> or <code class="docutils literal"><span class="pre">BlockEngine:SetBlock(x,y,z,block_id,</span> <span class="pre">block_data,</span> <span class="pre">flag,</span> <span class="pre">entity_data)</span></code>.</p>
+</div>
+<div class="section" id="change-default-player-appearance">
+<span id="change-default-player-appearance"></span><h2>Change Default Player Appearance<a class="headerlink" href="#change-default-player-appearance" title="Permalink to this headline">¶</a></h2>
+<p>One can change the main player appearance after world is loaded using the <code class="docutils literal"><span class="pre">Entity:SetMainAssetPath</span></code> function or <code class="docutils literal"><span class="pre">/avatar</span></code> command.</p>
+<p>Another way is to change the <code class="docutils literal"><span class="pre">block_types.xml</span></code> of the corresponding item&#8217;s model configuration, like below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;block</span> <span class="na">id=</span><span class="s">&quot;30002&quot;</span> <span class="na">name=</span><span class="s">&quot;player&quot;</span> <span class="na">text=</span><span class="s">&quot;主角&quot;</span> <span class="na">searchkey=</span><span class="s">&quot;&quot;</span> <span class="na">tooltip=</span><span class="s">&quot;&quot;</span> <span class="na">item_class=</span><span class="s">&quot;ItemNPC&quot;</span> <span class="na">icon=</span><span class="s">&quot;Texture/blocks/items/skull_steve.png&quot;</span> <span class="na">hp=</span><span class="s">&quot;100&quot;</span> <span class="na">respawn_time=</span><span class="s">&quot;300000&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">assetfile=</span><span class="s">&quot;character/CC/01char/char_male.x&quot;</span> <span class="na">skin=</span><span class="s">&quot;Texture/blocks/human/boy_blue_shirt01.png&quot;</span> <span class="nt">&gt;&lt;/model&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+</pre></div>
+</div>
+<p>One can do this via <code class="docutils literal"><span class="pre">filters</span></code> when your application starts. Both <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">fbx</span></code> files are supported for assetfile.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Useful Code Snippets in Paracraft</a><ul>
+<li><a class="reference internal" href="#paracraft-filters">Paracraft Filters</a></li>
+<li><a class="reference internal" href="#what-is-the-filter-to-use-for-world-login">What Is the Filter To Use For World Login</a></li>
+<li><a class="reference internal" href="#register-a-new-block">Register a New Block</a></li>
+<li><a class="reference internal" href="#run-command">Run Command</a></li>
+<li><a class="reference internal" href="#create-win32-titlebar">Create Win32 TitleBar</a></li>
+<li><a class="reference internal" href="#defaultcontext-filter">&#8220;DefaultContext&#8221; filter</a></li>
+<li><a class="reference internal" href="#client-server-gui">Client/Server GUI</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chunk-generators">Chunk Generators</a><ul>
+<li><a class="reference internal" href="#synchronous-generator">Synchronous generator</a></li>
+<li><a class="reference internal" href="#asynchronous-generator">Asynchronous generator</a></li>
+<li><a class="reference internal" href="#programmatically-create-blocks">Programmatically Create Blocks</a></li>
+<li><a class="reference internal" href="#change-default-player-appearance">Change Default Player Appearance</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/ParacraftSnippets.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/ParacraftSnippets.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

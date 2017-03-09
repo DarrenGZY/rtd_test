@@ -1,0 +1,752 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_global" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaGlobal</compoundname>
+    <includes refid="_para_scripting_global_8h" local="no">ParaScriptingGlobal.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ad731934e663212d8c9c7937eba4fadcf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::ExitApp</definition>
+        <argsstring>()</argsstring>
+        <name>ExitApp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>exit the applications. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="189" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="168" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a41e2b27ce8f2ddbf781133ecd743b752" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaGlobal::Exit</definition>
+        <argsstring>(int nReturnCode)</argsstring>
+        <name>Exit</name>
+        <param>
+          <type>int</type>
+          <declname>nReturnCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is same as ExitApp, except that it supports a return code. this is the recommended way of exiting application. this is mainly used for writing test cases. Where a return value of 0 means success, any other value means failure. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="195" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ac7d08b016aa895dd2100b160e1b57015" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::WriteToConsole</definition>
+        <argsstring>(const char *strMessage)</argsstring>
+        <name>WriteToConsole</name>
+        <param>
+          <type>const char *</type>
+          <declname>strMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write const char* to console, usually for debugging purposes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="200" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a57c2d7733bdb7914ad458dbc6444bef3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::WriteToLogFile</definition>
+        <argsstring>(const char *strMessage)</argsstring>
+        <name>WriteToLogFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>strMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write const char* to log file, usually for debugging purposes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="204" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="131" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a9f4d82a4c8c4e9fc5f55a1988f9a9344" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaGlobal::GetLogPos</definition>
+        <argsstring>()</argsstring>
+        <name>GetLogPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current log file position. it is equivalent to the log file size in bytes. one can later get log text between two Log positions. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="209" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a80a50fbfbe66554ef9c4621d1c97e36e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaGlobal::GetLog</definition>
+        <argsstring>(int fromPos, int nCount)</argsstring>
+        <name>GetLog</name>
+        <param>
+          <type>int</type>
+          <declname>fromPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get log text between two Log positions. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>position in bytes. if nil, it defaults to 0 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>count in bytes. if nil, it defaults to end of log file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>string returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="216" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="163" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a0e1e8319b98cff82ac7f7acde3633ccf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_service_logger" kindref="compound">ParaServiceLogger</ref></type>
+        <definition>ParaScripting::ParaServiceLogger ParaScripting::ParaGlobal::GetLogger</definition>
+        <argsstring>(const object &amp;name)</argsstring>
+        <name>GetLogger</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a service logger. Please see util/LogService.h for more information. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="219" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="137" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a2ce87077258d49604022d999055d0e6d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_service_logger" kindref="compound">ParaServiceLogger</ref></type>
+        <definition>ParaScripting::ParaServiceLogger ParaScripting::ParaGlobal::GetLogger_</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>GetLogger_</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="220" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="151" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a112baf3165238f489c1c3c90383babfa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaGlobal::WriteToFile</definition>
+        <argsstring>(const char *filename, const char *strMessage)</argsstring>
+        <name>WriteToFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write const char* to specific file. obsolete </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="226" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="178" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a0f7152a25fc16e9f129b419d381af78d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::SetGameStatus</definition>
+        <argsstring>(const char *strState)</argsstring>
+        <name>SetGameStatus</name>
+        <param>
+          <type>const char *</type>
+          <declname>strState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the game status <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strState</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><itemizedlist>
+<listitem><para>&quot;disable&quot; disable the game</para></listitem><listitem><para>&quot;enable&quot; enable the game</para></listitem><listitem><para>&quot;pause&quot; pause the game</para></listitem><listitem><para>&quot;resume&quot; resume the game </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="235" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="195" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ab397c791ba2bc0fe2cbb5cbf23b906b2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaGlobal::GetGameTime</definition>
+        <argsstring>()</argsstring>
+        <name>GetGameTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>return the current game time in milliseconds.When game is paused, game time is also paused. this is usually used for cinematic movies </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="240" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a8cc9335e0bce5a8855c0767871e4c135" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::ParaGlobal::GetDateFormat</definition>
+        <argsstring>(const object &amp;sFormat)</argsstring>
+        <name>GetDateFormat</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sFormat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the date in string [thread safe] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFormat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be NULL to use default.e.g. &quot;ddd&apos;,&apos; MMM dd yy&quot;<itemizedlist>
+<listitem><para>d Day of month as digits with no leading zero for single-digit days.</para></listitem><listitem><para>dd Day of month as digits with leading zero for single-digit days.</para></listitem><listitem><para>ddd Day of week as a three-letter abbreviation. The function uses the LOCALE_SABBREVDAYNAME value associated with the specified locale.</para></listitem><listitem><para>dddd Day of week as its full name. The function uses the LOCALE_SDAYNAME value associated with the specified locale.</para></listitem><listitem><para>M Month as digits with no leading zero for single-digit months.</para></listitem><listitem><para>MM Month as digits with leading zero for single-digit months.</para></listitem><listitem><para>MMM Month as a three-letter abbreviation. The function uses the LOCALE_SABBREVMONTHNAME value associated with the specified locale.</para></listitem><listitem><para>MMMM Month as its full name. The function uses the LOCALE_SMONTHNAME value associated with the specified locale.</para></listitem><listitem><para>y Year as last two digits, but with no leading zero for years less than 10.</para></listitem><listitem><para>yy Year as last two digits, but with leading zero for years less than 10.</para></listitem><listitem><para>yyyy Year represented by full four digits.</para></listitem><listitem><para>gg Period/era string. The function uses the CAL_SERASTRING value associated with the specified locale. This element is ignored if the date to be formatted does not have an associated era or period string. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="260" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1531" bodyend="1534"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a8240527d167f4171092d6371472c394b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::ParaGlobal::GetTimeFormat</definition>
+        <argsstring>(const object &amp;sFormat)</argsstring>
+        <name>GetTimeFormat</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sFormat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the time in string [thread safe] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFormat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be NULL to use default. e.g. &quot;hh&apos;:&apos;mm&apos;:&apos;ss tt&quot;<itemizedlist>
+<listitem><para>h Hours with no leading zero for single-digit hours; 12-hour clock.</para></listitem><listitem><para>hh Hours with leading zero for single-digit hours; 12-hour clock.</para></listitem><listitem><para>H Hours with no leading zero for single-digit hours; 24-hour clock.</para></listitem><listitem><para>HH Hours with leading zero for single-digit hours; 24-hour clock.</para></listitem><listitem><para>m Minutes with no leading zero for single-digit minutes.</para></listitem><listitem><para>mm Minutes with leading zero for single-digit minutes.</para></listitem><listitem><para>s Seconds with no leading zero for single-digit seconds.</para></listitem><listitem><para>ss Seconds with leading zero for single-digit seconds.</para></listitem><listitem><para>t One character time-marker string, such as A or P.</para></listitem><listitem><para>tt Multicharacter time-marker string, such as AM or PM. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="278" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1536" bodyend="1539"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a6e2b4c00fcefe18bd6e6089285896aea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaGlobal::timeGetTime</definition>
+        <argsstring>()</argsstring>
+        <name>timeGetTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The timeGetTime function retrieves the system time, in milliseconds. The system time is the time elapsed since Windows was started. Note that the value returned by the timeGetTime function is a DWORD value. The return value wraps around to 0 every 2^32 milliseconds, which is about 49.71 days. This can cause problems in code that directly uses the timeGetTime return value in computations, particularly where the value is used to control code execution. You should always use the difference between two timeGetTime return values in computations. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="286" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1541" bodyend="1544"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a7676c1070e5be076c30aceaf1c55f9a9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaScripting::ParaGlobal::getAccurateTime</definition>
+        <argsstring>()</argsstring>
+        <name>getAccurateTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the elapsed time using high-resolution timing function in seconds. this function is mostly used for profiling on the NPL </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="289" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1683" bodyend="1688"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ac0c138a2a6dd829fd0e45b9a543d521b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaScripting::ParaGlobal::random</definition>
+        <argsstring>()</argsstring>
+        <name>random</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the random seed is set at application start <simplesect kind="return"><para>generate a random number between [0,1] </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="295" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1515" bodyend="1519"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ad720ef6d97b0160d2bc336d1989a7903" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaScripting::ParaGlobal::GetSysDateTime</definition>
+        <argsstring>()</argsstring>
+        <name>GetSysDateTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the system date and time in seconds. The system time is expressed in Coordinated Universal Time (UTC). Note: there is some trick to make the returned value a valid number in NPL. Only compare time with time returned by the same function. TODO: in the long run, a true unsigned int64 should be returned. [thread safe] </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="303" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1526" bodyend="1529"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a472e8020a2dd73017d80cfe6dccba1c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::ParaGlobal::GenerateUniqueID</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateUniqueID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>generate a unique ID as a string. This is usually a string. [thread safe] <simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="310" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1521" bodyend="1524"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ac60b91ab6f3b00df21134817242857c2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::SaveObject</definition>
+        <argsstring>(const char *strObjectName, const object &amp;objObject)</argsstring>
+        <name>SaveObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>objObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global object dictionary functions: this is a way for different script runtime to share some global information. Currently only value and const char* object can be saved. one can save nil to a object name to delete the object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>objObject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object to save </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+<para>already exists, then override old value</para><para>already exists, then override old value</para><para>already exists, delete it. </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="318" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="221" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a4604d269c70fb839517053ae31cc6a6c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaGlobal::LoadObject</definition>
+        <argsstring>(const object &amp;strObjectName)</argsstring>
+        <name>LoadObject</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>strObjectName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>global object dictionary functions: this is a way for different script runtime to share some global information. Currently only value and const char* object can be saved. return nil, if object is not found <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+<para>get object from dictionary table </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="326" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="255" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1af4f4a7945a89404a3ec87d98ba95a84c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::SetGameLoop</definition>
+        <argsstring>(const char *scriptName)</argsstring>
+        <name>SetGameLoop</name>
+        <param>
+          <type>const char *</type>
+          <declname>scriptName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reset the game loop script. the game loop script will be activated every 0.5 seconds see <ref refid="class_para_scripting_1_1_para_global_1a83608e844e53f67edfb06ef43e6e623d" kindref="member">SetGameLoopInterval()</ref> to change the default interval Please keep the game loop concise. The default game loop is ./script/gameinterface.lua </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="331" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="277" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a83608e844e53f67edfb06ef43e6e623d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaGlobal::SetGameLoopInterval</definition>
+        <argsstring>(float fInterval)</argsstring>
+        <name>SetGameLoopInterval</name>
+        <param>
+          <type>float</type>
+          <declname>fInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the game loop activation interval. The default value is 0.5 seconds. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="333" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="282" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a0b357c91849437adaa57d2db5153b00a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaGlobal::CreateProcess</definition>
+        <argsstring>(const char *lpApplicationName, const char *lpCommandLine, bool bWaitOnReturn)</argsstring>
+        <name>CreateProcess</name>
+        <param>
+          <type>const char *</type>
+          <declname>lpApplicationName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>lpCommandLine</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bWaitOnReturn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>run an external application. creates a new process and its primary thread. The new process runs the specified executable file in the security context of the calling process. <simplesect kind="remark"><para>: One can also use ParaEngine C++ or .Net API to write application plug-ins for the game engine, which can be loaded like any other script files. e.g. To open a file in an external notepad editor use <ref refid="class_para_scripting_1_1_para_global_1a0b357c91849437adaa57d2db5153b00a" kindref="member">ParaGlobal.CreateProcess</ref>(&quot;c:\\notepad.exe&quot;, &quot;\&quot;c:\notepad.exe" c:\test.txt", true); </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lpApplicationName:Pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to a null-terminated string that specifies the module to execute. The specified module can be a Windows-based application. The string can specify the full path and file name of the module to execute or it can specify a partial name. In the case of a partial name, the function uses the current drive and current directory to complete the specification. The function will not use the search path. If the file name does not contain an extension, .exe is assumed. If the executable module is a 16-bit application, lpApplicationName should be NULL, and the string pointed to by lpCommandLine should specify the executable module as well as its arguments. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lpCommandLine:Pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to a null-terminated string that specifies the command line to execute. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bWaitOnReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if false, the function returns immediately; otherwise it will wait for the editor to return. if this is true, the Child Process will have Redirected Input and Output to current log file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if opened. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="347" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="287" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a52ff3e1229e830969b1a7e393a5027b8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaGlobal::ShellExecute</definition>
+        <argsstring>(const char *lpOperation, const char *lpFile, const char *lpParameters, const char *lpDirectory, int nShowCmd)</argsstring>
+        <name>ShellExecute</name>
+        <param>
+          <type>const char *</type>
+          <declname>lpOperation</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>lpFile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>lpParameters</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>lpDirectory</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nShowCmd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs an operation on a specified file. e.g. <ref refid="class_para_scripting_1_1_para_global_1a52ff3e1229e830969b1a7e393a5027b8" kindref="member">ParaGlobal.ShellExecute</ref>(&quot;open&quot;, &quot;iexplore.exe&quot;, &quot;http://www.paraengine.com&quot;, nil, 1);</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lpOperation:[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a null-terminated string,<itemizedlist>
+<listitem><para>&quot;wait&quot; this is a special one that uses ShellExecuteEx to wait on the process to terminate before return</para></listitem><listitem><para>&quot;edit&quot; Launches an editor and opens the document for editing. If lpFile is not a document file, the function will fail.</para></listitem><listitem><para>&quot;explore&quot; Explores the folder specified by lpFile.</para></listitem><listitem><para>&quot;find&quot; Initiates a search starting from the specified directory.</para></listitem><listitem><para>&quot;open&quot; Opens the file specified by the lpFile parameter. The file can be an executable file, a document file, or a folder.</para></listitem><listitem><para>&quot;print&quot; Prints the document file specified by lpFile. If lpFile is not a document file, the function will fail.</para></listitem><listitem><para>NULL For systems prior to Microsoft Windows 2000, the default verb is used if it is valid and available in the registry. If not, the &quot;open&quot; verb is used. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lpFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in] Pointer to a null-terminated string that specifies the file or object on which to execute the specified verb. To specify a Shell namespace object, pass the fully qualified parse name. Note that not all verbs are supported on all objects. For example, not all document types support the &quot;print&quot; verb. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lpParameters[in]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the lpFile parameter specifies an executable file, lpParameters is a pointer to a null-terminated string that specifies the parameters to be passed to the application. The format of this string is determined by the verb that is to be invoked. If lpFile specifies a document file, lpParameters should be NULL. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lpDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in] Pointer to a null-terminated string that specifies the default directory. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nShowCmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in] Flags that specify how an application is to be displayed when it is opened. If lpFile specifies a document file, the flag is simply passed to the associated application. It is up to the application to decide how to handle it.<itemizedlist>
+<listitem><para>#define SW_HIDE 0</para></listitem><listitem><para>#define SW_NORMAL 1</para></listitem><listitem><para>#define SW_MAXIMIZE 3</para></listitem><listitem><para>#define SW_SHOW 5</para></listitem><listitem><para>#define SW_MINIMIZE 6</para></listitem><listitem><para>#define SW_RESTORE 9 </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="372" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="296" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a0b11efad8e378a9a2f2aa5b46f1fe932" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaGlobal::OpenFileDialog</definition>
+        <argsstring>(const object &amp;inout)</argsstring>
+        <name>OpenFileDialog</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>inout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a open file dialog. This function does not return until the user selects a dialog. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input table:{filter=&quot;All Files (*.*);*.*;&quot;, filterindex, initialdir, flags, } t.filter=&quot;All Files (*.*)\0*.*\0&quot; output : {filename, result=true} t.filename: the full path and file name specified by the user t.result: boolean if user clicks the OK button </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: true if user clicks ok. and the inout.filename contains the result. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="384" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1596" bodyend="1681"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1a514bf416322e212ba4d642eebc138725" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaGlobal::WriteRegStr</definition>
+        <argsstring>(const string &amp;root_key, const string &amp;sSubKey, const string &amp;name, const string &amp;value)</argsstring>
+        <name>WriteRegStr</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>root_key</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>sSubKey</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write a string to the registry. e.g. WriteRegStr(&quot;HKLM&quot;, &quot;Software\My Company\My Software&quot;, &quot;string Value&quot;, &quot;string Name&quot;); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be HKCR or HKEY_CLASSES_ROOT HKLM or HKEY_LOCAL_MACHINE HKCU or HKEY_CURRENT_USER HKU or HKEY_USERS </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="394" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1546" bodyend="1557"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1acf80eb44f8b55dcff7b84e480b64740f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaGlobal::ReadRegStr</definition>
+        <argsstring>(const string &amp;root_key, const string &amp;sSubKey, const string &amp;name)</argsstring>
+        <name>ReadRegStr</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>root_key</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>sSubKey</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read string from the registry. Valid values for root_key are listed under WriteRegStr. NULL will be returned if the string is not present. If the value is present, but is of type REG_DWORD, it will be read and converted to a string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be HKCR or HKEY_CLASSES_ROOT HKLM or HKEY_LOCAL_MACHINE HKCU or HKEY_CURRENT_USER HKU or HKEY_USERS </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="405" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1559" bodyend="1569"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ac43182ab66260f78e17f423c710db740" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaGlobal::WriteRegDWORD</definition>
+        <argsstring>(const string &amp;root_key, const string &amp;sSubKey, const string &amp;name, DWORD value)</argsstring>
+        <name>WriteRegDWORD</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>root_key</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>sSubKey</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write a DWORD to the registry. see <ref refid="class_para_scripting_1_1_para_global_1a514bf416322e212ba4d642eebc138725" kindref="member">WriteRegStr()</ref> for more info <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be HKCR or HKEY_CLASSES_ROOT HKLM or HKEY_LOCAL_MACHINE HKCU or HKEY_CURRENT_USER HKU or HKEY_USERS </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="415" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1571" bodyend="1582"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_global_1ac72b509f0ae11806607818148d308112" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaGlobal::ReadRegDWORD</definition>
+        <argsstring>(const string &amp;root_key, const string &amp;sSubKey, const string &amp;name)</argsstring>
+        <name>ReadRegDWORD</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>root_key</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>sSubKey</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read DWORD from the registry. Valid values for root_key are listed under WriteRegStr. NULL will be returned if the DWORD is not present or type is a string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>must be HKCR or HKEY_CLASSES_ROOT HKLM or HKEY_LOCAL_MACHINE HKCU or HKEY_CURRENT_USER HKU or HKEY_USERS </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="425" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1584" bodyend="1594"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_global" kindref="compound">ParaGlobal</ref> namespace contains a list of HAPI functions to globally control the engine </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="184" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="183" bodyend="426"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_global_1a0b357c91849437adaa57d2db5153b00a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>CreateProcess</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a41e2b27ce8f2ddbf781133ecd743b752" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>Exit</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ad731934e663212d8c9c7937eba4fadcf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>ExitApp</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a472e8020a2dd73017d80cfe6dccba1c5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GenerateUniqueID</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a7676c1070e5be076c30aceaf1c55f9a9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>getAccurateTime</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a8cc9335e0bce5a8855c0767871e4c135" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetDateFormat</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ab397c791ba2bc0fe2cbb5cbf23b906b2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetGameTime</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a80a50fbfbe66554ef9c4621d1c97e36e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetLog</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a0e1e8319b98cff82ac7f7acde3633ccf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetLogger</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a2ce87077258d49604022d999055d0e6d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetLogger_</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a9f4d82a4c8c4e9fc5f55a1988f9a9344" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetLogPos</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ad720ef6d97b0160d2bc336d1989a7903" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetSysDateTime</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a8240527d167f4171092d6371472c394b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>GetTimeFormat</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a4604d269c70fb839517053ae31cc6a6c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>LoadObject</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a0b11efad8e378a9a2f2aa5b46f1fe932" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>OpenFileDialog</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ac0c138a2a6dd829fd0e45b9a543d521b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>random</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ac72b509f0ae11806607818148d308112" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>ReadRegDWORD</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1acf80eb44f8b55dcff7b84e480b64740f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>ReadRegStr</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ac60b91ab6f3b00df21134817242857c2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>SaveObject</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1af4f4a7945a89404a3ec87d98ba95a84c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>SetGameLoop</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a83608e844e53f67edfb06ef43e6e623d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>SetGameLoopInterval</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a0f7152a25fc16e9f129b419d381af78d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>SetGameStatus</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a52ff3e1229e830969b1a7e393a5027b8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>ShellExecute</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a6e2b4c00fcefe18bd6e6089285896aea" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>timeGetTime</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ac43182ab66260f78e17f423c710db740" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>WriteRegDWORD</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a514bf416322e212ba4d642eebc138725" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>WriteRegStr</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1ac7d08b016aa895dd2100b160e1b57015" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>WriteToConsole</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a112baf3165238f489c1c3c90383babfa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>WriteToFile</name></member>
+      <member refid="class_para_scripting_1_1_para_global_1a57c2d7733bdb7914ad458dbc6444bef3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaGlobal</scope><name>WriteToLogFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

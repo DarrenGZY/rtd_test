@@ -1,0 +1,729 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_movie" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaMovie</compoundname>
+    <includes refid="_para_scripting_movie_8h" local="no">ParaScriptingMovie.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1aeba077842247535b2882088dcfde376a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaMovie::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with an object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="20" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="317" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a2e60158056f9e68e67d0e00a1ae755e3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SetMovieScreenSize</definition>
+        <argsstring>(int nWidth, int nHeight)</argsstring>
+        <name>SetMovieScreenSize</name>
+        <param>
+          <type>int</type>
+          <declname>nWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the movie screen size in pixel. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in pixels, must be multiple of 4. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in pixels, must be multiple of 4. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="25" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1abe06aa7abf51fd0c08ee7adbd3250624" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SetCaptureGUI</definition>
+        <argsstring>(bool bGUI)</argsstring>
+        <name>SetCaptureGUI</name>
+        <param>
+          <type>bool</type>
+          <declname>bGUI</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set whether GUI is captured. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="28" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a201bf515d0f72437a3b3fd2fec7107d0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::CaptureGUI</definition>
+        <argsstring>()</argsstring>
+        <name>CaptureGUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return true if GUI is also captured. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="30" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a7c313fe4c748c503b0512143c54da44d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SetRecordingFPS</definition>
+        <argsstring>(int nFPS)</argsstring>
+        <name>SetRecordingFPS</name>
+        <param>
+          <type>int</type>
+          <declname>nFPS</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the recording FPS, the default is 20 FPS. Some may prefer 30FPS. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="33" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="287" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a84546ec644a9cfa16e5f585beb510152" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMovie::GetRecordingFPS</definition>
+        <argsstring>()</argsstring>
+        <name>GetRecordingFPS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the recording FPS, the default is 20 FPS. Some may prefer 30FPS. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="36" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="292" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a858cc88e20ddfa1faa7edeb37d338c97" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SetStereoCaptureMode</definition>
+        <argsstring>(int nMode)</argsstring>
+        <name>SetStereoCaptureMode</name>
+        <param>
+          <type>int</type>
+          <declname>nMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the stereo capture mode. This is used to generate video files that can be viewed by 3d eye glasses and stereo video player.<itemizedlist>
+<listitem><para>0 for disable stereo capture(default);</para></listitem><listitem><para>1 for line interlaced stereo.</para></listitem><listitem><para>2 for left right stereo;</para></listitem><listitem><para>3 for above below stereo;</para></listitem><listitem><para>4 for frame interlaved mode, where the odd frame is the left eye and even frame is the right image; </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="46" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="297" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1acde172885b170cb67e9651c6901169dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMovie::GetStereoCaptureMode</definition>
+        <argsstring>()</argsstring>
+        <name>GetStereoCaptureMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the stereo capture mode. This is used to generate video files that can be viewed by 3d eye glasses and stereo video player.<itemizedlist>
+<listitem><para>0 for disable stereo capture(default);</para></listitem><listitem><para>1 for iPod mode, where the odd frame is the left eye and even frame is the right image;</para></listitem><listitem><para>2 for left right stereo;</para></listitem><listitem><para>3 for above below stereo;</para></listitem><listitem><para>4 for interlaced stereo. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="56" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="302" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a19ac5353af924aab0996634f28f4a6e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SetStereoEyeSeparation</definition>
+        <argsstring>(float fDist)</argsstring>
+        <name>SetStereoEyeSeparation</name>
+        <param>
+          <type>float</type>
+          <declname>fDist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the distance in meters between the left and right eye when generating the stereo image. some common values are in range [0.03, 0.1]. This is also related to the rendering unit that we used in games. since ParaEngine games usually use meter as its rendering unit, the value is such near the real eye separation distance. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="62" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="307" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a5b14d26d129e33fb87184ad492330a38" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaMovie::GetStereoEyeSeparation</definition>
+        <argsstring>()</argsstring>
+        <name>GetStereoEyeSeparation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the distance in meters between the left and right eye when generating the stereo image. some common values are in range [0.03, 0.1]. This is also related to the rendering unit that we used in games. since ParaEngine games usually use meter as its rendering unit, the value is such near the real eye separation distance. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="67" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="312" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a5204bab83d2672d1b873450177d06926" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::BeginCapture</definition>
+        <argsstring>(string sFileName)</argsstring>
+        <name>BeginCapture</name>
+        <param>
+          <type>string</type>
+          <declname>sFileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>starting capturing a screen movie <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the movie file name, which can be &quot;&quot;. If it is &quot;&quot;, a default name is used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="71" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1ae50e3cf365a6f077a7e0751065cad721" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::EndCapture</definition>
+        <argsstring>()</argsstring>
+        <name>EndCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>end capturing a screen movie and save movie to file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="73" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a9fd918995a0277beca64a1e3c8e93cce" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::PauseCapture</definition>
+        <argsstring>()</argsstring>
+        <name>PauseCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pause the capturing. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="75" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a7af30198f3229f7c2a26ae5d54409bfa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::ResumeCapture</definition>
+        <argsstring>()</argsstring>
+        <name>ResumeCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>resume capturing </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="77" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a7b49a87923d64757c9614a1cf7aab51c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::IsInCaptureSession</definition>
+        <argsstring>()</argsstring>
+        <name>IsInCaptureSession</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether we are doing screen capture. I.e. true between <ref refid="class_para_scripting_1_1_para_movie_1a5204bab83d2672d1b873450177d06926" kindref="member">BeginCapture()</ref> and <ref refid="class_para_scripting_1_1_para_movie_1ae50e3cf365a6f077a7e0751065cad721" kindref="member">EndCapture()</ref> However, it may be in the recording or paused state. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="80" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1adad30fd6f2b069b59332f1e2b7185884" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::IsRecording</definition>
+        <argsstring>()</argsstring>
+        <name>IsRecording</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether it is recording. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="82" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a19c63b22d6c01c08ebc9d391d3fd7ef7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::FrameCapture</definition>
+        <argsstring>()</argsstring>
+        <name>FrameCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>capture a given frame </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="84" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="322" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a3252ffb1ec1404a3c0502eacdc4135c4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::GetMovieScreenSize</definition>
+        <argsstring>(int *nWidth, int *nHeight)</argsstring>
+        <name>GetMovieScreenSize</name>
+        <param>
+          <type>int *</type>
+          <declname>nWidth</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get movie screen size. In script. Use like this : local x,y = <ref refid="class_para_scripting_1_1_para_movie_1a3252ffb1ec1404a3c0502eacdc4135c4" kindref="member">ParaMovie.GetMovieScreenSize()</ref>; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="87" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="271" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a8c38230b7380230304adf990674a96bd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaMovie::GetMovieFileName</definition>
+        <argsstring>()</argsstring>
+        <name>GetMovieFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the movie file name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="89" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="275" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1ac29266a359153760f5808b96d3d8200b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SelectCodecOptions</definition>
+        <argsstring>()</argsstring>
+        <name>SelectCodecOptions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>display a dialog which allows the user to set the codec to be used. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="92" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="280" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a8e56a6b05b8f7de8c3e33c079c7ea1d4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::SetEncodeMethod</definition>
+        <argsstring>(int eType)</argsstring>
+        <name>SetEncodeMethod</name>
+        <param>
+          <type>int</type>
+          <declname>eType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the code <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>eType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0 for XVID; 1 for WMV; -1 for user select codec. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="96" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="256" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a85b4da7c641ff7b59562c7f1a80362b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMovie::GetEncodeMethod</definition>
+        <argsstring>()</argsstring>
+        <name>GetEncodeMethod</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_movie_1a8e56a6b05b8f7de8c3e33c079c7ea1d4" kindref="member">SetEncodeMethod()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="244" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1abf9c7839c99fcaf05ee2462fb20844e9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::TakeScreenShot</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>TakeScreenShot</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>we will automatically take screen shot according to the file extensions, supported file extensions are &quot;jpg&quot;,&quot;dds&quot;,&quot;bmp&quot;,&quot;tga&quot;, <simplesect kind="note"><para>: &quot;jpg&quot; has small file size; where &quot;bmp&quot; and &quot;tga&quot; is lossless. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is the file name.If this is NULL or &quot;&quot;, it will be automatically named as jpg file under the &quot;screen shots&quot; directory. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="106" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a132e67eba9cf7b2df71a97705c0cefdb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::TakeScreenShot3</definition>
+        <argsstring>(const char *filename, int width, int height)</argsstring>
+        <name>TakeScreenShot3</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>render the current scene to texture, UI are disabled by default. Aspect ratio are changed according to width/height. supported file extensions are &quot;jpg&quot;,&quot;dds&quot;,&quot;bmp&quot;,&quot;tga&quot;, <simplesect kind="note"><para>: &quot;jpg&quot; has small file size; where &quot;bmp&quot; and &quot;tga&quot; is lossless. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is the file name.If this is NULL or &quot;&quot;, it will be automatically named as jpg file under the &quot;screen shots&quot; directory. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in pixel, if 0 it will be the screen size </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in pixel, if 0 it will be the screen size </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="117" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a8e545e50997961c552d654a53b71aa17" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::TakeScreenShot_Async</definition>
+        <argsstring>(const char *filename, const char *sCallBackScript)</argsstring>
+        <name>TakeScreenShot_Async</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCallBackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="120" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a3d9724af0f68a9e425e8d32dfb43ee34" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::TakeScreenShot2_Async</definition>
+        <argsstring>(const char *filename, bool bEncode, const char *sCallBackScript)</argsstring>
+        <name>TakeScreenShot2_Async</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bEncode</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCallBackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="121" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1ac492ad48a264e014aa496f7f73902238" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::TakeScreenShot3_Async</definition>
+        <argsstring>(const char *filename, bool bEncode, int width, int height, const char *sCallBackScript)</argsstring>
+        <name>TakeScreenShot3_Async</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bEncode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCallBackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="122" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a8222e6ee90b086a78c0cce524561920c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::TakeScreenShot_Async_Internal</definition>
+        <argsstring>(const char *filename, bool bEncode, int width, int height, const char *sCallBackScript)</argsstring>
+        <name>TakeScreenShot_Async_Internal</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bEncode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCallBackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="123" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="95" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a234c7132cd354343aa32c3171906154f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::RenderToTexture</definition>
+        <argsstring>(const char *filename, int width, int height)</argsstring>
+        <name>RenderToTexture</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="125" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="127" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1ad94d33245a05c705563155df70b707a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMovie::ResizeImage</definition>
+        <argsstring>(const string &amp;filename, int width, int height, const char *destFilename)</argsstring>
+        <name>ResizeImage</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>destFilename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>resize the given image. It can also be used to change the file format <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>source file name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in pixel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in pixel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destFilename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>destination file name. If nil or &quot;&quot;, it will be the same as input. It can also be used to change the file format </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="134" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="224" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_movie_1a7c59c4db68ca52ae967616733206b130" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaMovie::GetImageInfo</definition>
+        <argsstring>(const string &amp;filename, int *width, int *height, int *nFileSize)</argsstring>
+        <name>GetImageInfo</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>nFileSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the given image info: i.e. size e.g. local width, height, filesize = <ref refid="class_para_scripting_1_1_para_movie_1a7c59c4db68ca52ae967616733206b130" kindref="member">ParaMovie.GetImageInfo</ref>(&quot;abc.jpg&quot;) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>width;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>out in pixel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>out in pixel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nFileSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>out in size in bytes </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMovie.h" line="143" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.cpp" bodystart="234" bodyend="242"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>movie making and screen capture functions </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingMovie.h" line="17" column="1" bodyfile="ParaScriptBindings/ParaScriptingMovie.h" bodystart="16" bodyend="145"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_movie_1a5204bab83d2672d1b873450177d06926" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>BeginCapture</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a201bf515d0f72437a3b3fd2fec7107d0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>CaptureGUI</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1ae50e3cf365a6f077a7e0751065cad721" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>EndCapture</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a19c63b22d6c01c08ebc9d391d3fd7ef7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>FrameCapture</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1aeba077842247535b2882088dcfde376a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a85b4da7c641ff7b59562c7f1a80362b5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetEncodeMethod</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a7c59c4db68ca52ae967616733206b130" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetImageInfo</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a8c38230b7380230304adf990674a96bd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetMovieFileName</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a3252ffb1ec1404a3c0502eacdc4135c4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetMovieScreenSize</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a84546ec644a9cfa16e5f585beb510152" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetRecordingFPS</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1acde172885b170cb67e9651c6901169dc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetStereoCaptureMode</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a5b14d26d129e33fb87184ad492330a38" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>GetStereoEyeSeparation</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a7b49a87923d64757c9614a1cf7aab51c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>IsInCaptureSession</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1adad30fd6f2b069b59332f1e2b7185884" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>IsRecording</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a9fd918995a0277beca64a1e3c8e93cce" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>PauseCapture</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a234c7132cd354343aa32c3171906154f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>RenderToTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1ad94d33245a05c705563155df70b707a4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>ResizeImage</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a7af30198f3229f7c2a26ae5d54409bfa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>ResumeCapture</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1ac29266a359153760f5808b96d3d8200b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SelectCodecOptions</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1abe06aa7abf51fd0c08ee7adbd3250624" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SetCaptureGUI</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a8e56a6b05b8f7de8c3e33c079c7ea1d4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SetEncodeMethod</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a2e60158056f9e68e67d0e00a1ae755e3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SetMovieScreenSize</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a7c313fe4c748c503b0512143c54da44d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SetRecordingFPS</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a858cc88e20ddfa1faa7edeb37d338c97" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SetStereoCaptureMode</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a19ac5353af924aab0996634f28f4a6e0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>SetStereoEyeSeparation</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1abf9c7839c99fcaf05ee2462fb20844e9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>TakeScreenShot</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a3d9724af0f68a9e425e8d32dfb43ee34" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>TakeScreenShot2_Async</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a132e67eba9cf7b2df71a97705c0cefdb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>TakeScreenShot3</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1ac492ad48a264e014aa496f7f73902238" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>TakeScreenShot3_Async</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a8e545e50997961c552d654a53b71aa17" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>TakeScreenShot_Async</name></member>
+      <member refid="class_para_scripting_1_1_para_movie_1a8222e6ee90b086a78c0cce524561920c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovie</scope><name>TakeScreenShot_Async_Internal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

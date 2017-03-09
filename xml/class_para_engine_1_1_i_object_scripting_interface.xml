@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_engine_1_1_i_object_scripting_interface" kind="class" language="C++" prot="public">
+    <compoundname>ParaEngine::IObjectScriptingInterface</compoundname>
+    <innerclass refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" prot="public">ParaEngine::IObjectScriptingInterface::ScriptCallback</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_para_engine_1_1_i_object_scripting_interface_1a798987694a03e03cc034a35a24875128" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">ScriptCallback</ref> &gt;</type>
+        <definition>typedef std::vector&lt;ScriptCallback&gt; ParaEngine::IObjectScriptingInterface::ObjectCallbackPool_Type</definition>
+        <argsstring></argsstring>
+        <name>ObjectCallbackPool_Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="44" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" prot="protected" static="no" mutable="no">
+        <type>ObjectCallbackPool_Type</type>
+        <definition>ObjectCallbackPool_Type ParaEngine::IObjectScriptingInterface::m_callback_scripts</definition>
+        <argsstring></argsstring>
+        <name>m_callback_scripts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the NPL script handlers </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="82" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_engine_1_1_i_object_scripting_interface_1a0e424cc64dc5c490ce97ec67a19c1043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IObjectScriptingInterface::IObjectScriptingInterface</definition>
+        <argsstring>()</argsstring>
+        <name>IObjectScriptingInterface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="9" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_engine_1_1_i_object_scripting_interface_1a64fbbf3066de1dc2d7d39a468f89c511" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool IObjectScriptingInterface::AddScriptCallback</definition>
+        <argsstring>(int func_type, const string &amp;script_func)</argsstring>
+        <name>AddScriptCallback</name>
+        <param>
+          <type>int</type>
+          <declname>func_type</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>script_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new call back handler. it will override the previous one if any. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>script_func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>format is [filename];[scode] where file name can be any NPL address, scode is a short code sequence to execute. it may has the same format as the GUI event handler. e.g. &quot;;function1()&quot; : calling a global function &quot;(gl)script/character/npc.lua;npc.on_click()&quot; : load script if not loaded before and then calling a global function if this is &quot;&quot;, <ref refid="class_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c" kindref="member">RemoveScriptCallback()</ref> will be called. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="72" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="24" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_engine_1_1_i_object_scripting_interface_1aeddc1ce0a86cbcb362342897a4b47a6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">ScriptCallback</ref> *</type>
+        <definition>IObjectScriptingInterface::ScriptCallback * IObjectScriptingInterface::GetScriptCallback</definition>
+        <argsstring>(int func_type)</argsstring>
+        <name>GetScriptCallback</name>
+        <param>
+          <type>int</type>
+          <declname>func_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return NULL if there is no associated script. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="75" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="46" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool IObjectScriptingInterface::RemoveScriptCallback</definition>
+        <argsstring>(int func_type)</argsstring>
+        <name>RemoveScriptCallback</name>
+        <param>
+          <type>int</type>
+          <declname>func_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove a call back handler </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="78" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.cpp" bodystart="58" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="7" column="1" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="6" bodyend="83"/>
+    <listofallmembers>
+      <member refid="class_para_engine_1_1_i_object_scripting_interface_1a64fbbf3066de1dc2d7d39a468f89c511" prot="public" virt="virtual"><scope>ParaEngine::IObjectScriptingInterface</scope><name>AddScriptCallback</name></member>
+      <member refid="class_para_engine_1_1_i_object_scripting_interface_1aeddc1ce0a86cbcb362342897a4b47a6f" prot="public" virt="virtual"><scope>ParaEngine::IObjectScriptingInterface</scope><name>GetScriptCallback</name></member>
+      <member refid="class_para_engine_1_1_i_object_scripting_interface_1a0e424cc64dc5c490ce97ec67a19c1043" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface</scope><name>IObjectScriptingInterface</name></member>
+      <member refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" prot="protected" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface</scope><name>m_callback_scripts</name></member>
+      <member refid="class_para_engine_1_1_i_object_scripting_interface_1a798987694a03e03cc034a35a24875128" prot="public" virt="non-virtual"><scope>ParaEngine::IObjectScriptingInterface</scope><name>ObjectCallbackPool_Type</name></member>
+      <member refid="class_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c" prot="public" virt="virtual"><scope>ParaEngine::IObjectScriptingInterface</scope><name>RemoveScriptCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Admin Site Framework &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Table Database" href="UsingTableDatabase.html" />
+    <link rel="prev" title="NPL Server Page" href="NPLServerPage.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-admin-site-framework">
+<span id="npl-admin-site-framework"></span><h1>NPL Admin Site Framework<a class="headerlink" href="#npl-admin-site-framework" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">WebServer/admin</span></code> is a open source NPL-based web site framework. It comes with the <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/apps/WebServer/admin/"><code class="docutils literal"><span class="pre">main</span></code> package</a> and contains all source code of [[NPLCodeWiki]]. It is served as a demo and debugger for your own web application. It is also by default run side by side on <code class="docutils literal"><span class="pre">127.0.0.1:8099/</span></code> with your website on <code class="docutils literal"><span class="pre">localhost:8099</span></code>. See <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/apps/WebServer/default.webserver.config.xml">default.webserver.config.xml</a>.</p>
+<div class="section" id="how-to-run-npl-admin-site">
+<span id="how-to-run-npl-admin-site"></span><h2>How to run NPL Admin Site<a class="headerlink" href="#how-to-run-npl-admin-site" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">script</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">WebServer</span><span class="o">/</span><span class="n">WebServer</span><span class="o">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+<p>or you can run with more options like</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;script/apps/WebServer/WebServer.lua&quot;</span>  <span class="n">port</span><span class="o">=</span><span class="s2">&quot;8099&quot;</span>
+</pre></div>
+</div>
+<p>Once started, you can visit the admin site from [[http://localhost:8099]]</p>
+</div>
+<div class="section" id="introduction">
+<span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>I have implemented it according to the famous <code class="docutils literal"><span class="pre">WordPress.org</span></code> blog site. The default theme template is based on &#8220;sensitive&#8221; which is a free theme of wordpress. &#8220;sensitive&#8221; theme has no dependency on media and can adjust display and layout according to screen width, which is suitable for showing on mobile phone device.</p>
+</div>
+<div class="section" id="how-to-use">
+<span id="how-to-use"></span><h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage-1-use-by-reference-recommended">
+<span id="usage-1-use-by-reference-recommended"></span><h3>Usage 1: Use by reference (Recommended)<a class="headerlink" href="#usage-1-use-by-reference-recommended" title="Permalink to this headline">¶</a></h3>
+<p>Basically, if you want to use admin framework without cloning the file, simply add following line to your rule file</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>    <span class="c">&lt;!--wp framework related js, css, files--&gt;</span>
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;^/?wp%-&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.filehandler&quot;</span> <span class="na">params=</span><span class="s">&#39;{baseDir = &quot;script/apps/WebServer/admin/&quot;}&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+</pre></div>
+</div>
+<p>In your page <code class="docutils literal"><span class="pre">index.page</span></code> file, you can include the main file of the wp framework, such as this:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;?npl
+
+-- we will not load complete framework, but only ajax and helper functions
+WP_USE_MINI_LOADER = true;
+include_once(&quot;script/apps/WebServer/admin/wp-main.page&quot;);
+
+-- call your router, such as   
+include_once(&quot;./myproj/routes.page&quot;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-2-use-by-cloning">
+<span id="usage-2-use-by-cloning"></span><h3>Usage 2: Use by cloning<a class="headerlink" href="#usage-2-use-by-cloning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>copy everything in this folder to your own web site root, say /www/MySite/</li>
+<li>modify wp-content/database/*.xml for site description and menus.</li>
+<li>add your own web pages to wp-content/pages/, which are accessed by their filename in the url.</li>
+<li>If you want more customization to the look, modify the wp-content/themes/sensitive or create your own theme folder. Remember to set your theme in <code class="docutils literal"><span class="pre">wp-content/database/table_sitemeta.xml</span></code>, which contains all options for the site.</li>
+</ul>
+</div>
+<div class="section" id="usage-3-adding-new-features-to-it">
+<span id="usage-3-adding-new-features-to-it"></span><h3>Usage 3: Adding new features to it<a class="headerlink" href="#usage-3-adding-new-features-to-it" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Simply put your own files in <code class="docutils literal"><span class="pre">script/apps/WebServer/admin/</span></code> in your dev or working directory, your files will be loaded first before the one in <code class="docutils literal"><span class="pre">npl_package/main</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="architecture">
+<span id="architecture"></span><h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>The architecture is based on Wordpress.org (4.0.1). Although everything is rewritten in NPL, I have kept all functions, filters, and file names identical to wordpress. 
+See `wp-includes/` for the framework source code.
+</pre></div>
+</div>
+<p>Code locations:
+* framework loader is in <code class="docutils literal"><span class="pre">wp-settings.page</span></code>
+* site options: <code class="docutils literal"><span class="pre">wp-content/database/table_sitemeta.xml</span></code>: such as theme, default menu, etc.
+* menus: <code class="docutils literal"><span class="pre">wp-content/database/table_nav_menu.xml</span></code></p>
+</div>
+<div class="section" id="ajax-framework">
+<span id="ajax-framework"></span><h2>Ajax framework<a class="headerlink" href="#ajax-framework" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Any request url begins with `ajax/xxx` use the `wp-admin/admin-ajax.page`. it will automatically load the page xxx.  and invoke `do_action(&#39;wp_ajax_xxx&#39;)`. 
+If the request url begins with `ajax/xxx?action=yyy`, then page xxx is loaded, and `do_action(&#39;wp_ajax_xxx&#39;)` is invoked. 
+A page that handles ajax request needs to call `add_action(&#39;wp_ajax_xxx&#39;， function_name)` to register a handler for ajax actions. 
+see `wp-content/pages/aboutus.page` for an example. 
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Admin Site Framework</a><ul>
+<li><a class="reference internal" href="#how-to-run-npl-admin-site">How to run NPL Admin Site</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#how-to-use">How to use</a><ul>
+<li><a class="reference internal" href="#usage-1-use-by-reference-recommended">Usage 1: Use by reference (Recommended)</a></li>
+<li><a class="reference internal" href="#usage-2-use-by-cloning">Usage 2: Use by cloning</a></li>
+<li><a class="reference internal" href="#usage-3-adding-new-features-to-it">Usage 3: Adding new features to it</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#architecture">Architecture</a></li>
+<li><a class="reference internal" href="#ajax-framework">Ajax framework</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="NPLServerPage.html" title="previous chapter">NPL Server Page</a></li>
+      <li>Next: <a href="UsingTableDatabase.html" title="next chapter">Table Database</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/AdminSiteFramework.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/AdminSiteFramework.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

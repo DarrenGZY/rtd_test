@@ -1,0 +1,630 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_world" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaWorld</compoundname>
+    <includes refid="_para_scripting_world_8h" local="no">ParaScriptingWorld.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a79a0f8a2fcc827793ebcfcdce69d134a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaWorld::ParaWorld</definition>
+        <argsstring>(void)</argsstring>
+        <name>ParaWorld</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="415" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="405" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a1ae3fa1d9349d8c47a351d887993d0ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaWorld::~ParaWorld</definition>
+        <argsstring>(void)</argsstring>
+        <name>~ParaWorld</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="416" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="409" bodyend="411"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1aa90889961efed918cd6dcbd6d5b45d32" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaWorld::NewWorld</definition>
+        <argsstring>(const char *sWorldName, const char *sBaseWorldName)</argsstring>
+        <name>NewWorld</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWorldName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sBaseWorldName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>created a new empty world based on a given world. This is like class inheritance in C++ another world could derive from a given world, overriding certain terrain tile contents as it evolves. One can immediately create the new world which is identical to the base world. Every changes made to the new world will be saved in the new world folder and will not affect the base world. in reality, we just copy the base world&apos;s world config file to the new world using the new world&apos;s name. e.g <linebreak/>
+ local sConfigFileName = <ref refid="class_para_scripting_1_1_para_world_1aa90889961efed918cd6dcbd6d5b45d32" kindref="member">ParaWorld.NewWorld</ref>(&quot;__TmpWorld&quot;, &quot;sample/worldconfig.txt&quot;);<linebreak/>
+ if(sConfigFileName ~= &quot;&quot;) then<linebreak/>
+ <ref refid="class_para_scripting_1_1_para_scene_1a54ad4cf5b139a1ba702e36bd59fd0ba2" kindref="member">ParaScene.CreateWorld</ref>(&quot;&quot;, 32000, sConfigFileName); <linebreak/>
+ end <linebreak/>
+NOTE: if the sWorldName is the same as sBaseWorldName, the sBaseWorldName itself will be overridden <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sWorldName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world name, a directory with the same name will be created containing the world config file. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sBaseWorldName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>any valid world config file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return the world config file. if failed, return &quot;&quot; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="433" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="413" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1ace4618a34a9cb1fee0ad74e5dd18ebea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaWorld::NewWorld_</definition>
+        <argsstring>(const char *sWorldName, const char *sBaseWorldName)</argsstring>
+        <name>NewWorld_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWorldName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sBaseWorldName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solely used for exporting </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="435" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="438" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a44e67552f9c59fff4b4ceffcd9496abd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::DeleteWorld</definition>
+        <argsstring>(const char *sWorldName)</argsstring>
+        <name>DeleteWorld</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWorldName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete a given world. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="438" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="445" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a82657a407351d8cce4ae49ba470bee27" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaWorld::NewEmptyWorld</definition>
+        <argsstring>(const char *sWorldName=NULL, float fTileSize=533.3333f, int nTileDimension=64)</argsstring>
+        <name>NewEmptyWorld</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWorldName</declname>
+          <defval>NULL</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fTileSize</declname>
+          <defval>533.3333f</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nTileDimension</declname>
+          <defval>64</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create an empty world, with flat land. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sWorldName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world name, if NULL, it defaults to &quot;_emptyworld&quot; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fTileSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>terrain tile size in meters </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nTileDimension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension of the tile matrix. default is 64, which is has 64*64 tiles </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="445" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="450" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a6d73364fb885351f04c86cc495844965" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaWorld::NewEmptyWorld_</definition>
+        <argsstring>(const char *sWorldName=NULL, float fTileSize=533.3333f, int nTileDimension=64)</argsstring>
+        <name>NewEmptyWorld_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sWorldName</declname>
+          <defval>NULL</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fTileSize</declname>
+          <defval>533.3333f</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nTileDimension</declname>
+          <defval>64</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solely used for exporting </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="447" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="515" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1afabb3b080a010132ea1c51590db44fa1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaWorld::SetEnablePathEncoding</definition>
+        <argsstring>(bool bEnable)</argsstring>
+        <name>SetEnablePathEncoding</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set whether we will encode world related files. default to true. By enabling path encoding, world related files like &quot;worlddir/worldfile.txt&quot; will be saved as &quot;%WORLD%/worldfile.txt&quot;, thus even the entire world directory changes, the world files can still be found using path variables. Path encoding needs to be disabled when you are creating a template world. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="453" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="710" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1ab3eb8052dbf8351022f35f8de956a9c8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaWorld::GetEnablePathEncoding</definition>
+        <argsstring>()</argsstring>
+        <name>GetEnablePathEncoding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get whether we will encode world related files. default to true. By enabling path encoding, world related files like &quot;worlddir/worldfile.txt&quot; will be saved as &quot;%WORLD%/worldfile.txt&quot;, thus even the entire world directory changes, the world files can still be found using path variables. Path encoding needs to be disabled when you are creating a template world. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="459" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="715" bodyend="718"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a06b4971ce887ad4308478cd355214f31" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_data_provider" kindref="compound">ParaDataProvider</ref></type>
+        <definition>ParaDataProvider ParaWorld::GetNpcDB</definition>
+        <argsstring>()</argsstring>
+        <name>GetNpcDB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current NPC data provider. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="468" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="522" bodyend="529"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a6fa00b04e7cc071e48065d237323e3e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::GetNpcDB_</definition>
+        <argsstring>(ParaDataProvider *out)</argsstring>
+        <name>GetNpcDB_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_data_provider" kindref="compound">ParaDataProvider</ref> *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solely used for exporting </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="470" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="531" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a329c8c7f84386f17fb3de1af7b558555" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::SetNpcDB</definition>
+        <argsstring>(const char *sConnectionstring)</argsstring>
+        <name>SetNpcDB</name>
+        <param>
+          <type>const char *</type>
+          <declname>sConnectionstring</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the global NPC data base to a new database file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sConnectionstring</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: currently it is the file path of the database file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="476" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="535" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1aa392118db5085e862029bdad7d274ce8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_data_provider" kindref="compound">ParaDataProvider</ref></type>
+        <definition>ParaDataProvider ParaWorld::GetAttributeProvider</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current attribute data provider. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="480" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="540" bodyend="543"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a64c76dc6ab69ef8fb53507ccd56b8f43" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::GetAttributeProvider_</definition>
+        <argsstring>(ParaDataProvider *out)</argsstring>
+        <name>GetAttributeProvider_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_data_provider" kindref="compound">ParaDataProvider</ref> *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>solely used for exporting </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="482" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="545" bodyend="548"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a50f5deee71ceca4c59df35909fc7f5ee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::SetAttributeProvider</definition>
+        <argsstring>(const char *sConnectionstring)</argsstring>
+        <name>SetAttributeProvider</name>
+        <param>
+          <type>const char *</type>
+          <declname>sConnectionstring</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the current attribute data base to a new database file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sConnectionstring</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: currently it is the file path of the database file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="488" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="550" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a8d911c69046893f4f8d86c1899406ed3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::SetWorldDB</definition>
+        <argsstring>(const char *sConnectionstring)</argsstring>
+        <name>SetWorldDB</name>
+        <param>
+          <type>const char *</type>
+          <declname>sConnectionstring</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set world database. it sets attribute provider, NPC database, etc to the same database file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sConnectionstring</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: currently it is the file path of the database file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="495" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="555" bodyend="558"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1af75da62755f99a54e7a68adbf202959c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaWorld::GetStringbyID</definition>
+        <argsstring>(int ID)</argsstring>
+        <name>GetStringbyID</name>
+        <param>
+          <type>int</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get string from ID <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID in kids db&apos;s string table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>string in the current game language </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="500" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="560" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1affecc798dddcb9ee48656450d06e605d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaWorld::InsertString</definition>
+        <argsstring>(const char *strEN, const char *strCN)</argsstring>
+        <name>InsertString</name>
+        <param>
+          <type>const char *</type>
+          <declname>strEN</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strCN</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insert the new string table entry to StringTable_DB <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entry in the current game language </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ID of the inserted string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="506" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="569" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1abae791876898bd28c06a3d2fbd04a596" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaWorld::SetServerState</definition>
+        <argsstring>(int nState)</argsstring>
+        <name>SetServerState</name>
+        <param>
+          <type>int</type>
+          <declname>nState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the current server state. default value is 0. enum CurrentState { STATE_STAND_ALONE = 0, STATE_SERVER, STATE_CLIENT, }; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="517" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="589" bodyend="592"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a3396f0baf252665137a841763d907386" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaWorld::GetServerState</definition>
+        <argsstring>()</argsstring>
+        <name>GetServerState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="518" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="594" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a3160b340d383eeee600eeba9196b4343" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaWorld::SendTerrainUpdate</definition>
+        <argsstring>(const char *sDestination, float center_x, float center_y, float center_z, float fRadius, float fResolution)</argsstring>
+        <name>SendTerrainUpdate</name>
+        <param>
+          <type>const char *</type>
+          <declname>sDestination</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>center_x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>center_y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>center_z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fRadius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fResolution</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function to send a copy of the local terrain to a destination world at a given resolution. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sDestination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a destination namespace, it could be &quot;all@server&quot; or &quot;@server&quot;, etc. This will be used to fill the destination address of the packet to be sent. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the terrain region to send </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the terrain region to send </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>center of the terrain region to send </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fRadius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>radius of the terrain region to send </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fResolution</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is 1.f, the local world terrain grid resolution is used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="530" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="600" bodyend="604"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1aa232f600ed9c0eae4531e07eb1daaf76" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaWorld::GetWorldName</definition>
+        <argsstring>()</argsstring>
+        <name>GetWorldName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get current world name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="534" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="578" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a160c8b84bf607aaf2752fc5a4e4a71c6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaWorld::GetWorldDirectory</definition>
+        <argsstring>()</argsstring>
+        <name>GetWorldDirectory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get world root path. suppose the given world name is &quot;sample&quot;. The generated file name is &quot;sample/&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="537" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="583" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a16a4411a021028c115dc5b11fdc89d31" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaWorld::SetScriptSandBox</definition>
+        <argsstring>(const object &amp;SandboxNeuronFile)</argsstring>
+        <name>SetScriptSandBox</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>SandboxNeuronFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Paraworld is told to execute in the given sandbox. (1) <ref refid="class_para_scripting_1_1_para_world" kindref="compound">ParaWorld</ref> namespace supports a sandbox mode, which can be turned on and off on demand. Once turned on, all scripts from the current game world will be executed in a separate and newly created script runtime environment. (2) Sandbox mode is an isolated mode that does not have any link with the glia file environment. (3) The world scripts protected by the sandbox runtime environment includes: terrain tile onload script, biped event handler scripts, such as character onload, onclick events. (4) The sandbox environment includes the following functions that could be used: <ref refid="class_para_scripting_1_1_para_scene" kindref="compound">ParaScene</ref>, <ref refid="class_para_scripting_1_1_para_u_i" kindref="compound">ParaUI</ref> namespace functions. It also explicitly disabled the following functions: a) Dofile() b) Io, <ref refid="class_para_scripting_1_1_para_i_o" kindref="compound">ParaIO</ref>, Exec c) Require(),NPL.load, NPL.activate, NPL.download: cut off any way to manually load a file. It adds d) Log e) Download some file to replace local file. f) Changing the Enter sand box function or almost any function to some fake function. (5) The following attack methods should be prevented by the sandbox environment a) Execute or load any external application b) Write to any file, including log file c) Compromise data or functions in the glia file environment. Such as, changing and hooking the string method d) Compromise the sandbox itself and then affect in the next sandbox entity. (6) glia file environment does not have a sandbox mode. Because I found that any global sandbox mode implementation has a way to hack in, and I give up any measure of protecting the glia file environment. Sandbox protection for the world file is enough because that is the only source file that may not be provided by ParaEngine. In order to run any other code not provided by the ParaEngine, the user should have been well informed of the danger. But so far, there is no need to have a world that should inform the user. Because most world functions are supported in the world sandbox.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sNeuronFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>script file name. Use NPL.CreateNeuronFile() to create a sandbox neuron file if you do not want to use a sandbox, please specify NULL or &quot;&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="561" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="693" bodyend="703"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_world_1a6ddf54ee6dbd9b4667ede092a432c7b2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaWorld::GetScriptSandBox</definition>
+        <argsstring>()</argsstring>
+        <name>GetScriptSandBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>please see <ref refid="class_para_scripting_1_1_para_world_1a16a4411a021028c115dc5b11fdc89d31" kindref="member">SetScriptSandBox()</ref> <simplesect kind="return"><para>: it may return NULL if the sandbox does not exist. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="566" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="705" bodyend="708"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>world creation functions. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingWorld.h" line="413" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="412" bodyend="567"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_world_1a44e67552f9c59fff4b4ceffcd9496abd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>DeleteWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1aa392118db5085e862029bdad7d274ce8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetAttributeProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a64c76dc6ab69ef8fb53507ccd56b8f43" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetAttributeProvider_</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1ab3eb8052dbf8351022f35f8de956a9c8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetEnablePathEncoding</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a06b4971ce887ad4308478cd355214f31" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetNpcDB</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a6fa00b04e7cc071e48065d237323e3e8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetNpcDB_</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a6ddf54ee6dbd9b4667ede092a432c7b2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetScriptSandBox</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a3396f0baf252665137a841763d907386" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetServerState</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1af75da62755f99a54e7a68adbf202959c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetStringbyID</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a160c8b84bf607aaf2752fc5a4e4a71c6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetWorldDirectory</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1aa232f600ed9c0eae4531e07eb1daaf76" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>GetWorldName</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1affecc798dddcb9ee48656450d06e605d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>InsertString</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a82657a407351d8cce4ae49ba470bee27" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>NewEmptyWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a6d73364fb885351f04c86cc495844965" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>NewEmptyWorld_</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1aa90889961efed918cd6dcbd6d5b45d32" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>NewWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1ace4618a34a9cb1fee0ad74e5dd18ebea" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>NewWorld_</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a79a0f8a2fcc827793ebcfcdce69d134a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>ParaWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a3160b340d383eeee600eeba9196b4343" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SendTerrainUpdate</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a50f5deee71ceca4c59df35909fc7f5ee" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SetAttributeProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1afabb3b080a010132ea1c51590db44fa1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SetEnablePathEncoding</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a329c8c7f84386f17fb3de1af7b558555" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SetNpcDB</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a16a4411a021028c115dc5b11fdc89d31" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SetScriptSandBox</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1abae791876898bd28c06a3d2fbd04a596" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SetServerState</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a8d911c69046893f4f8d86c1899406ed3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>SetWorldDB</name></member>
+      <member refid="class_para_scripting_1_1_para_world_1a1ae3fa1d9349d8c47a351d887993d0ff" prot="public" virt="non-virtual"><scope>ParaScripting::ParaWorld</scope><name>~ParaWorld</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

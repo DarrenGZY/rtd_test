@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="_i_object_scripting_interface_8cpp" kind="file" language="C++">
+    <compoundname>IObjectScriptingInterface.cpp</compoundname>
+    <includes local="yes">ParaEngine.h</includes>
+    <includes local="yes">NPLRuntime.h</includes>
+    <includes local="yes">util/StringHelper.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">map</includes>
+    <includes local="no">float.h</includes>
+    <includes refid="_i_object_scripting_interface_8h" local="yes">IObjectScriptingInterface.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>float.h</label>
+      </node>
+      <node id="1">
+        <label>ParaEngine.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>map</label>
+      </node>
+      <node id="7">
+        <label>IObjectScriptingInterface.h</label>
+        <link refid="_i_object_scripting_interface_8h_source"/>
+      </node>
+      <node id="2">
+        <label>NPLRuntime.h</label>
+      </node>
+      <node id="0">
+        <label>ParaScriptBindings/IObjectScriptingInterface.cpp</label>
+        <link refid="_i_object_scripting_interface_8cpp"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>util/StringHelper.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Class:<sp/><sp/><sp/>IObjectScriptingInterface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Authors:<sp/>LiXizhi</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Emails:<sp/><sp/>LiXizhi@yeah.net</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Company:<sp/>ParaEngine<sp/>Co.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Date:<sp/><sp/><sp/><sp/>2013.2.1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include&quot;ParaEngine.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NPLRuntime.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;util/StringHelper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;IObjectScriptingInterface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_para_engine" kindref="compound">ParaEngine</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">IObjectScriptingInterface::IObjectScriptingInterface()</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1a64fbbf3066de1dc2d7d39a468f89c511" kindref="member">IObjectScriptingInterface::AddScriptCallback</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>func_type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">&amp;<sp/>script_func<sp/>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(script_func.empty())</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c" kindref="member">RemoveScriptCallback</ref>(func_type);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>ObjectCallbackPool_Type::iterator<sp/>curIt,<sp/>endIt<sp/>=<sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.end();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(curIt=<ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.begin();<sp/>curIt!=endIt;<sp/>++curIt)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*curIt).func_type<sp/>==<sp/>func_type){</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*curIt).SetScriptFunc(script_func);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.push_back(ScriptCallback());</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>ScriptCallback&amp;<sp/>item<sp/>=<sp/>*(<ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.end()-1);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>item.func_type<sp/>=<sp/>func_type;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>item.SetScriptFunc(script_func);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">IObjectScriptingInterface::ScriptCallback</ref>*<sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1aeddc1ce0a86cbcb362342897a4b47a6f" kindref="member">IObjectScriptingInterface::GetScriptCallback</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>func_type<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>ObjectCallbackPool_Type::iterator<sp/>curIt,<sp/>endIt<sp/>=<sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.end();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(curIt=<ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.begin();<sp/>curIt!=endIt;<sp/>++curIt)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*curIt).func_type<sp/>==<sp/>func_type){</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;(*curIt);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c" kindref="member">IObjectScriptingInterface::RemoveScriptCallback</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>func_type<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>ObjectCallbackPool_Type::iterator<sp/>curIt,<sp/>endIt<sp/>=<sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.end();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(curIt=<ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.begin();<sp/>curIt!=endIt;<sp/>++curIt)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*curIt).func_type<sp/>==<sp/>func_type){</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>.erase(curIt);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a1daccdd58be30306ab91083c177350b1" kindref="member">ParaEngine::IObjectScriptingInterface::ScriptCallback::SetScriptFunc</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>script<sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>script_func<sp/>=<sp/>script;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sFilename.clear();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sCode.clear();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>StringHelper::DevideString(script_func,<sp/>m_sFilename,<sp/>m_sCode,<sp/></highlight><highlight class="charliteral">&apos;;&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a561926be74fb162b85a59f202ef5f114" kindref="member">ParaEngine::IObjectScriptingInterface::ScriptCallback::ActivateAsync</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>code)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!code.empty())</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CGlobals::GetNPLRuntime()-&gt;Activate(CGlobals::GetNPLRuntime()-&gt;GetMainRuntimeState().</highlight><highlight class="keyword">get</highlight><highlight class="normal">(),<sp/>m_sFilename.c_str(),<sp/>code.c_str(),<sp/>code.size());</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CGlobals::GetNPLRuntime()-&gt;Activate(CGlobals::GetNPLRuntime()-&gt;GetMainRuntimeState().</highlight><highlight class="keyword">get</highlight><highlight class="normal">(),<sp/>m_sFilename.c_str());</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a283d8fabb5bdf583d1aa9cc00b4b9ffa" kindref="member">ParaEngine::IObjectScriptingInterface::ScriptCallback::ActivateLocalNow</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>script)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!script.empty())</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CGlobals::GetNPLRuntime()-&gt;ActivateLocalNow(m_sFilename.c_str(),<sp/>script.c_str(),<sp/>script.size());</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CGlobals::GetNPLRuntime()-&gt;ActivateLocalNow(m_sFilename.c_str());</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="ParaScriptBindings/IObjectScriptingInterface.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>File Format &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3D Scene" href="SceneManager.html" />
+    <link rel="prev" title="3D Programming" href="3DOverview.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="file-format">
+<span id="file-format"></span><h1>File Format<a class="headerlink" href="#file-format" title="Permalink to this headline">¶</a></h1>
+<p>ParaEngine/NPL support several build-in file format. Some is used for 3d models, some for 3d world</p>
+<div class="section" id="d-model-file-format">
+<span id="d-model-file-format"></span><h2>3D Model file format<a class="headerlink" href="#d-model-file-format" title="Permalink to this headline">¶</a></h2>
+<p>ParaEngine supports following built-in or standard file format.</p>
+<ul class="simple">
+<li>ParaX format (*.x): This is our build-in file format for advanced animated characters, particles, etc. One needs to download and install ParaEngine exporter plugin for 3dsmax 9 (32bits/64bits). However, we are not supporting the latest version of 3dsmax. Please consider using FBX file format.</li>
+<li>FBX format (<code class="docutils literal"><span class="pre">*.fbx</span></code>): FBX is the universal file format for AutoDesk product like MAYA/3dsmax. It is one of the most supported lossless file format in the industry. Click <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/wiki/FBXModel">here for how to use FPX</a>. (Please note model size and embedded texture matters)</li>
+</ul>
+<blockquote>
+<div>we only support FBX version 2013 or above. Version 2014, 2015 are tested.</div></blockquote>
+<ul class="simple">
+<li>BMAX (*.bmax): This is our built-in block max file format, which is used exclusively by Paracraft application for storing static and animated blocks.</li>
+<li>STL format (*.stl): This is a file format used for 3d printing.</li>
+</ul>
+<div class="section" id="bmax-file-format">
+<span id="bmax-file-format"></span><h3>BMax file format<a class="headerlink" href="#bmax-file-format" title="Permalink to this headline">¶</a></h3>
+<p>BMAX is short for Block Max, it is a file format used exclusively in Paracraft for storing and exchanging block data.
+In paracraft, the world is made up of blocks, each block may contain <code class="docutils literal"><span class="pre">x,y,z,</span> <span class="pre">block_id,</span> <span class="pre">block_data,</span> <span class="pre">custom_data</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">x,y,z</span></code> is block position</li>
+<li><code class="docutils literal"><span class="pre">block_id</span></code> is type id of the block, see <a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/config/Aries/creator/block_types.xml">block_types.xml</a> for a complete list of block ids.</li>
+<li><code class="docutils literal"><span class="pre">block_data</span></code> is a 32bits data of the block, it usually denotes the orientation or type of the block.</li>
+<li><code class="docutils literal"><span class="pre">custom_data</span></code> can be any NPL table object that stores additional data of the block. Most static blocks does not contain custom_data, however, blocks like movie block, command blocks will save animation data and commands in this place.</li>
+</ul>
+<p>You can select some blocks in paracraft and save them to bmax file to examine a real bmax file, it should be self-explanatory. Following is an example bmax file(containing a button, 2 movie blocks, a repeater and a wire):</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/21293073/901298a4-c554-11e6-8967-14fbb914ff55.png" /></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;pe:blocktemplate&gt;</span>
+    <span class="nt">&lt;pe:blocks&gt;</span>{
+{-2,0,-3,105,5,},
+
+{-2,0,-2,228,[6]={{name=&quot;cmd&quot;,&quot;/t 6 /end&quot;,},{{&quot;{timeseries={lookat_z={times={0,5348,},data={20001.56125,20004.65625,},ranges={{1,2,},},type=\&quot;Linear\&quot;,name=\&quot;lookat_z\&quot;,},eye_liftup={times={0,5348,},data={0.28568,0.26068,},ranges={{1,2,},},type=\&quot;Linear\&quot;,name=\&quot;eye_liftup\&quot;,},lookat_x={times={0,5348,},data={20000.51959,20000.58203,},ranges={{1,2,},},type=\&quot;Linear\&quot;,name=\&quot;lookat_x\&quot;,},eye_rot_y={times={0,5348,},data={-3.11606,-3.11668,},ranges={{1,2,},},type=\&quot;LinearAngle\&quot;,name=\&quot;eye_rot_y\&quot;,},is_fps={times={0,5348,},data={0,0,},ranges={{1,2,},},type=\&quot;Discrete\&quot;,name=\&quot;is_fps\&quot;,},lookat_y={times={0,5348,},data={-127.08333,-127.08333,},ranges={{1,2,},},type=\&quot;Linear\&quot;,name=\&quot;lookat_y\&quot;,},eye_dist={times={0,5348,},data={8,8,},ranges={{1,2,},},type=\&quot;Linear\&quot;,name=\&quot;eye_dist\&quot;,},has_collision={times={0,5348,},data={1,1,},ranges={{1,2,},},type=\&quot;Discrete\&quot;,name=\&quot;has_collision\&quot;,},eye_roll={times={0,5348,},data={0,0,},ranges={{1,2,},},type=\&quot;LinearAngle\&quot;,name=\&quot;eye_roll\&quot;,},},}&quot;,name=&quot;slot&quot;,attr={count=1,id=10061,},},{&quot;{timeseries={time={times={},data={},ranges={},type=\&quot;Linear\&quot;,name=\&quot;time\&quot;,},music={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;music\&quot;,},tip={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;tip\&quot;,},movieblock={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;movieblock\&quot;,},cmd={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;cmd\&quot;,},blocks={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;blocks\&quot;,},text={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;text\&quot;,},},}&quot;,name=&quot;slot&quot;,attr={count=1,id=10063,},},name=&quot;inventory&quot;,{&quot;{timeseries={blockinhand={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;blockinhand\&quot;,},x={times={0,},data={20000.51959,},ranges={{1,1,},},type=\&quot;Linear\&quot;,name=\&quot;x\&quot;,},pitch={times={},data={},ranges={},type=\&quot;LinearAngle\&quot;,name=\&quot;pitch\&quot;,},y={times={0,},data={-127.08333,},ranges={{1,1,},},type=\&quot;Linear\&quot;,name=\&quot;y\&quot;,},parent={times={},data={},ranges={},type=\&quot;LinearTable\&quot;,name=\&quot;parent\&quot;,},roll={times={},data={},ranges={},type=\&quot;LinearAngle\&quot;,name=\&quot;roll\&quot;,},block={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;block\&quot;,},scaling={times={},data={},ranges={},type=\&quot;Linear\&quot;,name=\&quot;scaling\&quot;,},gravity={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;gravity\&quot;,},HeadUpdownAngle={times={},data={},ranges={},type=\&quot;Linear\&quot;,name=\&quot;HeadUpdownAngle\&quot;,},anim={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;anim\&quot;,},bones={R_Forearm_rot={times={0,34,1836,},data={{0.00024,0.00175,-0.01261,0.99992,},{0.00024,0.00175,-0.01261,0.99992,},{0.00022,-0.05946,0.42959,0.90107,},},ranges={{1,3,},},type=\&quot;Discrete\&quot;,name=\&quot;R_Forearm_rot\&quot;,},R_UpperArm_rot={times={0,34,1836,},data={{-0.01933,-0.00286,0.03036,0.99935,},{-0.01802,-0.03834,0.32796,0.94375,},{-0.0137,-0.01077,0.14324,0.98954,},},ranges={{1,3,},},type=\&quot;Discrete\&quot;,name=\&quot;R_UpperArm_rot\&quot;,},isContainer=true,},speedscale={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;speedscale\&quot;,},assetfile={times={0,},data={\&quot;actor\&quot;,},ranges={{1,1,},},type=\&quot;Discrete\&quot;,name=\&quot;assetfile\&quot;,},skin={times={},data={},ranges={},type=\&quot;Discrete\&quot;,name=\&quot;skin\&quot;,},z={times={0,},data={20001.56125,},ranges={{1,1,},},type=\&quot;Linear\&quot;,name=\&quot;z\&quot;,},facing={times={},data={},ranges={},type=\&quot;LinearAngle\&quot;,name=\&quot;facing\&quot;,},HeadTurningAngle={times={},data={},ranges={},type=\&quot;Linear\&quot;,name=\&quot;HeadTurningAngle\&quot;,},name={times={0,},data={\&quot;actor3\&quot;,},ranges={{1,1,},},type=\&quot;Discrete\&quot;,name=\&quot;name\&quot;,},opacity={times={},data={},ranges={},type=\&quot;Linear\&quot;,name=\&quot;opacity\&quot;,},},tooltip=\&quot;actor3\&quot;,}&quot;,name=&quot;slot&quot;,attr={count=1,id=10062,},},},name=&quot;entity&quot;,attr={bz=19201,bx=19200,class=&quot;EntityMovieClip&quot;,item_id=228,by=5,},},},
+
+{-2,0,-1,197,3,},
+{-2,0,0,189,},
+{-2,0,1,228,[6]={{name=&quot;cmd&quot;,&quot;/t 30 /end&quot;,},{name=&quot;inventory&quot;,{name=&quot;slot&quot;,attr={count=1,id=10061,},},},name=&quot;entity&quot;,attr={bz=19204,bx=19200,class=&quot;EntityMovieClip&quot;,item_id=228,by=5,},},},}
+
+    <span class="nt">&lt;/pe:blocks&gt;</span>
+<span class="nt">&lt;/pe:blocktemplate&gt;</span>
+</pre></div>
+</div>
+<p>For user manual of using movie blocks, please see the courses in</p>
+<ul class="simple">
+<li>http://www.paracraft.cn/learn/movieblockcourses?lang=zh</li>
+</ul>
+</div>
+</div>
+<div class="section" id="parax-file-format">
+<span id="parax-file-format"></span><h2>ParaX File format<a class="headerlink" href="#parax-file-format" title="Permalink to this headline">¶</a></h2>
+<p>ParaX is binary file format used exclusively in NPL Runtime for animated 3D character asset.ParaX is like a concise version of FBX file (FBX is like BMAX file used by autodesk 3dsmax/maya, ...)
+NPL Runtime also support reading FBX file and load as ParaXModel object in C++, for user guide see <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/wiki/FBXModel">FBX</a></p>
+<ul class="simple">
+<li>BMAX to ParaX converter in C++ (Lacking support for animation data in movie block)： https://github.com/LiXizhi/NPLRuntime/tree/master/Client/trunk/ParaEngineClient/BMaxModel</li>
+<li>ParaX models:<ul>
+<li>https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/ParaXModel/XFileCharModelParser.h</li>
+<li>https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/3dengine/ParaXSerializer.h</li>
+<li>https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/3dengine/ParaXSerializer.h</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="bmax-movie-blocks-to-parax-file-format-conversion-details">
+<span id="bmax-movie-blocks-to-parax-file-format-conversion-details"></span><h3>BMAX movie blocks to ParaX File format Conversion Details<a class="headerlink" href="#bmax-movie-blocks-to-parax-file-format-conversion-details" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>locate all movie blocks in BMAX file and ignore all other blocks. Movie blocks needs to be in the same order of 3D space (as repeater and wires indicates)</li>
+<li>The first movie block is always animation id 0 (idle animation)</li>
+<li>The second movie block is always animation id 4 (walk animation)</li>
+<li>The animation id of the third or following movie blocks can be specified in its movie block command</li>
+<li>The BMAX model(s) in the first movie block is used for defining bones and mesh (vertices, etc), please see <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/tree/master/Client/trunk/ParaEngineClient/BMaxModel">this code</a> for how to translate blocks into bones, vertices and sub meshes. BMAX models in all other movie blocks are ignored.</li>
+<li>Animation data in movie blocks are used to generate bone animations for each animation id in the final ParaXModel.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="d-world-file-format">
+<span id="d-world-file-format"></span><h2>3D World File Format<a class="headerlink" href="#d-world-file-format" title="Permalink to this headline">¶</a></h2>
+<p>ParaEngine/NPL can automatically save or load 3D scene object to or from disk files.</p>
+<p>To create an empty world, one can use</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="kd">local</span> <span class="n">worldpath</span> <span class="o">=</span> <span class="s2">&quot;temp/clientworld&quot;</span><span class="p">;</span>
+    <span class="n">ParaIO</span><span class="p">.</span><span class="n">DeleteFile</span><span class="p">(</span><span class="n">worldpath</span><span class="o">..</span><span class="s2">&quot;/&quot;</span><span class="p">);</span>
+    <span class="n">ParaIO</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">worldpath</span><span class="o">..</span><span class="s2">&quot;/&quot;</span><span class="p">);</span>
+    <span class="n">ParaWorld</span><span class="p">.</span><span class="n">NewEmptyWorld</span><span class="p">(</span><span class="n">worldpath</span><span class="p">,</span> <span class="mf">533.3333</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>3D world is tiled. Each tile is usually 512*512 meters. For historical reasons, it is 533.3333 by default.
+You will notice three files, after calling above function.</p>
+<p><code class="docutils literal"><span class="pre">temp/clientworld/worldconfig.txt</span></code> which is the entry file for 3d world, its content is like</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Auto</span> <span class="n">generated</span> <span class="n">by</span> <span class="n">ParaEngine</span> 
+<span class="nb">type</span> <span class="o">=</span> <span class="n">lattice</span>
+<span class="n">TileSize</span> <span class="o">=</span> <span class="mf">533.333313</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span><span class="o">/</span><span class="n">clientworld</span><span class="o">/</span><span class="n">flat</span><span class="o">.</span><span class="n">txt</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span><span class="o">/</span><span class="n">clientworld</span><span class="o">/</span><span class="n">flat</span><span class="o">.</span><span class="n">txt</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>It contains a mapping from tile (x,y) to tile configuration file.</p>
+<p><code class="docutils literal"><span class="pre">temp/clientworld/flat.txt</span></code> is configuration file for a single terrain tile.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">auto</span> <span class="n">gen</span> <span class="n">by</span> <span class="n">ParaEngine</span>
+<span class="n">Heightmapfile</span> <span class="o">=</span> <span class="n">temp</span><span class="o">/</span><span class="n">clientworld</span><span class="o">/</span><span class="n">flat</span><span class="o">.</span><span class="n">raw</span>
+<span class="n">MainTextureFile</span> <span class="o">=</span> <span class="n">terrain</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">MainTexture</span><span class="o">.</span><span class="n">dds</span>
+<span class="n">CommonTextureFile</span> <span class="o">=</span> <span class="n">terrain</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CommonTexture</span><span class="o">.</span><span class="n">dds</span>
+<span class="n">Size</span> <span class="o">=</span> <span class="mf">533.333313</span>
+<span class="n">ElevScale</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Swapvertical</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">HighResRadius</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">DetailThreshold</span> <span class="o">=</span> <span class="mf">50.000000</span>
+<span class="n">MaxBlockSize</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">DetailTextureMatrixSize</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">NumOfDetailTextures</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-terrain-format">
+<span id="global-terrain-format"></span><h2>Global Terrain Format<a class="headerlink" href="#global-terrain-format" title="Permalink to this headline">¶</a></h2>
+<p>Global Terrain Format is a LOD triangle tile based terrain engine. The logical tile size is defined by 3d world configuration file, such as 533.333, however, its real dimension is always 512*512 and saved as a <code class="docutils literal"><span class="pre">*.raw</span></code> file.</p>
+</div>
+<div class="section" id="block-world-file-format">
+<span id="block-world-file-format"></span><h2>Block World File Format<a class="headerlink" href="#block-world-file-format" title="Permalink to this headline">¶</a></h2>
+<p>ParaEngine has a build-in block engine for rendering 3D blocky world.
+Block world is also tiled. The logical tile size is defined by 3d world configuration file, such as 533.333, however, its real dimension is always <code class="docutils literal"><span class="pre">512x512</span></code> and saved as a binary block region file in <code class="docutils literal"><span class="pre">*.raw</span></code> extension. Please note that block world region file <code class="docutils literal"><span class="pre">*.raw</span></code> is different from global terrain&#8217;s <code class="docutils literal"><span class="pre">*.raw</span></code> file. The latter is just height maps.</p>
+<p>Currently, each block may contain <code class="docutils literal"><span class="pre">x,y,z,</span> <span class="pre">block_id,</span> <span class="pre">block_data[,</span> <span class="pre">custom_data]</span></code>, currently <code class="docutils literal"><span class="pre">custom_data</span></code> is not supported in block region <code class="docutils literal"><span class="pre">*.raw</span></code> file. Block region file is encoded (compressed) using <code class="docutils literal"><span class="pre">increase-by-integer</span></code> algorithm, which will save lots of disk space if blocks are of the same type in the tiled region.</p>
+<p>See <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/BlockEngine/BlockRegion.h">BlockRegion.cpp</a> for details</p>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>http://www.paracraft.cn/  : see bmax model tutorial video</li>
+<li>https://github.com/LiXizhi/NPLRuntime/wiki</li>
+<li>https://github.com/LiXizhi/STLExporter</li>
+<li>http://wikicraft.cn/wiki/mod/packages : see STLExporter</li>
+<li>BMAX to ParaX converter in C++ (Lacking support for animation data in movie block)： https://github.com/LiXizhi/NPLRuntime/tree/master/Client/trunk/ParaEngineClient/BMaxModel</li>
+<li>ParaX models:<ul>
+<li>https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/ParaXModel/XFileCharModelParser.h</li>
+<li>https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/3dengine/ParaXSerializer.h</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">File Format</a><ul>
+<li><a class="reference internal" href="#d-model-file-format">3D Model file format</a><ul>
+<li><a class="reference internal" href="#bmax-file-format">BMax file format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parax-file-format">ParaX File format</a><ul>
+<li><a class="reference internal" href="#bmax-movie-blocks-to-parax-file-format-conversion-details">BMAX movie blocks to ParaX File format Conversion Details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#d-world-file-format">3D World File Format</a></li>
+<li><a class="reference internal" href="#global-terrain-format">Global Terrain Format</a></li>
+<li><a class="reference internal" href="#block-world-file-format">Block World File Format</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="3DOverview.html" title="previous chapter">3D Programming</a></li>
+      <li>Next: <a href="SceneManager.html" title="next chapter">3D Scene</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/FileFormat.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/FileFormat.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

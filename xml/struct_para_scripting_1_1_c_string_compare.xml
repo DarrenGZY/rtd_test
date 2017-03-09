@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct_para_scripting_1_1_c_string_compare" kind="struct" language="C++" prot="public">
+    <compoundname>ParaScripting::CStringCompare</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_para_scripting_1_1_c_string_compare_1ab76ea9588c49e63f0ffc628d7f43ef87" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::CStringCompare::operator()</definition>
+        <argsstring>(const std::string &amp;first, const std::string &amp;second) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>second</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="121" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="121" bodyend="124"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="120" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="119" bodyend="125"/>
+    <listofallmembers>
+      <member refid="struct_para_scripting_1_1_c_string_compare_1ab76ea9588c49e63f0ffc628d7f43ef87" prot="public" virt="non-virtual"><scope>ParaScripting::CStringCompare</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

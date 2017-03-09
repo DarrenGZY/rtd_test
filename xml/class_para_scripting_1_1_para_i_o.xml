@@ -1,0 +1,1617 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_i_o" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaIO</compoundname>
+    <includes refid="_para_scripting_i_o_8h" local="no">ParaScriptingIO.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a11e83341f5d8dd3e343a60bed6de5baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaIO::ParaIO</definition>
+        <argsstring>(void)</argsstring>
+        <name>ParaIO</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="299" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a1326bdac7d6778397933f2b4de846b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaIO::~ParaIO</definition>
+        <argsstring>(void)</argsstring>
+        <name>~ParaIO</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="300" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="58" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ab2ff5fd1599be896c8953aaa79f492cd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::DecodePath</definition>
+        <argsstring>(const char *input)</argsstring>
+        <name>DecodePath</name>
+        <param>
+          <type>const char *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>replace variables in input path and return the result path. see AddPathVariable <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a path with or without replaceable. make sure you have called <ref refid="class_para_scripting_1_1_para_i_o_1a1c1858b8b8e817a2596f8e7b628e427f" kindref="member">ToCanonicalFilePath()</ref> to canonicalize the input before calling this function </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the resulting path. Please note that the return value is the input itself if nothing is replaced. otherwise, it is a static string reference containing the result. therefore the result is NOT thread safe. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="309" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="898" bodyend="915"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a9e2dcf0bc511deb4aa388d694f7a602a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::EncodePath</definition>
+        <argsstring>(const char *input)</argsstring>
+        <name>EncodePath</name>
+        <param>
+          <type>const char *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this does reverse of DecodePath. see AddPathVariable <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a path with or without replaceable. make sure you have called <ref refid="class_para_scripting_1_1_para_i_o_1a1c1858b8b8e817a2596f8e7b628e427f" kindref="member">ToCanonicalFilePath()</ref> to canonicalize the input before calling this function </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="315" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="917" bodyend="934"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a41d51a4aa08fb75c73cd020bc0061ece" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::EncodePath2</definition>
+        <argsstring>(const char *input, const char *varNames)</argsstring>
+        <name>EncodePath2</name>
+        <param>
+          <type>const char *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>varNames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>same as EncodePath, except that it will only replace variables who name appears in varNames. varNames is a comma separated list of variable names. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>varNames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a comma separated list of variable names. like &quot;WORLD,USERID&quot;, etc. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="320" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="936" bodyend="955"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a436e23646be119d221017bfbdcae4ac3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::AddPathVariable</definition>
+        <argsstring>(const char *sVarName, const char *sVarValue)</argsstring>
+        <name>AddPathVariable</name>
+        <param>
+          <type>const char *</type>
+          <declname>sVarName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sVarValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new variable to the replaceable pool <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sVarName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the variable name without enclosing %%, such as &quot;WORLD&quot;, &quot;USERID&quot;, usually uppercase. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sVarValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path that the variable expands to. If nil, it will remove the variable. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: true if succeed. it may return false, if a protected variable with the same name already exist but it not editable via scripting interface. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="327" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="957" bodyend="968"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a90d53f8b74257b5c1c1abc7d6a6d1006" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::AddSearchPath</definition>
+        <argsstring>(const char *sFile)</argsstring>
+        <name>AddSearchPath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a search path to the search path pool. It will internally normalize the path and check for duplicates  note: this function shall not be called by an untrusted client, since it will secretly swap files. : shall we support remote http zip file as a valid search path? </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="334" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="878" bodyend="881"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a7bafa366f5d22f81806f7b8fba6a12bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::AddSearchPath2</definition>
+        <argsstring>(const char *sFile, int nPriority)</argsstring>
+        <name>AddSearchPath2</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nPriority</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="335" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="883" bodyend="886"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a0c9e04e9d1524c677e378e403bd4700c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::RemoveSearchPath</definition>
+        <argsstring>(const char *sFile)</argsstring>
+        <name>RemoveSearchPath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove a search path from the search path pool. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="340" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="888" bodyend="891"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a47cfc07850ae1c3b820eae754350f37f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::ParaIO::GetWritablePath</definition>
+        <argsstring>()</argsstring>
+        <name>GetWritablePath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get writable path </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="343" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="986" bodyend="989"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a6463edb0e2e7d82b6f44b8cbad969507" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::ClearAllSearchPath</definition>
+        <argsstring>()</argsstring>
+        <name>ClearAllSearchPath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>clear all search paths. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="348" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="893" bodyend="896"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ab03cc550eb9e90eefbc03368569152f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned long</type>
+        <definition>unsigned long ParaScripting::ParaIO::CRC32</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>CRC32</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the CRC 32 code of a given file. <simplesect kind="return"><para>: return 0 if not succeed, otherwise the CRC32 code is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="354" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="856" bodyend="861"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a75bf401f3d5d64dbc55c1efc7ea03c67" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::UpdateMirrorFiles</definition>
+        <argsstring>(const char *dirName, bool bOverwrite)</argsstring>
+        <name>UpdateMirrorFiles</name>
+        <param>
+          <type>const char *</type>
+          <declname>dirName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bOverwrite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is equivalent to calling the following functions. LoadLogFromFile(&quot;InstallFiles.txt&quot;); LoadLogFromFile(&quot;temp/filelog.txt&quot;); MirrorFiles(dirName, bOverwrite);</para><para>e.g. UpdateMirrorFiles(&quot;_InstallFiles/&quot;, true); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dirName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>such as &quot;_InstallFiles/&quot; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bOverwrite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is true, existing files will be overridden. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="366" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="61" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a5563fc7b4d17aec56bb1171e186c787f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_zip_writer" kindref="compound">ParaZipWriter</ref></type>
+        <definition>ParaScripting::ParaZipWriter ParaScripting::ParaIO::CreateZip</definition>
+        <argsstring>(const char *fn, const char *password)</argsstring>
+        <name>CreateZip</name>
+        <param>
+          <type>const char *</type>
+          <declname>fn</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>call this to start the creation of a zip file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="372" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="863" bodyend="866"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a6f1d3ae4407ef464e25c14b36b9d8682" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaIO::DeleteFile</definition>
+        <argsstring>(const char *sFilePattern)</argsstring>
+        <name>DeleteFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePattern</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete a given file. It will reject any system files outside the application directory. after all, this function is of high security level. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFilePattern</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>such as &quot;*.dds&quot;, &quot;temp.txt&quot;, etc </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the number of files deleted. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="379" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="813" bodyend="820"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ac65b4dd626d314e52118cd96b5bc3e09" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::MoveFile</definition>
+        <argsstring>(const char *src, const char *dest)</argsstring>
+        <name>MoveFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The MoveFile function will move (rename) either a file or a directory (including its children) either in the same directory or across directories. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>specifies the name of an existing file </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>specifies the name of the new file </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeeds </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="387" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="822" bodyend="854"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a8cb185e18f929a36fb706ff85eb496ee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::CopyFile</definition>
+        <argsstring>(const char *src, const char *dest, bool bOverride)</argsstring>
+        <name>CopyFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bOverride</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The CopyFile function copies an existing file to a new file <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>specifies the name of an existing file </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>specifies the name of the new file </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bOverride</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in] If this parameter is false and the new file specified by src already exists, the function fails. If this parameter is true and the new file already exists, the function overwrites the existing file and succeeds. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeeds </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="397" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="68" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1aa0b8d45a379383f9d505a2b128b2b50b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::CreateNewFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>CreateNewFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create a new file for writing. it will make all necessary directories in order to create the file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="402" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="94" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a0465c9afc7952bad7b5e1ba7720b2d17" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::OpenFileWrite</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>OpenFileWrite</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>open a new file for write-only access. If the file does not exist, it will be created. if the file exists, the file pointer is at the end of file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="405" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="113" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a2b7b8e8f0c62509df4688e160dfbccd9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::OpenFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>OpenFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open a file for read-only access. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="407" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="133" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a1aa57ab3bd5ab14262d33d0fed2c6fb2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_file_object" kindref="compound">ParaFileObject</ref></type>
+        <definition>ParaFileObject ParaScripting::ParaIO::OpenAssetFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>OpenAssetFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is rather similar to <ref refid="class_para_scripting_1_1_para_i_o_1a2b7b8e8f0c62509df4688e160dfbccd9" kindref="member">OpenFile()</ref> method, except that it will first look in the AssetManifest to see if the file exit. If the file does appear in manifest list, we will download the latest version from the current asset server, if not done before. the download process is SYNCHRONOUS. If the file does not appear in AssetManifest list, this function is equivalent to <ref refid="class_para_scripting_1_1_para_i_o_1a2b7b8e8f0c62509df4688e160dfbccd9" kindref="member">OpenFile()</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the asset file key to open. The actual file opened may from the temp/cache/ folder. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bDownloadIfNotUpToDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default to true. if true, we will download the latest version from the current asset server. the download process is synchronous. If false, the function will return 0 immediately, when the caller may consider download the file asynchronously, and then open the file again. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: 1 if succeed. 0, if file is not downloaded successfully. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="418" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ab3bcd3df7ab79bea9fa12e298b844164" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_file_object" kindref="compound">ParaFileObject</ref></type>
+        <definition>ParaFileObject ParaScripting::ParaIO::OpenAssetFile2</definition>
+        <argsstring>(const char *filename, bool bDownloadIfNotUpToDate)</argsstring>
+        <name>OpenAssetFile2</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bDownloadIfNotUpToDate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="419" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="165" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ac16d8219131b1e549634f213fd23901b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::DoesAssetFileExist</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>DoesAssetFileExist</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check to see whether we have a up to date version of an asset file. if the asset file does not appear in asset manifest list, it will return the result of <ref refid="class_para_scripting_1_1_para_i_o_1a83da14f6dbb8792d973b1d287e921aa8" kindref="member">DoesFileExist()</ref> instead. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="422" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a7843a492c37c9e121e74b2e7201a9ddf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::DoesAssetFileExist2</definition>
+        <argsstring>(const char *filename, bool bSearchZipFile)</argsstring>
+        <name>DoesAssetFileExist2</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSearchZipFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>same as DoesAssetFileExist, except that if bSearchZipFile == false, it is equivalent to <ref refid="class_para_scripting_1_1_para_i_o_1a83da14f6dbb8792d973b1d287e921aa8" kindref="member">DoesFileExist()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="426" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a6702525073ff596c509d1fd4aada151a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaIO::SyncAssetFile_Async</definition>
+        <argsstring>(const char *filename, const char *sCallBackScript)</argsstring>
+        <name>SyncAssetFile_Async</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sCallBackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>similar to SyncFile(), except that this function will return immediately and does not redownload or call AddDownloadCount. And use callback. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sCallBackScript</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback script code to be executed when the download is complete. it must begin with &quot;;&quot;, such as &quot;;log([[download is complete]]);&quot; the global &quot;msg.res&quot; table contains the error code in case an error is met. msg.res == 0 if succeed, otherwise -1. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: 0 if download has begun, 1 if file is already downloaded, -1 if failed, -2 if input is not an asset file. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="433" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="212" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1aa3d827df84433bf57a83b2e468785b07" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaIO::CheckAssetFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>CheckAssetFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check to see whether an asset file is already downloaded to local disk. generally return value is larger than 1 if succeed. <simplesect kind="return"><para>: 1 if already downloaded; 0 if asset has not been downloaded; -1 if we are unable to download the asset file after trying serveral times; -3 if asset is being downloaded but is not completed; -4 if input file is not an asset file. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="444" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="237" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1afcf390826831d2265aa31f8cb4a074e9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::LoadReplaceFile</definition>
+        <argsstring>(const char *filename, bool bReplaceExistingOnes)</argsstring>
+        <name>LoadReplaceFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bReplaceExistingOnes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="452" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="263" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1adebbc80690d4f21ae5a031a36478bb4d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_file_object" kindref="compound">ParaFileObject</ref></type>
+        <definition>ParaFileObject ParaScripting::ParaIO::open</definition>
+        <argsstring>(const char *filename, const char *mode)</argsstring>
+        <name>open</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open or create a file e.g. <ref refid="class_para_scripting_1_1_para_i_o_1adebbc80690d4f21ae5a031a36478bb4d" kindref="member">ParaIO.open</ref>(&quot;temp/test.txt&quot;, &quot;w&quot;); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file name to open. if it is &quot;&lt;memory&gt;&quot; and mode is &quot;w&quot;. it is a memory buffer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: access mode<itemizedlist>
+<listitem><para>&quot;r&quot; Opens for reading. If the file does not exist or cannot be found, the call fails.</para></listitem><listitem><para>&quot;w&quot; Opens an empty file for writing. If the given file exists, its contents are destroyed.If not, file will be created.</para></listitem><listitem><para>&quot;a&quot; append to the end of an existing file. if file does not exist, a new one is created. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>file object is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="464" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="268" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a8bf9672e183e2308cb4264ba97daf13b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_file_object" kindref="compound">ParaFileObject</ref></type>
+        <definition>ParaScripting::ParaFileObject ParaScripting::ParaIO::openimage</definition>
+        <argsstring>(const char *filename, const char *mode)</argsstring>
+        <name>openimage</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>open an image file. The r,g,b can then be retrieved as bytes arrays using ReadBytes() function. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>such as BMP, DDS, JPG, etc. It must be a square image. The size of the image can thus be calculated by file size. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: access mode<itemizedlist>
+<listitem><para>&quot;r8g8b8&quot;: each pixel is a three bytes of R,G,B</para></listitem><listitem><para>&quot;a8r8g8b8&quot;: each pixel is a four bytes of A,R,G,B</para></listitem><listitem><para>&quot;float32&quot;: each pixel is a four bytes of float. [Not supported yet] </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="474" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a26ac2841265ac592f24b505146cd12f4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::CreateDirectory</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>CreateDirectory</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>make directory <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>director path. file portion will be automatically striped off. So it is ok to pass in file name, instead of directory name. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: true if the directory is made or already exists </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="479" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a690d4a98d0d33d044b74b5c204f247ef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::CloseFile</definition>
+        <argsstring>()</argsstring>
+        <name>CloseFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Close the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="482" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="378" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a4ef4b67539e0164bd57a4b1c0b187c8d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::WriteString</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>WriteString</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write a string to the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="484" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="383" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1abe862af1c9ce4bfff431f3948dbf7d60" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::readline</definition>
+        <argsstring>()</argsstring>
+        <name>readline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>read line as a string. The string is guaranteed to be ended with &apos;\0&apos;. if end of file is reached, it will return NULL. which is nil in the script. if a line begins with &quot;--&quot;, it is automatically recognized as a comment line and will be skipped. a blank line will also be skipped. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="490" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="393" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a0e9f6a5c47dde3f6e659727d3442e834" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::write</definition>
+        <argsstring>(const char *buffer, int nSize)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write a buffer to the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="492" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="388" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a83da14f6dbb8792d973b1d287e921aa8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::DoesFileExist</definition>
+        <argsstring>(const char *filename, bool bSearchZipFiles)</argsstring>
+        <name>DoesFileExist</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSearchZipFiles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check whether a given file exists on disk. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file name to check </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bSearchZipFiles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if false, not disk file is searched. If true, both the disk file and zip file will be searched. currently bSearchZipFiles can only be false. Because it is not efficient to check existence of ZIPPED files. Use <ref refid="class_para_scripting_1_1_para_i_o_1a2b7b8e8f0c62509df4688e160dfbccd9" kindref="member">OpenFile()</ref> and check for return value instead. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="500" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="404" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a0fade32342f2ec43246b457a7f84a711" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::DoesFileExist_</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>DoesFileExist_</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>see <ref refid="class_para_scripting_1_1_para_i_o_1a83da14f6dbb8792d973b1d287e921aa8" kindref="member">DoesFileExist()</ref>. This version is same as DoesFileExist(filename, false); </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="502" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="409" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a340178ab7ca8685c73aec8e96123c11a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::BackupFile</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>BackupFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>backup a specified file, if the file exists. A new file with an extension &quot;.bak&quot; appended to the end of the original file will be created, whose content is identical to the original file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file name to back up </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return true if the file is backed up. return false, if the file does not exist or some error occurs during backup. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="509" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="414" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ae0bccdb3bf95370b2951804f5911b8ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_search_result" kindref="compound">ParaSearchResult</ref></type>
+        <definition>ParaSearchResult ParaScripting::ParaIO::SearchFiles</definition>
+        <argsstring>(const char *sRootPath, const char *sFilePattern, const char *sZipArchive, int nSubLevel, int nMaxFilesNum, int nFrom)</argsstring>
+        <name>SearchFiles</name>
+        <param>
+          <type>const char *</type>
+          <declname>sRootPath</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePattern</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sZipArchive</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSubLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nMaxFilesNum</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nFrom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>search files at once. <simplesect kind="see"><para>CSearchResult the current version of this function can support only one query at a time. The search result is invalid if called intermitantly </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sRootPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the root path. for example: &quot;&quot;, &quot;xmodel/&quot;,&quot;xmodel/models/&quot;. Other format is not acceptable </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sFilePattern</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file pattern, e.g. &quot;*.x&quot; (all files with x extension), &quot;*&quot; (any files), &quot;*.&quot;(directories only) if sZipArchive is non-empty, sFilePattern support both regular expression and wild card search. it performs wild cards search by default, where &quot;/\\&quot; matches to directory. &quot;* &quot;matches to anything except &quot;/\\.&quot;, and &quot;.&quot; matches to &quot;.&quot; itself. e.g.. &quot;*.*&quot;, &quot;*.&quot;, &quot;worlds/ *.abc&quot;, &quot;*abc/ *.jpg&quot;, etc it sFilePattern begins with &quot;:&quot;, things after &quot;:&quot; is treated like a regular expression. It has the same syntax with the perl regular expression and uses full match. e.g.. &quot;:.*\\.jpg&quot;, etc. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sZipArchive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it can be &quot;&quot; or a zip archive file name. . if it is not, only that archive files are saved.<itemizedlist>
+<listitem><para>&quot;&quot;: only disk files are searched</para></listitem><listitem><para>&quot;*.zip&quot;: currently opened zip files are searched</para></listitem><listitem><para>&quot;*.*&quot;: search disk file followed by all zip files. </para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nSubLevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>how many sub folders of sRootPath to look into. default value is 0, which only searches the sRootPath folder. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nMaxFilesNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>one can limit the total number of files in the search result. Default value is 50. the search will stop at this value even there are more matching files. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nFrom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>only contains results from nFrom to (nFrom+nMaxFilesNum) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: one should manually release the search result. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="529" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="419" bodyend="425"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a9716c3a3a33b703e5a446d39daf7c80e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_search_result" kindref="compound">ParaSearchResult</ref></type>
+        <definition>ParaSearchResult ParaScripting::ParaIO::SearchFiles_c</definition>
+        <argsstring>(const char *sRootPath, const char *sFilePattern, const char *sZipArchive, int nSubLevel)</argsstring>
+        <name>SearchFiles_c</name>
+        <param>
+          <type>const char *</type>
+          <declname>sRootPath</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePattern</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sZipArchive</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSubLevel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="530" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="426" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a2672b29da248d45ee385dcc8b5e0ef40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::GetCurDirectory</definition>
+        <argsstring>(DWORD dwDirectoryType)</argsstring>
+        <name>GetCurDirectory</name>
+        <param>
+          <type>DWORD</type>
+          <declname>dwDirectoryType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current directory of the application. it allows querying a number of standard directories. please note that all directory are returned as absolute path with slash &quot;/&quot; between two level of directories. and that it always ends with &quot;\&quot;. e.g. &quot;c:/lxzsrc/paraengineSDK/&quot; or &quot;c:/lxzsrc/paraengineSDK/script/&quot; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dwDirectoryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it can be one of the PARAENGINE_DIRECTORY enumeration type enum PARAENGINE_DIRECTORY{ APP_ROOT_DIR=0, APP_SCRIPT_DIR=1, APP_ARCHIVE_DIR=2, // xmodels APP_MODEL_DIR=3, APP_SHADER_DIR=4, APP_DATABASE_DIR=5, APP_TEMP_DIR=6, APP_USER_DIR=7, APP_BACKUP_DIR=8, APP_SCREENSHOT_DIR=9, APP_PLUGIN_DIR=10, }; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the directory is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="550" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="757" bodyend="760"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1abefa4867b14bd0eeab8577dec49a0754" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::GetCurDirectory_</definition>
+        <argsstring>(DWORD dwDirectoryType)</argsstring>
+        <name>GetCurDirectory_</name>
+        <param>
+          <type>DWORD</type>
+          <declname>dwDirectoryType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="553" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="762" bodyend="775"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a27919c88f50d71ac4cfd2d663efa4e22" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::GetParentDirectoryFromPath</definition>
+        <argsstring>(const char *sfilename, int nParentCounts)</argsstring>
+        <name>GetParentDirectoryFromPath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sfilename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nParentCounts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>trim the sFile by nParentCounts number of parent directories. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nParentCounts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of parent directory to remove </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return &quot;&quot; if the input directory does not have that many parent directories. e.g. &quot;C:/abc/&quot; = GetDirectoryFromPath(&quot;C:/abc/aaa&quot;,0); &quot;C:/&quot; = GetDirectoryFromPath(&quot;C:/abc/&quot;,1); </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="563" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="543" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ace7b80f179abf58c8fe80d37b005e506" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::GetParentDirectoryFromPath_</definition>
+        <argsstring>(const char *sfilename, int nParentCounts)</argsstring>
+        <name>GetParentDirectoryFromPath_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sfilename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nParentCounts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="566" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="551" bodyend="566"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ace6dd349b71bec8d49dc216df1c0a681" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::AutoFindParaEngineRootPath</definition>
+        <argsstring>(const char *sFile)</argsstring>
+        <name>AutoFindParaEngineRootPath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This will find the root path from a given directory path using the following rule: find a file called &quot;ParaEngine.sig&quot; in the parent directories of sFile, from near to far. e.g. if sFile is &quot;c:/a/b/c/xxx.x&quot;, then it will search for &quot;c:/a/b/c/&quot;,&quot;c:/a/b/&quot;,&quot;c:/a/&quot; and &quot;c:/&quot;. the function will return the first parent directory that contains the file, otherwise &quot;&quot; is returned. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="573" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="568" bodyend="573"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a1c013c1b883883aba66737eec48cbb18" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::AutoFindParaEngineRootPath_</definition>
+        <argsstring>(const char *sFile)</argsstring>
+        <name>AutoFindParaEngineRootPath_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="576" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="575" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a970413bf0ebebca0eccf1d03148af9a5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::ChangeFileExtension</definition>
+        <argsstring>(const char *sFile, const string &amp;sExt)</argsstring>
+        <name>ChangeFileExtension</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>sExt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>change the file extension. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file whose extension to change. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sExt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file extension to change to. such as &quot;dds&quot;,&quot;x&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return the file with the changed extension. the input file does not contain a valid file extension, the returned string will be identical to the input file. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="583" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="592" bodyend="609"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a06ccd76dff49a5eb0040e6d2febb6a53" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::ChangeFileExtension_</definition>
+        <argsstring>(const char *sFile, const string &amp;sExt)</argsstring>
+        <name>ChangeFileExtension_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <param>
+          <type>const string &amp;</type>
+          <declname>sExt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="586" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="610" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1ae6a30710bc329ec368b0d8648feeb3d6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::GetFileExtension</definition>
+        <argsstring>(const char *sFile)</argsstring>
+        <name>GetFileExtension</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the file extension. this function may return &quot;&quot; if no file extension is found </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="589" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="627" bodyend="633"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a97fb006fa620cc6cffd402a6d82846b1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::GetFileExtension_</definition>
+        <argsstring>(const char *sFile)</argsstring>
+        <name>GetFileExtension_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="592" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="635" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a372159f6d31cb4b215da4214e546221f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::GetRelativePath</definition>
+        <argsstring>(const char *sAbsolutePath, const char *sRootPath)</argsstring>
+        <name>GetRelativePath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sAbsolutePath</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sRootPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the relative file path by stripping the root path from the beginning. please note that all paths should uses slash &quot;/&quot;, instead of backslash &quot;\&quot;, in the path name.letter case is ignored <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sAbsolutePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the absolute path from which to obtain the relative path. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sRootPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parent root path, which will be removed from the absolute path. It should end with &quot;/&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the relative path is returned. If the absolute path does not math the root path, the absolute path is returned unchanged. the relative path does not begin with &quot;/&quot; e.g. &quot;a/b.x&quot; = GetRelativePath(&quot;c:/lxzsrc/a/b.x&quot;, &quot;c:/lxzsrc/&quot;); &quot;c:/lxzsrc/a/b.x&quot; = GetRelativePath(&quot;c:/lxzsrc/a/b.x&quot;, &quot;c:/srclxz/&quot;); // not match </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="603" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="677" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a27e8fa408883f8fb57670af669bc6625" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::GetRelativePath_</definition>
+        <argsstring>(const char *sAbsolutePath, const char *sRootPath)</argsstring>
+        <name>GetRelativePath_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sAbsolutePath</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sRootPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="606" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="685" bodyend="700"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a1e2bebb6ce456fb1f45a26050c0b00fc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::GetAbsolutePath</definition>
+        <argsstring>(const char *sRelativePath, const char *sRootPath)</argsstring>
+        <name>GetAbsolutePath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sRelativePath</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sRootPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the absolute file path by appending the root path before the relative path. please note that all paths should uses slash &quot;/&quot;, instead of backslash &quot;\&quot;, in the path name. letter case is ignored <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sRelativePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the absolute path from which to obtain the relative path. It should not begin with &quot;/&quot; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sRootPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parent root path, which will be removed from the absolute path. It should end with &quot;/&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the relative path is returned. If the absolute path does not math the root path, the absolute path is returned unchanged. e.g. &quot;c:/lxzsrc/a/b.x&quot; = GetAbsolutePath(&quot;a/b.x&quot;, &quot;c:/lxzsrc/&quot;); </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="616" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="652" bodyend="658"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a97c5c627cded88a956c0109165fa68c1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::GetAbsolutePath_</definition>
+        <argsstring>(const char *sRelativePath, const char *sRootPath)</argsstring>
+        <name>GetAbsolutePath_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sRelativePath</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sRootPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="619" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="660" bodyend="675"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1aa3a4321f2b220998d211ba986005f690" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::GetFileName</definition>
+        <argsstring>(const char *sFilePath)</argsstring>
+        <name>GetFileName</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get only the file name from the file path. &quot;a.x&quot; = GetFileName(&quot;c:/lxzsrc/a.x&quot;); </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="624" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="702" bodyend="708"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a6f98e0e0e24fac5bff462a522390cc57" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::GetFileName_</definition>
+        <argsstring>(const char *sFilePath)</argsstring>
+        <name>GetFileName_</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="627" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="709" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a606cbd53854e096359f1b189db7182f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaIO::GetFileSize</definition>
+        <argsstring>(const char *sFilePath)</argsstring>
+        <name>GetFileSize</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The GetFileSize function retrieves the size of the specified file. The file size that can be reported by this function is limited to a DWORD value <simplesect kind="return"><para>: size of the file. If the file does not exist or the file size is 0, the return value is 0. </para></simplesect>
+<simplesect kind="note"><para>: only disk file is searched.files inside zip file are ignored. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="633" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="777" bodyend="783"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a1e4a47552d2b5b92ff0e4c990b200689" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaIO::GetFileInfo</definition>
+        <argsstring>(const char *sFilePath, const object &amp;inout)</argsstring>
+        <name>GetFileInfo</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilePath</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>inout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get file info <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>{modification, attr, access, create, size, mode=&quot;file|directoy|fileinzip|&quot;, fullpath=string} </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="639" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="785" bodyend="811"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a1c1858b8b8e817a2596f8e7b628e427f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaIO::ToCanonicalFilePath</definition>
+        <argsstring>(const char *sfilename, bool bBackSlash)</argsstring>
+        <name>ToCanonicalFilePath</name>
+        <param>
+          <type>const char *</type>
+          <declname>sfilename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bBackSlash</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>convert a file name to canonical file path <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sfilename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>it is assumed that strlen(filename) &lt;= MAX_PATH </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bBackSlash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true, the file will use &apos;\&apos;; otherwise use &apos;/&apos;. &apos;\&apos; is win32 compatible. &apos;/&apos; is more user friendly. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the canonical file path name returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="645" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="726" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a5a7dd6ff44844ad737b6458e706f0624" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaIO::ToCanonicalFilePath__</definition>
+        <argsstring>(const char *sfilename, bool bBackSlash)</argsstring>
+        <name>ToCanonicalFilePath__</name>
+        <param>
+          <type>const char *</type>
+          <declname>sfilename</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bBackSlash</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this should never be called from the scripting interface. it is only for API exportation. it uses a static string for the output. so it is not thread-safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="648" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="738" bodyend="755"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a8f68010cd657979b7689827472a323a1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::SetDiskFilePriority</definition>
+        <argsstring>(int nPriority)</argsstring>
+        <name>SetDiskFilePriority</name>
+        <param>
+          <type>int</type>
+          <declname>nPriority</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the disk file priority. it affects whether the disk will be searched first or the one in the archive files. default disk file will be searched first. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nPriority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0 is the same priority as the disk file. so 0 or above will cause the disk file to be searched before archive files. below 0, such as -1 will cause the archive files go first. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="655" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="868" bodyend="871"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a6ce7193edc938d1a897e2cdd7afc1964" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaIO::GetDiskFilePriority</definition>
+        <argsstring>()</argsstring>
+        <name>GetDiskFilePriority</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the disk file priority. it affects whether the disk will be searched first or the one in the archive files. default disk file will be searched first. <simplesect kind="return"><para>: 0 is the same priority as the disk file. so 0 or above will cause the disk file to be searched before archive files. below 0, such as -1 will cause the archive files go first. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="661" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="873" bodyend="876"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1a59d38dfc469ca4701be5039fa64720d6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_file_system_watcher" kindref="compound">ParaFileSystemWatcher</ref></type>
+        <definition>ParaScripting::ParaFileSystemWatcher ParaScripting::ParaIO::GetFileSystemWatcher</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>GetFileSystemWatcher</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>create and get a file system watcher object. always use local to retrieve the object to ensure that the object is properly released when out of scope. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="665" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="970" bodyend="977"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_i_o_1afaebe418a19a22638ecb1fa591127a40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaIO::DeleteFileSystemWatcher</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>DeleteFileSystemWatcher</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete a watcher, it will no longer receive callbacks.  note that if someone else still keeps a pointer to the directory watcher, it will not be deleted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="670" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="979" bodyend="984"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_i_o" kindref="compound">ParaIO</ref> class: IO functions ported to the scripting system </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.h" line="297" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="296" bodyend="671"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_i_o_1a436e23646be119d221017bfbdcae4ac3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>AddPathVariable</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a90d53f8b74257b5c1c1abc7d6a6d1006" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>AddSearchPath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a7bafa366f5d22f81806f7b8fba6a12bc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>AddSearchPath2</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ace6dd349b71bec8d49dc216df1c0a681" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>AutoFindParaEngineRootPath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a1c013c1b883883aba66737eec48cbb18" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>AutoFindParaEngineRootPath_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a340178ab7ca8685c73aec8e96123c11a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>BackupFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a970413bf0ebebca0eccf1d03148af9a5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>ChangeFileExtension</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a06ccd76dff49a5eb0040e6d2febb6a53" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>ChangeFileExtension_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1aa3d827df84433bf57a83b2e468785b07" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CheckAssetFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a6463edb0e2e7d82b6f44b8cbad969507" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>ClearAllSearchPath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a690d4a98d0d33d044b74b5c204f247ef" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CloseFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a8cb185e18f929a36fb706ff85eb496ee" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CopyFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ab03cc550eb9e90eefbc03368569152f2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CRC32</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a26ac2841265ac592f24b505146cd12f4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CreateDirectory</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1aa0b8d45a379383f9d505a2b128b2b50b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CreateNewFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a5563fc7b4d17aec56bb1171e186c787f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>CreateZip</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ab2ff5fd1599be896c8953aaa79f492cd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DecodePath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a6f1d3ae4407ef464e25c14b36b9d8682" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DeleteFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1afaebe418a19a22638ecb1fa591127a40" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DeleteFileSystemWatcher</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ac16d8219131b1e549634f213fd23901b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DoesAssetFileExist</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a7843a492c37c9e121e74b2e7201a9ddf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DoesAssetFileExist2</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a83da14f6dbb8792d973b1d287e921aa8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DoesFileExist</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a0fade32342f2ec43246b457a7f84a711" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>DoesFileExist_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a9e2dcf0bc511deb4aa388d694f7a602a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>EncodePath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a41d51a4aa08fb75c73cd020bc0061ece" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>EncodePath2</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a1e2bebb6ce456fb1f45a26050c0b00fc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetAbsolutePath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a97c5c627cded88a956c0109165fa68c1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetAbsolutePath_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a2672b29da248d45ee385dcc8b5e0ef40" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetCurDirectory</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1abefa4867b14bd0eeab8577dec49a0754" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetCurDirectory_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a6ce7193edc938d1a897e2cdd7afc1964" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetDiskFilePriority</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ae6a30710bc329ec368b0d8648feeb3d6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileExtension</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a97fb006fa620cc6cffd402a6d82846b1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileExtension_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a1e4a47552d2b5b92ff0e4c990b200689" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileInfo</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1aa3a4321f2b220998d211ba986005f690" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileName</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a6f98e0e0e24fac5bff462a522390cc57" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileName_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a606cbd53854e096359f1b189db7182f6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileSize</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a59d38dfc469ca4701be5039fa64720d6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetFileSystemWatcher</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a27919c88f50d71ac4cfd2d663efa4e22" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetParentDirectoryFromPath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ace7b80f179abf58c8fe80d37b005e506" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetParentDirectoryFromPath_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a372159f6d31cb4b215da4214e546221f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetRelativePath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a27e8fa408883f8fb57670af669bc6625" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetRelativePath_</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a47cfc07850ae1c3b820eae754350f37f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>GetWritablePath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1afcf390826831d2265aa31f8cb4a074e9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>LoadReplaceFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ac65b4dd626d314e52118cd96b5bc3e09" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>MoveFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1adebbc80690d4f21ae5a031a36478bb4d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>open</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a1aa57ab3bd5ab14262d33d0fed2c6fb2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>OpenAssetFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ab3bcd3df7ab79bea9fa12e298b844164" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>OpenAssetFile2</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a2b7b8e8f0c62509df4688e160dfbccd9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>OpenFile</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a0465c9afc7952bad7b5e1ba7720b2d17" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>OpenFileWrite</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a8bf9672e183e2308cb4264ba97daf13b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>openimage</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a11e83341f5d8dd3e343a60bed6de5baf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>ParaIO</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1abe862af1c9ce4bfff431f3948dbf7d60" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>readline</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a0c9e04e9d1524c677e378e403bd4700c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>RemoveSearchPath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1ae0bccdb3bf95370b2951804f5911b8ae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>SearchFiles</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a9716c3a3a33b703e5a446d39daf7c80e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>SearchFiles_c</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a8f68010cd657979b7689827472a323a1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>SetDiskFilePriority</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a6702525073ff596c509d1fd4aada151a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>SyncAssetFile_Async</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a1c1858b8b8e817a2596f8e7b628e427f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>ToCanonicalFilePath</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a5a7dd6ff44844ad737b6458e706f0624" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>ToCanonicalFilePath__</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a75bf401f3d5d64dbc55c1efc7ea03c67" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>UpdateMirrorFiles</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a0e9f6a5c47dde3f6e659727d3442e834" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>write</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a4ef4b67539e0164bd57a4b1c0b187c8d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>WriteString</name></member>
+      <member refid="class_para_scripting_1_1_para_i_o_1a1326bdac7d6778397933f2b4de846b68" prot="public" virt="non-virtual"><scope>ParaScripting::ParaIO</scope><name>~ParaIO</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mouse and Key Input &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="FiltersAndEvents.html" />
+    <link rel="prev" title="Files API" href="FilesAndIO.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mouse-and-key-input">
+<span id="mouse-and-key-input"></span><h1>Mouse and Key Input<a class="headerlink" href="#mouse-and-key-input" title="Permalink to this headline">¶</a></h1>
+<p>This section is about handling mouse and key events in a window application.</p>
+<div class="section" id="low-level-event-handler">
+<span id="low-level-event-handler"></span><h2>Low level event handler<a class="headerlink" href="#low-level-event-handler" title="Permalink to this headline">¶</a></h2>
+<p>At the lowest level of NPL, mouse and keyboard event handlers can be registered to <code class="docutils literal"><span class="pre">ParaUIObject</span></code> and the global <code class="docutils literal"><span class="pre">ParaScene</span></code>. The ParaScene is a global singleton to handle all events not handled by any GUI objects.
+Please note, there is a another <code class="docutils literal"><span class="pre">AutoCameraController</span></code> which is enabled by default to handle mouse and key events before passing to ParaScene. So the order of event filtering in NPLRuntime is like below</p>
+<ul class="simple">
+<li>GUI events: controls that have focus always get event first</li>
+<li><code class="docutils literal"><span class="pre">AutoCameraController</span></code>: optionally enabled for handling basic <code class="docutils literal"><span class="pre">player</span> <span class="pre">control</span></code>, such as right click to rotate the view, arrow keys to move the main player. Please note, this can be disabled if one wants to handle everything in NPL script. Trust me, it can cost you over 2000 lines of code if you do it manually.</li>
+<li>ParaScene: finally mouse and key events are handled by the 3d scene.</li>
+</ul>
+<p>It is NOT recommended to use low level NPL api directly, see next section.</p>
+</div>
+<div class="section" id="use-npl-libraries-to-handle-event">
+<span id="use-npl-libraries-to-handle-event"></span><h2>Use NPL libraries to handle event<a class="headerlink" href="#use-npl-libraries-to-handle-event" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="d-events">
+<span id="d-events"></span><h3>2D events<a class="headerlink" href="#d-events" title="Permalink to this headline">¶</a></h3>
+<p>For 2D GUI events, one can handle via window controls or MCML page.
+There is also a mcml v1 tag called <code class="docutils literal"><span class="pre">&lt;pe:hotkey&gt;</span></code> for handling simple key event when window is visible.</p>
+</div>
+<div class="section" id="d-scene-context">
+<span id="d-scene-context"></span><h3>3D Scene Context<a class="headerlink" href="#d-scene-context" title="Permalink to this headline">¶</a></h3>
+<p>For 3D or global mouse/key, one should use <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Core/SceneContext.lua">SceneContext</a>.</p>
+<p>At most one scene context can be selected at any time. Once selected, the scene context
+will receive all key/mouse events in the 3D scene. One can derive from this class to
+write and switch to your own scene event handlers.</p>
+<p>The computational model for global key/mouse event in C++ Engine is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">key</span><span class="o">/</span><span class="n">mouse</span> <span class="nb">input</span><span class="o">--&gt;</span> <span class="mi">2</span><span class="n">D</span> <span class="o">--&gt;</span> <span class="p">(</span><span class="n">optional</span> <span class="n">auto</span> <span class="n">camera</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="n">D</span> <span class="n">scene</span> <span class="o">--&gt;</span> <span class="n">script</span> <span class="n">handlers</span>
+</pre></div>
+</div>
+<p>This class simplified and modified above model with following object oriented model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">key</span><span class="o">/</span><span class="n">mouse</span> <span class="nb">input</span><span class="o">--&gt;</span> <span class="mi">2</span><span class="n">D</span> <span class="o">--&gt;</span> <span class="n">one</span> <span class="n">of</span> <span class="n">SceneContext</span> <span class="nb">object</span><span class="o">--&gt;</span> <span class="n">Manipulator</span> <span class="n">container</span> <span class="o">--&gt;</span>  <span class="n">Manipulators</span> <span class="o">--&gt;</span> <span class="p">(</span><span class="n">optional</span> <span class="n">auto</span> <span class="n">camera</span> <span class="n">manipulator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Please note that both model can coexist, however SceneContext is now the recommended way to handle any scene event.
+SceneContext hide all dirty work of hooking into the old C++ engine callback interface, and offers more user friendly way
+of event handling.</p>
+<p>Virtual functions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">mousePressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+    <span class="n">mouseMoveEvent</span>
+    <span class="n">mouseReleaseEvent</span>
+    <span class="n">mouseWheelEvent</span>
+    <span class="n">keyReleaseEvent</span>
+    <span class="n">keyPressEvent</span>
+    <span class="n">OnSelect</span><span class="p">()</span>
+    <span class="n">OnUnselect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>use the lib:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Core/SceneContext.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">MySceneContext</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Core.SceneContext&quot;</span><span class="p">),</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Core.MySceneContext&quot;</span><span class="p">));</span>
+<span class="kr">function</span> <span class="nc">MySceneContext</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>
+    <span class="n">self</span><span class="p">:</span><span class="n">EnableAutoCamera</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">MySceneContext</span><span class="p">:</span><span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+    <span class="n">_guihelper</span><span class="p">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- method 1:</span>
+<span class="kd">local</span> <span class="n">sContext</span> <span class="o">=</span> <span class="n">MySceneContext</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">Register</span><span class="p">(</span><span class="s2">&quot;MyDefaultSceneContext&quot;</span><span class="p">);</span>
+<span class="n">sContext</span><span class="p">:</span><span class="n">activate</span><span class="p">();</span>
+<span class="c1">-- method 2:</span>
+<span class="n">MySceneContext</span><span class="p">:</span><span class="n">CreateGetInstance</span><span class="p">(</span><span class="s2">&quot;MyDefaultSceneContext&quot;</span><span class="p">):</span><span class="n">activate</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="scene-context-switch">
+<span id="scene-context-switch"></span><h4>Scene Context Switch<a class="headerlink" href="#scene-context-switch" title="Permalink to this headline">¶</a></h4>
+<p>Context is usually associated with a tool item, such as when user click to use the tool, its context is activated and once user deselect it, the context is switched back to a default one.</p>
+<p>Scene context allows one to write modular code for each tool items with complex mouse/key input without affecting each other. It is common for an application to derive all of its context from a base context to support shared global key events, etc.</p>
+<p>For an example of using context, please see Paracraft&#8217;s <a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/apps/Aries/Creator/Game/SceneContext">context</a> folder.</p>
+<blockquote>
+<div>See also <a class="reference external" href="ParacraftSnippets">here</a> for how to replace the default context in paracraft&#8217;s mod interface with filters.</div></blockquote>
+</div>
+</div>
+<div class="section" id="manipulators">
+<span id="manipulators"></span><h3>Manipulators<a class="headerlink" href="#manipulators" title="Permalink to this headline">¶</a></h3>
+<p>Scene context can contain manipulators. <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Scene/Manipulators/Manipulator.lua">Manipulator</a> is a module to manipulate complex scene objects, like the one below.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19374481/74358f6c-91fe-11e6-9141-b1abde786d28.png" /></p>
+<p>Manipulator is the base class used for creating user-defined manipulators.
+A manipulator can be connected to a depend node instead of updating a node attribute directly
+call AddValue() in constructor if one wants to define a custom manipulator property(plug)
+that can be easily binded with dependent node&#8217;s plug.</p>
+<p>Manipulator can also draw complex 3D overlay objects with 3d picking support. In above picture, the three curves are drawn by the <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Scene/Manipulators/RotateManip.lua">Rotate manipulator</a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mouse and Key Input</a><ul>
+<li><a class="reference internal" href="#low-level-event-handler">Low level event handler</a></li>
+<li><a class="reference internal" href="#use-npl-libraries-to-handle-event">Use NPL libraries to handle event</a><ul>
+<li><a class="reference internal" href="#d-events">2D events</a></li>
+<li><a class="reference internal" href="#d-scene-context">3D Scene Context</a><ul>
+<li><a class="reference internal" href="#scene-context-switch">Scene Context Switch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manipulators">Manipulators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="FilesAndIO.html" title="previous chapter">Files API</a></li>
+      <li>Next: <a href="FiltersAndEvents.html" title="next chapter">Overview</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/MouseAndKeyInput.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/MouseAndKeyInput.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

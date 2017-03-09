@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Code Wiki &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Debugging And Logs" href="DebugAndLog.html" />
+    <link rel="prev" title="NPL Source Code Overview" href="SourceCodeOverview.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-code-wiki">
+<span id="npl-code-wiki"></span><h1>NPL Code Wiki<a class="headerlink" href="#npl-code-wiki" title="Permalink to this headline">¶</a></h1>
+<p>NPL Code Wiki is a web site which can be served directly from your local computer using NPL Runtime.
+It provides you a way to communicate with NPL Runtime via any web browser.</p>
+<ul class="simple">
+<li>NPL Code Wiki is designed to help people learn and practice NPL programming.</li>
+<li>It provides a way to inspect or debug NPL Runtime via HTTP protocol.</li>
+<li>Providing an interactive console to edit/debug NPL code at runtime.</li>
+</ul>
+<div class="section" id="start-code-wiki">
+<span id="start-code-wiki"></span><h2>Start Code Wiki<a class="headerlink" href="#start-code-wiki" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="start-with-npl-runtime">
+<span id="start-with-npl-runtime"></span><h3>Start With NPL Runtime<a class="headerlink" href="#start-with-npl-runtime" title="Permalink to this headline">¶</a></h3>
+<p>Run from console</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">script</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">WebServer</span><span class="o">/</span><span class="n">WebServer</span><span class="o">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+<p>The default web address is [[http://127.0.0.1:8099/]]. For more information, please see [[WebServer]] section.</p>
+</div>
+<div class="section" id="start-with-paracraft">
+<span id="start-with-paracraft"></span><h3>Start With Paracraft<a class="headerlink" href="#start-with-paracraft" title="Permalink to this headline">¶</a></h3>
+<p>To launch NPL Code Wiki, you need to</p>
+<ul class="simple">
+<li>install <a class="reference external" href="http://www.paracraft.cn">Paracraft</a></li>
+<li>create an empty world</li>
+<li>press F11 to launch. NPL Code wiki will be opened using your default web browser.</li>
+</ul>
+<p>You can then enter any NPL code in the console. See below:</p>
+<p><img alt="nplconsole" src="https://cloud.githubusercontent.com/assets/94537/13699921/8e9b88b6-e7b8-11e5-8558-a310642919e9.png" /></p>
+<p>NPL Code Wiki Source Code is at <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script/apps/WebServer">script/apps/WebServer</a></p>
+<p>Alternatively, you can start it via following code. Press <code class="docutils literal"><span class="pre">F12</span></code> in any world in Paracraft to enter code.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/apps/WebServer/WebServer.lua&quot;</span><span class="p">);</span>
+<span class="n">WebServer</span><span class="p">:</span><span class="n">Start</span><span class="p">(</span><span class="s2">&quot;script/apps/WebServer/admin&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="npl-debugger">
+<span id="npl-debugger"></span><h2>NPL Debugger<a class="headerlink" href="#npl-debugger" title="Permalink to this headline">¶</a></h2>
+<p>NPL debugger is a HTTP protocol based debugger. It can be opened from <code class="docutils literal"><span class="pre">menu::tools::NPL</span> <span class="pre">debugger</span></code>, or with <code class="docutils literal"><span class="pre">Ctrl+Alt+I</span></code> in paracraft.
+<img alt="npldebugger" src="https://cloud.githubusercontent.com/assets/94537/14600035/5c626b10-058d-11e6-886f-be5954010bf4.png" /></p>
+<p>Because it is based on HTTP and served from the same NPL runtime you are debugging, you can debug your running application from any modern web browser. For example, you can debug apps running on linux server or mobile device remotely from a windows client. However, you must make sure that the apps are started with full source code available in its running directory.</p>
+<div class="section" id="how-to-attach">
+<span id="how-to-attach"></span><h3>How to Attach<a class="headerlink" href="#how-to-attach" title="Permalink to this headline">¶</a></h3>
+<p>There is no need to start your app in debug mode. Instead, just launch NPL code wiki, and follow the steps:</p>
+<ul class="simple">
+<li>In the web page, open your script files and press F9 or click the left margin of the line to set breakpoints.</li>
+<li>Click <code class="docutils literal"><span class="pre">Attach</span></code> button to begin debugging.<ul>
+<li>You can then press F10, F11, Shift+F11 or press the buttons to step through your code.</li>
+<li>In the watcher window, you can evaluate any code or variable. Just type the variable name or code and click <code class="docutils literal"><span class="pre">evaluate</span></code></li>
+</ul>
+</li>
+<li>When debugger is attached, your program may run pretty slow, so once you are finished, click <code class="docutils literal"><span class="pre">Stop</span></code> button to detach.</li>
+</ul>
+</div>
+<div class="section" id="limitations">
+<span id="limitations"></span><h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
+<p>Currently only the main thread can be debugged, if you want to debug other thread, you can write your own debugger in NPL, the complete source code of the NPL debugger web site is only 400 lines.</p>
+</div>
+</div>
+<div class="section" id="npl-code-editor">
+<span id="npl-code-editor"></span><h2>NPL Code Editor<a class="headerlink" href="#npl-code-editor" title="Permalink to this headline">¶</a></h2>
+<p>This is a multi-tab code editor for NPL. It can be opened from menu::view::code editor.</p>
+<ul class="simple">
+<li>Enter file name and press enter to open the file.</li>
+<li>Click the <code class="docutils literal"><span class="pre">sync</span></code> button on left top corner to navigate to the active document&#8217;s directory.</li>
+<li>Even if you close your computer, your last opened files will be remembered when you open it again.</li>
+<li>Right click on the file name tab for a list of commands, such as <code class="docutils literal"><span class="pre">open</span> <span class="pre">containing</span> <span class="pre">folder</span></code>, <code class="docutils literal"><span class="pre">reload</span></code>, etc.</li>
+<li>Modified files will be marked with <code class="docutils literal"><span class="pre">*</span></code> in its tab, and need to be confirmed before closing it.</li>
+<li><code class="docutils literal"><span class="pre">Ctrl+S</span></code> to save to disk.</li>
+<li>Filter files as you type in the left top&#8217;s directory text box.</li>
+</ul>
+<p><img alt="nplcodeeditor" src="https://cloud.githubusercontent.com/assets/94537/14739623/5772a710-08bb-11e6-95b0-06d569df897a.png" /></p>
+</div>
+<div class="section" id="object-inspector">
+<span id="object-inspector"></span><h2>Object Inspector<a class="headerlink" href="#object-inspector" title="Permalink to this headline">¶</a></h2>
+<p>Click <code class="docutils literal"><span class="pre">Menu::View::ObjectInspect</span></code> to open <code class="docutils literal"><span class="pre">object</span> <span class="pre">inspector</span></code>. Here you can view and edit all objects in NPL Runtime.</p>
+<p><img alt="nplcodewikiobjectinspector" src="https://cloud.githubusercontent.com/assets/94537/13727921/f45f0af4-e940-11e5-8bea-99486cc686a1.png" /></p>
+<p>Once you edited a property, a command string is generated on top of the property window. The command string is equivalent to your last operation. In above image, the command string to change the window title is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">property</span> <span class="o">-</span><span class="nb">all</span> <span class="n">WindowText</span> <span class="n">Paracraft</span>
+</pre></div>
+</div>
+<blockquote>
+<div>The server-side NPL code that realized the <code class="docutils literal"><span class="pre">Object</span> <span class="pre">Inspector</span></code> page can be viewed by clicking the <code class="docutils literal"><span class="pre">view</span> <span class="pre">source</span></code> link on the bottom of the web page. This provides you a way to study the NPL implementation of whatever you see in NPL Code wiki web site.</div></blockquote>
+</div>
+<div class="section" id="the-console-page">
+<span id="the-console-page"></span><h2>The Console Page<a class="headerlink" href="#the-console-page" title="Permalink to this headline">¶</a></h2>
+<p>Click <code class="docutils literal"><span class="pre">Menu::Tools::Console</span></code> to open <code class="docutils literal"><span class="pre">Console</span> <span class="pre">Window</span></code>. Here you can enter any NPL code or NPL web page code to be evalulated at runtime.</p>
+<p>For example, enter following code and press <code class="docutils literal"><span class="pre">Run</span> <span class="pre">as</span> <span class="pre">Code</span></code> button:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, text is output to <code class="docutils literal"><span class="pre">log.txt</span></code> file in the current working directory.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">alert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above code will display a message box, if code wiki is launched with Paracraft.</p>
+</div>
+<div class="section" id="the-log-page">
+<span id="the-log-page"></span><h2>The Log Page<a class="headerlink" href="#the-log-page" title="Permalink to this headline">¶</a></h2>
+<p>Click <code class="docutils literal"><span class="pre">Menu::Tools::Log</span></code> to open <code class="docutils literal"><span class="pre">Log</span> <span class="pre">Window</span></code>.
+Both the console page and the log page can display content in <code class="docutils literal"><span class="pre">log.txt</span></code>.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19139724/831513b8-8bb9-11e6-9121-a736b100fcb2.png" /></p>
+<ul class="simple">
+<li>One can leave this window open even when your application restarts. It will automatically scroll to the newest log for you.</li>
+<li>Check <code class="docutils literal"><span class="pre">preserve</span> <span class="pre">log</span></code> to preserve logs between each application restarts.</li>
+<li>If there are critical errors or warnings, an error sign with a text number will be displayed in red on top of the log window, click it to navigate to the line of interest in the log file.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Code Wiki</a><ul>
+<li><a class="reference internal" href="#start-code-wiki">Start Code Wiki</a><ul>
+<li><a class="reference internal" href="#start-with-npl-runtime">Start With NPL Runtime</a></li>
+<li><a class="reference internal" href="#start-with-paracraft">Start With Paracraft</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-debugger">NPL Debugger</a><ul>
+<li><a class="reference internal" href="#how-to-attach">How to Attach</a></li>
+<li><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-code-editor">NPL Code Editor</a></li>
+<li><a class="reference internal" href="#object-inspector">Object Inspector</a></li>
+<li><a class="reference internal" href="#the-console-page">The Console Page</a></li>
+<li><a class="reference internal" href="#the-log-page">The Log Page</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="SourceCodeOverview.html" title="previous chapter">NPL Source Code Overview</a></li>
+      <li>Next: <a href="DebugAndLog.html" title="next chapter">Debugging And Logs</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPLCodeWiki.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPLCodeWiki.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

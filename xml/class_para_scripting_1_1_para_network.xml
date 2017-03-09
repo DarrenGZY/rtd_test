@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_network" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaNetwork</compoundname>
+    <includes refid="_para_scripting_network_8h" local="no">ParaScriptingNetwork.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_network_1aeab166830b96c934085bbd6b0f0ab55b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNetwork::EnableNetwork</definition>
+        <argsstring>(bool bEnable, const char *CenterName, const char *password)</argsstring>
+        <name>EnableNetwork</name>
+        <param>
+          <type>bool</type>
+          <declname>bEnable</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>CenterName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enable the network, by default the network layer is disabled. calling this function multiple time with different CenterName will restart the network layer with a different center name. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bEnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to enable, false to disable.If this is false, the CenterName and Password are ignored. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CenterName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the local nerve center name. it is also the user name which local receptor will use in the credentials to login in other NPL runtime. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeeded. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNetwork.h" line="92" column="1" bodyfile="ParaScriptBindings/ParaScriptingNetwork.cpp" bodystart="29" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_network_1ac4d482180da0fabba5f054f9ec687ce0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaNetwork::IsNetworkLayerRunning</definition>
+        <argsstring>()</argsstring>
+        <name>IsNetworkLayerRunning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether network layer is running or not. <simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNetwork.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingNetwork.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_network_1ad4f49163600d6c905076837e5540d193" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNetwork::SetNerveCenterAddress</definition>
+        <argsstring>(const char *pAddress)</argsstring>
+        <name>SetNerveCenterAddress</name>
+        <param>
+          <type>const char *</type>
+          <declname>pAddress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the IP and port for the nerve center: call this function before you enable the network (EnableNetwork) for it to take effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>such as &quot;127.0.0.1:60001&quot;, or &quot;:60001&quot; (if you want to use any available IP on the computer) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNetwork.h" line="104" column="1" bodyfile="ParaScriptBindings/ParaScriptingNetwork.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_network_1ad8ddc0bde75b6da0c3a46ae8994faccf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaNetwork::SetNerveReceptorAddress</definition>
+        <argsstring>(const char *pAddress)</argsstring>
+        <name>SetNerveReceptorAddress</name>
+        <param>
+          <type>const char *</type>
+          <declname>pAddress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the IP and port for the nerve receptor: call this function before you enable the network (EnableNetwork) for it to take effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>such as &quot;127.0.0.1:60000&quot;, or &quot;:60000&quot; (if you want to use any available IP on the computer) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNetwork.h" line="109" column="1" bodyfile="ParaScriptBindings/ParaScriptingNetwork.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>API wrapper for NPL Network Layer functions </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingNetwork.h" line="80" column="1" bodyfile="ParaScriptBindings/ParaScriptingNetwork.h" bodystart="79" bodyend="295"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_network_1aeab166830b96c934085bbd6b0f0ab55b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNetwork</scope><name>EnableNetwork</name></member>
+      <member refid="class_para_scripting_1_1_para_network_1ac4d482180da0fabba5f054f9ec687ce0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNetwork</scope><name>IsNetworkLayerRunning</name></member>
+      <member refid="class_para_scripting_1_1_para_network_1ad4f49163600d6c905076837e5540d193" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNetwork</scope><name>SetNerveCenterAddress</name></member>
+      <member refid="class_para_scripting_1_1_para_network_1ad8ddc0bde75b6da0c3a46ae8994faccf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaNetwork</scope><name>SetNerveReceptorAddress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

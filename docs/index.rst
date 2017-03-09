@@ -116,7 +116,7 @@ Welcome to NPL
    :maxdepth: 1
    :caption: API References
 
-   ParaEngine
-   ParaScripting
+   reference/ParaEngine
+   reference/ParaScripting
 
 

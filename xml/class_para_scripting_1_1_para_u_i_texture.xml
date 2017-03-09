@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_u_i_texture" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaUITexture</compoundname>
+    <includes refid="_para_scripting_graphics_8h" local="no">ParaScriptingGraphics.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_u_i_texture_1ad28fcc1a90f7030dd56e5b30a8af6e53" prot="protected" static="no" mutable="no">
+        <type>GUITextureElement *</type>
+        <definition>GUITextureElement* ParaScripting::ParaUITexture::m_pObj</definition>
+        <argsstring></argsstring>
+        <name>m_pObj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="24" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1a0a9e5b4fa81973f14995b66a49916c53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUITexture::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="29" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1ad2daf9682c93760ac326408f98d77588" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaUITexture::ParaUITexture</definition>
+        <argsstring>(GUITextureElement *obj)</argsstring>
+        <name>ParaUITexture</name>
+        <param>
+          <type>GUITextureElement *</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="30" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1a1ccecf54a19d23eb0d74506d2e89dcac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaUITexture::GetTransparency</definition>
+        <argsstring>() const</argsstring>
+        <name>GetTransparency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="31" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1a8773d898d145d26e925ef0781d41d0e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUITexture::SetTransparency</definition>
+        <argsstring>(DWORD transparency)</argsstring>
+        <name>SetTransparency</name>
+        <param>
+          <type>DWORD</type>
+          <declname>transparency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="32" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1aa8fde8d1000602676d3ad0a2bcb9d480" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaUITexture::GetColor</definition>
+        <argsstring>() const</argsstring>
+        <name>GetColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="33" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="37" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1a75ec3af869219f0f68fef999bc9da999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUITexture::SetColor</definition>
+        <argsstring>(const char *strColor)</argsstring>
+        <name>SetColor</name>
+        <param>
+          <type>const char *</type>
+          <declname>strColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="34" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="53" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1af7d97b354439e1774a08b436e42a2744" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaUITexture::GetTexture</definition>
+        <argsstring>() const</argsstring>
+        <name>GetTexture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="35" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1aebf8f93c315b0a5718ce3126430d220a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUITexture::SetTexture</definition>
+        <argsstring>(const char *texturename)</argsstring>
+        <name>SetTexture</name>
+        <param>
+          <type>const char *</type>
+          <declname>texturename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="36" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="70" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1ac692cdd8b16d8a17e94a4f9036c512ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ParaUITexture::GetTextureRect</definition>
+        <argsstring>() const</argsstring>
+        <name>GetTextureRect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="37" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="116" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_texture_1a0d4eb54dd78d6caeeaa74ed0e77cbb05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaUITexture::SetTextureRect</definition>
+        <argsstring>(const char *strrect)</argsstring>
+        <name>SetTextureRect</name>
+        <param>
+          <type>const char *</type>
+          <declname>strrect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="38" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.cpp" bodystart="136" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>a GUI texture object <simplesect kind="par"><title>Class Properties</title><para><itemizedlist>
+<listitem><para>(&quot;transparency&quot;,&amp;ParaUITexture::GetTransparency,&amp;ParaUITexture::SetTransparency)</para></listitem><listitem><para>(&quot;color&quot;,&amp;ParaUITexture::GetColor,&amp;ParaUITexture::SetColor)</para></listitem><listitem><para>(&quot;texture&quot;,&amp;ParaUITexture::GetTexture,&amp;ParaUITexture::SetTexture)</para></listitem><listitem><para>(&quot;rect&quot;,&amp;ParaUITexture::GetTextureRect,&amp;ParaUITexture::SetTextureRect), </para></listitem></itemizedlist>
+</para></simplesect>
+</para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGraphics.h" line="22" column="1" bodyfile="ParaScriptBindings/ParaScriptingGraphics.h" bodystart="22" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1aa8fde8d1000602676d3ad0a2bcb9d480" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>GetColor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1af7d97b354439e1774a08b436e42a2744" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>GetTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1ac692cdd8b16d8a17e94a4f9036c512ea" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>GetTextureRect</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1a1ccecf54a19d23eb0d74506d2e89dcac" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>GetTransparency</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1a0a9e5b4fa81973f14995b66a49916c53" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1ad28fcc1a90f7030dd56e5b30a8af6e53" prot="protected" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>m_pObj</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1ad2daf9682c93760ac326408f98d77588" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>ParaUITexture</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1a75ec3af869219f0f68fef999bc9da999" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>SetColor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1aebf8f93c315b0a5718ce3126430d220a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>SetTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1a0d4eb54dd78d6caeeaa74ed0e77cbb05" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>SetTextureRect</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_texture_1a8773d898d145d26e925ef0781d41d0e8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUITexture</scope><name>SetTransparency</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

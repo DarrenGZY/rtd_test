@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_misc" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaMisc</compoundname>
+    <includes refid="_para_scripting_misc_8h" local="no">ParaScriptingMisc.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1a133bcb9d9bb27aaa772218b7ae8a7c42" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaMisc::GetUnicodeCharNum</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>GetUnicodeCharNum</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the number of characters in str. Str is assumed to be in ANSI code page. it is converted to Unicode and return the character count. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="25" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1ab6545b1b62531dc6d3666a98d676184a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>std::string ParaScripting::ParaMisc::UniSubString</definition>
+        <argsstring>(const char *str, int nFrom, int nTo)</argsstring>
+        <name>UniSubString</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nFrom</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>same as LUA string.sub(), except that the index is character. get a sub string of a ANSI Code page string. However, the index are unicode characters. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to use </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nFrom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>character index beginning from 1. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="33" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1a1c0095a956184ef8b714224d0584af1f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaMisc::SimpleEncode</definition>
+        <argsstring>(const char *source)</argsstring>
+        <name>SimpleEncode</name>
+        <param>
+          <type>const char *</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>encode a string using really simple algorithm. it just makes the source ineligible. It is still not immune to crackers. str = SimpleDecode(SimpleEncode(str)) <simplesect kind="return"><para>: it may return NULL if input invalid </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="39" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1ad72c52d2ce2c0edac196f886bc6b914b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaMisc::SimpleDecode</definition>
+        <argsstring>(const char *source)</argsstring>
+        <name>SimpleDecode</name>
+        <param>
+          <type>const char *</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>decode a string using really simple algorithm. str = SimpleDecode(SimpleEncode(str)) <simplesect kind="return"><para>: it may return NULL if input invalid </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="45" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1aafaedf018740a4d5321f9a311faadf03" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaMisc::md5</definition>
+        <argsstring>(const char *source)</argsstring>
+        <name>md5</name>
+        <param>
+          <type>const char *</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>convert the md5 of the input source string. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="48" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1a012599b2e6202213c479512f03d6933a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>std::string ParaScripting::ParaMisc::md5_</definition>
+        <argsstring>(const char *source, bool bBinary)</argsstring>
+        <name>md5_</name>
+        <param>
+          <type>const char *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bBinary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="49" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1a0ca818aabd9bd2da8c07c01c270460ea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long ParaScripting::ParaMisc::RandomLong</definition>
+        <argsstring>(const object &amp;seedTable)</argsstring>
+        <name>RandomLong</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>seedTable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generating [-MAX, MAX] long integer <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>seedTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nil or a table containing {_seed=integer} when the function returned the seedTable._seed will be modified. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="55" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="90" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1a60f98b14b2653dfde07af07033e8cb4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaScripting::ParaMisc::RandomDouble</definition>
+        <argsstring>(const object &amp;seedTable)</argsstring>
+        <name>RandomDouble</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>seedTable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>generating [0,1] double value </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="57" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="105" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1a51f5b3cf1a203b2dfd291ca383e68a5f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaMisc::EncodingConvert</definition>
+        <argsstring>(const object &amp;srcEncoding, const object &amp;dstEncoding, const object &amp;bytes)</argsstring>
+        <name>EncodingConvert</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>srcEncoding</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>dstEncoding</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts an entire byte array from one encoding to another. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>srcEncoding</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>any encoding name. If nil or &quot;&quot;, it is the default coding in NPL. see Encoding.GetEncoding(). Below are some commonly used field | <emphasis>Code Page</emphasis> | <emphasis>Name</emphasis> | | 950 | big5 | | 936 | gb2312 | | 65001 | utf-8 | | 65005 | utf-32 | There is one special code name called &quot;HTML&quot;, which contains HTML special characters in ascii code page. This is usually true for most &quot;iso8859-15&quot; encoding in western worlds. It just writes the unicode number+XXXX in ascii character &quot;&amp;#XXXX;&quot; where &amp; is optional. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dstEncoding</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>save as above. If nil or &quot;&quot;, it will be converted to default coding in NPL. : the source bytes. e.g. The most common use of this function is to create HTML special character to NPL string, like below local text = <ref refid="class_para_scripting_1_1_para_misc_1a51f5b3cf1a203b2dfd291ca383e68a5f" kindref="member">ParaMisc.EncodingConvert</ref>(&quot;HTML&quot;, &quot;&quot;, &quot;Chinese characters: &amp;#24320;&amp;#21457;&quot;) log(text); </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="76" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1af0cd65487eb140ce46e98f7580bceb3b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaMisc::CopyTextToClipboard</definition>
+        <argsstring>(const char *text)</argsstring>
+        <name>CopyTextToClipboard</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>copy text to clipboard. Input is ANSI code page </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="79" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="77" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_misc_1aa11463b6488d94996d55a083382d12ca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaMisc::GetTextFromClipboard</definition>
+        <argsstring>()</argsstring>
+        <name>GetTextFromClipboard</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get text from clipboard. text is converted to ANSI code page when returned. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingMisc.h" line="82" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains miscellaneous functions </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingMisc.h" line="21" column="1" bodyfile="ParaScriptBindings/ParaScriptingMisc.h" bodystart="20" bodyend="83"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_misc_1af0cd65487eb140ce46e98f7580bceb3b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>CopyTextToClipboard</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1a51f5b3cf1a203b2dfd291ca383e68a5f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>EncodingConvert</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1aa11463b6488d94996d55a083382d12ca" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>GetTextFromClipboard</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1a133bcb9d9bb27aaa772218b7ae8a7c42" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>GetUnicodeCharNum</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1aafaedf018740a4d5321f9a311faadf03" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>md5</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1a012599b2e6202213c479512f03d6933a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>md5_</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1a60f98b14b2653dfde07af07033e8cb4c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>RandomDouble</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1a0ca818aabd9bd2da8c07c01c270460ea" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>RandomLong</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1ad72c52d2ce2c0edac196f886bc6b914b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>SimpleDecode</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1a1c0095a956184ef8b714224d0584af1f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>SimpleEncode</name></member>
+      <member refid="class_para_scripting_1_1_para_misc_1ab6545b1b62531dc6d3666a98d676184a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMisc</scope><name>UniSubString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

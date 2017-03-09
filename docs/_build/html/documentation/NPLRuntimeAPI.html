@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL C/C++ Architecture &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Core ParaEngine/NPL API" href="CoreAPI.html" />
+    <link rel="prev" title="Meta Programming in NPL" href="MetaProgramming.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-c-c-architecture">
+<span id="npl-c-c-architecture"></span><h1>NPL C/C++ Architecture<a class="headerlink" href="#npl-c-c-architecture" title="Permalink to this headline">¶</a></h1>
+<p>This section covers cross-platform modules written in C/C++.
+These modules are exposed via <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/">NPL scripting API</a> so that they are called via NPL.</p>
+<div class="section" id="c-modules">
+<span id="c-modules"></span><h2>C++ Modules<a class="headerlink" href="#c-modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="npl-scripting-engine">
+<span id="npl-scripting-engine"></span><h3>NPL Scripting Engine:<a class="headerlink" href="#npl-scripting-engine" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>NPL state (or NPL virtual code environment): a single NPL thread, has its own memory allocators and manages all files it load.<ul>
+<li>NPL state can load NPL/Lua script or C++ dll.</li>
+<li>Mono state: can load C# dll.</li>
+</ul>
+</li>
+<li>NPL Networking: Manage all local or remote NPL states via NPL HTTP/TCP connections.</li>
+</ul>
+</div>
+<div class="section" id="graphics-engine">
+<span id="graphics-engine"></span><h3>Graphics Engine:<a class="headerlink" href="#graphics-engine" title="Permalink to this headline">¶</a></h3>
+<p>All GUI objects must be created in the main NPL thread, which is the same as renderer thread.
+2D/3D Engine are all object oriented. All 2D objects are origanized in a parent/child tree.
+3D objects are organized in a quad-tree in additional to parent/child tree.</p>
+<div class="section" id="video-audio-renderer">
+<span id="video-audio-renderer"></span><h4>Video/audio Renderer<a class="headerlink" href="#video-audio-renderer" title="Permalink to this headline">¶</a></h4>
+<p>A static/dynamic buffer, textures, draw 3d/2d api, fonts, etc.</p>
+<ul class="simple">
+<li>DirectX fully supported renderer.</li>
+<li>OpenGL renderer: a cross-platform renderer(limited functions used in our linux/android build)</li>
+</ul>
+</div>
+<div class="section" id="paintengine">
+<span id="paintengine"></span><h4>PaintEngine<a class="headerlink" href="#paintengine" title="Permalink to this headline">¶</a></h4>
+<p>It is like a GDI engine used by 2D Engine for drawing 2D and simple 3d objects, like lines, rectangles, etc.</p>
+</div>
+<div class="section" id="d-engine-guibase-is-the-base-class-to-all-2d-object">
+<span id="d-engine-guibase-is-the-base-class-to-all-2d-object"></span><h4>2D Engine: GUIBase is the base class to all 2d object.<a class="headerlink" href="#d-engine-guibase-is-the-base-class-to-all-2d-object" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>GUIRoot: root node of all GUI objects.</li>
+<li>GUIContainer, GUIButton, GUIText, etc</li>
+</ul>
+</div>
+<div class="section" id="d-engine-baseobject-is-the-base-class-to-all-3d-object">
+<span id="d-engine-baseobject-is-the-base-class-to-all-3d-object"></span><h4>3D Engine: BaseObject is the base class to all 3D object.<a class="headerlink" href="#d-engine-baseobject-is-the-base-class-to-all-3d-object" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>ViewportManager: manages 2D viewport into which we can render 3d or 2d objects.</li>
+<li>SceneObject: root node of all 3D objects. It manages all objects like adding, deleting, searching, rendering, physics, etc</li>
+<li>TerrainTileRoot: it is a <code class="docutils literal"><span class="pre">quadtree</span></code> container of all 3D objects for fast object searching according to their 3d locations and current camera frustum.</li>
+<li>CameraObject: camera frustum. several derived class like AutoCamera, etc</li>
+<li>MeshObject: base class static triangle mesh objects in the 3d object.</li>
+<li>MeshPhysicsObject: it is a static mesh with physics.</li>
+<li>BipedObject: it represents an animated object.</li>
+<li>MinisceneGraph: it is a simplified version of SceneObject, which usually manages a small number of 3d objects which can be rendered separately in to a 2D texture.</li>
+<li>TerrainEngine: infinitely large terrain with a heightmap, and multiple texture layers. It is rendered with dynamic level-of-detail algorithm.</li>
+<li>Other Scene objects:</li>
+<li>[[BlockEngine]]: it manages rendering of <code class="docutils literal"><span class="pre">32000x32000x256</span></code> blocks.<ul>
+<li>BlockRegion: manages <code class="docutils literal"><span class="pre">512x512x256</span></code> blocks, which are saved into a single file</li>
+<li>ChunkColumn: <code class="docutils literal"><span class="pre">16x16x256</span></code></li>
+<li>Chunk: <code class="docutils literal"><span class="pre">16x16x16</span></code>, a static renderable object.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="physics-engine">
+<span id="physics-engine"></span><h3>Physics Engine<a class="headerlink" href="#physics-engine" title="Permalink to this headline">¶</a></h3>
+<p>It uses the open source Bullet physics engine for static mesh objects in the scene.
+Block physics is handled separately by the [[BlockEngine]] itself.</p>
+</div>
+<div class="section" id="asset-management">
+<span id="asset-management"></span><h3>Asset Management:<a class="headerlink" href="#asset-management" title="Permalink to this headline">¶</a></h3>
+<p>Usually each static asset file is a asset entity. <code class="docutils literal"><span class="pre">AssetEntity</span></code> is the based class to all assets in the system. Assets provides data and sometimes rendering methods to be used any other 2d/3d objects.
+All assets are loaded asynchronously by default from either IO disk or remote network.</p>
+<ul class="simple">
+<li>TextureEntity: 2d textures</li>
+<li>MeshEntity: static mesh file like <code class="docutils literal"><span class="pre">.x</span></code></li>
+<li>ParaXEntity: animated mesh file which can be loaded from <code class="docutils literal"><span class="pre">.x</span></code>, <code class="docutils literal"><span class="pre">.fbx</span></code></li>
+<li>Audio, bmax model, database, font, etc.</li>
+<li>EffectFile: shader files, which can be loaded from directX <code class="docutils literal"><span class="pre">.fx</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="io-and-util">
+<span id="io-and-util"></span><h3>IO and Util<a class="headerlink" href="#io-and-util" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>FileManager: manages all files and search paths.</li>
+<li>CParaFile: manages a single file read/write.</li>
+<li>math: 2d/3d math libs like vectors and matrices</li>
+</ul>
+</div>
+<div class="section" id="parascripting-api">
+<span id="parascripting-api"></span><h3>ParaScripting API:<a class="headerlink" href="#parascripting-api" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>C++ &#8211;&gt; NPL: exposing all above functions and modules to NPL scripting environment.</li>
+<li>See all C++ bindings in <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/">NPL scripting reference</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL C/C++ Architecture</a><ul>
+<li><a class="reference internal" href="#c-modules">C++ Modules</a><ul>
+<li><a class="reference internal" href="#npl-scripting-engine">NPL Scripting Engine:</a></li>
+<li><a class="reference internal" href="#graphics-engine">Graphics Engine:</a><ul>
+<li><a class="reference internal" href="#video-audio-renderer">Video/audio Renderer</a></li>
+<li><a class="reference internal" href="#paintengine">PaintEngine</a></li>
+<li><a class="reference internal" href="#d-engine-guibase-is-the-base-class-to-all-2d-object">2D Engine: GUIBase is the base class to all 2d object.</a></li>
+<li><a class="reference internal" href="#d-engine-baseobject-is-the-base-class-to-all-3d-object">3D Engine: BaseObject is the base class to all 3D object.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#physics-engine">Physics Engine</a></li>
+<li><a class="reference internal" href="#asset-management">Asset Management:</a></li>
+<li><a class="reference internal" href="#io-and-util">IO and Util</a></li>
+<li><a class="reference internal" href="#parascripting-api">ParaScripting API:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="MetaProgramming.html" title="previous chapter">Meta Programming in NPL</a></li>
+      <li>Next: <a href="CoreAPI.html" title="next chapter">Core ParaEngine/NPL API</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPLRuntimeAPI.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPLRuntimeAPI.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

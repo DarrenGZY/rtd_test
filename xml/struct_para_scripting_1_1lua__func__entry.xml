@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct_para_scripting_1_1lua__func__entry" kind="struct" language="C++" prot="public">
+    <compoundname>ParaScripting::lua_func_entry</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_para_scripting_1_1lua__func__entry_1a14fd60b6884aaa9ecefd64f7e6214cc0" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* ParaScripting::lua_func_entry::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="60" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_para_scripting_1_1lua__func__entry_1a05926868248e5ed7a8b7fe92989b504f" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* ParaScripting::lua_func_entry::func) (lua_State *)</definition>
+        <argsstring>)(lua_State *)</argsstring>
+        <name>func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="60" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>for registering functions </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScripting5.cpp" line="60" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="60" bodyend="60"/>
+    <listofallmembers>
+      <member refid="struct_para_scripting_1_1lua__func__entry_1a05926868248e5ed7a8b7fe92989b504f" prot="public" virt="non-virtual"><scope>ParaScripting::lua_func_entry</scope><name>func</name></member>
+      <member refid="struct_para_scripting_1_1lua__func__entry_1a14fd60b6884aaa9ecefd64f7e6214cc0" prot="public" virt="non-virtual"><scope>ParaScripting::lua_func_entry</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

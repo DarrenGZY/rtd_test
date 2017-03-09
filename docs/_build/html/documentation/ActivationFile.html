@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>File Activation &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Networking" href="Networking.html" />
+    <link rel="prev" title="NPL Load File" href="LoadFile.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="file-activation">
+<span id="file-activation"></span><h1>File Activation<a class="headerlink" href="#file-activation" title="Permalink to this headline">¶</a></h1>
+<p>NPL can communicate with remote NPL script using the <code class="docutils literal"><span class="pre">NPL.activate</span></code> function. It is a powerful function, and is available in C++, mono plugin too.</p>
+<div class="section" id="basic-syntax">
+<span id="basic-syntax"></span><h2>Basic Syntax<a class="headerlink" href="#basic-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Like in neural network, all communications are asynchronous and uni-directional without callbacks. Although the function does return a integer value. Please see <code class="docutils literal"><span class="pre">NPL</span> <span class="pre">Reference</span></code> for details.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="n">any_pure_data_table_here</span><span class="p">,</span> <span class="p">})</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&#64;param <code class="docutils literal"><span class="pre">url</span></code>: a globally unique name of a NPL file name instance. The string format of an NPL file name is like below. <code class="docutils literal"><span class="pre">[(sRuntimeStateName|gl)][sNID:]sRelativePath[]</span></code>
+the following is a list of all valid file name combinations:<ul>
+<li><code class="docutils literal"><span class="pre">user001&#64;paraengine.com:script/hello.lua</span></code>   &#8211; a file of user001 in its default gaming thread</li>
+<li><code class="docutils literal"><span class="pre">(world1)server001&#64;paraengine.com:script/hello.lua</span></code>     &#8211; a file of server001 in its thread world1</li>
+<li><code class="docutils literal"><span class="pre">(worker1)script/hello.lua</span></code>         &#8211; a local file in the thread worker1</li>
+<li><code class="docutils literal"><span class="pre">(gl)script/hello.lua</span></code>          &#8211; a glia (local) file in the current runtime state&#8217;s thread</li>
+<li><code class="docutils literal"><span class="pre">script/hello.lua</span></code>          &#8211; a file in the current thread. For a single threaded application, this is usually enough.</li>
+<li><code class="docutils literal"><span class="pre">(worker1)NPLRouter.dll</span></code>            &#8211; activate a C++ file. Please note that, in windows, it looks for NPLRonter.dll; in linux, it looks for ./libNPLRouter.so</li>
+<li><code class="docutils literal"><span class="pre">(worker1)DBServer.dll/DBServer.DBServer.cs</span></code>  &#8211; for C# file, the class must have a static activate function defined in the CS file.</li>
+</ul>
+</li>
+<li>&#64;param <code class="docutils literal"><span class="pre">msg</span></code>: it is a chunk of pure data table that will be transmitted to the destination file.</li>
+</ul>
+</div>
+<div class="section" id="neuron-file">
+<span id="neuron-file"></span><h2>Neuron File<a class="headerlink" href="#neuron-file" title="Permalink to this headline">¶</a></h2>
+<p>Only files associated with an activate function can be activated.  This is done differently in NPL/C++/C# plugin</p>
+<ul class="simple">
+<li>In NPL, it is most flexible by using the build-in <code class="docutils literal"><span class="pre">NPL.this</span></code> function</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="c1">-- input is passed in a global &quot;msg&quot; variable</span>
+   <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">msg</span></code> is passed in a global <code class="docutils literal"><span class="pre">msg</span></code> variable which is visible to all files, and the <code class="docutils literal"><span class="pre">msg</span></code> variable  will last until the thread receives the next activation message.</li>
+<li>In NPL&#8217;s C++ plugin, you need to define a <code class="docutils literal"><span class="pre">C</span></code> function. Please see ParacraftSDK&#8217;s example folder for details.</li>
+<li>In NPL&#8217;s mono C# plugin, you simply define a class with a static <code class="docutils literal"><span class="pre">activate</span></code> function. Please see ParacraftSDK&#8217;s example folder for details.</li>
+</ul>
+<div class="section" id="input-message-msg-nid-and-msg-tid">
+<span id="input-message-msg-nid-and-msg-tid"></span><h3>Input Message, <code class="docutils literal"><span class="pre">msg.nid</span></code> and <code class="docutils literal"><span class="pre">msg.tid</span></code><a class="headerlink" href="#input-message-msg-nid-and-msg-tid" title="Permalink to this headline">¶</a></h3>
+<p>In above code, <code class="docutils literal"><span class="pre">msg</span></code> contains the information received from the sender, plus the <code class="docutils literal"><span class="pre">source</span> <span class="pre">id</span></code> of the sender.
+For unauthenticated senders, the source id is stored in <code class="docutils literal"><span class="pre">msg.tid</span></code>, which is an auto-generated number string like &#8220;~1&#8221;.
+The receiver can keep using this temporary id <code class="docutils literal"><span class="pre">msg.tid</span></code> to send message back, such as</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="c1">-- input is passed in a global &quot;msg&quot; variable</span>
+   <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;%s:some_reply_file.lua&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">tid</span> <span class="ow">or</span> <span class="n">msg</span><span class="p">.</span><span class="n">nid</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;replied&quot;</span><span class="p">});</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The receiver can also rename the temporary <code class="docutils literal"><span class="pre">msg.tid</span></code> by calling <code class="docutils literal"><span class="pre">NPL.accept(msg.tid,</span> <span class="pre">nid_name)</span></code>, so the next time if the receiver got a message from the same sender (i.e. the same TCP connection), the <code class="docutils literal"><span class="pre">msg.nid</span></code> contains the last assigned name and <code class="docutils literal"><span class="pre">msg.tid</span></code> field no longer exists. We usually use <code class="docutils literal"><span class="pre">NPL.accept</span></code> to distinguish between authenticated and unauthenticated senders, and reject unauthenticated messages by calling <code class="docutils literal"><span class="pre">NPL.reject(msg.tid)</span></code> as early as possible to save CPU cycles.</p>
+<p>See following example:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="c1">-- input is passed in a global &quot;msg&quot; variable</span>
+   <span class="kr">if</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="c1">-- unauthenticated? reject as early as possible or accept it. </span>
+      <span class="kr">if</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="s2">&quot;123&quot;</span><span class="p">)</span> <span class="kr">then</span>
+         <span class="n">NPL</span><span class="p">.</span><span class="n">accept</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">username</span> <span class="ow">or</span> <span class="s2">&quot;default_user&quot;</span><span class="p">);</span>
+      <span class="kr">else</span>
+         <span class="n">NPL</span><span class="p">.</span><span class="n">reject</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">);</span>
+      <span class="kr">end</span>
+   <span class="kr">elseif</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">nid</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="c1">-- only respond to authenticated messages. </span>
+      <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;%s:some_reply_file.lua&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">nid</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;replied&quot;</span><span class="p">});</span>
+   <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Please note, <code class="docutils literal"><span class="pre">msg.tid</span> <span class="pre">or</span> <span class="pre">msg.nid</span></code> always match to a single low-level TCP connection, hence their names are shared to all neuron files in the process. For example, if you accept in one neuron file, all other neuron files will receive messages in <code class="docutils literal"><span class="pre">msg.nid</span></code> form.</p>
+<p>Please see</p>
+</div>
+</div>
+<div class="section" id="neuron-file-visibility">
+<span id="neuron-file-visibility"></span><h2>Neuron File Visibility<a class="headerlink" href="#neuron-file-visibility" title="Permalink to this headline">¶</a></h2>
+<p>For security reasons, all neuron files can be activated by other files in the same process. This includes scripts in other local threads of the same process. See also [[MultiThreading]].</p>
+<p>To expose script to remote computers, one needs to do two things.</p>
+<ul class="simple">
+<li>one is to start NPL server by listening to an IP and port: NPL uses TCP protocol for all communications.</li>
+<li>second is to tell NPL runtime that a given file is a <code class="docutils literal"><span class="pre">public</span> <span class="pre">neuron</span> <span class="pre">file</span></code>.</li>
+</ul>
+<p>See below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">);</span>
+<span class="n">NPL</span><span class="o">.</span><span class="n">AddPublicFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&#8220;0.0.0.0&#8221; means all IP addresses, one can also use &#8220;127.0.0.1&#8221;, &#8220;localhost&#8221; or whatever IP addresses.</li>
+<li>8080: is the port number. Pick any one you like.</li>
+</ul>
+<p>The second parameter to <code class="docutils literal"><span class="pre">NPL.AddPublicFile</span></code> is an integer, which is transmitted on behalf of the long filename to save bandwidth. So it must be unique if you add multiple public files.</p>
+<blockquote>
+<div>Please note, that file name must be relative to working directory. such as <code class="docutils literal"><span class="pre">NPL.AddPublicFile(&quot;script/test/test.lua&quot;,</span> <span class="pre">1)</span></code>. Absolute path is not supported at the moment.</div></blockquote>
+</div>
+<div class="section" id="activating-remote-file">
+<span id="activating-remote-file"></span><h2>Activating remote file<a class="headerlink" href="#activating-remote-file" title="Permalink to this headline">¶</a></h2>
+<p>Once a server NPL runtime exposes a public file, other client NPL runtime can activate it with the <code class="docutils literal"><span class="pre">NPL.activate</span></code> function. Please note that, an NPL runtime can be both server and client. The one who started the connection is usually called server. Pure client must also call <code class="docutils literal"><span class="pre">NPL.StartNetServer</span></code> in order to activate the server. But it can specify <code class="docutils literal"><span class="pre">port=&quot;0&quot;</span></code> to indicate that it will not listen for incoming connections.</p>
+<p>However, on the client, we need to assign a local name to the remote server using the <code class="docutils literal"><span class="pre">NPL.AddNPLRuntimeAddress</span></code>, so that we can refer to this server by name in all subsequent <code class="docutils literal"><span class="pre">NPL.activate</span></code> call.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">AddNPLRuntimeAddress</span><span class="p">({</span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;8099&quot;</span><span class="p">,</span> <span class="n">nid</span> <span class="o">=</span> <span class="s2">&quot;server1&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Usually we do this during initialization time only once. After that we can activate public files on the remote server like below:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;server1:helloworld.lua&quot;</span><span class="p">,</span> <span class="p">{})</span>
+</pre></div>
+</div>
+<p>Please note the name specified by <code class="docutils literal"><span class="pre">nid</span></code> is arbitrary and used only on the client computer to refer to a computer. In other words, different clients can name the same remote computer differently.</p>
+<div class="section" id="message-delivery-guarantees">
+<span id="message-delivery-guarantees"></span><h3>Message Delivery Guarantees<a class="headerlink" href="#message-delivery-guarantees" title="Permalink to this headline">¶</a></h3>
+<p>Please note that the first time that a computer activate a remote file, a TCP connection is automatically established, but the first message is NOT delivered. This is because <code class="docutils literal"><span class="pre">NPL.activate()</span></code> is asynchronous, it must return a value before the new connection is established. It always returns 0 when your message is delivered via an existing path, and non-zero in case of first message to a remote system.</p>
+<p>If there is no already established path (i.e no TCP connection), NPL will immediately try to establish it.
+However, please note, the message that returns non-zero is NOT delivered, even if NPL successfully established a path to the remote system soon afterwards. Thus it is the programmer&#8217;s job to activate again until <code class="docutils literal"><span class="pre">NPL.activate</span></code> returns 0. This guarantees that a message with 0 return value is always delivered at least in the viewpoint of NPL runtime.</p>
+<p>The same mechanism can be used to recover lost-connections.</p>
+<p>To write fault-tolerant message passing code, consider following.</p>
+<ul class="simple">
+<li>When a NPL runtime process start, ping remote process with NPL.activate until it returns 0 to establish TCP connections. This ensures that all subsequent NPL.activate across these two systems can be delivered.</li>
+<li>Discover Lost Connections:<ul>
+<li>Method1: Use a timer to ping or listen for disconnect system event and reconnect in case connection is lost. However, individual messages may be lost during these time.</li>
+<li>Method2: Use a wrapper function to call NPL.activate, which checks its return value. If it is non-zero, either reconnect with timeout or put message to a pending queue in case connection can be recovered shortly and resend queued messages.</li>
+</ul>
+</li>
+</ul>
+<p>We leave it to the programmer to handle all occasions when NPL.activate returns non-zero values, since different business logic may use a different approach.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://doc.akka.io/docs/akka/2.2.5/general/message-delivery-guarantees.html">Akka Reference</a></li>
+</ul>
+</div>
+<div class="section" id="example-client-server-app">
+<span id="example-client-server-app"></span><h3>Example Client/Server app<a class="headerlink" href="#example-client-server-app" title="Permalink to this headline">¶</a></h3>
+<p>To run the example, call following.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="s2">&quot;script/test/network/SimpleClientServer.lua&quot;</span> <span class="n">server</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
+<span class="n">npl</span> <span class="s2">&quot;script/test/network/SimpleClientServer.lua&quot;</span> <span class="n">client</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
+</pre></div>
+</div>
+<p>The source code of this demo is also included in <code class="docutils literal"><span class="pre">ParaCraftSDK/examples</span></code> folder.</p>
+<p>filename: <code class="docutils literal"><span class="pre">script/test/network/SimpleClientServer.lua</span></code></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="cm">--[[</span>
+<span class="cm">Author: Li,Xizhi</span>
+<span class="cm">Date: 2009-6-29</span>
+<span class="cm">Desc: start one server, and at least one client. </span>
+<span class="cm">-----------------------------------------------</span>
+<span class="cm">npl &quot;script/test/network/SimpleClientServer.lua&quot; server=&quot;true&quot;</span>
+<span class="cm">npl &quot;script/test/network/SimpleClientServer.lua&quot; client=&quot;true&quot;</span>
+<span class="cm">-----------------------------------------------</span>
+<span class="cm">]]</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/commonlib.lua&quot;</span><span class="p">);</span> <span class="c1">-- many sub dependency included</span>
+
+<span class="kd">local</span> <span class="n">nServerThreadCount</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">initialized</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">isServerInstance</span> <span class="o">=</span> <span class="n">ParaEngine</span><span class="p">.</span><span class="n">GetAppCommandLineByParam</span><span class="p">(</span><span class="s2">&quot;server&quot;</span><span class="p">,</span><span class="s2">&quot;false&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">;</span>
+
+<span class="c1">-- expose these files. client/server usually share the same public files</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">AddPublicFiles</span><span class="p">()</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">AddPublicFile</span><span class="p">(</span><span class="s2">&quot;script/test/network/SimpleClientServer.lua&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="c1">-- NPL simple server</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">InitServer</span><span class="p">()</span>
+    <span class="n">AddPublicFiles</span><span class="p">();</span>
+    
+    <span class="n">NPL</span><span class="p">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;60001&quot;</span><span class="p">);</span>
+    
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nServerThreadCount</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">rts_name</span> <span class="o">=</span> <span class="s2">&quot;worker&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">;</span>
+        <span class="kd">local</span> <span class="n">worker</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="n">rts_name</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">worker</span><span class="p">:</span><span class="n">Start</span><span class="p">();</span>
+    <span class="kr">end</span>
+    
+    <span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;Server&quot;</span><span class="p">,</span> <span class="s2">&quot;server is started with %d threads&quot;</span><span class="p">,</span> <span class="n">nServerThreadCount</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="c1">-- NPL simple client</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">InitClient</span><span class="p">()</span>
+    <span class="n">AddPublicFiles</span><span class="p">();</span>
+
+    <span class="c1">-- since this is a pure client, no need to listen to any port. </span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">);</span>
+    
+    <span class="c1">-- add the server address</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">AddNPLRuntimeAddress</span><span class="p">({</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;60001&quot;</span><span class="p">,</span> <span class="n">nid</span><span class="o">=</span><span class="s2">&quot;simpleserver&quot;</span><span class="p">})</span>
+    
+    <span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;Client&quot;</span><span class="p">,</span> <span class="s2">&quot;started&quot;</span><span class="p">);</span>
+    
+    <span class="c1">-- activate a remote neuron file on each thread on the server</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nServerThreadCount</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">rts_name</span> <span class="o">=</span> <span class="s2">&quot;worker&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">;</span>
+        <span class="kr">while</span><span class="p">(</span> <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;(%s)simpleserver:script/test/network/SimpleClientServer.lua&quot;</span><span class="p">,</span> <span class="n">rts_name</span><span class="p">),</span> 
+            <span class="p">{</span><span class="n">TestCase</span> <span class="o">=</span> <span class="s2">&quot;TP&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">&quot;from client&quot;</span><span class="p">})</span> <span class="o">~=</span><span class="mi">0</span> <span class="p">)</span> <span class="kr">do</span>
+            <span class="c1">-- if can not send message, try again.</span>
+            <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;failed to send message&quot;</span><span class="p">);</span>
+            <span class="n">ParaEngine</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+    <span class="kr">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">initialized</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">initialized</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="kr">if</span><span class="p">(</span><span class="n">isServerInstance</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="n">InitServer</span><span class="p">();</span>
+        <span class="kr">else</span>
+            <span class="n">InitClient</span><span class="p">();</span>
+        <span class="kr">end</span>
+    <span class="kr">elseif</span><span class="p">(</span><span class="n">msg</span> <span class="ow">and</span> <span class="n">msg</span><span class="p">.</span><span class="n">TestCase</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;%s got a message&quot;</span><span class="p">,</span> <span class="n">isServerInstance</span> <span class="ow">and</span> <span class="s2">&quot;server&quot;</span> <span class="ow">or</span> <span class="s2">&quot;client&quot;</span><span class="p">);</span>
+        <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The above server is actually multi-threaded, please see [[MultiThreading]] for details.</p>
+<blockquote>
+<div>The first time, <code class="docutils literal"><span class="pre">NPL.activate</span></code> calls a new remote server (with which we have not established TCP connection), the message is dropped and returned a non-zero value. <code class="docutils literal"><span class="pre">NPLExtension.lua</span></code> contains a number of helper functions to help you for sending a guaranteed message, such as <code class="docutils literal"><span class="pre">NPL.activate_with_timeout</span></code>.You need to include [[commonlib]] to use it.</div></blockquote>
+</div>
+</div>
+<div class="section" id="trusted-connections-and-nid">
+<span id="trusted-connections-and-nid"></span><h2>Trusted Connections and NID<a class="headerlink" href="#trusted-connections-and-nid" title="Permalink to this headline">¶</a></h2>
+<p>In the receiver&#8217;s activate function, it can assign any name or <code class="docutils literal"><span class="pre">nid</span></code> to incoming connection&#8217;s NPL runtime.</p>
+</div>
+<div class="section" id="helloworld-example">
+<span id="helloworld-example"></span><h2>HelloWorld Example<a class="headerlink" href="#helloworld-example" title="Permalink to this headline">¶</a></h2>
+<p>Now, here comes a more complicated helloworld. It turns an ordinary <code class="docutils literal"><span class="pre">helloworld.lua</span></code> file into a neuron file, by associating an <code class="docutils literal"><span class="pre">activate</span></code> function with it. The file is then callable from any NPL thread or remote computer by its NPL address(url).</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="kr">if</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">data</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+   <span class="kr">end</span>
+   <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(gl)helloworld.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;hello world!&quot;</span><span class="p">})</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-web-server-example">
+<span id="simple-web-server-example"></span><h2>Simple Web Server Example<a class="headerlink" href="#simple-web-server-example" title="Permalink to this headline">¶</a></h2>
+<p>NPL uses a HTTP-compatible protocol, so it is possible to handle standard HTTP request using the same NPL server.
+When NPL runtime receives a HTTP request message, it will send it to a publicly visible file with id <code class="docutils literal"><span class="pre">-10</span></code>.
+So we can create a simple HTTP web server with just a number of lines, like below:</p>
+<p>filename: <code class="docutils literal"><span class="pre">main.lua</span></code></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/commonlib.lua&quot;</span><span class="p">);</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">StartWebServer</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+    <span class="kd">local</span> <span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;8099&quot;</span><span class="p">;</span>
+    <span class="c1">-- tell NPL runtime to route all HTTP message to the public neuron file `http_server.lua`</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">AddPublicFile</span><span class="p">(</span><span class="s2">&quot;source/SimpleWebServer/http_server.lua&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">);</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;WebServer&quot;</span><span class="p">,</span> <span class="s2">&quot;NPL Server started on ip:port %s %s&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">);</span>
+<span class="kr">end</span>
+<span class="n">StartWebServer</span><span class="p">();</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>filename: <code class="docutils literal"><span class="pre">http_server.lua</span></code></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/Json.lua&quot;</span><span class="p">);</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/LuaXML.lua&quot;</span><span class="p">);</span>
+
+<span class="kd">local</span> <span class="nb">tostring</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">;</span>
+<span class="kd">local</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">;</span>
+
+<span class="kd">local</span> <span class="n">npl_http</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;MyCompany.Samples.npl_http&quot;</span><span class="p">);</span>
+
+<span class="c1">-- whether to dump all incoming stream;</span>
+<span class="n">npl_http</span><span class="p">.</span><span class="n">dump_stream</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="c1">-- keep statistics</span>
+<span class="kd">local</span> <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">request_received</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">default_msg</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s2">Content-Length: 31</span><span class="se">\r\n</span><span class="s2">Content-Type: text/html</span><span class="se">\r\n\r\n</span><span class="s2">&lt;html&gt;&lt;body&gt;hello&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">;</span>
+
+<span class="kd">local</span> <span class="n">status_strings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">ok</span> <span class="o">=</span><span class="s2">&quot;HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">created</span> <span class="o">=</span><span class="s2">&quot;HTTP/1.1 201 Created</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">accepted</span> <span class="o">=</span><span class="s2">&quot;HTTP/1.1 202 Accepted</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">no_content</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 204 No Content</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">multiple_choices</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 300 Multiple Choices</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">moved_permanently</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 301 Moved Permanently</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">moved_temporarily</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 302 Moved Temporarily</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">not_modified</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 304 Not Modified</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">bad_request</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 400 Bad Request</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">unauthorized</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 401 Unauthorized</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">forbidden</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 403 Forbidden</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">not_found</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 404 Not Found</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">internal_server_error</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 500 Internal Server Error</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">not_implemented</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 501 Not Implemented</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">bad_gateway</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 502 Bad Gateway</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">service_unavailable</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 503 Service Unavailable</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="n">npl_http</span><span class="p">.</span><span class="n">status_strings</span> <span class="o">=</span> <span class="n">status_strings</span><span class="p">;</span>
+
+<span class="c1">-- make an HTML response</span>
+<span class="c1">-- @param return_code: nil if default to &quot;ok&quot;(200)</span>
+<span class="kr">function</span> <span class="nc">npl_http</span><span class="p">.</span><span class="nf">make_html_response</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">return_code</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="kr">if</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">html</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">Lua2XmlString</span><span class="p">(</span><span class="n">html</span><span class="p">);</span>
+    <span class="kr">end</span>
+    <span class="n">npl_http</span><span class="p">.</span><span class="n">make_response</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">return_code</span><span class="p">,</span> <span class="n">headers</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="c1">-- make a json response</span>
+<span class="c1">-- @param return_code: nil if default to &quot;ok&quot;(200)</span>
+<span class="kr">function</span> <span class="nc">npl_http</span><span class="p">.</span><span class="nf">make_json_response</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">return_code</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="kr">if</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">html</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">json</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">Json</span><span class="p">.</span><span class="n">Encode</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+    <span class="kr">end</span>
+    <span class="n">npl_http</span><span class="p">.</span><span class="n">make_response</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">return_code</span><span class="p">,</span> <span class="n">headers</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="c1">-- make a string response</span>
+<span class="c1">-- @param return_code: nil if default to &quot;ok&quot;(200)</span>
+<span class="c1">-- @param body: must be string</span>
+<span class="c1">-- @return true if send. </span>
+<span class="kr">function</span> <span class="nc">npl_http</span><span class="p">.</span><span class="nf">make_response</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">return_code</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="kr">if</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">body</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span> <span class="ow">and</span> <span class="n">nid</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kd">local</span> <span class="n">out</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">status_strings</span><span class="p">[</span><span class="n">return_code</span> <span class="ow">or</span> <span class="s2">&quot;ok&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">return_code</span><span class="p">[</span><span class="s2">&quot;not_found&quot;</span><span class="p">];</span>
+        <span class="kr">if</span><span class="p">(</span><span class="n">body</span><span class="o">~=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s2">&quot;Content-Length: %d</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">#</span><span class="n">body</span><span class="p">);</span>
+        <span class="kr">end</span>
+        <span class="kr">if</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="kd">local</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">;</span>
+            <span class="kr">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span> <span class="kr">do</span>
+                <span class="kr">if</span><span class="p">(</span><span class="n">name</span> <span class="o">~=</span> <span class="s2">&quot;Content-Length&quot;</span><span class="p">)</span> <span class="kr">then</span>
+                    <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s2">&quot;%s: %s</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+                <span class="kr">end</span>
+            <span class="kr">end</span>
+        <span class="kr">end</span>
+        <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">body</span><span class="p">;</span>
+
+        <span class="c1">-- if file name is &quot;http&quot;,  the message body is raw http stream</span>
+        <span class="kr">return</span> <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;%s:http&quot;</span><span class="p">,</span> <span class="n">nid</span><span class="p">),</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">out</span><span class="p">));</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+    <span class="n">stats</span><span class="p">.</span><span class="n">request_received</span> <span class="o">=</span> <span class="n">stats</span><span class="p">.</span><span class="n">request_received</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">local</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">;</span>
+    <span class="kd">local</span> <span class="n">nid</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">tid</span> <span class="ow">or</span> <span class="n">msg</span><span class="p">.</span><span class="n">nid</span><span class="p">;</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">npl_http</span><span class="p">.</span><span class="n">dump_stream</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;HTTP:&quot;</span><span class="p">);</span> <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+    <span class="kr">end</span>
+    <span class="n">npl_http</span><span class="p">.</span><span class="n">make_response</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">format</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;hello world. req: %d. input is %s&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">,</span> <span class="n">stats</span><span class="p">.</span><span class="n">request_received</span><span class="p">,</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">serialize_compact</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For a full-fledged build-in HTTP server framework in NPL, please see [[WebServer]]</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">File Activation</a><ul>
+<li><a class="reference internal" href="#basic-syntax">Basic Syntax</a></li>
+<li><a class="reference internal" href="#neuron-file">Neuron File</a><ul>
+<li><a class="reference internal" href="#input-message-msg-nid-and-msg-tid">Input Message, <code class="docutils literal"><span class="pre">msg.nid</span></code> and <code class="docutils literal"><span class="pre">msg.tid</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#neuron-file-visibility">Neuron File Visibility</a></li>
+<li><a class="reference internal" href="#activating-remote-file">Activating remote file</a><ul>
+<li><a class="reference internal" href="#message-delivery-guarantees">Message Delivery Guarantees</a></li>
+<li><a class="reference internal" href="#example-client-server-app">Example Client/Server app</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#trusted-connections-and-nid">Trusted Connections and NID</a></li>
+<li><a class="reference internal" href="#helloworld-example">HelloWorld Example</a></li>
+<li><a class="reference internal" href="#simple-web-server-example">Simple Web Server Example</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="LoadFile.html" title="previous chapter">NPL Load File</a></li>
+      <li>Next: <a href="Networking.html" title="next chapter">Networking</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/ActivationFile.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/ActivationFile.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

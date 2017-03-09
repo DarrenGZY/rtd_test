@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Video Tutorial: Create Paracraft Mod &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Source Code Overview" href="SourceCodeOverview.html" />
+    <link rel="prev" title="Video Tutorial: Create A Web Site" href="TutorialWebSite.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="video-tutorial-create-paracraft-mod">
+<span id="video-tutorial-create-paracraft-mod"></span><h1>Video Tutorial: Create Paracraft Mod<a class="headerlink" href="#video-tutorial-create-paracraft-mod" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#">video</a></p>
+<p>In this video tutorial, you will learn how to create 3D applications with NPL. Make sure you have read our previous video [[TutorialWebSite]]. This is also going to be a very long video, be prepared and patient!</p>
+<div class="section" id="d-graphics-powered-by-paraengine">
+<span id="d-graphics-powered-by-paraengine"></span><h2>3D Graphics Powered By ParaEngine<a class="headerlink" href="#d-graphics-powered-by-paraengine" title="Permalink to this headline">¶</a></h2>
+<p>NPL&#8217;s graphics API is powered by a built-in 3D computer game engine called ParaEngine, which is written as early as 2005 (NPL was started in 2004). Its development goes side-by-side with NPL in the same repository. If you read the <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime">source code</a> of NPLRuntime, you will notice two namespaces called <code class="docutils literal"><span class="pre">NPL</span></code> and <code class="docutils literal"><span class="pre">ParaEngine</span></code>.</p>
+<p>In the past years, I have made several attempts to make the ParaEngine portion more modular, but even so, I did not separate it from the NPLRuntime code tree, because I want the minimum build of NPLRuntime to support all 3D API, just like JAVA, C# and Chrome/NodeJS does. However, if you build NPLRuntime with no <code class="docutils literal"><span class="pre">OpenGL/DirectX</span></code> graphics, such as on Linux server, these 3D APIs are still available to NPL script but will not draw anythings to your screen.</p>
+</div>
+<div class="section" id="introducing-our-3d-world-editor-paracraft">
+<span id="introducing-our-3d-world-editor-paracraft"></span><h2>Introducing Our 3D World Editor: Paracraft<a class="headerlink" href="#introducing-our-3d-world-editor-paracraft" title="Permalink to this headline">¶</a></h2>
+<p>First of all, creating 3D applications isn&#8217;t easy in general. Fortunately, NPL offers a free and <a class="reference external" href="https://github.com/NPLPackages/paracraft">open source</a> NPL package called Paracraft, which is 3d world editor written in NPL.</p>
+<p>Paracraft itself is also a standard alone software product for every one (including kids above 7 years old) to create 3D world, animated characters, movies and codes all in a single application. See [[http://www.paracraft.cn/]] for its official website. Actually there are hundreds of interactive 3D worlds, movies and games created by paracraft users without the need of any third-party software.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19154692/2fad2be8-8c0e-11e6-938e-fa0d5ea202ef.png" /></p>
+<p><em>Fig. Screen shot of Paracraft</em></p>
+<blockquote>
+<div>Note: Yes, the look of it are inspired by a great sandbox game called <code class="docutils literal"><span class="pre">minecraft</span></code> (I love it very much), but using blocks is just the methodology we adopt for crafting objects almost exclusively. Blocks in paracraft can be resized and turned into animated characters. The block methodology (rather than using triangles) allows everyone (including kids) to create models, animations, and even rigging characters very easily, and it is lots of fun. Remember you can still import polygon models from <code class="docutils literal"><span class="pre">MAYA/3dsmax</span></code>, etc, if you are that professional.</div></blockquote>
+<p>Let us look at some features of Paracraft.</p>
+<ul class="simple">
+<li>Everything is a block, entity or item, a block or entity can contain other items in it.</li>
+<li>Every operation is a command and most of them support undo and redo.</li>
+<li>There are items like scripts, movie blocks, bones, terrain brush, physics blocks, etc.</li>
+<li>Use NPL Code Wiki to view and debug.</li>
+<li>Network enabled, you can host your own private world and website in your world directory.</li>
+</ul>
+</div>
+<div class="section" id="creating-paracraft-plugin-mod">
+<span id="creating-paracraft-plugin-mod"></span><h2>Creating Paracraft Plugin(Mod)<a class="headerlink" href="#creating-paracraft-plugin-mod" title="Permalink to this headline">¶</a></h2>
+<p>If you want to control more of the logic and looks of your 3D world, you need to write NPL code as professionally as we wrote paracraft itself. This is what this tutorial is really about.</p>
+<div class="section" id="why-using-mod">
+<span id="why-using-mod"></span><h3>Why Using Mod?<a class="headerlink" href="#why-using-mod" title="Permalink to this headline">¶</a></h3>
+<p>Because paracraft is also released as an <a class="reference external" href="https://github.com/NPLPackages/paracraft">open source NPL package</a>, you can just modify the source code of Paracraft and turn it into anything you like or even write everything from scratch.</p>
+<p>However, this is not the recommended way, because paracraft is maintained by us and regularly updated. If you directly modify paracraft without informing us, it may be very difficult to stay up to date with us. Unless you find a bug or wrote a new feature which we can merge into our main branch, you are recommended to use Paracraft Mod to create plugins to extend paracraft or even applications that looks entirely different from it.</p>
+<p>Paracraft Mod or plugin system exposes many extension points to various aspects of the system. One can use it to add new blocks, commands, web page in NPL code wiki, or even replace the entire user interface and IO of paracraft.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19157826/25c0966e-8c19-11e6-86db-6f6760076f8b.png" /></p>
+<p>_Fig. Above Image is an <a class="reference external" href="http://ps.61.com/">online game</a> created via Paracraft Mod by one of our partners. _</p>
+<p>You can see how much difference there is from paracraft.</p>
+</div>
+<div class="section" id="creating-your-first-paracraft-mod">
+<span id="creating-your-first-paracraft-mod"></span><h3>Creating Your First Paracraft Mod<a class="headerlink" href="#creating-your-first-paracraft-mod" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="install-paracraftsdk">
+<span id="install-paracraftsdk"></span><h4>Install ParacraftSDK<a class="headerlink" href="#install-paracraftsdk" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Install <a class="reference external" href="https://git-scm.com/">Git</a> so that you can call <code class="docutils literal"><span class="pre">git</span></code> command from your cmd line.</li>
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/archive/master.zip">ParacraftSDK</a><ul>
+<li>or you can clone it by running:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">LiXizhi</span><span class="o">/</span><span class="n">ParaCraftSDK</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Make sure you have updated to the latest version, by running <code class="docutils literal"><span class="pre">./redist/paracraft.exe</span></code> at least once</li>
+<li>Download and install <a class="reference external" href="https://www.visualstudio.com/">Visual Studio Community Edition</a>: the free version of <code class="docutils literal"><span class="pre">visual</span> <span class="pre">studio</span></code><ul>
+<li>In visual studio, select <code class="docutils literal"><span class="pre">menu::Tools::Extensions</span></code>, and search online for <code class="docutils literal"><span class="pre">npl</span></code> or <code class="docutils literal"><span class="pre">lua</span></code> to install following plugins:
+<a class="reference external" href="https://visualstudiogallery.msdn.microsoft.com/7782dc20-924a-4726-8656-d876cdbb3417">NPL/Lua language service for visual studio</a>: this will give you all the syntax highlighting, intellisense and debugging capability for NPL in visual studio.</li>
+</ul>
+</li>
+</ul>
+<p>see [[Install Guide|InstallGuide]] and <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/wiki/TutorialSimplePlugin">ParaCraftSDK Simple Plugin</a> for more information.</p>
+</div>
+<div class="section" id="create-helloworld-mod">
+<span id="create-helloworld-mod"></span><h4>Create <code class="docutils literal"><span class="pre">HelloWorld</span></code> Mod<a class="headerlink" href="#create-helloworld-mod" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Run <code class="docutils literal"><span class="pre">./bin/CreateParacraftMod.bat</span></code> and enter the name of your plugin, such as <code class="docutils literal"><span class="pre">HelloWorld</span></code>. A folder at <code class="docutils literal"><span class="pre">./_mod/HelloWorld</span></code> will be generated.</li>
+<li>Run <code class="docutils literal"><span class="pre">./_mod/HelloWorld/Run.bat</span></code> to test your plugin with your copy of paracraft in the ./redist folder.</li>
+</ul>
+<p>The empty plugin does not do anything yet, except printing a log when it is loaded.</p>
+</div>
+<div class="section" id="command-line-and-runtime-environment">
+<span id="command-line-and-runtime-environment"></span><h4>Command line and runtime environment<a class="headerlink" href="#command-line-and-runtime-environment" title="Permalink to this headline">¶</a></h4>
+<p>If you open Run.bat with a text editor, you will see following lines.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@echo</span> <span class="n">off</span> 
+<span class="n">pushd</span> <span class="s2">&quot;%~dp0../../redist/&quot;</span> 
+<span class="n">call</span> <span class="s2">&quot;ParaEngineClient.exe&quot;</span> <span class="n">dev</span><span class="o">=</span><span class="s2">&quot;%~dp0&quot;</span> <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span> <span class="n">isDevEnv</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>  
+<span class="n">popd</span> 
+</pre></div>
+</div>
+<p>It specifies following things:</p>
+<ul class="simple">
+<li>the application is started via ParaEngineClient.exe in <code class="docutils literal"><span class="pre">./redist</span></code> folder</li>
+<li>the <code class="docutils literal"><span class="pre">dev</span></code> parameter specifies the development directory (which is the plugin directory ./_mod/HelloWorld/), basically what this means is that NPLRuntime will always look for files in this folder first and then in working directory (<code class="docutils literal"><span class="pre">./redist</span></code> folder).</li>
+<li>the <code class="docutils literal"><span class="pre">mod</span></code> and <code class="docutils literal"><span class="pre">isDevEnv</span></code> parameters simply tells paracraft to load the given plugin from the development directory, so that you do not have to load and enable it manually in paracraft GUI.</li>
+</ul>
+</div>
+<div class="section" id="install-source-code-from-npl-package">
+<span id="install-source-code-from-npl-package"></span><h4>Install Source Code From NPL Package<a class="headerlink" href="#install-source-code-from-npl-package" title="Permalink to this headline">¶</a></h4>
+<p>All APIs of paracraft are available as source code from NPL package.
+Run <code class="docutils literal"><span class="pre">./_mod/HelloWorld/InstallPackages.bat</span></code> to get them or you can create <code class="docutils literal"><span class="pre">./_mod/HelloWorld/npl_packages</span></code> and install manually like this.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">npl_packages</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NPLPackages</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NPLPackages</span><span class="o">/</span><span class="n">paracraft</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>You may edit <code class="docutils literal"><span class="pre">InstallPackages.bat</span></code> to install other packages, and run it regularly to stay up-to-date with git source.</p>
+<blockquote>
+<div>it is NOT advised to modify or add files in the ./npl_packages folder, instead create a similar directory structure in your mod directory if you want to add or modify package source code.  Read [[npl_packages]] for how to contribute.</div></blockquote>
+</div>
+<div class="section" id="setup-project-files">
+<span id="setup-project-files"></span><h4>Setup Project Files<a class="headerlink" href="#setup-project-files" title="Permalink to this headline">¶</a></h4>
+<p>NPL is a dynamic language, it does not require you to build anything in order to run, so you can create any type of visual studio project you like and begin adding files to it. Open <code class="docutils literal"><span class="pre">ModProject.sln</span></code> with visual studio in your mod directory, everything should already have been setup for you. You can <code class="docutils literal"><span class="pre">Ctrl+F5</span></code> to run.</p>
+<p>To manually create project solution file, follow following steps:</p>
+<ul class="simple">
+<li>create an empty visual studio project: such as a C# library and remove all cs files from it.</li>
+<li>add <code class="docutils literal"><span class="pre">npl_packages/main/*.csproj</span></code> and <code class="docutils literal"><span class="pre">npl_packages/paracraft/*.csproj</span></code> to your solutions, so that you have all the source code of NPL core lib and paracraft, where you can easily search for documentation and implementation.</li>
+<li>configure the project property to tell visual studio to start NPLRuntime with proper command line parameters when we press Ctrl+F5. The following does exactly the same thing as the <code class="docutils literal"><span class="pre">./Run.bat</span></code> in mod folder.<ul>
+<li>For the external program: we can use <code class="docutils literal"><span class="pre">ParaEngineClient.exe</span></code>, see below</li>
+<li>external program: <code class="docutils literal"><span class="pre">D:\lxzsrc\ParaCraftSDKGit\redist\ParaEngineClient.exe</span></code></li>
+<li>command line parameters: <code class="docutils literal"><span class="pre">mod=&quot;HelloWorld&quot;</span> <span class="pre">isDevEnv=&quot;true&quot;</span> <span class="pre">dev=&quot;D:/lxzsrc/ParaCraftSDKGit/redist/_mod/HelloWorld/&quot;</span></code></li>
+<li>working directory: <code class="docutils literal"><span class="pre">D:/lxzsrc/ParaCraftSDKGit/redist/_mod/HelloWorld/</span></code><ul>
+<li>Note: the <code class="docutils literal"><span class="pre">dev</span></code> param and working directory should be the root of your mod project folder.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Please see my previous <a class="reference external" href="TutorialWebSite">video tutorial for web server</a> for more details about installing NPL language service for visual studio.</p>
+</div>
+</div>
+<div class="section" id="understanding-paracraft-mod">
+<span id="understanding-paracraft-mod"></span><h3>Understanding Paracraft Mod<a class="headerlink" href="#understanding-paracraft-mod" title="Permalink to this headline">¶</a></h3>
+<p>When paracraft starts, it will load the file at <code class="docutils literal"><span class="pre">./Mod/_plugin_name_/main.lua</span></code> for each enabled plugin. It is the entry point of any plugin, everything else is up to the developer.</p>
+<p>In our example, open the entry file <code class="docutils literal"><span class="pre">./_mod/HelloWorld/Mod/HelloWorld/main.lua</span></code> (see below). Because development directory is set to <code class="docutils literal"><span class="pre">_mod/HelloWorld</span></code> by startup command line, the relative path of above file is <code class="docutils literal"><span class="pre">./Mod/HelloWorld/main.lua</span></code>. This is why Paracraft can find the entry file.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">HelloWorld</span> <span class="o">=</span> <span class="n">commonlib</span><span class="o">.</span><span class="n">inherit</span><span class="p">(</span><span class="n">commonlib</span><span class="o">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;Mod.ModBase&quot;</span><span class="p">),</span><span class="n">commonlib</span><span class="o">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;Mod.HelloWorld&quot;</span><span class="p">));</span>
+
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">ctor</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">virtual</span> <span class="n">function</span> <span class="n">get</span> <span class="n">mod</span> <span class="n">name</span>
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">GetName</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;HelloWorld&quot;</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">virtual</span> <span class="n">function</span> <span class="n">get</span> <span class="n">mod</span> <span class="n">description</span> 
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">GetDesc</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;HelloWorld is a plugin in paracraft&quot;</span>
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">LOG</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">nil</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;HelloWorld&quot;</span><span class="p">,</span> <span class="s2">&quot;plugin initialized&quot;</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">OnLogin</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">new</span> <span class="n">world</span> <span class="ow">is</span> <span class="n">loaded</span><span class="o">.</span> 
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">OnWorldLoad</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">world</span> <span class="ow">is</span> <span class="n">unloaded</span><span class="o">.</span> 
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">OnLeaveWorld</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">HelloWorld</span><span class="p">:</span><span class="n">OnDestroy</span><span class="p">()</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>Most plugin will register a class in the &#8220;Mod&#8221; table, like above. The class usually inherits from <code class="docutils literal"><span class="pre">Mod.ModBase</span></code>. The class will be instantiated when paracraft starts, and its virtual functions are called at appropriate time.</p>
+<p>For example, if your plugin contains custom commands or block items, you can register them in the <code class="docutils literal"><span class="pre">init()</span></code> method.</p>
+</div>
+</div>
+<div class="section" id="how-to-write-plugin">
+<span id="how-to-write-plugin"></span><h2>How to write plugin<a class="headerlink" href="#how-to-write-plugin" title="Permalink to this headline">¶</a></h2>
+<p>There are three recommended ways to extend paracraft</p>
+<ul class="simple">
+<li>create your own command: command is a powerful way to interact with the user. The rule of thumb is that <strong>before you have any GUI dialog, consider writing a command first</strong>. Command is easy to test, integrate, and capable of interacting with other commands. Graphic User Interface(GUI) is good, however, it can only interact with humans in strict ways, commands can interact with both human and other commands or programs.</li>
+<li>create custom items: custom items include entities, items, or blocks. This ensures that your code is modular and independent. The best way to add new functions to paracraft is by adding new block or item types. Consider the color block and movie block in paracraft, which contains both GUI and complex logics.</li>
+<li>add filters: filters is a useful way to inject your code at predefined integration points in Paracraft.</li>
+</ul>
+<p>The least recommended way to extend paracraft is to clone the source code files of paracraft to development directory and modify them. Because plugin directory is searched before the main paracraft source code pkg file, it is possible to overwrite source code of paracraft in this way, but you are highly decouraged to do so. If you are requesting a feature that can not be added via the recommended ways, please inform the developers of paracraft to add a new filter for you, instead of modifying our source code directly in your plugin.</p>
+<div class="section" id="extending-command">
+<span id="extending-command"></span><h3>Extending Command<a class="headerlink" href="#extending-command" title="Permalink to this headline">¶</a></h3>
+<p>see <code class="docutils literal"><span class="pre">_mod/Test/Mod/Test/DemoCommand.lua</span></code></p>
+</div>
+<div class="section" id="extending-gui">
+<span id="extending-gui"></span><h3>Extending GUI<a class="headerlink" href="#extending-gui" title="Permalink to this headline">¶</a></h3>
+<p>see <code class="docutils literal"><span class="pre">_mod/Test/Mod/Test/DemoGUI.lua</span></code></p>
+</div>
+<div class="section" id="extending-item">
+<span id="extending-item"></span><h3>Extending Item<a class="headerlink" href="#extending-item" title="Permalink to this headline">¶</a></h3>
+<p>TODO:</p>
+</div>
+<div class="section" id="extending-npl-code-wiki">
+<span id="extending-npl-code-wiki"></span><h3>Extending NPL Code Wiki<a class="headerlink" href="#extending-npl-code-wiki" title="Permalink to this headline">¶</a></h3>
+<p>Users of Paracraft knows about <code class="docutils literal"><span class="pre">NPL</span> <span class="pre">Code</span> <span class="pre">Wiki</span></code>, if you want to use latest web technology (HTML5/js) to create user interface that can interact with your 3D application, you can extend the NPL code wiki.</p>
+<p>Now let us create a new web page and add a menu item in NPL Code wiki</p>
+<p>First of all, you need to place your server page file in NPL code wiki&#8217;s web root directory. So we can create a file at
+<code class="docutils literal"><span class="pre">./_mod/HelloWorld/script/apps/WebServer/admin/wp-content/pages/HelloWorld.page</span></code></p>
+<p>its content may be</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;h1&gt;Hello World from plugin!&lt;/h1&gt;
+</pre></div>
+</div>
+<p>In the <code class="docutils literal"><span class="pre">./_mod/HelloWorld/Mod/HelloWorld/main.lua</span></code> file&#8217;s init function, we add a menu filter to attach a menu item.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nc">HelloWorld</span><span class="p">:</span><span class="nf">init</span><span class="p">()</span>
+
+    <span class="c1">-- add a menu item to NPL code wiki&#39;s `Tools:helloworld`</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/apps/WebServer/WebServer.lua&quot;</span><span class="p">);</span>
+    <span class="n">WebServer</span><span class="p">:</span><span class="n">GetFilters</span><span class="p">():</span><span class="n">add_filter</span><span class="p">(</span> <span class="s1">&#39;wp_nav_menu_objects&#39;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">sorted_menu_items</span><span class="p">)</span>
+        <span class="n">sorted_menu_items</span><span class="p">[</span><span class="n">sorted_menu_items</span><span class="p">:</span><span class="n">size</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">url</span><span class="o">=</span><span class="s2">&quot;helloworld&quot;</span><span class="p">,</span>
+            <span class="n">menu_item_parent</span><span class="o">=</span><span class="s2">&quot;Tools&quot;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;hello world&quot;</span><span class="p">,</span>
+            <span class="n">id</span><span class="o">=</span><span class="s2">&quot;helloworld&quot;</span><span class="p">,</span>
+        <span class="p">};</span>
+        <span class="kr">return</span> <span class="n">sorted_menu_items</span><span class="p">;</span>
+    <span class="kr">end</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>Now restart paracraft, and press F11 to activate the NPL code wiki, you will notice the new menu item in its tools menu.</p>
+</div>
+</div>
+<div class="section" id="documentation">
+<span id="documentation"></span><h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>The best documentation is the source code of paracraft which is in the <a class="reference external" href="https://github.com/NPLPackages/paracraft">paracraft package</a> and several plugin demos in the <code class="docutils literal"><span class="pre">./_mod/test</span></code> folder. Since code is fully documented, use search by text in source code for documentations, as if you are googling on the web.</p>
+</div>
+<div class="section" id="debugging">
+<span id="debugging"></span><h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>For detailed information, please see <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/wiki/DebugAndLog">NPL Debugging and Logs</a></p>
+<ul class="simple">
+<li>Use <code class="docutils literal"><span class="pre">./redist/log.txt</span></code> to print and check log file.</li>
+<li>press <code class="docutils literal"><span class="pre">F12</span></code> to bring up the buildin debugger.</li>
+<li>use <code class="docutils literal"><span class="pre">Ctrl+F3</span></code> to use the MCML browser for building GUI pages.</li>
+<li>use GUI debuggers for NPL in visual studio.</li>
+</ul>
+</div>
+<div class="section" id="plugin-deployment">
+<span id="plugin-deployment"></span><h2>Plugin Deployment<a class="headerlink" href="#plugin-deployment" title="Permalink to this headline">¶</a></h2>
+<p>To deploy and test your plugin in production environment, you need to package all the files in your plugin&#8217;s development directory (i.e. <code class="docutils literal"><span class="pre">_mod/HelloWorld/*.*</span></code>) into a zip file called <code class="docutils literal"><span class="pre">HelloWorld.zip</span></code>, and place the zip file to &#8216;./redist/Mod/HelloWorld.zip&#8217;. It is important that the file path in the zip file resembles the relative path to the development directory (i.e. <code class="docutils literal"><span class="pre">Mod/HelloWorld/main.lua</span></code> in the <code class="docutils literal"><span class="pre">HelloWorld.zip</span></code>).</p>
+<p>Once you have deployed your plugin, you can start paracraft normally, such as running <code class="docutils literal"><span class="pre">./redist/Paracraft.exe</span></code>, enable your plugin in Paracraft and test it.</p>
+<p>You can redistribute your plugins in any way you like. We highly recommend that you code and release on github and inform us (via email or pull request) if you have just released some cool plugin. We are very likely to fork your code and review it.</p>
+</div>
+<div class="section" id="further-readings">
+<span id="further-readings"></span><h2>Further Readings<a class="headerlink" href="#further-readings" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Check out all sample plugins in <code class="docutils literal"><span class="pre">./_mod</span></code> folder.</li>
+<li>Check out all the SDK video tutorials by the author of Paracraft on the website.</li>
+<li>Read NPL Runtime&#8217;s <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/wiki">official wiki</a></li>
+</ul>
+</div>
+<div class="section" id="why-are-you-doing-this">
+<span id="why-are-you-doing-this"></span><h2>Why are you doing this?<a class="headerlink" href="#why-are-you-doing-this" title="Permalink to this headline">¶</a></h2>
+<p>Lots of people and even our partners asked me why are you doing this <code class="docutils literal"><span class="pre">NPL/Paracraft/ParaEngine</span></code> thing and make all of them open source? To make the long story short, I want to solve two problems:</p>
+<ul class="simple">
+<li>Create a self-learning based educational platform so that everyone can learn computer science as my own childhood does.<ul>
+<li>We hope in 7 years, this could be the best present that we can give to our children. Right now, I really cannot find any material even close to it on the Internet.</li>
+</ul>
+</li>
+<li>Create a online 3D simulated virtual world in which we can test new artificial intelligence algorithms with lots of humans. Using blocks is obviously the most economical way.</li>
+</ul>
+<p>Thanks to our generous investor at <code class="docutils literal"><span class="pre">Tatfook</span></code>, we are able to sponsor more independent programmers and support more teams and partners using NPL to fulfill the above two goals. Please read <a class="reference external" href="https://github.com/LiXizhi/ParaCraft/wiki/NPLUnion">this</a> if you are interested in joining us and be sponsored.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Video Tutorial: Create Paracraft Mod</a><ul>
+<li><a class="reference internal" href="#d-graphics-powered-by-paraengine">3D Graphics Powered By ParaEngine</a></li>
+<li><a class="reference internal" href="#introducing-our-3d-world-editor-paracraft">Introducing Our 3D World Editor: Paracraft</a></li>
+<li><a class="reference internal" href="#creating-paracraft-plugin-mod">Creating Paracraft Plugin(Mod)</a><ul>
+<li><a class="reference internal" href="#why-using-mod">Why Using Mod?</a></li>
+<li><a class="reference internal" href="#creating-your-first-paracraft-mod">Creating Your First Paracraft Mod</a><ul>
+<li><a class="reference internal" href="#install-paracraftsdk">Install ParacraftSDK</a></li>
+<li><a class="reference internal" href="#create-helloworld-mod">Create <code class="docutils literal"><span class="pre">HelloWorld</span></code> Mod</a></li>
+<li><a class="reference internal" href="#command-line-and-runtime-environment">Command line and runtime environment</a></li>
+<li><a class="reference internal" href="#install-source-code-from-npl-package">Install Source Code From NPL Package</a></li>
+<li><a class="reference internal" href="#setup-project-files">Setup Project Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#understanding-paracraft-mod">Understanding Paracraft Mod</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-write-plugin">How to write plugin</a><ul>
+<li><a class="reference internal" href="#extending-command">Extending Command</a></li>
+<li><a class="reference internal" href="#extending-gui">Extending GUI</a></li>
+<li><a class="reference internal" href="#extending-item">Extending Item</a></li>
+<li><a class="reference internal" href="#extending-npl-code-wiki">Extending NPL Code Wiki</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#debugging">Debugging</a></li>
+<li><a class="reference internal" href="#plugin-deployment">Plugin Deployment</a></li>
+<li><a class="reference internal" href="#further-readings">Further Readings</a></li>
+<li><a class="reference internal" href="#why-are-you-doing-this">Why are you doing this?</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="TutorialWebSite.html" title="previous chapter">Video Tutorial: Create A Web Site</a></li>
+      <li>Next: <a href="SourceCodeOverview.html" title="next chapter">NPL Source Code Overview</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/TutorialParacraftMod.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/TutorialParacraftMod.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

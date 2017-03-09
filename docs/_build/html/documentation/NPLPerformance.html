@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Runtime Performance Compare &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ParaEngine" href="../ParaEngine.html" />
+    <link rel="prev" title="Use Links" href="Resources.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-runtime-performance-compare">
+<span id="npl-runtime-performance-compare"></span><h1>NPL Runtime Performance Compare<a class="headerlink" href="#npl-runtime-performance-compare" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="high-performance-jit-compiler">
+<span id="high-performance-jit-compiler"></span><h2>High-Performance JIT Compiler<a class="headerlink" href="#high-performance-jit-compiler" title="Permalink to this headline">¶</a></h2>
+<p>NPL syntax is 100% compatible with Lua, therefore it can be configured to utilize JIT compiler (Luajit).
+In general, luajit is believed to be one of the fastest JIT compiler in the world. It&#8217;s speed is close to C/C++, and can even out-perform static typed languages like java/C#. It is the fastest dynamic language in the world.
+However, special care needs to be taken when writing test cases, since badly written test case can make the same code 100 times slower.</p>
+<div class="section" id="compare-chart">
+<span id="compare-chart"></span><h3>Compare Chart<a class="headerlink" href="#compare-chart" title="Permalink to this headline">¶</a></h3>
+<p>Following is from <a class="reference external" href="http://julialang.org/">Julia</a>. Source code:
+<a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.c">C</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.f90">Fortran</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.py">Python</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.m">Matlab/Octave</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.R">R</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/tree/master/test/perf/micro/java/src/main/java">JavaScript</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/tree/master/test/perf/micro/java/src/main/java">Java</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.go">Go</a>, <a class="reference external" href="https://github.com/JuliaLang/julia/blob/master/test/perf/micro/perf.lua">Lua</a>.</p>
+<p>The following micro-benchmark results were obtained on a single core (serial execution) on an Intel(R) Xeon(R) CPU E7-8850 2.00GHz CPU with 1TB of 1067MHz DDR3 RAM, running Linux:</p>
+<p>|            |C/Fortran |Python |<strong>NPL</strong> |Java|JavaScript|Go    |R  |Matlab |Octave|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;-|&#8212;&#8212;-|&#8212;&#8212;&#8211;|&#8212;-|&#8212;&#8212;|&#8212;&#8212;|&#8212;&#8212;-|&#8212;&#8212;-|&#8212;&#8212;&#8211;
+|               |gcc5.1 |3.4.3  | 1.0    |1.8 |V8    |go1.5 |3.2.2  |R2015b |4.0.0|mandel         |0.81   |15.32  |<strong>0.67</strong>|1.35|0.66 |1.11   |53.16  |7.58   |451.81|fib            |0.70   |77.76  |<strong>1.71</strong>|1.21|3.36 |1.86   |533.52 |26.89  |9324.35
+|rand_mat_mul   |3.48   |1.14   |<strong>1.16</strong>|2.36|15.07|1.42   |1.57   |1.12   |1.12|rand_mat_stat  |1.45   |17.93  |<strong>3.27</strong>|3.92|2.30 |2.96   |14.56  |14.52  |30.93|parse_int      |5.05   |17.02  |<strong>5.77</strong>|3.35|6.06 |1.20   |45.73  |802.52 |9581.44
+|quicksort      |1.31   |32.89  |<strong>2.03</strong>|2.60|2.70 |1.29   |264.54 |4.92   |1866.01
+|pi_sum         |1.00   |21.99  |<strong>1.00</strong>|1.00|1.01 |1.00   |9.56   |1.00   |299.31</p>
+<p><em>Figure: benchmark times relative to C (smaller is better, C performance = 1.0).</em></p>
+<blockquote>
+<div>C and Fortran compiled by gcc 5.1.1, taking best timing from all optimization levels (-O0 through -O3). C, Fortran, Go. Python 3 was installed from the Anaconda distribution. The Python implementations of rand_mat_stat and rand_mat_mul use NumPy (v1.9.2) functions; the rest are pure Python implementations.
+Benchmarks can also be seen here as a plot created with Gadfly.</div></blockquote>
+<p>These benchmarks, while not comprehensive, do test compiler performance on a range of common code patterns, such as function calls, string parsing, sorting, numerical loops, random number generation, and array operations. It is important to note that these benchmark implementations are not written for absolute maximal performance (the fastest code to compute fib(20) is the constant literal 6765). Rather, all of the benchmarks are written to test the performance of specific algorithms implemented in each language. In particular, all languages use the same algorithm: the Fibonacci benchmarks are all recursive while the pi summation benchmarks are all iterative; the “algorithm” for random matrix multiplication is to call LAPACK, except where that’s not possible, such as in JavaScript. The point of these benchmarks is to compare the performance of specific algorithms across language implementations, not to compare the fastest means of computing a result, which in most high-level languages relies on calling C code.</p>
+</div>
+</div>
+<div class="section" id="npl-database-performance">
+<span id="npl-database-performance"></span><h2>NPL Database Performance<a class="headerlink" href="#npl-database-performance" title="Permalink to this headline">¶</a></h2>
+<p>More information, please see [[UsingTableDatabase]]</p>
+<p>Following is tested on my Intel-i7-3GHZ CPU. See <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Database/test/test_TableDatabase.lua">test folder</a> for test source code.</p>
+<div class="section" id="run-with-conservative-mode">
+<span id="run-with-conservative-mode"></span><h3>Run With Conservative Mode<a class="headerlink" href="#run-with-conservative-mode" title="Permalink to this headline">¶</a></h3>
+<p>Following is averaged value from 100000+ operations in a single thread</p>
+<ul class="simple">
+<li>Random non-index insert: <code class="docutils literal"><span class="pre">43478</span> <span class="pre">inserts/second</span></code><ul>
+<li>Async API tested with default configuration with 1 million records on a single thread.</li>
+</ul>
+</li>
+<li>Round trip latency call:<ul>
+<li>Blocking API: <code class="docutils literal"><span class="pre">20000</span> <span class="pre">query/s</span></code></li>
+<li>Non-blocking API: <code class="docutils literal"><span class="pre">11ms</span></code> or <code class="docutils literal"><span class="pre">85</span> <span class="pre">query/s</span></code> (due to NPL time slice)</li>
+<li>i.e. Round strip means start next operation after previous one is returned. This is latency test.</li>
+</ul>
+</li>
+<li>Random indexed inserts: <code class="docutils literal"><span class="pre">17953</span> <span class="pre">query/s</span></code><ul>
+<li>i.e. start next operation immediately, without waiting for the first one to return.</li>
+</ul>
+</li>
+<li>Random select with auto-index: <code class="docutils literal"><span class="pre">18761</span> <span class="pre">query/s</span></code><ul>
+<li>i.e. same as above, but with findOne operation.</li>
+</ul>
+</li>
+<li>Randomly mixing CRUD operations: <code class="docutils literal"><span class="pre">965-7518</span></code> query/s<ul>
+<li>i.e. same as above, but randomly calling Create/Read/Update/Delete (CRUD) on the same auto-indexed table.</li>
+<li>Mixing read/write can be slow when database grows bigger. e.g. you can get <code class="docutils literal"><span class="pre">18000</span> <span class="pre">CRUD/s</span></code> for just 10000 records.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="npl-web-server-performance">
+<span id="npl-web-server-performance"></span><h2>NPL Web Server Performance<a class="headerlink" href="#npl-web-server-performance" title="Permalink to this headline">¶</a></h2>
+<p>The following is done using ApacheBench (AB tool) with 5000 requests and 1000 concurrency on a 1 CPU 1GB memory virtual machine. The queried content is [[http://paracraft.wiki/]], which is a fairly standard dynamic web page.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>root@iZ62yqw316fZ:/opt/paracraftwiki# ab -n 5000 -c 1000 http://paracraft.wiki/
+This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking paracraft.wiki (be patient).....done
+
+Finished 5000 requests
+
+Server Software:        NPL/1.1
+Server Hostname:        paracraft.wiki
+Server Port:            80
+
+Document Path:          /
+Document Length:        24736 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   3.005 seconds
+Complete requests:      5000
+Failed requests:        0
+Write errors:           0
+Total transferred:      124730000 bytes
+HTML transferred:       123680000 bytes
+Requests per second:    1664.05 [#/sec] (mean)
+Time per request:       600.944 [ms] (mean)
+Time per request:       0.601 [ms] (mean, across all concurrent requests)
+Transfer rate:          40538.43 [Kbytes/sec] received
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>There are a few benchmark compare sites:</p>
+<ul class="simple">
+<li>[[https://github.com/attractivechaos/plb]]: [[algorithm compare |http://attractivechaos.github.io/plb/]]</li>
+<li><a class="reference external" href="https://github.com/TechEmpower/FrameworkBenchmarks">TechEmpower</a>: compare web server framework only</li>
+<li><a class="reference external" href="http://luajit.org/performance.html">Luajit Performance</a></li>
+<li><a class="reference external" href="http://benchmarksgame.alioth.debian.org/">Computer benchmark game</a>: No luajit.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Runtime Performance Compare</a><ul>
+<li><a class="reference internal" href="#high-performance-jit-compiler">High-Performance JIT Compiler</a><ul>
+<li><a class="reference internal" href="#compare-chart">Compare Chart</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-database-performance">NPL Database Performance</a><ul>
+<li><a class="reference internal" href="#run-with-conservative-mode">Run With Conservative Mode</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-web-server-performance">NPL Web Server Performance</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Resources.html" title="previous chapter">Use Links</a></li>
+      <li>Next: <a href="../ParaEngine.html" title="next chapter">ParaEngine</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPLPerformance.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPLPerformance.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

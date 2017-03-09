@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Web Server &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Server Page" href="NPLServerPage.html" />
+    <link rel="prev" title="Block Engine" href="BlockEngine.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-web-server">
+<span id="npl-web-server"></span><h1>NPL Web Server<a class="headerlink" href="#npl-web-server" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Click <a class="reference external" href="TutorialWebSite">here</a> for step-by-step tutorial to build a NPL web site.</div></blockquote>
+<p>NPL Runtime provides a build-in self-contained framework for writing web server applications in a way similar to <a class="reference external" href="http://php.net/">PHP</a>, yet with asynchronous API like <a class="reference external" href="https://nodejs.org/">NodeJs</a>.</p>
+<div class="section" id="why-write-web-servers-in-npl">
+<span id="why-write-web-servers-in-npl"></span><h2>Why Write Web Servers in NPL?<a class="headerlink" href="#why-write-web-servers-in-npl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="turning-async-code-into-synchronous-ones">
+<span id="turning-async-code-into-synchronous-ones"></span><h3>Turning Async Code Into Synchronous Ones<a class="headerlink" href="#turning-async-code-into-synchronous-ones" title="Permalink to this headline">¶</a></h3>
+<p>Many tasks on the server side has asynchronous API like database operations, remote procedure call, background tasks, timers, etc. Asynchronous API frees the processing thread from io-bound or long running task. Using asynchronous API (like those in <code class="docutils literal"><span class="pre">NodeJs</span></code>) makes web server fast, but difficult to write, as there are too many function callbacks that breaks the otherwise sequential and flat programming code.</p>
+<p>In NPL page file, any asynchronous API can be used as synchronous ones via <code class="docutils literal"><span class="pre">resume/yield</span></code>, so that constructing a web page is like writing a document sequentially like in <code class="docutils literal"><span class="pre">PHP</span></code>. Under the hood, it is still asynchronous API and the same worker thread can process thousands of requests per second even some of them takes a long time to finish. Following is a quick example show the idea.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;?
+local value = &quot;Not Set&quot;
+-- any async function with callback
+local mytimer = commonlib.Timer:new({callbackFunc = function(timer)
+   value = &quot;Set&quot;;
+   resume();
+end})
+-- start the timer after 1000 milliseconds
+mytimer:Change(1000, nil)
+
+-- async wait when job is done
+yield();
+assert(value == &quot;Set&quot;);
+</pre></div>
+</div>
+<p>Please note, <code class="docutils literal"><span class="pre">resume/yield</span></code> is NOT the ones as in multithreaded programming where locks and signals are involved. It is a special <code class="docutils literal"><span class="pre">coroutine</span></code> internally; the code is completely lock-free and the thread is <code class="docutils literal"><span class="pre">NOT</span></code> waiting but processing other URL requests. Please see [[NPLServerPage]] for details.</p>
+</div>
+<div class="section" id="self-contained-client-server-solution">
+<span id="self-contained-client-server-solution"></span><h3>Self-Contained Client/Server Solution<a class="headerlink" href="#self-contained-client-server-solution" title="Permalink to this headline">¶</a></h3>
+<p>NPL Web Server is fast and very easy to deploy on all platforms (no external dependencies even for databases). You may have a very sophisticated 3d client application, which may also be servers and/or web servers, such as <a class="reference external" href="http://www.paracraft.cn">Paracraft</a>.</p>
+<p>We believe, every software either running on central server farm or endpoints like home or mobile devices should be able to provide services via TCP connection and/or HTTP (web server). In many of our applications, a single software acts both as client and server. Very few existing programming language provides an easy way or architecture for sharing client and server side code or variables in a lock-free fashion due to multi-threaded (multi-process) nature of those web frameworks. Moreover, a server application is usually hard to deploy and config, making it difficult to install on home computers or mobile devices.</p>
+<p>NPL is a language to solve these problems and provides rich client side API as well as a web server framework that can service as many requests as professional web servers while sharing the entire runtime environment for your client and server code. See below.</p>
+</div>
+</div>
+<div class="section" id="programming-model-of-npl-web-server">
+<span id="programming-model-of-npl-web-server"></span><h2>Programming Model of NPL web server<a class="headerlink" href="#programming-model-of-npl-web-server" title="Permalink to this headline">¶</a></h2>
+<p>NPL Runtime provides a build-in framework for writing web server applications in a way similar to <a class="reference external" href="http://php.net/">PHP</a>.</p>
+<blockquote>
+<div>NPL Web Server recommends the async programming model like <a class="reference external" href="https://nodejs.org">Nodejs</a>, but without losing the simplicity of synchronous mixed code programming like in PHP.</div></blockquote>
+<p>Following is an example <code class="docutils literal"><span class="pre">helloworld.page</span></code> server page.</p>
+<p>|    |query database and wait for database result            | MVC Render |
+|&#8212;-|&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-|&#8212;&#8212;&#8212;&#8212;|
+| duration |95%                                              | 5%         |</p>
+<p>The processing of a web page usually consists of two phases.</p>
+<ul class="simple">
+<li>One is fetching data from database engine, which usually takes over 95% of the total time.</li>
+<li>The other is page rendering, which is CPU-bound and takes only 5% of total request time.</li>
+</ul>
+<p>With NPL&#8217;s <code class="docutils literal"><span class="pre">yield</span></code> method, it allows other web requests to be processed concurrently in the 90% interval while waiting database result on the <code class="docutils literal"><span class="pre">same</span></code> system-level thread. See following code to see how easy to mix async-code with template-based page rendering code. This allows us to serve <code class="docutils literal"><span class="pre">5000</span> <span class="pre">requests/sec</span></code> in a single NPL thread concurrently, even if each request takes 30ms seconds to fetch from database.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;NPL server page test. &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;
+    &lt;?npl
+        echo &quot;Hi, I&#39;m a NPL script!&quot;;
+    ?&gt;
+&lt;/p&gt;
+
+&lt;?
+-- connect to TableDatabase (a NoSQL db engine written in NPL)
+db = TableDatabase:new():connect(&quot;database/npl/&quot;, function() end);
+
+-- insert 5 records to database asynchronously.
+local finishedCount = 0;
+for i=1, 5 do
+    db.TestUser:insertOne({name=(&quot;user&quot;..i), password=&quot;1&quot;}, function(err, data)
+        finishedCount = finishedCount + 1;
+        if(finishedCount == 5) then
+            resume();
+        end
+    end);
+end
+yield(); -- async wait when job is done
+
+-- fetch all users from database asynchronously.
+db.TestUser:find({}, function(err, users)  resume(err, users); end);
+err, users = yield(); -- async wait when job is done
+?&gt;
+
+&lt;?npl for i, user in ipairs(users) do ?&gt;
+    i = &lt;?=i?&gt;, name=&lt;? echo(user.name) ?&gt; &lt;br/&gt;
+&lt;?npl end ?&gt;
+
+&lt;p&gt;
+    1.  &lt;?npl echo &#39;if you want to serve NPL code in XHTML or XML documents, use these tags&#39;; ?&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    2.  &lt;? echo &#39;this code is within short tags&#39;; ?&gt;
+    Code within these tags &lt;?= &#39;some text&#39; ?&gt; is a shortcut for this code &lt;? echo &#39;some text&#39; ?&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    3.  &lt;% echo &#39;You may optionally use ASP-style tags&#39;; %&gt;
+&lt;/p&gt;
+
+&lt;% nplinfo(); %&gt;
+
+&lt;% print(&quot;&lt;p&gt;filename: %s, dirname: %s&lt;/p&gt;&quot;, __FILE__, dirname(__FILE__)); %&gt;
+
+&lt;%
+some_global_var = &quot;this is global variable&quot;;
+
+-- include file in same directory
+include(&quot;test_include.page&quot;);
+-- include file relative to web root directory. however this will not print, because we use include_once, and the file is already included before.
+include_once(&quot;/test_include.page&quot;);
+-- include file using disk file path
+local result = include(dirname(__FILE__)..&quot;test_include.page&quot;);
+
+-- we can also get the result from included file
+echo(result);
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;% 
+--assert(false, &quot;uncomment to test runtime error&quot;);
+
+function test_exit()
+    exit(); 
+end
+test_exit();
+assert(false, &quot;can not reach here&quot;);
+%&gt;
+</pre></div>
+</div>
+<p>Content of <code class="docutils literal"><span class="pre">test_include.page</span></code> referenced in above server page is:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?</span><span class="nx">npl</span>
+
+<span class="k">echo</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;this is from included file: &quot;</span><span class="o">..</span><span class="p">(</span><span class="nx">some_global_var</span> <span class="k">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">..</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">);</span>
+
+<span class="o">--</span> <span class="nx">can</span> <span class="nx">also</span> <span class="nx">has</span> <span class="k">return</span> <span class="nx">value</span><span class="o">.</span> 
+<span class="k">return</span> <span class="s2">&quot;&lt;p&gt;from test_include.page&lt;/p&gt;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>The output of above server page, when viewed in a web browser, such as <code class="docutils literal"><span class="pre">http://localhost:8099/helloworld</span></code> is</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>NPL server page test. <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    Hi, I&#39;m a NPL script!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+    i = 1, name=user1 <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    i = 2, name=user2 <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    i = 3, name=user3 <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    i = 4, name=user4 <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    i = 5, name=user5 <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    1.  if you want to serve NPL code in XHTML or XML documents, use these tags<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    2.  this code is within short tags    Code within these tags some text is a shortcut for this code some text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    3.  You may optionally use ASP-style tags<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>NPL web server v1.0<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>site url: http://localhost:8099/<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>your ip: 127.0.0.1<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;Host&quot;]=&quot;localhost:8099&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;rcode&quot;]=0,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;Connection&quot;]=&quot;keep-alive&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;Accept&quot;]=&quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;Accept-Encoding&quot;]=&quot;gzip, deflate, sdch&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;method&quot;]=&quot;GET&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;body&quot;]=&quot;&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;tid&quot;]=&quot;~1&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;url&quot;]=&quot;/helloworld.page&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;User-Agent&quot;]=&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;Upgrade-Insecure-Requests&quot;]=&quot;1&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>[&quot;Accept-Language&quot;]=&quot;en-US,en;q=0.8&quot;,
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>}
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>filename: script/apps/WebServer/test/helloworld.page, dirname: script/apps/WebServer/test/<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>this is from included file: this is global variable<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>this is from included file: this is global variable<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>from test_include.page<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="web-server-source-code">
+<span id="web-server-source-code"></span><h3>Web Server Source Code<a class="headerlink" href="#web-server-source-code" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script/apps/WebServer">script/apps/WebServer</a>: implementation of a web server (like Apache) in NPL.</li>
+<li><a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script/apps/WebServer/WebServer.lua">script/apps/WebServer/WebServer.lua</a>: entry file</li>
+<li><a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script/apps/WebServer/admin">script/apps/WebServer/admin</a>: A php-like web site framework in NPL. See [[AdminSiteFramework]] for details</li>
+</ul>
+</div>
+</div>
+<div class="section" id="introduction">
+<span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The NPL web server implementation uses NPL&#8217;s own messaging system, and is written in pure NPL scripts without any external dependencies. It allows you to create web site built with NPL Runtime on the back-end and <code class="docutils literal"><span class="pre">JavaScript/HTML5</span></code> on the client.</p>
+<p><code class="docutils literal"><span class="pre">NPL</span> <span class="pre">language</span> <span class="pre">service</span></code> plugins for visual studio (community edition is free) provides a good coding environment.
+See below:
+<img alt="npllanguageservice_page" src="https://cloud.githubusercontent.com/assets/94537/13956032/eaf41412-f081-11e5-92dd-0ccd2e091bd1.png" /></p>
+</div>
+<div class="section" id="website-examples">
+<span id="website-examples"></span><h2>Website Examples<a class="headerlink" href="#website-examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/NPLPackages/WebServerExample">WebServerExample</a>: a sample web site with NPL code wiki</li>
+<li><a class="reference external" href="https://github.com/tatfook/wikicraft">Wikicraft</a>: full website example</li>
+<li><code class="docutils literal"><span class="pre">script/apps/WebServer/admin</span></code> is a NPL based web site framework similar to the famous <code class="docutils literal"><span class="pre">WordPress.org</span></code>. It is recommended that you xcopy all files in it to your own web root directory and work from there. See [[AdminSiteFramework]] for details.</li>
+<li><code class="docutils literal"><span class="pre">script/apps/WebServer/test</span></code> is a test site, where you can see the test code.</li>
+</ul>
+</div>
+<div class="section" id="starting-a-web-server-programmatically">
+<span id="starting-a-web-server-programmatically"></span><h2>starting a web server programmatically<a class="headerlink" href="#starting-a-web-server-programmatically" title="Permalink to this headline">¶</a></h2>
+<p>Starting server from a web root directory:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/apps/WebServer/WebServer.lua&quot;</span><span class="p">);</span>
+    <span class="n">WebServer</span><span class="p">:</span><span class="n">Start</span><span class="p">(</span><span class="s2">&quot;script/apps/WebServer/test&quot;</span><span class="p">,</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8099</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Open <code class="docutils literal"><span class="pre">http://localhost:8099/helloworld.lua</span></code> in your web browser to test. See <code class="docutils literal"><span class="pre">log.txt</span></code> for details.</p>
+<p>There can be a <code class="docutils literal"><span class="pre">webserver.config.xml</span></code> file in the web root directory. see below.
+if no config file is found, <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/apps/WebServer/default.webserver.config.xml"><code class="docutils literal"><span class="pre">default.webserver.config.xml</span></code></a> is used, which will redirect all request without extension to <code class="docutils literal"><span class="pre">index.page</span></code> and serve *.lua, *.page, and all static files in the root directory and it will also host NPL code wiki at [[http://127.0.0.1:8099]].</p>
+<div class="section" id="starting-a-web-server-from-command-line">
+<span id="starting-a-web-server-from-command-line"></span><h3>starting a web server from command line<a class="headerlink" href="#starting-a-web-server-from-command-line" title="Permalink to this headline">¶</a></h3>
+<p>You can bootstrap a webserver using the buildin file, run following commmand:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;script/apps/WebServer/WebServer.lua&quot;</span>  <span class="n">port</span><span class="o">=</span><span class="s2">&quot;8099&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>config: can be omitted which defaults to <code class="docutils literal"><span class="pre">config/WebServer.config.xml</span></code> in current directory</li>
+</ul>
+</div>
+<div class="section" id="web-server-configuration-file">
+<span id="web-server-configuration-file"></span><h3>Web Server configuration file<a class="headerlink" href="#web-server-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>More info, see <code class="docutils literal"><span class="pre">script/apps/WebServer/test/webserver.config.xml</span></code></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="c">&lt;!-- web server configuration file: this node can be child node, thus embedded in shared xml --&gt;</span>
+<span class="nt">&lt;WebServer&gt;</span>
+  <span class="c">&lt;!--which HTTP ip and port this server listens to. --&gt;</span>
+  <span class="nt">&lt;servers&gt;</span>
+    <span class="c">&lt;!-- @param host, port: which ip port to listen to. if * it means all. --&gt;</span>
+    <span class="nt">&lt;server</span> <span class="na">host=</span><span class="s">&quot;*&quot;</span> <span class="na">port=</span><span class="s">&quot;8099&quot;</span> <span class="na">host_state_name=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;defaultHost</span> <span class="na">rules_id=</span><span class="s">&quot;simple_rule&quot;</span><span class="nt">&gt;&lt;/defaultHost&gt;</span>
+      <span class="nt">&lt;virtualhosts&gt;</span>
+        <span class="c">&lt;!-- force &quot;http://127.0.0.1/&quot; to match to iternal npl_code_wiki site for debugging  --&gt;</span>
+        <span class="nt">&lt;host</span> <span class="na">name=</span><span class="s">&quot;127.0.0.1:8099&quot;</span> <span class="na">rules_id=</span><span class="s">&quot;npl_code_wiki&quot;</span> <span class="na">allow=</span><span class="s">&#39;{&quot;127.0.0.1&quot;}&#39;</span><span class="nt">&gt;&lt;/host&gt;</span>
+      <span class="nt">&lt;/virtualhosts&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+  <span class="nt">&lt;/servers&gt;</span>
+  <span class="c">&lt;!--rules used when starting a web server. Multiple rules with different id can be defined. --&gt;</span> 
+  <span class="nt">&lt;rules</span> <span class="na">id=</span><span class="s">&quot;simple_rule&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--URI remapping example--&gt;</span>
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&#39;{&quot;^[^%.]+$&quot;, &quot;robots.txt&quot;}&#39;</span> <span class="na">with=</span><span class="s">&quot;WebServer.redirecthandler&quot;</span> <span class="na">params=</span><span class="s">&#39;{&quot;/index.page&quot;}&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+    <span class="c">&lt;!--npl script example--&gt;</span>
+    <span class="c">&lt;!--&lt;rule match=&quot;%.lua$&quot; with=&quot;WebServer.makeGenericHandler&quot; params=&#39;{docroot=&quot;script/apps/WebServer/test&quot;, params={}, extra_vars=nil}&#39;&gt;&lt;/rule&gt;--&gt;</span>
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&#39;{&quot;%.lua$&quot;, &quot;%.npl$&quot;}&#39;</span> <span class="na">with=</span><span class="s">&quot;WebServer.npl_script_handler&quot;</span> <span class="na">params=</span><span class="s">&#39;%CD%&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+    <span class="c">&lt;!--npl server page example--&gt;</span>
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;%.page$&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.npl_page_handler&quot;</span> <span class="na">params=</span><span class="s">&#39;%CD%&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+    <span class="c">&lt;!--filehandler example, base dir is where the root file directory is. %CD% means current file&#39;s directory--&gt;</span>
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;.&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.filehandler&quot;</span> <span class="na">params=</span><span class="s">&#39;{baseDir = &quot;%CD%&quot;}&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+  <span class="nt">&lt;/rules&gt;</span>
+<span class="nt">&lt;/WebServer&gt;</span>
+</pre></div>
+</div>
+<p>Each server can have a default host and multiple virtual hosts.  Each host must be associated with a rule_id.
+The rule_id is looked up in the rules node, which contains multiple rules specifying how request url is mapped to their handlers. <code class="docutils literal"><span class="pre">npl_code_wiki</span></code> is an internal rule_id which is usually used for host <code class="docutils literal"><span class="pre">http://127.0.0.1:8099/</span></code> for debugging purposes only, see above example code. If you changed your port number, you need to update the config file accordingly, otherwise <code class="docutils literal"><span class="pre">npl_code_wiki</span></code> will not be available.</p>
+<p>Each rule contains three attributes: match, with and params.</p>
+<ul class="simple">
+<li>&#8220;match&#8221; is a regular expresion string or a array table of reg strings like shown in above sample code.</li>
+<li>&#8220;with&#8221; is a handler function which will be called when url matches &#8220;match&#8221;.
+More precisely, it is handler function maker, that returns the real handler function(request, response) end.
+When rules are compiled at startup time, these maker functions are called just once to generate the actual handler function.</li>
+<li>&#8220;params&#8221; is an optional string or table that will be passed to the handler maker function to generate the real handler function.</li>
+</ul>
+<p>The rules are applied in sequential order as they appeared in the config file.
+So they are usually defined in the order of redirectors, dynamic scripts, file handlers.</p>
+</div>
+</div>
+<div class="section" id="handler-makers">
+<span id="handler-makers"></span><h2>Handler Makers<a class="headerlink" href="#handler-makers" title="Permalink to this headline">¶</a></h2>
+<p>Some common handlers are implemented in <code class="docutils literal"><span class="pre">common_handlers.lua</span></code>. Some of the most important ones are listed below</p>
+</div>
+<div class="section" id="webserver-redirecthandler">
+<span id="webserver-redirecthandler"></span><h2>WebServer.redirecthandler<a class="headerlink" href="#webserver-redirecthandler" title="Permalink to this headline">¶</a></h2>
+<p>It is the url redirect handler. it generate a handler that replaces &#8220;match&#8221; with &#8220;params&#8221;</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;^[^%./]*/$&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.redirecthandler&quot;</span> <span class="na">params=</span><span class="s">&#39;{&quot;readme.txt&quot;}&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+</pre></div>
+</div>
+<p>The above will redirect <code class="docutils literal"><span class="pre">http://localhost:8080/</span></code> to <code class="docutils literal"><span class="pre">http://localhost:8080/readme.txt</span></code>.</p>
+</div>
+<div class="section" id="webserver-filehandler">
+<span id="webserver-filehandler"></span><h2>WebServer.filehandler<a class="headerlink" href="#webserver-filehandler" title="Permalink to this headline">¶</a></h2>
+<p>It generate a handler that serves files in the directory specified in &#8220;params&#8221; or &#8220;params.baseDir&#8221;.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;.&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.filehandler&quot;</span> <span class="na">params=</span><span class="s">&#39;{baseDir = &quot;script/apps/WebServer&quot;}&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+    alternatively:
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;.&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.filehandler&quot;</span> <span class="na">params=</span><span class="s">&#39;script/apps/WebServer&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+</pre></div>
+</div>
+<p>The above will map <code class="docutils literal"><span class="pre">http://localhost:8080/readme.txt</span></code> to the disk file <code class="docutils literal"><span class="pre">script/apps/WebServer/readme.txt</span></code></p>
+</div>
+<div class="section" id="webserver-npl-script-handler">
+<span id="webserver-npl-script-handler"></span><h2>WebServer.npl_script_handler<a class="headerlink" href="#webserver-npl-script-handler" title="Permalink to this headline">¶</a></h2>
+<p>Currently it is the same as WebServer.makeGenericHandler.
+In future we will support remote handlers that runs in another thread asynchrounously.
+So it is recommended for user to use this function instead of WebServer.makeGenericHandler
+serving request using npl files to generate dynamic response. This is very useful for REST-like web service in XML or json format.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;%.lua$&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.npl_script_handler&quot;</span> <span class="na">params=</span><span class="s">&#39;script/apps/WebServer/test&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+    alternatively:
+    <span class="nt">&lt;rule</span> <span class="na">match=</span><span class="s">&quot;%.lua$&quot;</span> <span class="na">with=</span><span class="s">&quot;WebServer.npl_script_handler&quot;</span> <span class="na">params=</span><span class="s">&#39;{docroot=&quot;script/apps/WebServer/test&quot;}&#39;</span><span class="nt">&gt;&lt;/rule&gt;</span>
+</pre></div>
+</div>
+<p>The above will map <code class="docutils literal"><span class="pre">http://localhost:8080/helloworld.lua</span></code> to the script file <code class="docutils literal"><span class="pre">script/apps/WebServer/test/helloworld.lua</span></code></p>
+</div>
+<div class="section" id="caching-on-npl-web-server">
+<span id="caching-on-npl-web-server"></span><h2>Caching on NPL Web Server<a class="headerlink" href="#caching-on-npl-web-server" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>We use <code class="docutils literal"><span class="pre">File</span> <span class="pre">Monitor</span> <span class="pre">API</span></code> to monitor all file changes in web root directory.</li>
+<li>For dynamic page files: recompile dynamic page if changed. All compiled *.page code is always in cache. So multiple requests calling the same page file only compile once.</li>
+<li>For static files: everything is cached in either original or gzip-format ready for direct HTTP response. All static files are served using a separate NPL thread to prevent IO affecting the main thread.</li>
+</ol>
+<blockquote>
+<div>for more advanced file caching, one may consider using <code class="docutils literal"><span class="pre">nginx</span></code> as the gateway load balancer.</div></blockquote>
+<div class="section" id="caching-in-application-code">
+<span id="caching-in-application-code"></span><h3>Caching in Application Code<a class="headerlink" href="#caching-in-application-code" title="Permalink to this headline">¶</a></h3>
+<p>For caching in local thread, there is a helper class called <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/tree/master/src/script/apps/WebServer/mem_cache.lua">mem_cache</a>.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/apps/WebServer/mem_cache.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">mem_cache</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;WebServer.mem_cache&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">obj_cache</span> <span class="o">=</span> <span class="n">mem_cache</span><span class="p">:</span><span class="n">GetInstance</span><span class="p">();</span>
+<span class="n">obj_cache</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">obj_cache</span><span class="p">:</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;value1&quot;</span><span class="p">)</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">obj_cache</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;value1&quot;</span><span class="p">);</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">obj_cache</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">nil</span><span class="p">);</span>
+<span class="n">obj_cache</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">)</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">obj_cache</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="caching-in-different-computer">
+<span id="caching-in-different-computer"></span><h4>Caching in different computer<a class="headerlink" href="#caching-in-different-computer" title="Permalink to this headline">¶</a></h4>
+<p>TODO: <code class="docutils literal"><span class="pre">mem_cache</span></code> can be configured to read/write data from a remote computer.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Web Server</a><ul>
+<li><a class="reference internal" href="#why-write-web-servers-in-npl">Why Write Web Servers in NPL?</a><ul>
+<li><a class="reference internal" href="#turning-async-code-into-synchronous-ones">Turning Async Code Into Synchronous Ones</a></li>
+<li><a class="reference internal" href="#self-contained-client-server-solution">Self-Contained Client/Server Solution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#programming-model-of-npl-web-server">Programming Model of NPL web server</a><ul>
+<li><a class="reference internal" href="#web-server-source-code">Web Server Source Code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#website-examples">Website Examples</a></li>
+<li><a class="reference internal" href="#starting-a-web-server-programmatically">starting a web server programmatically</a><ul>
+<li><a class="reference internal" href="#starting-a-web-server-from-command-line">starting a web server from command line</a></li>
+<li><a class="reference internal" href="#web-server-configuration-file">Web Server configuration file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#handler-makers">Handler Makers</a></li>
+<li><a class="reference internal" href="#webserver-redirecthandler">WebServer.redirecthandler</a></li>
+<li><a class="reference internal" href="#webserver-filehandler">WebServer.filehandler</a></li>
+<li><a class="reference internal" href="#webserver-npl-script-handler">WebServer.npl_script_handler</a></li>
+<li><a class="reference internal" href="#caching-on-npl-web-server">Caching on NPL Web Server</a><ul>
+<li><a class="reference internal" href="#caching-in-application-code">Caching in Application Code</a><ul>
+<li><a class="reference internal" href="#caching-in-different-computer">Caching in different computer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="BlockEngine.html" title="previous chapter">Block Engine</a></li>
+      <li>Next: <a href="NPLServerPage.html" title="next chapter">NPL Server Page</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/WebServer.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/WebServer.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

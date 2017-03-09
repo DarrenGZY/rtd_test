@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_file_system_watcher" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaFileSystemWatcher</compoundname>
+    <includes refid="_para_scripting_i_o_8h" local="no">ParaScriptingIO.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_file_system_watcher_1a7728665a355c58427b734769a195ebe9" prot="public" static="no" mutable="no">
+        <type>CFileSystemWatcher *</type>
+        <definition>CFileSystemWatcher* ParaScripting::ParaFileSystemWatcher::m_watcher</definition>
+        <argsstring></argsstring>
+        <name>m_watcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="53" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_system_watcher_1ad7b7bc8c4c4c7bf18ac13697fcb9a876" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFileSystemWatcher::ParaFileSystemWatcher</definition>
+        <argsstring>()</argsstring>
+        <name>ParaFileSystemWatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="23" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1868" bodyend="1871"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_system_watcher_1ac5801ab6e0e09cb99e78a759db55d31e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFileSystemWatcher::ParaFileSystemWatcher</definition>
+        <argsstring>(CFileSystemWatcher *watcher)</argsstring>
+        <name>ParaFileSystemWatcher</name>
+        <param>
+          <type>CFileSystemWatcher *</type>
+          <declname>watcher</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="28" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1879" bodyend="1882"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_system_watcher_1aa5ffd8f4c48126e9ed81eaa1db523208" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileSystemWatcher::AddDirectory</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>AddDirectory</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a directory to monitor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="32" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1815" bodyend="1821"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_system_watcher_1aebe6b321afd1b7bae67fc1af58f98363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileSystemWatcher::RemoveDirectory</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>RemoveDirectory</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove a directory from monitor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="34" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1823" bodyend="1829"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_system_watcher_1a7302c146db98fbff7ceddf5cb7b7cae2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileSystemWatcher::AddCallback</definition>
+        <argsstring>(const char *sCallbackScript)</argsstring>
+        <name>AddCallback</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCallbackScript</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the call back script will be invoked with a global msg msg = {type=[0,5], dirname=string, filename=string}, where type can be { null = 0, added = 1, removed = 2, modified = 3, renamed_old_name = 4, renamed_new_name = 5 }; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="48" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1859" bodyend="1865"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>file system watcher to monitor file changes in one or several directories .NET also provides a class similar to this one, called FileSystemWatcher. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.h" line="21" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="20" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_file_system_watcher_1a7302c146db98fbff7ceddf5cb7b7cae2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileSystemWatcher</scope><name>AddCallback</name></member>
+      <member refid="class_para_scripting_1_1_para_file_system_watcher_1aa5ffd8f4c48126e9ed81eaa1db523208" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileSystemWatcher</scope><name>AddDirectory</name></member>
+      <member refid="class_para_scripting_1_1_para_file_system_watcher_1a7728665a355c58427b734769a195ebe9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileSystemWatcher</scope><name>m_watcher</name></member>
+      <member refid="class_para_scripting_1_1_para_file_system_watcher_1ad7b7bc8c4c4c7bf18ac13697fcb9a876" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileSystemWatcher</scope><name>ParaFileSystemWatcher</name></member>
+      <member refid="class_para_scripting_1_1_para_file_system_watcher_1ac5801ab6e0e09cb99e78a759db55d31e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileSystemWatcher</scope><name>ParaFileSystemWatcher</name></member>
+      <member refid="class_para_scripting_1_1_para_file_system_watcher_1aebe6b321afd1b7bae67fc1af58f98363" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileSystemWatcher</scope><name>RemoveDirectory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

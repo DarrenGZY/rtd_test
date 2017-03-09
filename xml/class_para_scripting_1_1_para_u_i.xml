@@ -1,0 +1,1018 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_u_i" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaUI</compoundname>
+    <includes refid="_para_scripting_g_u_i_8h" local="no">ParaScriptingGUI.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1ad9de1dcba788a1aa4e8fe92348e1ec93" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::PlaySound</definition>
+        <argsstring>(const char *strSoundAssetName, bool bLoop)</argsstring>
+        <name>PlaySound</name>
+        <param>
+          <type>const char *</type>
+          <declname>strSoundAssetName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bLoop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Play a sound file <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sound object name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="836" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2544" bodyend="2554"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1acebd376d979b654ff89df79d318ec82a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::StopSound</definition>
+        <argsstring>(const char *strSoundAssetName)</argsstring>
+        <name>StopSound</name>
+        <param>
+          <type>const char *</type>
+          <declname>strSoundAssetName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stop playing a sound file. one can use this function to stop playing looping sound such as a background music. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sound object name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="843" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2555" bodyend="2564"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a9224b83cab1d9732b12de8a6bd83fa4f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::Destroy</definition>
+        <argsstring>(const char *strObjectName)</argsstring>
+        <name>Destroy</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete a GUI object as well as all its child objects, by it name. If there are several objects who have the same id, only the last attached one is deleted. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="850" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2566" bodyend="2569"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a0585ec793bbac106955bcebb274d229a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::Destroy1</definition>
+        <argsstring>(int nID)</argsstring>
+        <name>Destroy1</name>
+        <param>
+          <type>int</type>
+          <declname>nID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete a GUI object as well as all its child objects, by it name. If there are several objects who have the same id, only the last attached one is deleted. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="856" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2571" bodyend="2574"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a2c1d5d664c7c19c65e8a88dcd5cb0d13" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::DestroyUIObject</definition>
+        <argsstring>(ParaUIObject &amp;obj)</argsstring>
+        <name>DestroyUIObject</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>destroy an UI object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="859" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2576" bodyend="2580"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1aba4b5e53266007e77692993fb1afdbff" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::PostDestroy</definition>
+        <argsstring>(const char *strObjectName)</argsstring>
+        <name>PostDestroy</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete at the end of frame. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="864" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2582" bodyend="2588"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a6481be3b9220509647bf56163d5e2a84" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref></type>
+        <definition>ParaUIObject ParaScripting::ParaUI::GetUIObject_any</definition>
+        <argsstring>(const object &amp;NameOrID)</argsstring>
+        <name>GetUIObject_any</name>
+        <param>
+          <type>const object &amp;</type>
+          <declname>NameOrID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get GUI object by name or ID</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>NameOrID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if it is string, we will get the first GUI object that matches the name. If name is &quot;root&quot;, the root object is returned. if it is number , we will get the object by its ID. NameOrID is then the id property value or result of GetID() from a UI object. If this is 0, the root object is returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="873" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2590" bodyend="2604"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1af4a73c6e751bf84dd5968aacde373ebd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref></type>
+        <definition>ParaUIObject ParaScripting::ParaUI::GetUIObject</definition>
+        <argsstring>(const char *Name)</argsstring>
+        <name>GetUIObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="874" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2606" bodyend="2609"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1aebee41324f46c3095eee6ad64e6ca0aa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref></type>
+        <definition>ParaUIObject ParaScripting::ParaUI::GetUIObjectAtPoint</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>GetUIObjectAtPoint</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the first GUI object at the given coordinates  x: x coordinate  y: y coordinate </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="881" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2617" bodyend="2621"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a937f78ee8e540a25f5e8b9bf3806dd3f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::GetMousePosition</definition>
+        <argsstring>(float &amp;x, float &amp;y)</argsstring>
+        <name>GetMousePosition</name>
+        <param>
+          <type>float &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current mouse position. e.g. local x,y = <ref refid="class_para_scripting_1_1_para_u_i_1a937f78ee8e540a25f5e8b9bf3806dd3f" kindref="member">ParaUI.GetMousePosition()</ref>; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&amp;x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen x </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&amp;y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen y </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="889" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2525" bodyend="2531"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a83a61449c1674b7262b121ac8f15ab01" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetMousePosition</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>SetMousePosition</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="891" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2533" bodyend="2536"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1acd9242581e2c7bb5d111a668afb8aa24" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::IsKeyPressed</definition>
+        <argsstring>(int nDikScanCode)</argsstring>
+        <name>IsKeyPressed</name>
+        <param>
+          <type>int</type>
+          <declname>nDikScanCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="897" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2874" bodyend="2882"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a20ceaf315cb6aa15e1814369bb39df1f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::IsMousePressed</definition>
+        <argsstring>(int nButton)</argsstring>
+        <name>IsMousePressed</name>
+        <param>
+          <type>int</type>
+          <declname>nButton</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="908" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2884" bodyend="2892"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a4b36b52312d903590f3ea9a287d631e7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref></type>
+        <definition>ParaUIObject ParaScripting::ParaUI::CreateUIObject</definition>
+        <argsstring>(const char *strType, const char *strObjectName, const char *alignment, int x, int y, int width, int height)</argsstring>
+        <name>CreateUIObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>strType</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>alignment</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a GUI object based on the default template object. All default template object is defined in &quot;script/config.lua&quot;, which will be loaded when GUI engine is loaded. One can change template object at runtime by <ref refid="class_para_scripting_1_1_para_u_i_1a5304da0c1d637b40e947ef6e3540f11b" kindref="member">GetDefaultObject()</ref>. <simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_u_i_1a5304da0c1d637b40e947ef6e3540f11b" kindref="member">GetDefaultObject()</ref> Although it is possible to create many objects with the same name, we do not advice you to do so. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the new object. It can be &quot;container&quot;, &quot;button&quot;, &quot;scrollbar&quot;, &quot;editbox&quot;, &quot;imeeditbox&quot;,&quot;slider&quot;, &quot;video&quot;, &quot;3dcanvas&quot;, &quot;listbox&quot;, &quot;painter&quot; and &quot;text&quot;. &quot;container&quot; is the only type of control that can contain other objects </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new object&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alignment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>can be one of the following strings or nil or left out entirely:<itemizedlist>
+<listitem><para>&quot;_lt&quot; align to left top of the screen</para></listitem><listitem><para>&quot;_lb&quot; align to left bottom of the screen</para></listitem><listitem><para>&quot;_ct&quot; align to center of the screen</para></listitem><listitem><para>&quot;_ctt&quot;: align to center top of the screen</para></listitem><listitem><para>&quot;_ctb&quot;: align to center bottom of the screen</para></listitem><listitem><para>&quot;_ctl&quot;: align to center left of the screen</para></listitem><listitem><para>&quot;_ctr&quot;: align to center right of the screen</para></listitem><listitem><para>&quot;_rt&quot; align to right top of the screen</para></listitem><listitem><para>&quot;_rb&quot; align to right bottom of the screen</para></listitem><listitem><para>&quot;_mt&quot;: align to middle top</para></listitem><listitem><para>&quot;_ml&quot;: align to middle left</para></listitem><listitem><para>&quot;_mr&quot;: align to middle right</para></listitem><listitem><para>&quot;_mb&quot;: align to middle bottom</para></listitem><listitem><para>&quot;_fi&quot;: align to left top and right bottom. This is like fill in the parent window.</para></listitem></itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+the layout is given below:<linebreak/>
+ _lt _mt _rt <linebreak/>
+ _ml _ct _mr <linebreak/>
+ _lb _mb _rb <linebreak/>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen coordinate x, for _m? alignments, the meaning is different, see remark </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen coordinate y, for _m? alignments, the meaning is different, see remark </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen coordinate width or right, depending on alignment mode, for _m? alignments, the meaning is different, see remark </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>screen coordinate height or bottom, depending on alignment mode, for _m? alignments, the meaning is different, see remark </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para>: we design _m? alignment types. _mt: x is coordinate from the left. y is coordinate from the top, width is the coordinate from the right and height is the height _mb: x is coordinate from the left. y is coordinate from the bottom, width is the coordinate from the right and height is the height _ml: x is coordinate from the left. y is coordinate from the top, width is the width and height is the coordinate from the bottom _mr: x is coordinate from the right. y is coordinate from the top, width is the width and height is the coordinate from the bottom </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="948" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2624" bodyend="2688"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1ad3c33edb719f27fbbe906e9f2fe596b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref></type>
+        <definition>ParaScripting::ParaUIObject ParaScripting::ParaUI::GetTopLevelControl</definition>
+        <argsstring>()</argsstring>
+        <name>GetTopLevelControl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the top level control at level 0 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="953" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2611" bodyend="2615"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a5304da0c1d637b40e947ef6e3540f11b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref></type>
+        <definition>ParaUIObject ParaScripting::ParaUI::GetDefaultObject</definition>
+        <argsstring>(const char *strType)</argsstring>
+        <name>GetDefaultObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>strType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the default template object from which all sub-sequent controls of the same type are cloned(created). one can modify the template object at runtime to change of the theme of all controls created subsequently. All default template object is defined in &quot;script/config.lua&quot;, which will be loaded when GUI engine is loaded <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>It can be &quot;container&quot;, &quot;button&quot;, &quot;scrollbar&quot;, &quot;editbox&quot;, &quot;imeeditbox&quot;,&quot;slider&quot; and &quot;text&quot;. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the template object is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="963" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2690" bodyend="2693"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a690bd6cfd8dc290eead6f3453c6d5560" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetCursorFont</definition>
+        <argsstring>(const char *fontname, const char *strColor, DWORD transparency)</argsstring>
+        <name>SetCursorFont</name>
+        <param>
+          <type>const char *</type>
+          <declname>fontname</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strColor</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>transparency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>@ obsoleted. Set Mouse Cursor appearance </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="965" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2695" bodyend="2710"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1af0321c182aae940b2c53f303cb1dec2e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetCursorTexture</definition>
+        <argsstring>(const char *texturename, const char *strColor, DWORD transparency)</argsstring>
+        <name>SetCursorTexture</name>
+        <param>
+          <type>const char *</type>
+          <declname>texturename</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>strColor</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>transparency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>. Set Mouse Cursor appearance </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="967" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2722" bodyend="2738"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a45a48a77968ae5c7daf5076f7c3cc926" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetCursorText</definition>
+        <argsstring>(const char *strText)</argsstring>
+        <name>SetCursorText</name>
+        <param>
+          <type>const char *</type>
+          <declname>strText</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>. Set Mouse Cursor appearance </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="969" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2741" bodyend="2749"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a1adf106a894d68b8d1ac93f5593b0b00" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetCursorFromFile</definition>
+        <argsstring>(const char *szCursor, int XHotSpot, int YHotSpot)</argsstring>
+        <name>SetCursorFromFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>szCursor</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>XHotSpot</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>YHotSpot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current cursor to use. One can call very often, since it will does nothing with identical cursor file and hot spot. Typically, hardware supports only 32x32 cursors and, when windowed, the system might support only 32x32 cursors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>szCursor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cursor file name: The contents of this texture will be copied and potentially format-converted into an internal buffer from which the cursor is displayed. The dimensions of this surface must be less than the dimensions of the display mode, and must be a power of two in each direction, although not necessarily the same power of two. The alpha channel must be either 0.0 or 1.0. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>XHotSpot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in] X-coordinate offset (in pixels) that marks the center of the cursor. The offset is relative to the upper-left corner of the cursor. When the cursor is given a new position, the image is drawn at an offset from this new position determined by subtracting the hot spot coordinates from the position. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>YHotSpot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in] Y-coordinate offset (in pixels) that marks the center of the cursor. The offset is relative to the upper-left corner of the cursor. When the cursor is given a new position, the image is drawn at an offset from this new position determined by subtracting the hot spot coordinates from the position. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="977" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2751" bodyend="2757"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1ab872894993f54ede1ed2e92faba1547f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetCursorFromFile_</definition>
+        <argsstring>(const char *szCursor)</argsstring>
+        <name>SetCursorFromFile_</name>
+        <param>
+          <type>const char *</type>
+          <declname>szCursor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>same as above, with hot spot (0,0) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="979" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2759" bodyend="2765"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a93803e73f61da6ce3970c2ea90671e45" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaUI::GetCursorFile</definition>
+        <argsstring>()</argsstring>
+        <name>GetCursorFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="984" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2767" bodyend="2774"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a0856044066cde690dce23fcda9ff3e4e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetUseSystemCursor</definition>
+        <argsstring>(bool bUseSystem)</argsstring>
+        <name>SetUseSystemCursor</name>
+        <param>
+          <type>bool</type>
+          <declname>bUseSystem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether to use system cursor. If this is true, d3d hardware cursor is not shown, even you have loaded an cursor icon using SetCursorFromFile. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="987" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2712" bodyend="2715"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a3d2044101869f99bd9959bb1501d2eda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::GetUseSystemCursor</definition>
+        <argsstring>()</argsstring>
+        <name>GetUseSystemCursor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get whether to use system cursor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="990" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2717" bodyend="2720"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a2011e9a129e93e63f680b37fbc3c84c2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaUI::ToScript</definition>
+        <argsstring>()</argsstring>
+        <name>ToScript</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>to NPL script. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="993" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2776" bodyend="2779"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1ab2c93dac554bc5e0b31ef362b87ee51a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::SaveLayout</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>SaveLayout</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>save current layout to file <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>*filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1000" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2782" bodyend="2797"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a3c2b5b470b636e6a9629b5678b45693f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetDesignTime</definition>
+        <argsstring>(bool bDesign)</argsstring>
+        <name>SetDesignTime</name>
+        <param>
+          <type>bool</type>
+          <declname>bDesign</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether to enable edit mode for all controls. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bDesign</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1006" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2799" bodyend="2802"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1ab0df232757f64cb7aa05490dd41a436f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::ShowCursor</definition>
+        <argsstring>(bool bShow)</argsstring>
+        <name>ShowCursor</name>
+        <param>
+          <type>bool</type>
+          <declname>bShow</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>show cursor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bShow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1012" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2804" bodyend="2807"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1ab3fb953a6e1802d588c7e533361a7d2d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::LockMouse</definition>
+        <argsstring>(bool bLock)</argsstring>
+        <name>LockMouse</name>
+        <param>
+          <type>bool</type>
+          <declname>bLock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lock Mouse so that mouse move will not change the mouse position. this is useful when user is changing camera view during mouse drag operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bLock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to lock </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1018" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2809" bodyend="2812"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a395641dd15de4571e9b1365563d21372" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::IsMouseLocked</definition>
+        <argsstring>()</argsstring>
+        <name>IsMouseLocked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check whether Mouse is locked. When mouse is locked, mouse move will not change the mouse position. this is useful when user is changing camera view during mouse drag operation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1023" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2814" bodyend="2817"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1acb301305b3df7dea4270c0042066bb55" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::ResetUI</definition>
+        <argsstring>()</argsstring>
+        <name>ResetUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>clear all UI objects. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1026" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2833" bodyend="2836"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1aa52bdeaf50337c53b44ab51f17c8af1d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetIMEOpenStatus</definition>
+        <argsstring>(bool bOpen)</argsstring>
+        <name>SetIMEOpenStatus</name>
+        <param>
+          <type>bool</type>
+          <declname>bOpen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function opens or closes the IME programmtically. In most cases, we should never programmatically open or closes IME, instead the user usually pressed Ctrl+Space to change it. however, in some rare cases, such as we are opening a windowed mode flash window, and wants to disable IME programmatically. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bOpen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to open. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1033" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2838" bodyend="2843"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a92e0d53f8fb97e65f254fe31a96e4d6a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::GetIMEOpenStatus</definition>
+        <argsstring>()</argsstring>
+        <name>GetIMEOpenStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if IME status is opened. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1036" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2845" bodyend="2852"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a5c3c1e519feaa6a05a0a54c770aa4104" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetUIScale</definition>
+        <argsstring>(float fScalingX, float fScalingY)</argsstring>
+        <name>SetUIScale</name>
+        <param>
+          <type>float</type>
+          <declname>fScalingX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fScalingY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the UI scaling. This can be useful to render 1024*768 to a 800*600 surface; we can set to fScalingX to 800/1024 and fScalingY to 600/768 calling this function will cause OnSize() and UpdateBackbufferSize() to be called. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fScalingX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x defaults to 1.0 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fScalingY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y defaults to 1.0 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1044" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2859" bodyend="2862"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a1fb8acb6f66f950f8c2ab9488cc82bd7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetMinimumScreenSize</definition>
+        <argsstring>(int nWidth, int nHeight, bool bAutoUIScaling)</argsstring>
+        <name>SetMinimumScreenSize</name>
+        <param>
+          <type>int</type>
+          <declname>nWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nHeight</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bAutoUIScaling</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the minimum screen size. if the backbuffer is smaller than this, we will use automatically use UI scaling for example, if minimum width is 1024, and backbuffer it 800, then m_fUIScalingX will be automatically set to 1024/800. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new width. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new height. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bAutoUIScaling</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>usually set to true. whether we will automatically recalculate the UI scaling accordingly with regard to current backbuffer size. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1052" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2854" bodyend="2857"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a2808fc1338360822a13d9b82c2b0e4be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::AddDragReceiver</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>AddDragReceiver</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add an receiver to the current receiver list during an drag operation. call this function on an dragable UI object&apos;s Begin Drag event handler. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name. if this is &quot;root&quot;, the dragging object can always to reattached. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1059" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2538" bodyend="2542"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1acc75feb7b0bdfa7cff7828ff63163e2c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaUI::SetToolTipBehavior</definition>
+        <argsstring>(const char *behavior)</argsstring>
+        <name>SetToolTipBehavior</name>
+        <param>
+          <type>const char *</type>
+          <declname>behavior</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>How tooltip is displayed <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>behavior</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>&quot;normal&quot; or &quot;flashing&quot;. default is &quot;normal&quot; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1066" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2819" bodyend="2831"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_u_i_1a37c957d8bbd5f8e2c1000aef8253f6ee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaUI::SetHighlightParam</definition>
+        <argsstring>(const char *szEffectName, const char *szParamName, const char *szParamValue)</argsstring>
+        <name>SetHighlightParam</name>
+        <param>
+          <type>const char *</type>
+          <declname>szEffectName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>szParamName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>szParamValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set Highlight Param. this is usually called in the start up configuration file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>szEffectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>szParamName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>szParamValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGUI.h" line="1075" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.cpp" bodystart="2864" bodyend="2872"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_u_i" kindref="compound">ParaUI</ref> namespace contains a list of HAPI functions to create user interface controls, such as windows, buttons, as well as event triggers. The main difference between the two is that (1) 2D GUI object are not tested against view frustum, instead its controlled by visibility tag automatically or through user input. (2) 2D GUI object generally does not obey the physical law of 3D world. (3) GUI object are generally specified by screen coordinates, instead of 3D position. (4) GUI object may be frequently created and discarded. If a object is discarded, so will its child objects. E.g. if one delete a window, all buttons, sensors, etc attach to it will also be discarded. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGUI.h" line="830" column="1" bodyfile="ParaScriptBindings/ParaScriptingGUI.h" bodystart="829" bodyend="1095"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_u_i_1a2808fc1338360822a13d9b82c2b0e4be" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>AddDragReceiver</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a4b36b52312d903590f3ea9a287d631e7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>CreateUIObject</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a9224b83cab1d9732b12de8a6bd83fa4f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>Destroy</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a0585ec793bbac106955bcebb274d229a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>Destroy1</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a2c1d5d664c7c19c65e8a88dcd5cb0d13" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>DestroyUIObject</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a93803e73f61da6ce3970c2ea90671e45" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetCursorFile</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a5304da0c1d637b40e947ef6e3540f11b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetDefaultObject</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a92e0d53f8fb97e65f254fe31a96e4d6a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetIMEOpenStatus</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a937f78ee8e540a25f5e8b9bf3806dd3f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetMousePosition</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1ad3c33edb719f27fbbe906e9f2fe596b4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetTopLevelControl</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1af4a73c6e751bf84dd5968aacde373ebd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetUIObject</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a6481be3b9220509647bf56163d5e2a84" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetUIObject_any</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1aebee41324f46c3095eee6ad64e6ca0aa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetUIObjectAtPoint</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a3d2044101869f99bd9959bb1501d2eda" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>GetUseSystemCursor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1acd9242581e2c7bb5d111a668afb8aa24" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>IsKeyPressed</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a395641dd15de4571e9b1365563d21372" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>IsMouseLocked</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a20ceaf315cb6aa15e1814369bb39df1f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>IsMousePressed</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1ab3fb953a6e1802d588c7e533361a7d2d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>LockMouse</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1ad9de1dcba788a1aa4e8fe92348e1ec93" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>PlaySound</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1aba4b5e53266007e77692993fb1afdbff" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>PostDestroy</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1acb301305b3df7dea4270c0042066bb55" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>ResetUI</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1ab2c93dac554bc5e0b31ef362b87ee51a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SaveLayout</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a690bd6cfd8dc290eead6f3453c6d5560" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetCursorFont</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a1adf106a894d68b8d1ac93f5593b0b00" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetCursorFromFile</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1ab872894993f54ede1ed2e92faba1547f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetCursorFromFile_</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a45a48a77968ae5c7daf5076f7c3cc926" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetCursorText</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1af0321c182aae940b2c53f303cb1dec2e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetCursorTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a3c2b5b470b636e6a9629b5678b45693f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetDesignTime</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a37c957d8bbd5f8e2c1000aef8253f6ee" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetHighlightParam</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1aa52bdeaf50337c53b44ab51f17c8af1d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetIMEOpenStatus</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a1fb8acb6f66f950f8c2ab9488cc82bd7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetMinimumScreenSize</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a83a61449c1674b7262b121ac8f15ab01" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetMousePosition</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1acc75feb7b0bdfa7cff7828ff63163e2c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetToolTipBehavior</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a5c3c1e519feaa6a05a0a54c770aa4104" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetUIScale</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a0856044066cde690dce23fcda9ff3e4e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>SetUseSystemCursor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1ab0df232757f64cb7aa05490dd41a436f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>ShowCursor</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1acebd376d979b654ff89df79d318ec82a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>StopSound</name></member>
+      <member refid="class_para_scripting_1_1_para_u_i_1a2011e9a129e93e63f680b37fbc3c84c2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaUI</scope><name>ToScript</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

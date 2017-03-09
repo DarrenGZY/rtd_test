@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ParaObject &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="System Library" href="system.html" />
+    <link rel="prev" title="Asset Manifest &amp; Asynchronous Asset Loading" href="AssetManifest.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="paraobject">
+<span id="paraobject"></span><h1>ParaObject<a class="headerlink" href="#paraobject" title="Permalink to this headline">¶</a></h1>
+<p>ParaObject is the scripting proxy to a 3D object on the C++ engine. In most cases, it could be a 3d mesh, an animated character called biped, a bmax model or any custom 3D objects.</p>
+<div class="section" id="create-3d-object">
+<span id="create-3d-object"></span><h2>Create 3D Object<a class="headerlink" href="#create-3d-object" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="docutils literal"><span class="pre">CreateCharacter</span></code> to create animated character based on a ParaX asset file.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">CreateCharacter</span> <span class="p">(</span><span class="s2">&quot;MyPlayer&quot;</span><span class="p">,</span> <span class="n">ParaAsset</span><span class="p">.</span><span class="n">LoadParaX</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;character/v3/Elf/Female/ElfFemale.x&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="n">player</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">ParaScene</span><span class="p">.</span><span class="n">GetPlayer</span><span class="p">():</span><span class="n">GetPosition</span><span class="p">());</span>
+<span class="n">ParaScene</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal"><span class="pre">CreateMeshPhysicsObject</span></code> to create a static mesh object based on a mesh asset file</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">asset</span> <span class="o">=</span> <span class="n">ParaAsset</span><span class="p">.</span><span class="n">LoadStaticMesh</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;model/common/editor/z.x&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">CreateMeshPhysicsObject</span><span class="p">(</span><span class="s2">&quot;blueprint_center&quot;</span><span class="p">,</span> <span class="n">asset</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;1,0,0,0,1,0,0,0,1,0,0,0&quot;</span><span class="p">);</span>
+<span class="n">obj</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">ParaScene</span><span class="p">.</span><span class="n">GetPlayer</span><span class="p">():</span><span class="n">GetPosition</span><span class="p">());</span>
+<span class="n">obj</span><span class="p">:</span><span class="n">GetAttributeObject</span><span class="p">():</span><span class="n">SetField</span><span class="p">(</span><span class="s2">&quot;progress&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ParaScene</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-view-parameters">
+<span id="get-view-parameters"></span><h2>Get View Parameters<a class="headerlink" href="#get-view-parameters" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Please note all asset are async-loaded, when asset is not loaded, object renders nothing, and following parameters may not be correct when associated mesh asset is not async-loaded.</div></blockquote>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">ParaScene</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s2">&quot;MyPlayer&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">param</span><span class="p">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">obj</span><span class="p">:</span><span class="n">GetRotation</span><span class="p">({})</span>
+<span class="n">param</span><span class="p">.</span><span class="n">scaling</span> <span class="o">=</span> <span class="n">obj</span><span class="p">:</span><span class="n">GetScale</span><span class="p">();</span>
+<span class="n">param</span><span class="p">.</span><span class="n">facing</span> <span class="o">=</span> <span class="n">obj</span><span class="p">:</span><span class="n">GetFacing</span><span class="p">();</span> 
+<span class="n">param</span><span class="p">.</span><span class="n">ViewBox</span> <span class="o">=</span> <span class="n">obj</span><span class="p">:</span><span class="n">GetViewBox</span><span class="p">({});</span>
+<span class="kd">local</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="p">:</span><span class="n">GetViewCenter</span><span class="p">();</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>More Complete API reference, please see <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/classParaScripting_1_1ParaObject.html">ParaObject Reference</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ParaObject</a><ul>
+<li><a class="reference internal" href="#create-3d-object">Create 3D Object</a></li>
+<li><a class="reference internal" href="#get-view-parameters">Get View Parameters</a></li>
+<li><a class="reference internal" href="#references">References:</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="AssetManifest.html" title="previous chapter">Asset Manifest &amp; Asynchronous Asset Loading</a></li>
+      <li>Next: <a href="system.html" title="next chapter">System Library</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/ParaObject.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/ParaObject.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. NPL语言简介 &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl">
+<span id="npl"></span><h1>1.    NPL语言简介<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h1>
+<p>NPL（Neural Parallel Language）是神经元并行语言的缩写，是大富网络技术有限公司开发的一种新的编程语言，语法上和Lua 100%兼容。NPL的设计理念类似人类神经元的结构，将复杂计算分解到节点，简洁高效，特别适合于分布式计算、大型网络应用，3D图形渲染等。</p>
+</div>
+<div class="section" id="npl">
+<span id="id1"></span><h1>2.    NPL运行时环境<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h1>
+<p>NPL是一种解释性语言，包含了一个运行时环境，提供了完善的组件和接口，包括基本组件、网络组件和一套完整的3D引擎系统，并且体积只有10MB，在任何一台计算机上都可以快速部署。</p>
+<p>NPL官方文档：<a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/wiki">NPLRuntime</a></p>
+<p><img alt="NPL Runtime Architecture" src="https://cloud.githubusercontent.com/assets/22266739/18788825/fbf1e0f6-81da-11e6-9bac-31defc8a3ea8.png" />NPL Runtime Architecture</p>
+</div>
+<div class="section" id="npl">
+<span id="id2"></span><h1>3.    NPL运行时环境的安装<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id3"></span><h2>3.1  下载<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>直接使用git下载：<a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK.git">git clone</a></p>
+<p>或从NPL官方地址下载：<a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK">官方下载</a>
+<img alt="" src="https://cloud.githubusercontent.com/assets/22266739/18789075/20d1d1a0-81dc-11e6-99cd-600c9a5c0423.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>3.2  解压<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>将下载得到的<code class="docutils literal"><span class="pre">ParaCraftSDK-master.zip</span></code>解压到任意文件夹下。</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>3.3  更新二进制文件<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>运行<code class="docutils literal"><span class="pre">redist\ParaCraft.exe</span></code>，点“开始”会自动更新。
+<img alt="" src="https://cloud.githubusercontent.com/assets/22266739/18789225/c97b1640-81dc-11e6-9089-5261fe0fed15.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>3.4  安装<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>运行<code class="docutils literal"><span class="pre">NPLRuntime\install.bat</span></code>，安装完成。</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>3.5  设置路径的环境变量<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>当前版本有个小bug，可能不能成功注册环境变量。此时需要手动将解压路径<code class="docutils literal"><span class="pre">\NPLRuntime\win\bin</span></code>加入到环境变量中，这样就可以在任何路径下运行NPL程序了。</p>
+</div>
+</div>
+<div class="section" id="npl">
+<span id="id8"></span><h1>4.    编写第一个NPL程序<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hello-lua-nplruntime-win-bin">
+<span id="hello-lua-nplruntime-win-bin"></span><h2>4.1  用文本编辑器新建<code class="docutils literal"><span class="pre">hello.lua</span></code>，输入以下内容并保存到<code class="docutils literal"><span class="pre">NPLRuntime\win\bin</span></code>路径下：<a class="headerlink" href="#hello-lua-nplruntime-win-bin" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world!&quot;</span><span class="p">)</span>
+<span class="n">ParaGlobal</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nplruntime-win-bin">
+<span id="nplruntime-win-bin"></span><h2>4.2  打开命令行，进入<code class="docutils literal"><span class="pre">NPLRuntime\win\bin</span></code>路径，执行<a class="headerlink" href="#nplruntime-win-bin" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">npl</span> <span class="pre">helloworld.lua</span></code></p>
+</div>
+<div class="section" id="log-txt-hello-world">
+<span id="log-txt-hello-world"></span><h2>4.3  打开<code class="docutils literal"><span class="pre">log.txt</span></code>，可以看到输出了<code class="docutils literal"><span class="pre">“hello</span> <span class="pre">world!”</span></code><a class="headerlink" href="#log-txt-hello-world" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://cloud.githubusercontent.com/assets/22266739/18789268/f1691d8c-81dc-11e6-8d00-854e94581158.png" /></p>
+</div>
+</div>
+<div class="section" id="lua">
+<span id="lua"></span><h1>5. Lua基本语法<a class="headerlink" href="#lua" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id9"></span><h2>5.1 简介<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>NPL的语法基于Lua语言。Lua语言是一种高效的脚本语言。官方网站是：http://www.lua.org/</p>
+<p>这里是一个快速的语法介绍，旨在让阅读者能够以最快的速度了解基本语法，更详细的内容请参阅官方推荐的教材：<a class="reference external" href="http://www.lua.org/pil/contents.html">推荐教材</a></p>
+<p>或者此处的中文教材：<a class="reference external" href="http://www.runoob.com/lua/lua-tutorial.html">中文教材</a></p>
+<p>如果你已经对Lua语法很熟悉可以直接跳到第14章。</p>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>5.2  语句<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>一行为一个语句：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>5.3  注释<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>两个减号后为单行注释：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">--这是一行注释</span>
+</pre></div>
+</div>
+<p>多行注释用&#8211;[[开头，</p>
+<p>]]结束：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="cm">--[[</span>
+<span class="cm">多行注释</span>
+<span class="cm">多行注释</span>
+<span class="cm">多行注释</span>
+<span class="cm">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id12"></span><h2>5.4  关键字<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>以下为Lua保留的关键字，不可用作变量或函数名称：</p>
+<p><code class="docutils literal"><span class="pre">and、break、do、else、elseif、end、false、for、function、if、in、local、nil、not、or、repeat、return、then、true、until、while</span></code></p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h1>6. 数据类型与变量<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id14"></span><h2>6.1 数据类型<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Lua中有8个基本类型分别为：<code class="docutils literal"><span class="pre">nil、boolean、number、string、userdata、function、thread和table</span></code>。</p>
+<p>|数据类型    |描述|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;-
+|nil            |只有值nil属于该类，表示一个无效值（在条件表达式中相当于false）。
+|boolean    |包含两个值：false和true。
+|number         |表示双精度类型的实浮点数
+|string     |字符串由一对双引号或单引号来表示
+|function   |由 C 或 Lua 编写的函数
+|userdata       |表示任意存储在变量中的C数据结构
+|thread         |表示执行的独立线路，用于执行协同程序
+|table          |Lua 中的表（table）其实是一个&#8221;关联数组&#8221;（associative arrays），数组的索引可以是数字或者是字符串。在 Lua 里，table 的创建是通过&#8221;构造表达式&#8221;来完成，最简单构造表达式是{}，用来创建一个空表。</p>
+</div>
+<div class="section" id="">
+<span id="id15"></span><h2>6.2 变量<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Lua是动态类型语言，变量不要类型定义，只需要为变量赋值。 值可以存储在变量中，作为参数传递或结果返回。</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>        <span class="c1">--a为number类型</span>
+<span class="n">b</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span>   <span class="c1">--b为string类型</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id16"></span><h2>6.3  全局变量与局部变量<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Lua中直接定义的变量全部是全局变量，包括函数中的变量，除非用local显式声明为局部变量。</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">5</span>
+<span class="kr">function</span> <span class="nf">test</span><span class="p">()</span>
+     <span class="n">b</span><span class="o">=</span><span class="mi">10</span>
+     <span class="kd">local</span> <span class="n">c</span><span class="o">=</span><span class="mi">15</span>
+<span class="kr">end</span>
+<span class="n">test</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>    <span class="c1">--输出为5    10    nil</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id17"></span><h1>7.    运算符<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id18"></span><h2>7.1  算术运算符<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>假设<code class="docutils literal"><span class="pre">a=10，b=20</span></code></p>
+<p>|操作符          |描述 |实例
+|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;-|&#8212;&#8212;-
+|+              |加法    |a+b=30
+|-          |减法 |a-b=-10
+|*          |乘法 |a*b=200
+|/          |除法 |a/b=0.5
+|%          |取余 |a%b=10
+|^              |乘幂 |a^2=100
+|-              |负号 |-a=-10</p>
+</div>
+<div class="section" id="">
+<span id="id19"></span><h2>7.2  关系运算符<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>假设<code class="docutils literal"><span class="pre">a=10，b=20</span></code></p>
+<p>|操作符          |描述     |实例
+|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;-  |&#8212;&#8212;-
+|==             |等于      |(a==b)=false
+|~=         |不等于     |(a~=b)=true
+|&gt;          |大于    |(a&gt;b)=false
+|&lt;          |小于    |(a&lt;b)=true
+|&gt;=             |大于或等于  |(a&gt;=b)=false
+|&lt;=             |小于或等于  |(a&lt;=b)=true</p>
+</div>
+<div class="section" id="">
+<span id="id20"></span><h2>7.3  逻辑运算符<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>假设<code class="docutils literal"><span class="pre">a=true，b=false</span></code></p>
+<p>|操作符          |描述   |实例
+|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;-|&#8212;&#8212;-
+|and            |逻辑与  |(a and b)=false
+|or         |逻辑或    |(a or b)=true
+|not            |逻辑非    |not a= false</p>
+</div>
+<div class="section" id="">
+<span id="id21"></span><h2>7.4  其它运算符<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>假设<code class="docutils literal"><span class="pre">a=&quot;Hello&quot;，b=&quot;World&quot;</span></code></p>
+<p>|操作符          |描述       |实例
+|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;&#8212;&#8212;&#8211;|&#8212;&#8212;-
+|..             |连接两个字符串        |a..b=HelloWorld
+|#          |返回字符串或表的长度   |#a=5</p>
+</div>
+<div class="section" id="">
+<span id="id22"></span><h2>7.5  运算符优先级<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>|高             |^
+|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;&#8212;&#8212;&#8211;
+|               |not   -(负号)</p>
+<p>|低             |*    /
+|&#8212;&#8212;&#8212;&#8212;&#8212;|&#8212;&#8212;&#8212;&#8212;&#8211;
+|               |+   -
+|               |..
+|               |&lt;    &gt;    &lt;=    &gt;=    ~=    ==
+|               |and
+|               |or</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id23"></span><h1>8.    流程控制<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="if">
+<span id="if"></span><h2>8.1  if<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h2>
+<p>语法：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>if (bool表达式) then
+    --bool表达式为true时执行的语句
+end
+
+if (bool表达式) then
+    --bool表达式为true时执行的语句
+else
+    --bool表达式为false时执行的语句
+end
+
+if (bool表达式1) then
+    --bool表达式1为true时执行的语句
+elseif (bool表达式2) then
+    --bool表达式2为true时执行的语句
+else
+    --以上表达式都为false时执行的语句
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="for">
+<span id="for"></span><h2>8.2  数值for<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<p>语法：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">var</span><span class="o">=</span><span class="n">exp1</span><span class="p">,</span><span class="n">exp2</span><span class="p">,</span><span class="n">exp3</span> <span class="kr">do</span>
+     <span class="c1">--语句块</span>
+<span class="kr">end</span>
+     <span class="c1">--var从exp1变化到exp2，每次变化以exp3为步长，exp3为可选，不指定则为1</span>
+</pre></div>
+</div>
+<p>实例：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span> <span class="kr">do</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span> <span class="kr">do</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for">
+<span id="id24"></span><h2>8.3  泛型for<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<p>语法：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="kr">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="kr">end</span>
+    <span class="c1">--打印数字a中的所有值</span>
+</pre></div>
+</div>
+<p>实例：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Suanday&quot;</span><span class="p">,</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span><span class="s2">&quot;Thursday&quot;</span><span class="p">,</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span><span class="s2">&quot;Saturday&quot;</span><span class="p">}</span>
+<span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">days</span><span class="p">)</span> <span class="kr">do</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="while">
+<span id="while"></span><h2>8.4  while<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h2>
+<p>语法：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>while(bool表达式) do
+     --bool表达式为true时执行的语句
+end
+</pre></div>
+</div>
+<p>实例：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="kr">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">)</span> <span class="kr">do</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="repeat">
+<span id="repeat"></span><h2>8.5  repeat<a class="headerlink" href="#repeat" title="Permalink to this headline">¶</a></h2>
+<p>语法：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>repeat    --语句块
+until(bool表达式)
+</pre></div>
+</div>
+<p>实例：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="kr">repeat</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<span class="kr">until</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="break">
+<span id="break"></span><h2>8.6  break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h2>
+<p>跳出循环。</p>
+</div>
+<div class="section" id="return">
+<span id="return"></span><h2>8.7  return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h2>
+<p>函数返回。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id25"></span><h1>9.    函数<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id26"></span><h2>9.1  定义<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>(local) function function_name (arg1, arg2, arg3, … argn)
+       函数体
+       return 返回值
+end     --和变量一样，local为作用域，默认为全局函数，加local为局部函数。
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id27"></span><h2>9.2  参数<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>多个参数时用逗号隔开，调用时如果传入的参数不足，其余参数为nil</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c1">--输出为1   2   nil</span>
+</pre></div>
+</div>
+<p>Lua支持可变参数，函数的参数放在一个名为arg的表中，#arg表示参数个数</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>function test(...)
+   local arg={...}
+   for i,v in ipairs(arg) do
+      print(v)
+   end
+   print(“参数个数=”..#arg)
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id28"></span><h2>9.3  返回值<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Lua支持多返回值，与相应数目的变量直接赋值即可</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+   <span class="kr">return</span> <span class="n">b</span><span class="p">,</span><span class="n">a</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">j</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i=&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot;j=&quot;</span><span class="o">..</span><span class="n">j</span><span class="p">)</span>    <span class="c1">--输出i=2  j=1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="table">
+<span id="table"></span><h1>10.   table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h1>
+<p>Lua中的table实际是一个“Key-Value”结构的关联数组，使用前需要先初始化：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">mytalbe</span><span class="o">=</span><span class="p">{}</span>      <span class="c1">--创建一个空表</span>
+</pre></div>
+</div>
+<p>创建之后可以直接添加元素：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">mytable</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Monday&quot;</span>
+<span class="n">mytable</span><span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;world&quot;</span>
+</pre></div>
+</div>
+<p>或在创建时直接添加：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">mytable</span><span class="o">=</span><span class="p">{[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="o">=</span><span class="s2">&quot;world&quot;</span><span class="p">}</span>       <span class="c1">--与上面的创建方式等价</span>
+</pre></div>
+</div>
+<p>如果用key全用数字（相当于数组）创建时可以简略写成：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">mytable</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span><span class="s2">&quot;Wednesday&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>但此时下标是从1开始的，即<code class="docutils literal"><span class="pre">mytable[1]=&quot;Monday&quot;</span></code></p>
+<p>如果key为字符串，可以用&#8221;.&#8221;的形式访问：</p>
+<p><code class="docutils literal"><span class="pre">mytable.hello</span></code>等价于<code class="docutils literal"><span class="pre">mytable[&quot;hello&quot;]</span></code></p>
+<p>遍历可使用泛型for：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">mytable</span><span class="p">)</span> <span class="kr">do</span>        <span class="c1">--一般table</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">mytable</span><span class="p">)</span> <span class="kr">do</span>       <span class="c1">--数字下标的table</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metatable">
+<span id="metatable"></span><h1>11.   metatable（元表）<a class="headerlink" href="#metatable" title="Permalink to this headline">¶</a></h1>
+<p>metastable可以用来改变table的行为，如__index表示查找元素的行为：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">mt</span> <span class="o">=</span> <span class="p">{</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">setmetatable</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">{</span> <span class="n">__index</span> <span class="o">=</span> <span class="n">mt</span> <span class="p">})</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在执行t.foo时，由于t没有foo这个key对应的value，会到metatable中去查找，metatable中有__index这个key对应的值mt，所以最终会到mt中去
+查找foo对应的value，最后得到3。必须理解metatable才能理解下一节中面向对象的实现方法。</p>
+</div>
+<div class="section" id="">
+<span id="id29"></span><h1>12.   面向对象<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id30"></span><h2>12.1 对象<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Lua也支持面向对象的编程，实际上是利用table来实现的：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">Account</span> <span class="o">=</span> <span class="p">{</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">}</span>
+<span class="kr">function</span> <span class="nc">Account</span><span class="p">.</span><span class="nf">withdraw</span> <span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">Account</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">Account</span><span class="p">.</span><span class="n">balance</span> <span class="o">-</span> <span class="n">v</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>创建了一个Account对象，它有一个balance的成员和一个withdraw方法。</p>
+</div>
+<div class="section" id="">
+<span id="id31"></span><h2>12.2 类<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>上面的Account是一个对象，如果想定义一个类，添加方法时需要用“:”创建一个self参数，并且需要一个new方法：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">Account</span> <span class="o">=</span> <span class="p">{</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">}</span>
+<span class="kr">function</span> <span class="nc">Account</span><span class="p">:</span><span class="nf">new</span> <span class="p">(</span><span class="n">o</span><span class="p">)</span>            <span class="c1">--等价于function Account.new(self, o)</span>
+   <span class="n">o</span> <span class="o">=</span> <span class="n">o</span> <span class="ow">or</span> <span class="p">{}</span>                      <span class="c1">--创建一个新的table</span>
+   <span class="nb">setmetatable</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>            <span class="c1">--非常重要，请看下面的详细说明</span>
+   <span class="n">self</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">self</span>
+   <span class="kr">return</span> <span class="n">o</span>
+<span class="kr">end</span>
+<span class="kr">function</span> <span class="nc">Account</span><span class="p">:</span><span class="nf">withdraw</span> <span class="p">(</span><span class="n">v</span><span class="p">)</span>       <span class="c1">--等价于function Account.withdraw(self, v)</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">balance</span> <span class="o">-</span> <span class="n">v</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>使用Account类</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">Account</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>                 <span class="c1">--创建一个新的对象a</span>
+<span class="n">a</span><span class="p">:</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>                  <span class="c1">--调用withdraw方法</span>
+</pre></div>
+</div>
+<p>在Account:new()中的：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>   <span class="nb">setmetatable</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> 
+
+   <span class="n">self</span><span class="p">.</span><span class="n">__index</span> <span class="o">=</span> <span class="n">self</span>
+
+<span class="c1">--为新对象o设置了一个metatable，改变了__index的行为，对于：</span>
+
+<span class="n">a</span><span class="o">=</span><span class="n">Account</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+
+<span class="c1">--在执行new函数的时候，o的metatable被设置成了Account，a=o（这时是个空表），那么在：</span>
+
+<span class="n">a</span><span class="p">:</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">--执行的时候，由于a没有withdraw这个方法，结果通过metatable调用了：</span>
+
+<span class="n">Account</span><span class="p">.</span><span class="n">withdraw</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">--即Account的withdraw方法，参数里的self是a本身</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="io">
+<span id="io"></span><h1>13.   IO<a class="headerlink" href="#io" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id32"></span><h2>13.1 简单模式<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>简单模式一次处理一个文件，直接使用io操作：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;test.lua&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>     <span class="c1">--只读打开文件</span>
+
+<span class="nb">io.input</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>                  <span class="c1">--设置io的输入文件</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">io.read</span><span class="p">())</span>                <span class="c1">--读取文件第一行并打印</span>
+<span class="nb">io.close</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>                  <span class="c1">--关闭文件</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id33"></span><h2>13.2 完全模式<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>如果同时要处理多个文件就需要使用完全模式，即使用file:function代替io.function：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;test.lua&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>     <span class="c1">--只读打开文件</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="n">read</span><span class="p">())</span>              <span class="c1">--读取文件第一行并打印</span>
+<span class="n">file</span><span class="p">:</span><span class="n">close</span><span class="p">()</span>                    <span class="c1">--关闭文件</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="npl">
+<span id="id34"></span><h1>14.   NPL的运行模型<a class="headerlink" href="#npl" title="Permalink to this headline">¶</a></h1>
+<p>从本章开始介绍NPL的特性。NPL作为一个完整的运行时环境有其独特的运行机制，简单的说是一个分布式的运行调度方式，基于Actor模型。理解了运行模型，才能真正理解NPL。</p>
+<p>Actor模型</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/22266739/18821111/cbc30d90-83d5-11e6-8172-679f5dc99636.png" /></p>
+<p>Actor这个模型由Carl Hewitt在1973年提出，是一个并行计算的数学模型。它的理念非常简单：</p>
+<ul class="simple">
+<li>万物皆Actor，每个Actor是完全独立的，可以同时执行它们的操作</li>
+<li>Actor之间通过发送消息来通信，消息通过一个消息队列来处理</li>
+<li>每一个Actor是一个计算实体，映射接收到的消息到以下动作<ul>
+<li>发送有限个消息给其它Actor</li>
+<li>创建有限个新的Actor</li>
+<li>为下一个接收的消息指定行为</li>
+</ul>
+</li>
+</ul>
+<p>NPL Runtime调度模型</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/22266739/18822568/e8a4bd56-83e3-11e6-8881-7347ff3e2a70.png" /></p>
+<p>当我们在本地执行：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">hello</span><span class="p">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+<p>创建了一个主进程，这个进程又创建了一个主线程来执行hello.lua（实际还创建了其它线程用来运行runtime的不同组件），每个线程有一个消息队列，被执行的文件会被加入到消息队列中。</p>
+<p>Activate（激活）文件</p>
+<p>在程序中，用<code class="docutils literal"><span class="pre">NPL.activate(url,</span> <span class="pre">{data})</span></code>激活一个文件，data是传递的数据：</p>
+<p>hello.lua中执行：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span><span class="n">Start</span><span class="p">();</span>    <span class="c1">--创建名为T1的线程</span>
+
+<span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(T1)test1.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">})</span>        <span class="c1">--在T1线程中激活test.lua</span>
+</pre></div>
+</div>
+<p>test1.lua代码</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>       <span class="c1">--打印出&quot;hello&quot;</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>     <span class="c1">--设置activate的入口为activate()函数</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>一个文件被激活后，它将会加入到指定线程中运行，接收消息，处理消息和发送消息。
+</pre></div>
+</div>
+<p>Activate的本质&#8211;发送消息</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>NPL.activate的本质是向某个文件发送消息，如果这个文件不在指定线程的消息队列中，
+</pre></div>
+</div>
+<p>则会将它加入到线程中，如果已经在消息队列中，则只是发送消息到消息队列里。</p>
+<p>分布式</p>
+<p><code class="docutils literal"><span class="pre">NPL.activate</span></code>的第一个参数，即文件的url，可以是本地文件，也可以是一个远程的文件，url参数的格式是：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">sRuntimeStateName</span><span class="o">|</span><span class="n">gl</span><span class="p">)][</span><span class="n">sNID</span><span class="p">:]</span><span class="n">sRelativePath</span><span class="p">[]</span>
+</pre></div>
+</div>
+<p>举例：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gl</span><span class="p">)</span><span class="n">script</span><span class="o">/</span><span class="n">hello</span><span class="p">.</span><span class="n">lua</span>
+<span class="p">(</span><span class="n">worker1</span><span class="p">)</span><span class="n">script</span><span class="o">/</span><span class="n">hello</span><span class="p">.</span><span class="n">lua</span>
+<span class="p">(</span><span class="n">world1</span><span class="p">)</span><span class="n">server001</span><span class="p">:</span><span class="n">script</span><span class="o">/</span><span class="n">hello</span><span class="p">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id35"></span><h1>15.   多线程<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<p>从NPL运行模型可知，多线程是NPL的基本运行方式，使用多线程只需要用<code class="docutils literal"><span class="pre">NPL.CreateRuntimeState</span></code>创建线程，然后用<code class="docutils literal"><span class="pre">NPL.activate</span></code>调用相关的文件
+加载到相关线程运行就可以了。</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span><span class="n">Start</span><span class="p">();</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(T1)test1.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;hello1&quot;</span><span class="p">})</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span><span class="n">Start</span><span class="p">();</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(T2)test2.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;hello2&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>一般情况下消息驱动的模型只需要将要运行的同类文件加载到同一线程就可以了。</p>
+<p>Lua本身还支持一种名为<code class="docutils literal"><span class="pre">coroutine（协同程序）</span></code>的类似线程的机制，但它实际是用单线程模拟多线程，需要用程序来控制不同coroutine的协同工作，使用比较复杂，也不符合NPL的设计理念，在NPL中不推荐使用。</p>
+</div>
+<div class="section" id="">
+<span id="id36"></span><h1>16.   网络<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<p>从NPL运行模型可知，网络是NPL的内置属性，用NPL.activate可以无需知道网络的细节，直接根据url进行传输，运行时环境会自动建立连接和传输数据。</p>
+<p>下面是一个远程传输的例子：</p>
+<p>Server端：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">.</span><span class="n">lua</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">)</span>
+
+<span class="n">server</span><span class="p">.</span><span class="n">lua</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;server start&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;60001&quot;</span><span class="p">);</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">AddPublicFile</span><span class="p">(</span><span class="s2">&quot;hello.lua&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Client端：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">client</span><span class="p">.</span><span class="n">lua</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;client start&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">AddNPLRuntimeAddress</span><span class="p">({</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;60001&quot;</span><span class="p">,</span> <span class="n">nid</span><span class="o">=</span><span class="s2">&quot;server1&quot;</span><span class="p">})</span>
+<span class="kr">while</span><span class="p">(</span> <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;server1:hello.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;remote activate&quot;</span><span class="p">})</span> <span class="o">~=</span><span class="mi">0</span> <span class="p">)</span> <span class="kr">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;failed to send message&quot;</span><span class="p">);</span>
+    <span class="n">ParaEngine</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>测试时打开两个命令行分别执行：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;server.lua&quot;</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;server.txt&quot;</span>
+<span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;client.lua&quot;</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;client.txt&quot;</span>
+</pre></div>
+</div>
+<p>在server.txt中可以看到输出：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">server</span> <span class="n">start</span>                <span class="c1">--server运行后的输出</span>
+<span class="n">hello</span> <span class="n">world</span>             <span class="c1">--client连接上之后激活hello.lua的输出</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id37"></span><h1>17.   使用库<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="">
+<span id="id38"></span><h2>17.1 加载库<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>使用库首先要用<code class="docutils literal"><span class="pre">NPL.load</span></code>加载<code class="docutils literal"><span class="pre">commonlib.lua</span></code>和需要的库文件：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/commonlib.lua&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)mylib.lua&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id39"></span><h2>17.2 使用库中的类<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>要使用库中的类，先使用<code class="docutils literal"><span class="pre">commonlib.gettable</span></code>来获取库的类：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">myclass</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;myclass&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>以下是一个完整的例子：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>Account.lua：
+Account = {balance = 0}
+function Account:new (o)
+   o = o or {}
+   setmetatable(o, self)
+   self.__index = self
+   return o
+end
+function Account:withdraw (v)
+    self.balance = self.balance - v
+end
+
+test.lua：
+NPL.load(&quot;(gl)script/ide/commonlib.lua&quot;);
+NPL.load(&quot;Account.lua&quot;);
+
+local Account = commonlib.gettable(&quot;Account&quot;);
+a=Account:new({balance=100})
+a:withdraw(10)
+print(a.balance)            --输出90
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id40"></span><h2>17.3 继承<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>如果要从原有的类派生新类，要使用<code class="docutils literal"><span class="pre">commonlib.inherit</span></code>：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">newclass</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;myclass&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>在新的类中ctor()函数为构造函数。
+</pre></div>
+</div>
+<p>一个例子：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/commonlib.lua&quot;</span><span class="p">);</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;Account.lua&quot;</span><span class="p">);</span>
+
+<span class="kd">local</span> <span class="n">NewAccount</span><span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;Account&quot;</span><span class="p">))</span>
+
+<span class="kr">function</span> <span class="nc">NewAccount</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>              <span class="c1">--构造函数</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">NewAccount</span><span class="p">:</span> <span class="nf">deposit</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>         <span class="c1">--增加的方法</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">balance</span><span class="o">+</span><span class="n">v</span>
+<span class="kr">end</span>
+
+<span class="n">a</span><span class="o">=</span><span class="n">Account</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+<span class="n">a</span><span class="p">:</span><span class="n">deposit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">balance</span><span class="p">)</span>            <span class="c1">--输出110</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="web">
+<span id="web"></span><h1>18.   Web开发<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
+<p>NPL带有一个Web服务器，它类似一个PHP服务器，可以处理用户请求的页面，运行该页面中内嵌的NPL脚本，并产生结果的html页面返回给用户。</p>
+<div class="section" id="">
+<span id="id41"></span><h2>18.1 搭建服务器<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>从git上下载WebServer组件：
+<a class="reference external" href="https://github.com/NPLPackages/main.git">git clone</a></li>
+<li>在<code class="docutils literal"><span class="pre">main\script\apps\WebServer</span></code>下执行：</li>
+</ol>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;WebServer.lua&quot;</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;80&quot;</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;test/&quot;</span> <span class="n">servermode</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>port参数为端口号，root参数为web服务的目录
+</pre></div>
+</div>
+<ol class="simple">
+<li>用浏览器打开 http://localhost/index.page，显示测试页面</li>
+</ol>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/22266739/18821251/261b10de-83d7-11e6-964a-45bc876be65a.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id42"></span><h2>18.2 编写页面程序<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>页面程序是在html页面中嵌入NPL脚本，用户请求该页面时，server会执行脚本并将结果返回给用户：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;body&gt;
+&lt;?npl
+for i=1,5 do
+        echo &quot;&lt;p&gt;hello&lt;/p&gt;&quot;
+      end
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>其中</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;?npl  ?&gt;
+</pre></div>
+</div>
+<p>标记间的代码会被服务器端执行，</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id43"></span><h1>19.   数据库编程<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<p>NPL基于Lua语言，因此Lua支持的数据库都可以支持。以下是几种数据库的使用方法：</p>
+<div class="section" id="table-database-npl">
+<span id="table-database-npl"></span><h2>19.1 Table Database（NPL内置）<a class="headerlink" href="#table-database-npl" title="Permalink to this headline">¶</a></h2>
+<p>Table Database是NPL内置的数据库，是一个具有大部分标准数据库功能的小型数据库，简单高效，在数据不是特别复杂的情况下非常适用。</p>
+</div>
+<div class="section" id="mysql">
+<span id="mysql"></span><h2>19.2 MySql<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<p>NPL还内置了MySql驱动，可以直接连接使用MySql数据库，详见<a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/wiki/UsingMySql">UsingMySql</a></p>
+</div>
+<div class="section" id="odbc-ado-oracle-mysql-sqlite-firebird-and-postgresql">
+<span id="odbc-ado-oracle-mysql-sqlite-firebird-and-postgresql"></span><h2>19.3 ODBC, ADO, Oracle, MySql, SQLite, Firebird and PostgreSQL<a class="headerlink" href="#odbc-ado-oracle-mysql-sqlite-firebird-and-postgresql" title="Permalink to this headline">¶</a></h2>
+<p>要连接使用其它第三方数据库，需要使用开源的LuaSQL，详见<a class="reference external" href="https://github.com/keplerproject/luasql">官方网站</a>，具体使用方法请参考官方文档。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1.    NPL语言简介</a></li>
+<li><a class="reference internal" href="#npl">2.    NPL运行时环境</a></li>
+<li><a class="reference internal" href="#npl">3.    NPL运行时环境的安装</a><ul>
+<li><a class="reference internal" href="#">3.1  下载</a></li>
+<li><a class="reference internal" href="#">3.2  解压</a></li>
+<li><a class="reference internal" href="#">3.3  更新二进制文件</a></li>
+<li><a class="reference internal" href="#">3.4  安装</a></li>
+<li><a class="reference internal" href="#">3.5  设置路径的环境变量</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl">4.    编写第一个NPL程序</a><ul>
+<li><a class="reference internal" href="#hello-lua-nplruntime-win-bin">4.1  用文本编辑器新建<code class="docutils literal"><span class="pre">hello.lua</span></code>，输入以下内容并保存到<code class="docutils literal"><span class="pre">NPLRuntime\win\bin</span></code>路径下：</a></li>
+<li><a class="reference internal" href="#nplruntime-win-bin">4.2  打开命令行，进入<code class="docutils literal"><span class="pre">NPLRuntime\win\bin</span></code>路径，执行</a></li>
+<li><a class="reference internal" href="#log-txt-hello-world">4.3  打开<code class="docutils literal"><span class="pre">log.txt</span></code>，可以看到输出了<code class="docutils literal"><span class="pre">“hello</span> <span class="pre">world!”</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lua">5. Lua基本语法</a><ul>
+<li><a class="reference internal" href="#">5.1 简介</a></li>
+<li><a class="reference internal" href="#">5.2  语句</a></li>
+<li><a class="reference internal" href="#">5.3  注释</a></li>
+<li><a class="reference internal" href="#">5.4  关键字</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">6. 数据类型与变量</a><ul>
+<li><a class="reference internal" href="#">6.1 数据类型</a></li>
+<li><a class="reference internal" href="#">6.2 变量</a></li>
+<li><a class="reference internal" href="#">6.3  全局变量与局部变量</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">7.    运算符</a><ul>
+<li><a class="reference internal" href="#">7.1  算术运算符</a></li>
+<li><a class="reference internal" href="#">7.2  关系运算符</a></li>
+<li><a class="reference internal" href="#">7.3  逻辑运算符</a></li>
+<li><a class="reference internal" href="#">7.4  其它运算符</a></li>
+<li><a class="reference internal" href="#">7.5  运算符优先级</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">8.    流程控制</a><ul>
+<li><a class="reference internal" href="#if">8.1  if</a></li>
+<li><a class="reference internal" href="#for">8.2  数值for</a></li>
+<li><a class="reference internal" href="#for">8.3  泛型for</a></li>
+<li><a class="reference internal" href="#while">8.4  while</a></li>
+<li><a class="reference internal" href="#repeat">8.5  repeat</a></li>
+<li><a class="reference internal" href="#break">8.6  break</a></li>
+<li><a class="reference internal" href="#return">8.7  return</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">9.    函数</a><ul>
+<li><a class="reference internal" href="#">9.1  定义</a></li>
+<li><a class="reference internal" href="#">9.2  参数</a></li>
+<li><a class="reference internal" href="#">9.3  返回值</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#table">10.   table</a></li>
+<li><a class="reference internal" href="#metatable">11.   metatable（元表）</a></li>
+<li><a class="reference internal" href="#">12.   面向对象</a><ul>
+<li><a class="reference internal" href="#">12.1 对象</a></li>
+<li><a class="reference internal" href="#">12.2 类</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#io">13.   IO</a><ul>
+<li><a class="reference internal" href="#">13.1 简单模式</a></li>
+<li><a class="reference internal" href="#">13.2 完全模式</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl">14.   NPL的运行模型</a></li>
+<li><a class="reference internal" href="#">15.   多线程</a></li>
+<li><a class="reference internal" href="#">16.   网络</a></li>
+<li><a class="reference internal" href="#">17.   使用库</a><ul>
+<li><a class="reference internal" href="#">17.1 加载库</a></li>
+<li><a class="reference internal" href="#">17.2 使用库中的类</a></li>
+<li><a class="reference internal" href="#">17.3 继承</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#web">18.   Web开发</a><ul>
+<li><a class="reference internal" href="#">18.1 搭建服务器</a></li>
+<li><a class="reference internal" href="#">18.2 编写页面程序</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">19.   数据库编程</a><ul>
+<li><a class="reference internal" href="#table-database-npl">19.1 Table Database（NPL内置）</a></li>
+<li><a class="reference internal" href="#mysql">19.2 MySql</a></li>
+<li><a class="reference internal" href="#odbc-ado-oracle-mysql-sqlite-firebird-and-postgresql">19.3 ODBC, ADO, Oracle, MySql, SQLite, Firebird and PostgreSQL</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPL初学者教程.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPL初学者教程.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

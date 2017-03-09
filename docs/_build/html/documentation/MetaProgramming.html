@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Meta Programming in NPL &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL C/C++ Architecture" href="NPLRuntimeAPI.html" />
+    <link rel="prev" title="NPL Packages" href="npl_packages.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="meta-programming-in-npl">
+<span id="meta-programming-in-npl"></span><h1>Meta Programming in NPL<a class="headerlink" href="#meta-programming-in-npl" title="Permalink to this headline">¶</a></h1>
+<p>Meta programming allows you to extend NPL syntax using the NPL language itself. For example, following code are valid in NPL.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">loop</span><span class="p">(){</span>  <span class="n">please</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">code</span> <span class="mi">10</span> <span class="n">times</span> <span class="k">with</span> <span class="n">i</span>
+    <span class="n">echo</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">async</span><span class="p">(){</span>
+        <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;This is from worker thread&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here loop, async are extended NPL syntax defined elsewhere.</p>
+<p>The concept is first developed by <a class="reference external" href="http://lisp-lang.org/">LISP programming language</a> in 1960s. However, despite the power of LISP, its syntax is hard to read for most programmers nowadays. NPL introduces a similar concept called <code class="docutils literal"><span class="pre">Function-Expression</span></code>, which can be mixed very well with the original NPL syntax.</p>
+<p>The syntax of NPL&#8217;s Function-Expression is <code class="docutils literal"><span class="pre">name(input,</span> <span class="pre">...){</span> <span class="pre">...</span> <span class="pre">}</span></code></p>
+<p>Files with <code class="docutils literal"><span class="pre">*.npl</span></code> extension support Function-Expression syntax by default. For example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/tests/helloworld.npl&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="o">.</span><span class="n">loadstring</span><span class="p">(</span><span class="s2">&quot;-- source code here&quot;</span><span class="p">,</span> <span class="s2">&quot;filename_here&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="function-expression-user-guide">
+<span id="function-expression-user-guide"></span><h2>Function-Expression User Guide<a class="headerlink" href="#function-expression-user-guide" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="def-expression">
+<span id="def-expression"></span><h3><code class="docutils literal"><span class="pre">def</span></code> expression<a class="headerlink" href="#def-expression" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">def</span><span class="p">(</span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">params</span><span class="o">&gt;</span><span class="p">){</span>
+    <span class="o">--</span><span class="n">mode</span><span class="p">:</span><span class="o">&lt;</span><span class="n">mode</span><span class="o">&gt;</span>
+    <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&lt;name&gt;:name of new structure to be defined, name could not be null</li>
+<li>&lt;params&gt;:parameters to be passed to defined structure
+multiple parameters should be seperated by comma
+unknown number parameters, using ...</li>
+<li>&lt;mode&gt;:mode is set at the first line of comment inside block. Mode
+could be strict, line and token. When different mode is set,
+different parsing strategy is used in defined function expression.
+If nothing specified, strict mode is used.</li>
+<li>&lt;statements&gt;: statements here are template code, which would be applied
+to final code without any change. However, one exception is
++{} structure. Code inside +{} would be executed during compiling.
+And some default functions are provided to give users more control.</li>
+</ul>
+<p><strong>Default functions in +{}</strong><em>emit(str, l)</em>: emit str at the line l. when no str is specified, it emit whole code chunk
+inside function expression block. when no l is specifiec, it emit at first line<em>emitline(fl, ll)</em>: used only in line mode. emit code chunk from line fl to ll. If no ll specified
+it emit from fl to end of code chunk<em>params(p)</em>: emit parameter p</p>
+<p><strong>Usage</strong>After defining a function expression, it could be used like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">params</span><span class="o">&gt;</span><span class="p">){</span>
+     <span class="n">statements</span> <span class="ow">in</span> <span class="n">specified</span> <span class="n">mode</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Mode</strong></p>
+<ul class="simple">
+<li>strict: statements in strict mode are followed the rules of original npl/lua grammar</li>
+<li>line: statements in line mode are treated as lines, no grammar and syntax rules</li>
+<li>token: statements in token mode are treated as token lists, original symbols and keywords
+are kept, but no grammar and syntax rules</li>
+</ul>
+</div>
+</div>
+<div class="section" id="examples">
+<span id="examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1">
+<span id="example-1"></span><h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">def</span><span class="p">(</span><span class="s2">&quot;translate&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">){</span>
+    <span class="n">push</span><span class="p">()</span>
+    <span class="n">translate</span><span class="p">(</span><span class="o">+</span><span class="p">{</span><span class="n">params</span><span class="p">(</span><span class="n">x</span><span class="p">)},</span> <span class="o">+</span><span class="p">{</span><span class="n">params</span><span class="p">(</span><span class="n">y</span><span class="p">)},</span> <span class="o">+</span><span class="p">{</span><span class="n">params</span><span class="p">(</span><span class="n">z</span><span class="p">)})</span>
+    <span class="o">+</span><span class="p">{</span><span class="n">emit</span><span class="p">()}</span>
+    <span class="n">pop</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">){</span>
+    <span class="n">rotate</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The above chunk will compiled into</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">push</span><span class="p">()</span>
+<span class="n">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">rotate</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2">
+<span id="example-2"></span><h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">def</span><span class="p">(</span><span class="s2">&quot;loop&quot;</span><span class="p">){</span>
+  <span class="o">--</span><span class="n">mode</span><span class="p">:</span><span class="n">line</span>
+  <span class="o">+</span><span class="p">{</span><span class="n">local</span> <span class="n">line</span> <span class="o">=</span> <span class="n">ast</span><span class="p">:</span><span class="n">getLines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">times</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">line</span><span class="p">:</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;execute the code (%w+) times with (%l)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">times</span> <span class="n">then</span> <span class="n">times</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">end</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span> <span class="n">then</span> <span class="n">i</span><span class="o">=</span><span class="s2">&quot;i&quot;</span> <span class="n">end</span>
+       <span class="p">}</span>
+ <span class="k">for</span> <span class="o">+</span><span class="p">{</span><span class="n">emit</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="p">{</span><span class="n">emit</span><span class="p">(</span><span class="n">times</span><span class="p">)}</span> <span class="n">do</span>
+ <span class="o">+</span><span class="p">{</span><span class="n">emitline</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>
+ <span class="n">end</span>
+ <span class="p">}</span>
+
+ <span class="n">loop</span><span class="p">(){</span><span class="n">execute</span> <span class="n">the</span> <span class="n">code</span> <span class="mi">10</span> <span class="n">times</span> <span class="k">with</span> <span class="n">j</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">j</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>The above chunk will compiled into</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">do</span> <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="n">do</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="n">end</span> <span class="n">end</span>
+</pre></div>
+</div>
+<p>For more examples, please see our test <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Compiler/tests">here</a>
+or <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Compiler/dsl">dsl definition file here</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Meta Programming in NPL</a><ul>
+<li><a class="reference internal" href="#function-expression-user-guide">Function-Expression User Guide</a><ul>
+<li><a class="reference internal" href="#def-expression"><code class="docutils literal"><span class="pre">def</span></code> expression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#example-1">Example 1</a></li>
+<li><a class="reference internal" href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="npl_packages.html" title="previous chapter">NPL Packages</a></li>
+      <li>Next: <a href="NPLRuntimeAPI.html" title="next chapter">NPL C/C++ Architecture</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/MetaProgramming.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/MetaProgramming.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

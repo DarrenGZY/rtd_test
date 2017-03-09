@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="_i_object_scripting_interface_8h" kind="file" language="C++">
+    <compoundname>IObjectScriptingInterface.h</compoundname>
+    <includedby refid="_i_object_scripting_interface_8cpp" local="yes">ParaScriptBindings/IObjectScriptingInterface.cpp</includedby>
+    <innerclass refid="class_para_engine_1_1_i_object_scripting_interface" prot="public">ParaEngine::IObjectScriptingInterface</innerclass>
+    <innerclass refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" prot="public">ParaEngine::IObjectScriptingInterface::ScriptCallback</innerclass>
+    <innernamespace refid="namespace_para_engine">ParaEngine</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_i_object_scripting_interface_8h_1af2bb4fd8419f2c64c5316b5a0b925fea" prot="public" static="no">
+        <name>DEFINE_SCRIPT_EVENT</name>
+        <param><defname>clsName</defname></param>
+        <param><defname>name</defname></param>
+        <initializer>ATTRIBUTE_METHOD1(clsName, Get##name##_s, const char**){\
+	ScriptCallback* pCallBack = cls-&gt;GetScriptCallback(Type_##name);\
+	*p1 = (pCallBack!=NULL) ? pCallBack-&gt;script_func.c_str() : CGlobals::GetString(G_STR_EMPTY).c_str();\
+	return S_OK;\
+		}\
+		ATTRIBUTE_METHOD1(clsName, Set##name##_s, const char*)		{cls-&gt;AddScriptCallback(Type_##name, p1); return S_OK;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="47" column="9" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_i_object_scripting_interface_8h_1a3277bf7ada7171e05450c81048f81c53" prot="public" static="no">
+        <name>DEFINE_SCRIPT_EVENT_GET</name>
+        <param><defname>clsName</defname></param>
+        <param><defname>name</defname></param>
+        <initializer>ATTRIBUTE_METHOD1(clsName, Get##name##_s, const char**){\
+	ScriptCallback* pCallBack = cls-&gt;GetScriptCallback(Type_##name);\
+	*p1 = (pCallBack!=NULL) ? pCallBack-&gt;script_func.c_str() : CGlobals::GetString(G_STR_EMPTY).c_str();\
+	return S_OK;\
+		}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/IObjectScriptingInterface.h" line="57" column="9" bodyfile="ParaScriptBindings/IObjectScriptingInterface.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_para_engine" kindref="compound">ParaEngine</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6" refid="class_para_engine_1_1_i_object_scripting_interface" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_para_engine_1_1_i_object_scripting_interface" kindref="compound">IObjectScriptingInterface</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface" kindref="compound">IObjectScriptingInterface</ref>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">ScriptCallback</ref><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15" refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27" kindref="member">func_type</ref>;</highlight></codeline>
+<codeline lineno="18" refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae" kindref="member">script_func</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>m_sFilename;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>m_sCode;</highlight></codeline>
+<codeline lineno="22" refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c" kindref="member">m_nLastTick</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">ScriptCallback</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>script):<sp/>func_type(type),<sp/>m_nLastTick(0){</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a1daccdd58be30306ab91083c177350b1" kindref="member">SetScriptFunc</ref>(script);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">ScriptCallback</ref>():<sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27" kindref="member">func_type</ref>(-1),<sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c" kindref="member">m_nLastTick</ref>(0)<sp/>{};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a1daccdd58be30306ab91083c177350b1" kindref="member">SetScriptFunc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>script);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>GetCode(){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_sCode;}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>GetFileName(){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_sFilename;}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>GetScriptFunc(){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae" kindref="member">script_func</ref>;}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetLastTick()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c" kindref="member">m_nLastTick</ref>;}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetLastTick(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTick)<sp/>{m_nLastTick<sp/>=<sp/>nTick;}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a561926be74fb162b85a59f202ef5f114" kindref="member">ActivateAsync</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/><sp/>code);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a283d8fabb5bdf583d1aa9cc00b4b9ffa" kindref="member">ActivateLocalNow</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>script);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;ScriptCallback&gt;<sp/>ObjectCallbackPool_Type;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DEFINE_SCRIPT_EVENT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFINE_SCRIPT_EVENT(clsName,<sp/>name)<sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ATTRIBUTE_METHOD1(clsName,<sp/>Get##name##_s,<sp/>const<sp/>char**){\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ScriptCallback*<sp/>pCallBack<sp/>=<sp/>cls-&gt;GetScriptCallback(Type_##name);\</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>*p1<sp/>=<sp/>(pCallBack!=NULL)<sp/>?<sp/>pCallBack-&gt;script_func.c_str()<sp/>:<sp/>CGlobals::GetString(G_STR_EMPTY).c_str();\</highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>S_OK;\</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ATTRIBUTE_METHOD1(clsName,<sp/>Set##name##_s,<sp/>const<sp/>char*)<sp/><sp/><sp/><sp/><sp/><sp/>{cls-&gt;AddScriptCallback(Type_##name,<sp/>p1);<sp/>return<sp/>S_OK;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DEFINE_SCRIPT_EVENT_GET</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFINE_SCRIPT_EVENT_GET(clsName,<sp/>name)<sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ATTRIBUTE_METHOD1(clsName,<sp/>Get##name##_s,<sp/>const<sp/>char**){\</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ScriptCallback*<sp/>pCallBack<sp/>=<sp/>cls-&gt;GetScriptCallback(Type_##name);\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>*p1<sp/>=<sp/>(pCallBack!=NULL)<sp/>?<sp/>pCallBack-&gt;script_func.c_str()<sp/>:<sp/>CGlobals::GetString(G_STR_EMPTY).c_str();\</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>S_OK;\</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1a64fbbf3066de1dc2d7d39a468f89c511" kindref="member">AddScriptCallback</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27" kindref="member">func_type</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">&amp;<sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae" kindref="member">script_func</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="struct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback" kindref="compound">ScriptCallback</ref>*<sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1aeddc1ce0a86cbcb362342897a4b47a6f" kindref="member">GetScriptCallback</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>func_type);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c" kindref="member">RemoveScriptCallback</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>func_type);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="82" refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ObjectCallbackPool_Type<sp/><ref refid="class_para_engine_1_1_i_object_scripting_interface_1af4c3d571f72e41917a69a0880b61b41d" kindref="member">m_callback_scripts</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="ParaScriptBindings/IObjectScriptingInterface.h"/>
+  </compounddef>
+</doxygen>

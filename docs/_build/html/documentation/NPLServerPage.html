@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Server Page &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Admin Site Framework" href="AdminSiteFramework.html" />
+    <link rel="prev" title="NPL Web Server" href="WebServer.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-server-page">
+<span id="npl-server-page"></span><h1>NPL Server Page<a class="headerlink" href="#npl-server-page" title="Permalink to this headline">¶</a></h1>
+<p>NPL server page is a mixed HTML/NPL file, usually with the extension <code class="docutils literal"><span class="pre">.page</span></code>.</p>
+<div class="section" id="how-does-it-work">
+<span id="how-does-it-work"></span><h2>How Does It Work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>At runtime time, server page is preprocessed into pure NPL script and then executed.
+For example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;&lt;body&gt;</span>
+<span class="cp">&lt;?</span><span class="nx">npl</span>  <span class="k">for</span> <span class="nx">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span> <span class="k">do</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">   &lt;p&gt;hello&lt;/p&gt;</span>
+<span class="cp">&lt;?</span><span class="nx">npl</span>  <span class="nb">end</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/body&gt;&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>Above server page will be pre-processed into following NPL page script, and cached for subsequent requests.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;&quot;</span><span class="p">);</span>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span> <span class="kr">do</span>
+ <span class="n">echo</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;hello&lt;/p&gt;&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">echo</span> <span class="p">(</span><span class="s2">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>When running above page script, <code class="docutils literal"><span class="pre">echo</span></code> command will generate the final HTML response text to be sent back to client.</p>
+<div class="section" id="sandbox-environment">
+<span id="sandbox-environment"></span><h3>Sandbox Environment<a class="headerlink" href="#sandbox-environment" title="Permalink to this headline">¶</a></h3>
+<p>When a HTTP request come and redirected to NPL page handler, a special sandbox environment table is created, all page scripts related to that request is executed in this newly created sandbox environment. So you can safely create global variables and expect them to be uninitialized for each page request.</p>
+<p>However, the sandbox environment also have read/write access to the global per-thread NPL runtime environment, where all NPL classes are loaded.</p>
+<div class="section" id="npl-load-vs-include">
+<span id="npl-load-vs-include"></span><h4><code class="docutils literal"><span class="pre">NPL.load</span></code> vs <code class="docutils literal"><span class="pre">include</span></code><a class="headerlink" href="#npl-load-vs-include" title="Permalink to this headline">¶</a></h4>
+<p>In a page file, one can call <code class="docutils literal"><span class="pre">NPL.load</span></code> to load a given NPL class, such as <code class="docutils literal"><span class="pre">mysql.lua</span></code>; or one can also use the page command <code class="docutils literal"><span class="pre">include</span></code> to load another page file into sandbox environment. The difference is that classes loaded by <code class="docutils literal"><span class="pre">NPL.load</span></code> will be loaded only once per thread; where <code class="docutils literal"><span class="pre">include</span></code> will be loaded for every HTTP request handled by its worker thread. Moreover, NPL web server will monitor file changes for all page files and recompile them when modified by a developer;  for files with <code class="docutils literal"><span class="pre">NPL.load</span></code>, you need to restart your server, or use special code to reload it.</p>
+</div>
+</div>
+<div class="section" id="mixing-async-code-with-yield-resume">
+<span id="mixing-async-code-with-yield-resume"></span><h3>Mixing Async Code with Yield/Resume<a class="headerlink" href="#mixing-async-code-with-yield-resume" title="Permalink to this headline">¶</a></h3>
+<p>The processing of a web page usually consists of two phases.</p>
+<ul class="simple">
+<li>One is fetching data from database engine, which usually takes over 95% of the total time.</li>
+<li>The other is page rendering, which is CPU-bound and takes only 5% of total request time.</li>
+</ul>
+<p>|    |query database and wait for database result            | MVC Render |
+|&#8212;-|&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-|&#8212;&#8212;&#8212;&#8212;|
+| duration |95%                                              | 5%         |</p>
+<p>With NPL&#8217;s <code class="docutils literal"><span class="pre">yield</span></code> method, it allows other web requests to be processed concurrently in the 90% interval while waiting database result on the <code class="docutils literal"><span class="pre">same</span></code> system-level thread. See following code to see how easy to mix async-code with template-based page rendering code. This allows us to serve <code class="docutils literal"><span class="pre">5000</span> <span class="pre">requests/sec</span></code> in a single NPL thread concurrently, even if each request takes 30ms seconds to fetch from database.</p>
+<p>Following is excerpt from our <code class="docutils literal"><span class="pre">helloworld.page</span></code> example.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;?
+-- connect to TableDatabase (a NoSQL db engine written in NPL)
+db = TableDatabase:new():connect(&quot;database/npl/&quot;, function() end);
+
+-- insert 5 records to database asynchronously.
+local finishedCount = 0;
+for i=1, 5 do
+    db.TestUser:insertOne({name=(&quot;user&quot;..i), password=&quot;1&quot;}, function(err, data)
+        finishedCount = finishedCount + 1;
+        if(finishedCount == 5) then
+            resume();
+        end
+    end);
+end
+yield(); -- async wait when job is done
+
+-- fetch all users from database asynchronously.
+db.TestUser:find({}, function(err, users)  resume(err, users); end);
+err, users = yield(true); -- async wait when job is done
+?&gt;
+
+&lt;?npl for i, user in ipairs(users) do ?&gt;
+    i = &lt;?=i?&gt;, name=&lt;? echo(user.name) ?&gt; &lt;br/&gt;
+&lt;?npl end ?&gt;
+</pre></div>
+</div>
+<p><strong>Code Explanation</strong>:
+When the first <code class="docutils literal"><span class="pre">yield()</span></code> is called, the execution of page rendering is paused. It will be resumed by the result of a previous async task. In our case, when all five users have been inserted to our database, we will call <code class="docutils literal"><span class="pre">resume()</span></code>, which will immediately resume page execution from last yield (paused) code position.</p>
+<p>Then we started another async task to fetch all users in the database, and called yield immediately to wait for its results. This time we passed some parameter <code class="docutils literal"><span class="pre">resume(err,</span> <span class="pre">users)</span></code>,  everything passed to resume will be returned from yield() function. So <code class="docutils literal"><span class="pre">err,</span> <span class="pre">users</span> <span class="pre">=</span> <span class="pre">yield(true)</span></code> will return the <code class="docutils literal"><span class="pre">users</span></code> table when it returns.</p>
+<p>Please note, we recommend you pass a boolean <code class="docutils literal"><span class="pre">err</span></code> as first parameter to <code class="docutils literal"><span class="pre">resume</span></code>, since all of our async API follows the same rule. Also note that we passed true to the second <code class="docutils literal"><span class="pre">yield</span></code> function, which tells to page renderer to output error and stop execution immediately. If you want to handle the error yourself, please pass nothing to yield like <code class="docutils literal"><span class="pre">err,</span> <span class="pre">users</span> <span class="pre">=</span> <span class="pre">yield()</span></code></p>
+</div>
+</div>
+<div class="section" id="page-commands">
+<span id="page-commands"></span><h2>Page Commands<a class="headerlink" href="#page-commands" title="Permalink to this headline">¶</a></h2>
+<p>The following commands can only be called from inside an NPL page file. They are shortcut to long commands.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Following</span> <span class="n">objects</span> <span class="ow">and</span> <span class="n">functions</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">inside</span> <span class="n">page</span> <span class="n">script</span><span class="p">:</span>
+    <span class="n">request</span><span class="p">:</span>   <span class="n">current</span> <span class="n">request</span> <span class="nb">object</span><span class="p">:</span> <span class="n">headers</span> <span class="ow">and</span> <span class="n">cookies</span>
+    <span class="n">response</span><span class="p">:</span>   <span class="n">current</span> <span class="n">response</span> <span class="nb">object</span><span class="p">:</span> <span class="n">send</span> <span class="n">headers</span> <span class="ow">or</span> <span class="nb">set</span> <span class="n">cookies</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span>
+    <span class="n">echo</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>   <span class="n">output</span> <span class="n">html</span>
+    <span class="n">__FILE__</span><span class="p">:</span> <span class="n">current</span> <span class="n">filename</span>
+    <span class="n">page</span><span class="p">:</span> <span class="n">the</span> <span class="n">current</span> <span class="n">page</span> <span class="p">(</span><span class="n">parser</span><span class="p">)</span> <span class="nb">object</span>
+    <span class="n">_GLOBAL</span><span class="p">:</span> <span class="n">the</span> <span class="n">_G</span> <span class="n">itself</span>
+
+<span class="n">following</span> <span class="n">are</span> <span class="n">exposed</span> <span class="n">via</span> <span class="n">meta</span> <span class="n">class</span><span class="p">:</span>
+    <span class="n">include</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">bReload</span><span class="p">):</span>  <span class="n">inplace</span> <span class="n">include</span> <span class="n">another</span> <span class="n">script</span>
+    <span class="n">include_once</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>  <span class="n">include</span> <span class="n">only</span> <span class="n">once</span><span class="p">,</span> <span class="n">mostly</span> <span class="k">for</span> <span class="n">defining</span> <span class="n">functions</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>  <span class="n">output</span> <span class="n">html</span> <span class="k">with</span> <span class="n">formated</span> <span class="n">string</span><span class="o">.</span>   
+    <span class="n">nplinfo</span><span class="p">():</span>   <span class="n">output</span> <span class="n">npl</span> <span class="n">information</span><span class="o">.</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">die</span><span class="p">():</span>   <span class="n">end</span> <span class="n">the</span> <span class="n">request</span>
+    <span class="n">dirname</span><span class="p">(</span><span class="n">__FILE__</span><span class="p">):</span>   <span class="n">get</span> <span class="n">directory</span> <span class="n">name</span>
+    <span class="n">site_config</span><span class="p">():</span> <span class="n">get</span> <span class="n">the</span> <span class="n">web</span> <span class="n">site</span> <span class="n">configuration</span> <span class="n">table</span>
+    <span class="n">site_url</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">scheme</span><span class="p">):</span> 
+    <span class="n">addheader</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">file_exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">sanitize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="n">escape</span> <span class="n">xml</span> <span class="s1">&#39;&lt;&#39;</span> <span class="s1">&#39;&gt;&#39;</span> 
+    <span class="n">json_encode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">bUseEmptyArray</span><span class="p">)</span>   <span class="n">to</span> <span class="n">json</span> <span class="n">string</span>
+    <span class="n">json_decode</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="n">decode</span> <span class="kn">from</span> <span class="nn">json</span> <span class="n">string</span>
+    <span class="n">xml_encode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>    <span class="n">to</span> <span class="n">xml</span> <span class="n">string</span>
+    <span class="n">include_pagecode</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>  <span class="n">inplace</span> <span class="n">include</span> <span class="n">page</span> <span class="n">code</span><span class="o">.</span> 
+    <span class="n">get_file_text</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> 
+    <span class="n">util</span><span class="o">.</span><span class="n">GetUrl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="n">end</span><span class="p">):</span> 
+    <span class="n">util</span><span class="o">.</span><span class="n">parse_str</span><span class="p">(</span><span class="n">query_string</span><span class="p">):</span> 
+    <span class="n">err</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">yield</span><span class="p">(</span><span class="n">bExitOnError</span><span class="p">)</span>  <span class="n">pause</span> <span class="n">execution</span> <span class="n">until</span> <span class="n">resume</span><span class="p">()</span> <span class="ow">is</span> <span class="n">called</span><span class="o">.</span>
+    <span class="n">resume</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>  <span class="ow">in</span> <span class="k">async</span> <span class="n">callback</span><span class="p">,</span> <span class="n">call</span> <span class="n">this</span> <span class="n">function</span> <span class="n">to</span> <span class="n">resume</span> <span class="n">execution</span> <span class="kn">from</span> <span class="nn">last</span> <span class="k">yield</span><span class="p">()</span> <span class="n">position</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>see <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/apps/WebServer/npl_page_env.lua">script/apps/WebServer/npl_page_env.lua</a> for detailed documentation.</p>
+</div>
+<div class="section" id="request-response-object">
+<span id="request-response-object"></span><h2>Request/Response Object<a class="headerlink" href="#request-response-object" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/apps/WebServer/npl_request.lua">request object</a>: current request object: headers and cookies</li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/apps/WebServer/npl_response.lua">response object</a>: current response object: send headers or set cookies, etc.</li>
+</ul>
+</div>
+<div class="section" id="memory-cache-and-global-objects">
+<span id="memory-cache-and-global-objects"></span><h2>Memory Cache and Global Objects<a class="headerlink" href="#memory-cache-and-global-objects" title="Permalink to this headline">¶</a></h2>
+<p>NPL web server has a built-in simple local memory cache utility. One can use it to store objects that is shared by all requests on the main thread. In future it may be configured to run on a separate server like <code class="docutils literal"><span class="pre">memcached</span></code>.</p>
+<p>See below:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/apps/WebServer/mem_cache.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">mem_cache</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;WebServer.mem_cache&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">obj_cache</span> <span class="o">=</span> <span class="n">mem_cache</span><span class="p">:</span><span class="n">GetInstance</span><span class="p">();</span>
+<span class="n">obj_cache</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="n">obj_cache</span><span class="p">:</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;value1&quot;</span><span class="p">)</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">obj_cache</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;value1&quot;</span><span class="p">);</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">obj_cache</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">nil</span><span class="p">);</span>
+<span class="n">obj_cache</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">)</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">obj_cache</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, one can also create global objects that is shared by all requests in the NPL thread, by using <code class="docutils literal"><span class="pre">commonlib.gettable()</span></code> method. Table objects created with <code class="docutils literal"><span class="pre">commonlib.gettable()</span></code> is different from <code class="docutils literal"><span class="pre">gettable()</span></code> in page file. The latter will create table on the local page scope which lasts only during the lifetime of a given http request.</p>
+</div>
+<div class="section" id="file-uploader">
+<span id="file-uploader"></span><h2>File Uploader<a class="headerlink" href="#file-uploader" title="Permalink to this headline">¶</a></h2>
+<p>NPL web server supports <code class="docutils literal"><span class="pre">multipart/form-data</span></code> by which one can upload binary file to the server. It is recommended to use a separate server for file upload, because it is IO bound and consumes bandwidth when file is very large.</p>
+<p>Click <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/apps/WebServer/admin/wp-content/pages/fileuploader.page">here</a> for a complete example of file uploader.</p>
+<p>Here is the client side code to upload file as <code class="docutils literal"><span class="pre">enctype=&quot;multipart/form-data&quot;</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;uploader&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-horizontal&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/ajax/fileuploader?action=upload&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;fileToUpload&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;fileToUpload&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Upload&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Here is an example NPL server page code, the binary contents of the file is in <code class="docutils literal"><span class="pre">request:getparams()[&quot;fileToUpload&quot;].contents</span></code>. The maximum file upload size allowed can be configured by NPL runtime attribute.
+The default value is 100MB.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">fileToUpload</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">getparams</span><span class="p">()[</span><span class="s2">&quot;fileToUpload&quot;</span><span class="p">]</span>
+<span class="kr">if</span><span class="p">(</span><span class="n">fileToUpload</span> <span class="ow">and</span> <span class="n">request</span><span class="p">:</span><span class="n">getparams</span><span class="p">()[</span><span class="s2">&quot;submit&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">name</span> <span class="ow">and</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">contents</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="kd">local</span> <span class="n">target_dir</span> <span class="o">=</span> <span class="s2">&quot;temp/uploads/&quot;</span> <span class="o">..</span> <span class="n">ParaGlobal</span><span class="p">.</span><span class="n">GetDateFormat</span><span class="p">(</span><span class="s2">&quot;yyyyMMdd&quot;</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&quot;/&quot;</span><span class="p">;</span>
+    <span class="kd">local</span> <span class="n">target_file</span> <span class="o">=</span> <span class="n">target_dir</span> <span class="o">..</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+    <span class="kd">local</span> <span class="n">fileType</span> <span class="o">=</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">name</span><span class="p">:</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;%.(%w+)$&quot;</span><span class="p">);</span> <span class="c1">-- file extension</span>
+    
+    <span class="c1">-- check if file already exists</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">file_exists</span><span class="p">(</span><span class="n">target_file</span><span class="p">))</span> <span class="kr">then</span>
+        <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">({</span><span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Sorry, file already exists.&quot;</span><span class="p">});</span>
+        <span class="kr">return</span>
+    <span class="kr">end</span>
+    <span class="c1">-- check file size</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="n">fileToUpload</span><span class="p">.</span><span class="n">size</span> <span class="ow">and</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">size</span><span class="o">&gt;</span> <span class="mi">5000000</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">({</span><span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Sorry, your file is too large.&quot;</span><span class="p">});</span>
+        <span class="kr">return</span>
+    <span class="kr">end</span>
+
+    <span class="c1">-- Allow certain file formats</span>
+    <span class="kr">if</span><span class="p">(</span><span class="kc">false</span> <span class="ow">and</span> <span class="n">fileType</span> <span class="o">~=</span> <span class="s2">&quot;jpg&quot;</span> <span class="ow">and</span> <span class="n">fileType</span> <span class="o">~=</span> <span class="s2">&quot;png&quot;</span> <span class="ow">and</span> <span class="n">fileType</span><span class="o">~=</span><span class="s2">&quot;txt&quot;</span> <span class="p">)</span> <span class="kr">then</span>
+        <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">({</span><span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Sorry, only JPG, PNG &amp; TXT files are allowed.&quot;</span><span class="p">});</span>
+        <span class="kr">return</span>
+    <span class="kr">end</span>
+
+    <span class="c1">-- if everything is ok, try to save file to target directory</span>
+    <span class="n">ParaIO</span><span class="p">.</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="n">target_dir</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">file</span> <span class="o">=</span> <span class="n">ParaIO</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">Encoding</span><span class="p">.</span><span class="n">Utf8ToDefault</span><span class="p">(</span><span class="n">target_file</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">);</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="n">IsValid</span><span class="p">())</span> <span class="kr">then</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">write</span><span class="p">(</span><span class="n">fileToUpload</span><span class="p">.</span><span class="n">contents</span><span class="p">,</span> <span class="o">#</span><span class="n">fileToUpload</span><span class="p">.</span><span class="n">contents</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">close</span><span class="p">();</span>
+        <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">({</span><span class="n">contents</span> <span class="o">=</span> <span class="n">target_file</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">fileToUpload</span><span class="p">.</span><span class="n">size</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;content-type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fileToUpload</span><span class="p">[</span><span class="s2">&quot;content-type&quot;</span><span class="p">],</span> <span class="p">});</span>
+        <span class="kr">return</span><span class="p">;</span>
+    <span class="kr">else</span>
+        <span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">({</span><span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;can not create file on disk. file name invalid or disk is full.&quot;</span><span class="p">});</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="n">response</span><span class="p">:</span><span class="n">send</span><span class="p">({</span><span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;unknown err&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+<div class="section" id="server-side-redirection">
+<span id="server-side-redirection"></span><h3>Server Side Redirection<a class="headerlink" href="#server-side-redirection" title="Permalink to this headline">¶</a></h3>
+<p>See also <a class="reference external" href="https://en.wikipedia.org/wiki/Server-side_redirect">RFC standard</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;?npl
+response:set_header(&quot;Location&quot;, &quot;http://www.paracraft.cn/&quot;)
+response:status(301):send_headers();
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Server Page</a><ul>
+<li><a class="reference internal" href="#how-does-it-work">How Does It Work?</a><ul>
+<li><a class="reference internal" href="#sandbox-environment">Sandbox Environment</a><ul>
+<li><a class="reference internal" href="#npl-load-vs-include"><code class="docutils literal"><span class="pre">NPL.load</span></code> vs <code class="docutils literal"><span class="pre">include</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mixing-async-code-with-yield-resume">Mixing Async Code with Yield/Resume</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#page-commands">Page Commands</a></li>
+<li><a class="reference internal" href="#request-response-object">Request/Response Object</a></li>
+<li><a class="reference internal" href="#memory-cache-and-global-objects">Memory Cache and Global Objects</a></li>
+<li><a class="reference internal" href="#file-uploader">File Uploader</a><ul>
+<li><a class="reference internal" href="#server-side-redirection">Server Side Redirection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="WebServer.html" title="previous chapter">NPL Web Server</a></li>
+      <li>Next: <a href="AdminSiteFramework.html" title="next chapter">NPL Admin Site Framework</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPLServerPage.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPLServerPage.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

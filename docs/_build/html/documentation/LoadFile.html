@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Load File &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="File Activation" href="ActivationFile.html" />
+    <link rel="prev" title="Build-in NPL CommandLine" href="NPLCommandLine.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-load-file">
+<span id="npl-load-file"></span><h1>NPL Load File<a class="headerlink" href="#npl-load-file" title="Permalink to this headline">¶</a></h1>
+<p>In NPL code, one may call something like <code class="docutils literal"><span class="pre">NPL.load(&quot;script/ide/commonlib.lua&quot;)</span></code> to load a file.
+All NPL code needs to be compiled in order to run. <code class="docutils literal"><span class="pre">NPL.load</span></code> does following things automatically for you.</p>
+<ul class="simple">
+<li>find the correct file either in NPL zip package or according to NPL search path defined in [[npl_packages]] and automatically use precompiled binary version (<code class="docutils literal"><span class="pre">*.o</span></code>) if available (see [[DeployGuide]]).<ul>
+<li>relative path is supported, but only recommended for private files, such as <code class="docutils literal"><span class="pre">NPL.load(&quot;./A.lua&quot;)</span> <span class="pre">or</span> <span class="pre">NPL.load(&quot;../../B.lua&quot;)</span></code></li>
+<li>when using relative path, file extension can be omitted, where *.npl and *.lua are searched, such as <code class="docutils literal"><span class="pre">NPL.load(&quot;./A&quot;)</span> <span class="pre">or</span> <span class="pre">NPL.load(&quot;../../B&quot;)</span></code></li>
+</ul>
+</li>
+<li>automatically resolve recursion.(such as File A load File B, while B also load A).</li>
+<li>compiles the script code if not yet compiled<ul>
+<li>if file extension is <code class="docutils literal"><span class="pre">*.npl</span></code>, NPL <a class="reference external" href="MetaProgramming">meta compiler</a> will be invoked.</li>
+</ul>
+</li>
+<li>The first time code is compiled, it also execute the code chunk in protected mode with <code class="docutils literal"><span class="pre">pcall</span></code>. In most cases,  this means injecting new code to the global or exported table, so that one can use them later.</li>
+<li>it can also be used to load <code class="docutils literal"><span class="pre">C++/Mono</span> <span class="pre">C#/NPL</span> <span class="pre">packages</span></code></li>
+<li>return the exported file module if any. See <code class="docutils literal"><span class="pre">file</span> <span class="pre">based</span> <span class="pre">module</span></code> section below for details.</li>
+</ul>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">load a new file (in the current runtime state) without activating it. If the file is already loaded,</span>
+<span class="cm">it will not be loaded again unless bReload is true. </span>
+<span class="cm">IMPORTANT: this function is synchronous; unlike the asynchronous activation function. </span>
+<span class="cm">LoadFile is more like &quot;include in C++&quot;.When the function returns, contents in the file is loaded to memory. </span>
+<span class="cm">@note: in NPL/lua, function is first class object, so loading a file means executing the code chunk in protected mode with pcall, </span>
+<span class="cm">in most cases,  this means injecting new code to the global table. Since there may be recursions (such as A load B, while B also load A), </span>
+<span class="cm">your loading code should not reply on the loading order to work. You need to follow basic code injection principles.</span>
+<span class="cm">For example, commonlib.gettable(&quot;&quot;) is the the commended way to inject new code to the current thread&#39;s global table. </span>
+<span class="cm">Be careful not to pollute the global table too much, use nested table/namespace. </span>
+<span class="cm">Different NPL applications may have their own sandbox environments, which have their own dedicated global tables, for example all `*.page` files use a separate global table per URL request in NPL Web Server App.</span>
+<span class="cm">@note: when loading an NPL file, we will first find if there is an up to date compiled version in the bin directory. if there is, </span>
+<span class="cm">we will load the compiled version, otherwise we will use the text version.  use bin version, if source version does not exist; use bin version, if source and bin versions are both on disk (instead of zip) and that bin version is newer than the source version. </span>
+<span class="cm">e.g. we can compile source to bin directory with file extension &quot;.o&quot;, e.g. &quot;script/abc.lua&quot; can be compiled to &quot;bin/script/abc.o&quot;, The latter will be used if available and up-to-date. </span>
+<span class="cm">@param filePath: the local relative file path. </span>
+<span class="cm">If the file extension is &quot;.dll&quot;, it will be treated as a plug-in. Examples:</span>
+<span class="cm">    &quot;NPLRouter.dll&quot;         -- load a C++ or C# dll. Please note that, in windows, it looks for NPLRonter.dll; in linux, it looks for ./libNPLRouter.so </span>
+<span class="cm">    &quot;plugin/libNPLRouter.dll&quot;           -- almost same as above, it is reformatted to remove the heading &#39;lib&#39; when loading. In windows, it looks for plugin/NPLRonter.dll; in linux, it looks for ./plugin/libNPLRouter.so</span>
+<span class="cm">@param bReload: if true, the file will be reloaded even if it is already loaded.</span>
+<span class="cm">   otherwise, the file will only be loaded if it is not loaded yet. </span>
+<span class="cm">@remark: one should be very careful when calling with bReload set to true, since this may lead to recursive </span>
+<span class="cm">    reloading of the same file. If this occurs, it will generate C Stack overflow error message.</span>
+<span class="cm">*/</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">bReload</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="code-injection-model">
+<span id="code-injection-model"></span><h2>Code Injection Model<a class="headerlink" href="#code-injection-model" title="Permalink to this headline">¶</a></h2>
+<p>Since, in NPL/lua, table and functions are first class object, we use a very flexible code injection model to manage all dynamically loaded code during the life time of an application.</p>
+<p>To inject new code, we use method like <code class="docutils literal"><span class="pre">commonlib.gettable</span></code>, <code class="docutils literal"><span class="pre">commonlib.inherit</span></code>, please see [[ObjectOriented]] for details. The developer should ensure they inject their code with unique names (such as <code class="docutils literal"><span class="pre">CompanyName.AppName.ModuleName</span></code> etc). In other words, do not pollute the global table.</p>
+<p>To reference these code, the user needs to call <code class="docutils literal"><span class="pre">NPL.load</span></code> as well as <code class="docutils literal"><span class="pre">commonlib.gettable</span></code> to create a local stub variable in the file scope. Please note, due to <code class="docutils literal"><span class="pre">NPL.load</span></code> order, the stub may be created before the actual code is injected into it.</p>
+<p>For example, you have a class file in <code class="docutils literal"><span class="pre">script/MyApp/MyClass.lua</span></code> like below</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">MyClass</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;MyApp.MyClass&quot;</span><span class="p">));</span>
+
+<span class="n">MyClass</span><span class="p">.</span><span class="n">default_param</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">-- this is the constructor function.</span>
+<span class="kr">function</span> <span class="nc">MyClass</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>
+   <span class="n">self</span><span class="p">.</span><span class="n">map</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">MyClass</span><span class="p">:</span><span class="nf">init</span><span class="p">(</span><span class="n">param1</span><span class="p">)</span>
+   <span class="n">self</span><span class="p">.</span><span class="n">map</span><span class="p">.</span><span class="n">param1</span> <span class="o">=</span> <span class="n">param1</span><span class="p">;</span>
+   <span class="kr">return</span> <span class="n">self</span><span class="p">;</span> 
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">MyClass</span><span class="p">:</span><span class="nf">Clone</span><span class="p">()</span>
+   <span class="kr">return</span> <span class="n">MyClass</span><span class="p">:</span><span class="n">new</span><span class="p">():</span><span class="n">init</span><span class="p">(</span><span class="n">self</span><span class="p">:</span><span class="n">GetParam</span><span class="p">());</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">MyClass</span><span class="p">:</span><span class="nf">GetParam</span><span class="p">()</span>
+   <span class="kr">return</span> <span class="n">self</span><span class="p">.</span><span class="n">map</span><span class="p">.</span><span class="n">param1</span><span class="p">;</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>To use above class,  one may use</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/MyApp/MyClass.lua&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">MyClass</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;MyApp.MyClass&quot;</span><span class="p">);</span>
+
+<span class="kd">local</span> <span class="n">UserClass</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;MyApp.UserClass&quot;</span><span class="p">));</span>
+
+<span class="kr">function</span> <span class="nc">UserClass</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>
+   <span class="n">self</span><span class="p">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>  <span class="c1">-- use another class</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<blockquote>
+<div>please see [[ObjectOriented]] for details.</div></blockquote>
+</div>
+<div class="section" id="file-based-modules">
+<span id="file-based-modules"></span><h2>File-based Modules<a class="headerlink" href="#file-based-modules" title="Permalink to this headline">¶</a></h2>
+<p>File-based modules use the containing source code filename to store exported object. So programmers do not need to explicitly specify object namespace in code, this solves several issues:</p>
+<ul class="simple">
+<li>code written in this style is independent of its containing file location.</li>
+<li>code looks more isolated.</li>
+<li>multiple versions of the same code can coexist.</li>
+</ul>
+<blockquote>
+<div>One not-so-convenient thing is that the user must explicitly load every referenced external modules written in this way in every file. This is the primary reason why the common NPL library are NOT written in this way.</div></blockquote>
+<div class="section" id="defining-file-based-module">
+<span id="defining-file-based-module"></span><h3>Defining file-based module<a class="headerlink" href="#defining-file-based-module" title="Permalink to this headline">¶</a></h3>
+<p>There are three ways to define a file-based module. Suppose, you have a file called <code class="docutils literal"><span class="pre">A.npl</span></code> and you want to export some object from it.</p>
+<ul class="simple">
+<li>One way is to call <code class="docutils literal"><span class="pre">NPL.export</span></code> when file is loaded.</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- this is A.npl file</span>
+<span class="kd">local</span> <span class="n">A</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">export</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+
+<span class="kr">function</span> <span class="nc">A</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">echo</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>Following is a better and recommended way, which works with cyclic dependencies. See <code class="docutils literal"><span class="pre">Module</span> <span class="pre">Cyclic</span> <span class="pre">Reference</span></code> section for details.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- this is A.npl file</span>
+<span class="kd">local</span> <span class="n">A</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">export</span><span class="p">();</span>
+<span class="kr">function</span> <span class="nc">A</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">echo</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Another way is simply return the object to be associated with the current file at the last line of code, like below.
+This is also a lua-compatible way. It does not work when there are cyclic dependencies.</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- this is A.npl file</span>
+<span class="kd">local</span> <span class="n">A</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kr">return</span> <span class="n">A</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>finally, there is an advanced manual way to simply add to the <code class="docutils literal"><span class="pre">_file_mod_</span></code> table.</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- this is A.npl file</span>
+<span class="kd">local</span> <span class="n">A</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">_file_mod_</span><span class="p">[</span><span class="n">NPL</span><span class="p">.</span><span class="n">filename</span><span class="p">():</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&quot;([^/]*$)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">..</span><span class="s2">&quot;A.npl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As you can see, file-based module simply automatically stores the mapping from the module&#8217;s full filename to its exported object in a hidden global table. If one changes the filename or file location, the mapping key also changes. This is why you can load multiple versions of the same module and let the user to choose which one to use in a given source file.</p>
+<div class="section" id="module-cyclic-reference">
+<span id="module-cyclic-reference"></span><h4>Module Cyclic Reference<a class="headerlink" href="#module-cyclic-reference" title="Permalink to this headline">¶</a></h4>
+<p>When you write file modules that depends on each file, there are cyclic dependencies. One workaround is to modify the default exported object, which is always an empty table, instead of creating a local table. See below. We have two files A and B that reference each other.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- A.lua</span>
+<span class="kd">local</span> <span class="n">B</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./B.lua&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">A</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">export</span><span class="p">();</span>
+<span class="kr">function</span> <span class="nc">A</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">B</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- B.lua</span>
+<span class="kd">local</span> <span class="n">A</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./A.lua&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">B</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">export</span><span class="p">();</span>
+<span class="kr">function</span> <span class="nc">B</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">echo</span><span class="p">(</span><span class="n">s</span><span class="o">..</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">));</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">NPL.export()</span></code> is the core of file module system in NPL, it will return the default empty table representing the current file. This is the same way as how <code class="docutils literal"><span class="pre">commonlib.gettable()</span></code> solve cyclic dependency.</div></blockquote>
+</div>
+<div class="section" id="modules-with-object-oriented-class-inheritance">
+<span id="modules-with-object-oriented-class-inheritance"></span><h4>Modules with Object Oriented Class Inheritance<a class="headerlink" href="#modules-with-object-oriented-class-inheritance" title="Permalink to this headline">¶</a></h4>
+<p>The following shows an example of two class table with inheritance, and also cyclic dependency.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- base_class.lua</span>
+<span class="kd">local</span> <span class="n">derived_class</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./derived_class.lua&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">base_class</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">NPL</span><span class="p">.</span><span class="n">export</span><span class="p">());</span>
+<span class="kr">function</span> <span class="nc">base_class</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>
+   <span class="n">derived_class</span><span class="p">:</span><span class="n">cyclic_dependency_test</span><span class="p">();</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- derived_class.lua</span>
+<span class="kd">local</span> <span class="n">base_class</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./base_class.lua&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">B</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">inherit</span><span class="p">(</span><span class="n">base_class</span><span class="p">,</span> <span class="n">NPL</span><span class="p">.</span><span class="n">export</span><span class="p">());</span>
+<span class="kr">function</span> <span class="nc">B</span><span class="p">:</span><span class="nf">ctor</span><span class="p">()</span>
+<span class="kr">end</span>
+<span class="kr">function</span> <span class="nc">B</span><span class="p">:</span><span class="nf">cyclic_dependency_test</span><span class="p">()</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-file-based-module-with-module-name">
+<span id="loading-file-based-module-with-module-name"></span><h3>Loading file-based module With module name<a class="headerlink" href="#loading-file-based-module-with-module-name" title="Permalink to this headline">¶</a></h3>
+<p>To import a file-based module, one calls <code class="docutils literal"><span class="pre">NPL.load(modname)</span></code>. <code class="docutils literal"><span class="pre">NPL.load</span></code> is a versatile function which can load either standard source files or file-based modules and return the exported module object.</p>
+<blockquote>
+<div>A <code class="docutils literal"><span class="pre">modname</span></code> is different from filename, a string is treated as <code class="docutils literal"><span class="pre">modname</span></code> if and only if it does NOT contain file extension or begin with &#8221;./&#8221; or &#8221;../&#8221;. such as <code class="docutils literal"><span class="pre">NPL.load(&quot;sample_mod&quot;)</span></code></div></blockquote>
+<p><code class="docutils literal"><span class="pre">NPL.load(modname)</span></code> will automatically find the source file of the module by trying the following locations in order until it finds one. Using module name in NPL.load is less efficient than using explicit filename, because it needs to do the search every time it is called, so only use it at file-load time, such as at the beginning of a file.</p>
+<ul class="simple">
+<li>if the code that invokes <code class="docutils literal"><span class="pre">NPL.load</span></code> is from <code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/</span></code><ul>
+<li>try: <code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/npl_mod/[modname]/[modname].lua|npl</span></code></li>
+<li>try: <code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/npl_packages/[modname]/npl_mod/[modname]/[modname].lua|npl</span></code></li>
+</ul>
+</li>
+<li>try: <code class="docutils literal"><span class="pre">npl_mod/[modname]/[modname].npl|lua</span></code></li>
+<li>try: <code class="docutils literal"><span class="pre">npl_packages/[modname]/npl_mod/[modname]/[modname].npl|lua</span></code></li>
+</ul>
+<p>Example 1: NPL.load(&#8220;sample_mod&#8221;) will test following file locations for both *.npl and *.lua file:</p>
+<ul class="simple">
+<li>if code that invokes it is from <code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/</span></code><ul>
+<li><code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/npl_mod/sample_mod/sample_mod.npl</span></code></li>
+<li><code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/npl_packages/sample_mod/npl_mod/sample_mod/sample_mod.npl</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">npl_mod/sample_mod/sample_mod.npl</span></code></li>
+<li><code class="docutils literal"><span class="pre">npl_packages/sample_mod/npl_mod/sample_mod/sample_mod.npl</span></code></li>
+</ul>
+<p>Example 2: NPL.load(&#8220;sample_mod.xxx.yyy&#8221;) will test following file locations for both *.npl and *.lua file:</p>
+<ul class="simple">
+<li>if code that invokes it is from <code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/</span></code><ul>
+<li><code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/npl_mod/sample_mod/xxx/yyy.npl</span></code></li>
+<li><code class="docutils literal"><span class="pre">npl_packages/[parentModDir]/npl_packages/sample_mod/npl_mod/sample_mod/xxx/yyy.npl</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">npl_mod/sample_mod/xxx/yyy.npl</span></code></li>
+<li><code class="docutils literal"><span class="pre">npl_packages/sample_mod/npl_mod/sample_mod/xxx/yyy.npl</span></code></li>
+</ul>
+<p>As you can see, the <code class="docutils literal"><span class="pre">npl_packages/</span></code> and <code class="docutils literal"><span class="pre">npl_mod/</span></code> are two special folders to search for when loading file based module.
+code inside npl_packages/xxx/ folder always use local <code class="docutils literal"><span class="pre">npl_mod</span></code> and local npl_packages before searching for global ones, this allow multiple versions of the same npl_mod to coexist in different npl_packages. It is up to the developer to decide how to package and release their application or modules.</p>
+<p>Here is an <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/npl_mod/sample_mod">example of npl_mod</a> in main package</p>
+<p>For more information on NPL packages, please see [[npl_packages]]</p>
+</div>
+<div class="section" id="when-to-use-require">
+<span id="when-to-use-require"></span><h3>When to Use <code class="docutils literal"><span class="pre">require</span></code><a class="headerlink" href="#when-to-use-require" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">require</span></code> is Lua&#8217;s way to load a file based module. NPL hooks into this function to always call <code class="docutils literal"><span class="pre">NPL.load</span></code> with the same input before passing down. More specifically, NPL injects a custom loader (at index 2) into the lua&#8217;s <code class="docutils literal"><span class="pre">package.loaders</span></code>. So calling <code class="docutils literal"><span class="pre">require</span></code> is almost identical to calling <code class="docutils literal"><span class="pre">NPL.load</span></code> so far, except that multiple code versions can not coexist.</p>
+<div class="section" id="do-not-use-require">
+<span id="do-not-use-require"></span><h4>Do not Use <code class="docutils literal"><span class="pre">require</span></code><a class="headerlink" href="#do-not-use-require" title="Permalink to this headline">¶</a></h4>
+<p>Since NPL.load now hooks original lua&#8217;s require function. Facts in this section may not be true, but we still do not recommend using <code class="docutils literal"><span class="pre">require</span></code> in your own code, unless you are reusing third-party lua libraries. The reason is simple, NPL.load is backward-compatible with the original require, but the original require does not support features provided by NPL.load. Using require in your own code may confuse other lua developers. Therefore, code written for NPL developers should always use NPL.load.</p>
+<p>One should only use <code class="docutils literal"><span class="pre">require</span></code> to load lua C plugins, do not use it in your own NPL scripts. <code class="docutils literal"><span class="pre">require</span></code> is rated low in community. Its original implementation is same, but use a similar global hidden table, whose logic you never know, in a flat manner. It also does not support cyclic dependency so far.</p>
+<p>Moreover, some application may need to create sandbox environment to isolate code execution (code are injected to specified global table), using <code class="docutils literal"><span class="pre">require</span></code> give you no control of code injection.</p>
+<p>Different NPL applications may have their own sandbox environments, which have their own dedicated global tables, for example all <code class="docutils literal"><span class="pre">*.page</span></code> files use a separate global table per URL request in NPL Web Server App.</p>
+<p>Finally, require` is slow and uses different search paths than NPL; while NPL.load is fast and honors precompiled code either in package zip file or in search paths defined in [[npl_packages]], and consistent on all platforms.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Load File</a><ul>
+<li><a class="reference internal" href="#code-injection-model">Code Injection Model</a></li>
+<li><a class="reference internal" href="#file-based-modules">File-based Modules</a><ul>
+<li><a class="reference internal" href="#defining-file-based-module">Defining file-based module</a><ul>
+<li><a class="reference internal" href="#module-cyclic-reference">Module Cyclic Reference</a></li>
+<li><a class="reference internal" href="#modules-with-object-oriented-class-inheritance">Modules with Object Oriented Class Inheritance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#loading-file-based-module-with-module-name">Loading file-based module With module name</a></li>
+<li><a class="reference internal" href="#when-to-use-require">When to Use <code class="docutils literal"><span class="pre">require</span></code></a><ul>
+<li><a class="reference internal" href="#do-not-use-require">Do not Use <code class="docutils literal"><span class="pre">require</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="NPLCommandLine.html" title="previous chapter">Build-in NPL CommandLine</a></li>
+      <li>Next: <a href="ActivationFile.html" title="next chapter">File Activation</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/LoadFile.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/LoadFile.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

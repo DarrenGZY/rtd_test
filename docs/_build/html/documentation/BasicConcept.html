@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Basic Concept &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bootstrapping" href="bootstrapper.html" />
+    <link rel="prev" title="Extending NPLRuntime With C++ Plugins" href="Plugins.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-basic-concept">
+<span id="npl-basic-concept"></span><h1>NPL Basic Concept<a class="headerlink" href="#npl-basic-concept" title="Permalink to this headline">¶</a></h1>
+<p>This section provides a more detailed description to NPL&#8217;s language feature.</p>
+<div class="section" id="a-brief-history-of-computer-language">
+<span id="a-brief-history-of-computer-language"></span><h2>A Brief History of Computer Language<a class="headerlink" href="#a-brief-history-of-computer-language" title="Permalink to this headline">¶</a></h2>
+<p>Computer programming language is essentially a language in itself, like English and Chinese; but it is mainly written by humans to instruct computers. Our current computers has its unique way to process language. In general, it is a kind of command-like IO system, with input and output. Any piece of code can always be statically mapped to nodes and connections, where each connection has a single-unique direction from output to input; when a computer executes the code, it moves data along those connections. This is similar to how our brain works by our biological neural network. The difference is that we do not know how, when and where data is passed along. Since parallelism in our brain can also be mapped to a certain kind of node-connection relationship; the only thing differs is computational speed. So when designing computer language, let us first take concurrent programming out, and focus on making it easier and efficient to create all kinds of nodes and connections, and passing data along the connections.</p>
+<p>Let us list all major patterns:</p>
+<ul class="simple">
+<li>Nearly all languages provides functions:<ul>
+<li>Functional language like <code class="docutils literal"><span class="pre">C</span></code> provides defining custom input/output patterns with functions. Let us regard <code class="docutils literal"><span class="pre">if,else,expressions</span></code>, etc as build-in functions.</li>
+</ul>
+</li>
+<li>In some languages like <code class="docutils literal"><span class="pre">javascript</span></code>, function is first-class object, allowing one to create interesting node-connection patterns.</li>
+<li>Some like <code class="docutils literal"><span class="pre">C++,</span> <span class="pre">java,</span> <span class="pre">php</span></code> supports object-oriented programming, which is essentially a filter-like input/output patterns, that moves data as a whole more easily.</li>
+<li>Some is weakly typed like <code class="docutils literal"><span class="pre">javascript</span></code>, <code class="docutils literal"><span class="pre">python</span></code> allowing a node to accept input from more versatile input, at some expense. Some strongly-typed language like <code class="docutils literal"><span class="pre">C++</span></code> use template-programming to simulate this feature at the cost of more code generated.</li>
+<li>Some is statically scoped like <code class="docutils literal"><span class="pre">lua</span></code>, that automatically captured variables for any asynchronous callback, and some dynamically scoped language also simulates this feature with anonymous function and captures in some clumsy way like &#8216;C#&#8217;.</li>
+<li>Some features establishing node and connections across multiple threads or computers on the network.</li>
+</ul>
+<p>So what is the language that support all the above, while still maintaining high-performance?
+A close answer is <code class="docutils literal"><span class="pre">lua</span></code>; the complete answer is <code class="docutils literal"><span class="pre">NPL</span></code>.</p>
+</div>
+<div class="section" id="what-npl-is-not">
+<span id="what-npl-is-not"></span><h2>What NPL is Not<a class="headerlink" href="#what-npl-is-not" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">meta</span> <span class="pre">programming</span></code> is a technique to translate text code from first domain to second one, and then compile second one and execute. It is common for some library to use this technique to provide a more concise way of coding with the library. Examples:<ul>
+<li><code class="docutils literal"><span class="pre">qt.io</span></code> in C++</li>
+<li><code class="docutils literal"><span class="pre">php</span></code> which pre-process code-mixed hyper text into complete programming code.</li>
+<li><code class="docutils literal"><span class="pre">Scala</span></code> to &#8216;Java&#8217;</li>
+<li><code class="docutils literal"><span class="pre">CoffeeScript</span></code> to <code class="docutils literal"><span class="pre">Javascript</span></code></li>
+</ul>
+</li>
+<li>NPL is NOT <code class="docutils literal"><span class="pre">meta</span> <span class="pre">programming</span></code>. But [[NPL web server|WebServer]] library use a similar technique to make coding server web pages that generate HTML5/javascript on the client more easily.</li>
+<li>NPL is not syntactic sugar or meta-programming for concurrent programming library. It is the programmer&#8217;s job to write or use libraries that support concurrent programming, rather than introducing some non-intuitive syntax to the language itself.</li>
+</ul>
+</div>
+<div class="section" id="npl-runtime-architecture">
+<span id="npl-runtime-architecture"></span><h2>NPL Runtime Architecture<a class="headerlink" href="#npl-runtime-architecture" title="Permalink to this headline">¶</a></h2>
+<p>This section helps you to understand the internals of NPL runtime. One of the major things that one need to understand is its message passing model.</p>
+<div class="section" id="message-passing-model">
+<span id="message-passing-model"></span><h3>Message Passing Model<a class="headerlink" href="#message-passing-model" title="Permalink to this headline">¶</a></h3>
+<p>In NPL, any file on disk can receive messages from other files. A file can send messages to other files via <code class="docutils literal"><span class="pre">NPL.activate</span></code> function. This function is strictly asynchronous. The details is below:</p>
+<p>Message processing always has two phases:</p>
+<ul class="simple">
+<li>phase1: synapse data relay phase</li>
+<li>phase2: neuron file response phase</li>
+</ul>
+<p>When you send a message via <code class="docutils literal"><span class="pre">NPL.activate</span></code>, the message is in phase 1. Message is not processed immediately, but cached in a queue. For example, if the target neuron file is on the local machine, the message is pushed (cached) directly to local thread queue; if the target is on remote machine, NPL runtime will automatcally establish TCP connection, and it will ensure the message is pushed(cached) on the target machine&#8217;s specified thread queue.</p>
+<p>Message processing takes place in phase2. Each NPL runtime process may contain one or more NPL runtime states, each corresponds to one system-level thread with its own message queue, memory, and code. NPL runtime states are logically separated from each other. In each NPL state, it processes messages in its message queue in heart-beat fashion. Therefore it is the programmer&#8217;s job to finish processing the message within reasonable time slice, otherwise the message queue will be full and begin to lose early messages.</p>
+</div>
+<div class="section" id="code-overview">
+<span id="code-overview"></span><h3>Code Overview<a class="headerlink" href="#code-overview" title="Permalink to this headline">¶</a></h3>
+<p>This section helps you to understand the open source code of NPL.</p>
+<div class="section" id="incoming-connections">
+<span id="incoming-connections"></span><h4>incoming connections<a class="headerlink" href="#incoming-connections" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">incoming</span> <span class="n">connection</span><span class="p">:</span>  <span class="n">acceptor</span><span class="o">/</span><span class="n">dispatcher</span> <span class="n">thread</span>
+    <span class="o">-&gt;</span> <span class="n">CNPLNetServer</span><span class="p">::</span><span class="n">handle_accept</span> 
+        <span class="o">-&gt;</span> <span class="n">CNPLNetServer</span><span class="o">.</span><span class="n">m_connection_manager</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">a</span> <span class="n">new</span> <span class="n">CNPLConnection</span> <span class="nb">object</span><span class="p">)</span> <span class="p">:</span> <span class="n">a</span> <span class="n">new</span> <span class="n">CNPLConnection</span> <span class="nb">object</span> <span class="ow">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">CNPLConnectionManager</span> 
+            <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> 
+                <span class="o">-&gt;</span> <span class="n">automatically</span> <span class="n">assign</span> <span class="n">a</span> <span class="n">temporary</span> <span class="n">nid</span> <span class="n">to</span> <span class="n">this</span> <span class="n">unauthenticated</span> <span class="n">connection</span><span class="p">,</span> <span class="n">temp</span> <span class="n">connection</span> <span class="ow">is</span> <span class="n">called</span> <span class="o">~</span><span class="n">XXX</span><span class="o">.</span>
+                    <span class="o">-&gt;</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">AddNPLConnection</span><span class="p">(</span><span class="n">temporary</span> <span class="n">nid</span><span class="p">,</span> <span class="n">CNPLConnection</span><span class="p">)</span>
+                <span class="o">-&gt;</span> <span class="n">begin</span> <span class="n">reading</span> <span class="n">the</span> <span class="n">connection</span> <span class="n">sockets</span>
+                <span class="o">-&gt;</span> <span class="n">LATER</span><span class="p">:</span> <span class="n">Once</span> <span class="n">authenticated</span><span class="p">,</span> <span class="n">the</span> <span class="n">scripting</span> <span class="n">interface</span> <span class="n">can</span> <span class="n">call</span> <span class="p">(</span><span class="n">CNPLConnection</span><span class="p">)</span><span class="n">NPL</span><span class="o">.</span><span class="n">GetConnection</span><span class="p">(</span><span class="n">nid</span><span class="p">)::</span><span class="n">rename</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">bAuthenticated</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>if any messages are sent via the new incomming connection, the message field should contain msg.nid and msg.tid,
+where tid is temporaray nid. If there is no nid, it means that the connection is not yet authenticated.
+In NPL, one can call <code class="docutils literal"><span class="pre">NPL.accept(tid,</span> <span class="pre">nid)</span></code></p>
+</div>
+<div class="section" id="incoming-messages">
+<span id="incoming-messages"></span><h4>incoming messages<a class="headerlink" href="#incoming-messages" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">incoming</span> <span class="n">message</span>
+    <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">handle_read</span> 
+        <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">handleReceivedData</span>
+            <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">m_parser</span><span class="o">.</span><span class="n">parse</span> <span class="n">until</span> <span class="n">a</span> <span class="n">complete</span> <span class="n">message</span> <span class="ow">is</span> <span class="n">read</span>
+                <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">handleMessageIn</span><span class="p">()</span>
+                    <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">m_msg_dispatcher</span><span class="o">.</span><span class="n">DispatchMsg</span><span class="p">((</span><span class="n">NPLMsgIn</span><span class="p">)</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">m_input_msg</span><span class="p">)</span>
+                        <span class="o">-&gt;</span> <span class="n">CNPLRuntimeState</span> <span class="o">=</span> <span class="n">GetNPLRuntime</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetRuntimeState</span><span class="p">(</span><span class="n">NPLMsgIn</span><span class="p">::</span><span class="n">m_rts_name</span><span class="p">)</span>
+                        <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">CheckPubFile</span><span class="p">(</span><span class="n">NPLMsgIn</span><span class="p">::</span><span class="n">m_filename</span><span class="p">)</span>
+                            <span class="o">-&gt;</span> <span class="n">new</span> <span class="n">NPLMessage</span><span class="p">(</span><span class="kn">from</span> <span class="nn">NPLMsgIn</span><span class="p">)</span>
+                            <span class="o">-&gt;</span> <span class="n">CNPLRuntimeState</span><span class="p">::</span><span class="n">Activate_async</span><span class="p">(</span><span class="n">NPLMessage</span><span class="p">);</span>
+                                <span class="o">-&gt;</span> <span class="n">CNPLRuntimeState</span><span class="p">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">NPLMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">insert</span> <span class="n">message</span> <span class="n">to</span> <span class="n">CNPLRuntimeState</span><span class="o">.</span><span class="n">m_input_queue</span>
+                        <span class="o">-&gt;</span> <span class="ow">or</span> <span class="k">return</span> <span class="n">access</span> <span class="n">denied</span>  
+</pre></div>
+</div>
+</div>
+<div class="section" id="outgoing-messages">
+<span id="outgoing-messages"></span><h4>outgoing messages<a class="headerlink" href="#outgoing-messages" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NPL</span> <span class="n">script</span> <span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+    <span class="o">-&gt;</span> <span class="n">CNPLRuntime</span><span class="p">::</span><span class="n">NPL_Activate</span>
+        <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">local</span> <span class="n">activation</span><span class="p">,</span> <span class="n">get</span> <span class="n">the</span> <span class="n">runtime</span> <span class="n">state</span><span class="o">.</span>
+            <span class="o">-&gt;</span> <span class="n">CNPLRuntimeState</span><span class="p">::</span><span class="n">Activate_async</span><span class="p">(</span><span class="n">NPLMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CNPLRuntimeState</span><span class="p">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">NPLMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">insert</span> <span class="n">message</span> <span class="n">to</span> <span class="n">CNPLRuntimeState</span><span class="o">.</span><span class="n">m_input_queue</span>
+        <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">remote</span> <span class="n">activation</span> <span class="k">with</span> <span class="n">nid</span><span class="p">,</span> <span class="n">send</span> <span class="n">via</span> <span class="n">dispatcher</span>   
+            <span class="o">-&gt;</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">Activate_Async</span><span class="p">(</span><span class="n">NPLFileName</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+                <span class="o">-&gt;</span> <span class="n">CNPLConnection</span> <span class="o">=</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">CreateGetNPLConnectionByNID</span><span class="p">(</span><span class="n">nid</span><span class="p">)</span> 
+                    <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">m_active_connection_map</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">CNPLConnection</span><span class="p">),</span> <span class="k">return</span>
+                    <span class="o">-&gt;</span> <span class="ow">or</span> <span class="k">if</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">m_pending_connection_map</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">CNPLConnection</span><span class="p">),</span> <span class="k">return</span>
+                    <span class="o">-&gt;</span> <span class="ow">or</span> <span class="k">if</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">m_server_address_map</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">nid</span><span class="p">):</span> <span class="n">we</span> <span class="n">will</span> <span class="n">actively</span> <span class="n">establish</span> <span class="n">a</span> <span class="n">new</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">it</span><span class="o">.</span> 
+                        <span class="o">-&gt;</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">CreateConnection</span><span class="p">(</span><span class="n">NPLRuntimeAddress</span><span class="p">)</span>
+                            <span class="o">-&gt;</span> <span class="n">CNPLNetServer</span><span class="p">::</span><span class="n">CreateConnection</span><span class="p">(</span><span class="n">NPLRuntimeAddress</span><span class="p">)</span>
+                                <span class="o">-&gt;</span> <span class="n">new</span> <span class="n">CNPLConnection</span><span class="p">()</span> 
+                                <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">SetNPLRuntimeAddress</span><span class="p">(</span><span class="n">NPLRuntimeAddress</span><span class="p">)</span> 
+                                <span class="o">-&gt;</span> <span class="p">(</span><span class="n">CNPLNetServer</span><span class="p">::</span><span class="n">m_connection_manager</span> <span class="k">as</span> <span class="n">CNPLConnectionManager</span><span class="p">)::</span><span class="n">add</span><span class="p">(</span><span class="n">CNPLConnection</span><span class="p">)</span>
+                                <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">connect</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">m_resolver</span><span class="o">-&gt;</span><span class="n">async_resolve</span> <span class="o">-&gt;</span> 
+                                    <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">handle_resolve</span> <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">m_socket</span><span class="o">.</span><span class="n">async_connect</span> 
+                                    <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">handle_connect</span> 
+                                        <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">handleConnect</span><span class="p">()</span> <span class="p">:</span> <span class="k">for</span> <span class="n">custom</span> <span class="n">behavior</span>
+                                        <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">start</span><span class="p">()</span>
+                                            <span class="o">-&gt;</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">AddNPLConnection</span><span class="p">(</span><span class="n">CNPLConnection</span><span class="o">.</span><span class="n">m_address</span><span class="o">.</span><span class="n">nid</span><span class="p">,</span> <span class="n">CNPLConnection</span><span class="p">)</span>
+                                                <span class="o">-&gt;</span> <span class="n">add</span> <span class="n">nid</span> <span class="n">to</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">m_active_connection_map</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">CNPLConnection</span><span class="p">),</span> <span class="n">remove</span> <span class="n">nid</span> <span class="kn">from</span> <span class="nn">m_pending_connection_map</span><span class="p">(</span><span class="n">nid</span><span class="p">,</span> <span class="n">CNPLConnection</span><span class="p">)</span>
+                                            <span class="o">-&gt;</span> <span class="n">begin</span> <span class="n">reading</span> <span class="n">the</span> <span class="n">connection</span> <span class="n">sockets</span>
+                            <span class="o">-&gt;</span> <span class="n">Add</span> <span class="n">to</span> <span class="n">CNPLDispatcher</span><span class="p">::</span><span class="n">m_pending_connection_map</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">connected</span> <span class="n">when</span> <span class="n">returned</span><span class="p">,</span> <span class="k">return</span> <span class="n">the</span> <span class="n">newly</span> <span class="n">created</span> <span class="n">connection</span>
+                    <span class="o">-&gt;</span> <span class="ow">or</span> <span class="k">return</span> <span class="n">null</span><span class="o">.</span>  
+                <span class="o">-&gt;</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">NPLFilename</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+                    <span class="o">-&gt;</span> <span class="n">new</span> <span class="n">NPLMsgOut</span><span class="p">(</span> <span class="kn">from</span> <span class="nn">NPLFilename</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+                    <span class="o">-&gt;</span> <span class="n">push</span> <span class="n">to</span> <span class="n">CNPLConnection</span><span class="p">::</span><span class="n">m_queueOutput</span><span class="p">()</span> <span class="ow">and</span> <span class="n">start</span> <span class="n">sending</span> <span class="n">first</span> <span class="n">one</span> <span class="k">if</span> <span class="n">queue</span> <span class="ow">is</span> <span class="n">previously</span> <span class="n">empty</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="npl-message-format">
+<span id="npl-message-format"></span><h4>NPL Message Format<a class="headerlink" href="#npl-message-format" title="Permalink to this headline">¶</a></h4>
+<p>NPL message protocol is based on TCP and HTTP compatible. More information is in <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/blob/master/Client/trunk/ParaEngineClient/NPL/NPLMsgIn_parser.h">NPLMsgIn_parser.h</a></p>
+<p><em>quick sample</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="p">(</span><span class="n">g1</span><span class="p">)</span><span class="n">script</span><span class="o">/</span><span class="n">hello</span><span class="o">.</span><span class="n">lua</span> <span class="n">NPL</span><span class="o">/</span><span class="mf">1.0</span>
+<span class="n">rts</span><span class="p">:</span><span class="n">r1</span>
+<span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span><span class="n">NPL</span>
+<span class="mi">16</span><span class="p">:{</span><span class="s2">&quot;hello world!&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="npl-quick-guide">
+<span id="npl-quick-guide"></span><h3>NPL Quick Guide<a class="headerlink" href="#npl-quick-guide" title="Permalink to this headline">¶</a></h3>
+<p>In NPL runtime, there can be one or more runtime threads called NPL runtime states.
+Each runtime state has its own name, stack, thread local memory manager, and message queue.
+The default NPL state is called (main), which is also the thread for rendering 3D graphics. It is also the thread to spawn other worker threads.</p>
+<p>To make a NPL runtime accessible by other NPL runtimes, one must call</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">StartNetServer</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;60001&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This must be done on both client and server. Please note that NPL does not distinguish between client and server. If you like, you may call the one who first calls <code class="docutils literal"><span class="pre">NPL.activate</span></code> to be client. For private client, the port number can be &#8220;0&#8221; to indicate that it will not be accessible by other computers, but it can always connect to other public NPL runtimes.</p>
+<p>To make files within NPL runtime accessible by other NPL runtimes, one must add those files to public file lists by calling</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">AddPublicFile</span><span class="p">(</span><span class="s2">&quot;script/test/network/TestSimpleClient.lua&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">AddPublicFile</span><span class="p">(</span><span class="s2">&quot;script/test/network/TestSimpleServer.lua&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>the second parameter is id of the file. The file name to id map must be the same for all communicating computers. This presumption may be removed in futhure versions.</p>
+<p>To create additional worker threads (NPL states) for handling messages, one can call</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">worker</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">CreateRuntimeState</span><span class="p">(</span><span class="s2">&quot;some_runtime_state&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">worker</span><span class="p">:</span><span class="n">Start</span><span class="p">();</span>
+    <span class="kr">end</span>
+</pre></div>
+</div>
+<p>Each NPL runtime on the network (either LAN/WAN) is identified by a globally unique <code class="docutils literal"><span class="pre">nid</span></code> string.
+NPL itself does not verify or authenticate nid, it is the programmers&#8217; job to do it.</p>
+<p>To add a trusted server address to nid map, one can call</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">AddNPLRuntimeAddress</span><span class="p">({</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;60001&quot;</span><span class="p">,</span> <span class="n">nid</span><span class="o">=</span><span class="s2">&quot;this_is_server_nid&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>so that NPL runtime knows how to connection to the nid via TCP endpoints. host can be ip or domain name.</p>
+<p>To activate a file on a remote NPL runtime(identified by a nid), one can call</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">while</span><span class="p">(</span> <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(some_runtime_state)this_is_server_nid:script/test/network/TestSimpleServer.lua&quot;</span><span class="p">,</span> 
+ <span class="p">{</span><span class="n">some_data_table</span><span class="p">})</span> <span class="o">~=</span><span class="mi">0</span> <span class="p">)</span> <span class="kr">do</span> 
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>Please note that <code class="docutils literal"><span class="pre">NPL.activate()</span></code> function will return non-zero if no connection is established for the target,
+but it will immediately try to establish a new connection if the target address of server nid is known.
+The above sample code simply loop until activate succeed; in real world, one should use a timer with timeout or use one of the helper function such as <code class="docutils literal"><span class="pre">NPL.activate_with_timeout</span></code>.</p>
+<p>When a file is activated, its activation function will be called, and data is inside the global msg table.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+        <span class="kr">if</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">nid</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kr">elseif</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kr">end</span>
+        <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%s:script/test/network/TestSimpleClient.lua&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">nid</span> <span class="ow">or</span> <span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">),</span> <span class="p">{</span><span class="n">some_date_sent_back</span><span class="p">})</span>
+    <span class="kr">end</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">msg.nid</span></code> contains the nid of the source NPL runtime. <code class="docutils literal"><span class="pre">msg.nid</span></code> is nil, if connection is not authenticated or nid is not known. In such cases, <code class="docutils literal"><span class="pre">msg.tid</span></code> is always available; it contains the local temporary id. When the connection is authenticated, one can call following function to reassign nid to a connection or reject it. NPL runtime will try to reuse the same existing TCP connect between current computer and each nid or tid target, for all communcations between the two endpoints in either direction.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">accept</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">,</span> <span class="n">nid</span><span class="p">)</span>  <span class="c1">-- to rename tid to nid, or </span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">reject</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">tid</span><span class="p">)</span> <span class="c1">-- to close the connection. </span>
+</pre></div>
+</div>
+<blockquote>
+<div>only the main thread support non-thread safe functions, such as those with rendering. For worker thread(runtime state), please only use NPL functions that are explicitly marked as thread-safe in the documentation.</div></blockquote>
+</div>
+<div class="section" id="npl-extensibility-and-scripting-performance">
+<span id="npl-extensibility-and-scripting-performance"></span><h3>NPL Extensibility and Scripting Performance<a class="headerlink" href="#npl-extensibility-and-scripting-performance" title="Permalink to this headline">¶</a></h3>
+<p>NPL provides three extensibility modes: (1) Lua scripting runtime states (2) Mono .Net runtimes (3) C++ plugin interface
+All of them can be used simultanously to create logics for game applications. All modes support cross-platform and multi-threaded computing.</p>
+<p>Lua runtime is natively supported and has the most extensive ParaEngine API exposed. It is both extremely light weighted and having a good thread local memory manager.
+It is suitable for both client and server side scripting. It is recommended to use only lua scripts on the client side.</p>
+<p>Mono .Net runtimes is supported via NPLMono.dll (which in turn is a C++ plugin dll). The main advantage of using .Net scripting is its rich libraries, popular language support(C#,Java,VB and their IDE) and compiled binary code performance.
+.Net scripting runtime is recommended to use on the server side only, since deploying .Net on the client requires quite some disk space. And .Net (strong typed language) is less effective than lua when coding for client logics.</p>
+<p>C++ plugins allows us to treat dll file as a single script file. It has the best performance among others, but also is the most difficult to code.
+We would only want to use it for performance critical tasks or functions that make extensive use of other third-party C/C++ libraries. For example, NPLRouter.dll is a C++ plugin for routing messages on the server side.</p>
+</div>
+<div class="section" id="cross-runtime-communication">
+<span id="cross-runtime-communication"></span><h3>Cross-Runtime Communication<a class="headerlink" href="#cross-runtime-communication" title="Permalink to this headline">¶</a></h3>
+<p>A game project may have thousands of lua scripts on the client, mega bytes of C# code contained in several .NET dll assemblies on the server,  and a few C++ plugin dlls on both client and server. (On linux, *.dll will actually find the *.so file)
+All these extensible codes are connected to the ParaEngine Runtime and have full access to the exposed ParaEngine API.
+Hence, source code written in different language runtimes can use the ParaEngine API to communicate with each other as well as the core game engine module.</p>
+<p>More over, <code class="docutils literal"><span class="pre">NPL.activate</span></code> is the single most versatile and effective communication function used in all NPL extensibility modes.
+In NPL, a file is the smallest communication entity. Each file can receive messages either from the local or remote files.</p>
+<ul class="simple">
+<li>In NPL lua runtime, each script file with a activate() function assigned can receive messages from other scripts.</li>
+<li>In NPL .Net runtime, each C# file with a activate() function defined inside a class having the same name as the file name can receive messages from other scripts. (namespace around class name is also supported, see the example)</li>
+<li>In NPL C++ plugins, each dll file must expose a activate() function to receive messages from other scripts.</li>
+</ul>
+<p>Following are example scripts and NPL.activate() functions to send messages to them.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---------------------------------------</span>
+<span class="n">File</span> <span class="n">name</span><span class="p">:</span>  <span class="n">script</span><span class="o">/</span><span class="n">HelloWorld</span><span class="o">.</span><span class="n">lua</span>  <span class="p">(</span><span class="n">NPL</span> <span class="n">script</span> <span class="n">file</span><span class="p">)</span>
+<span class="n">activate</span><span class="p">:</span>   <span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;script/HelloWorld.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="p">})</span>
+<span class="o">---------------------------------------</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">activate</span><span class="p">()</span>
+<span class="n">end</span>
+<span class="n">NPL</span><span class="o">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">)</span>
+
+<span class="o">---------------------------------------</span>
+<span class="n">File</span> <span class="n">name</span><span class="p">:</span>  <span class="n">HelloWorld</span><span class="o">.</span><span class="n">cs</span> <span class="n">inside</span> <span class="n">C</span><span class="c1"># mono/MyMonoLib.dll</span>
+<span class="n">activate</span><span class="p">:</span>   <span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;mono/MyMonoLib.dll/HelloWorld.cs&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="p">})</span>  
+            <span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;mono/MyMonoLib.dll/ParaMono.HelloWorld.cs&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="p">})</span> 
+<span class="o">---------------------------------------</span>
+<span class="k">class</span> <span class="nc">HelloWorld</span>
+<span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">activate</span><span class="p">(</span><span class="n">ref</span> <span class="nb">int</span> <span class="nb">type</span><span class="p">,</span> <span class="n">ref</span> <span class="n">string</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">namespace</span> <span class="n">ParaMono</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">HelloWorld</span>
+    <span class="p">{</span>
+        <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">activate</span><span class="p">(</span><span class="n">ref</span> <span class="nb">int</span> <span class="nb">type</span><span class="p">,</span> <span class="n">ref</span> <span class="n">string</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">---------------------------------------</span>
+<span class="n">File</span> <span class="n">name</span><span class="p">:</span>  <span class="n">HelloWorld</span><span class="o">.</span><span class="n">cpp</span> <span class="n">inside</span> <span class="n">C</span><span class="o">++</span> <span class="n">MyPlugin</span><span class="o">.</span><span class="n">dll</span>
+<span class="n">activate</span><span class="p">:</span>   <span class="n">NPL</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;MyPlugin.dll&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="p">})</span>
+<span class="o">---------------------------------------</span>
+<span class="n">CORE_EXPORT_DECL</span> <span class="n">void</span> <span class="n">LibActivate</span><span class="p">(</span><span class="nb">int</span> <span class="n">nType</span><span class="p">,</span> <span class="n">void</span><span class="o">*</span> <span class="n">pVoid</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">nType</span> <span class="o">==</span> <span class="n">ParaEngine</span><span class="p">::</span><span class="n">PluginActType_STATE</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">NPL.activate()</span></code> can use the file extension (*.lua, *.cs, *.dll) to distinguish the file type.</p>
+<p>All <code class="docutils literal"><span class="pre">NPL.activate()</span></code> communications are asynchronous and each message must go through message queues between the sending and receiving endpoints.
+The performance of NPL.activate() is therefore not as efficient as local function calls, so they are generally only used to dispatch work tasks to different worker threads or communicating between client and server.Generally, 30000 msgs per second can be processed for 100 bytes message on 2.5G quad core CPU machine.
+For pure client side game logics, we rarely use NPL.activate(), instead we use local function calls whereever possible.</p>
+</div>
+<div class="section" id="high-level-networking-programming-libraries">
+<span id="high-level-networking-programming-libraries"></span><h3>High Level Networking Programming Libraries<a class="headerlink" href="#high-level-networking-programming-libraries" title="Permalink to this headline">¶</a></h3>
+<p>In real world applications, we usually need to build a network architecture on top of NPL, which usually contains the following tool sets and libraries.</p>
+<ul class="simple">
+<li>gateway servers and game(application) servers where the client connections are kept.</li>
+<li>routers for dispaching messagings between game(app) servers and database servers.</li>
+<li>database servers that performances business logics and query the underlying databases(My SQLs)</li>
+<li>memory cache servers that cache data for database servers to minimize access to database.</li>
+<li>Configuration files and management tools (shell scripts, server deployingment tools, monitoring tools, etc)</li>
+<li>backup servers for all above and DNS servers.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Basic Concept</a><ul>
+<li><a class="reference internal" href="#a-brief-history-of-computer-language">A Brief History of Computer Language</a></li>
+<li><a class="reference internal" href="#what-npl-is-not">What NPL is Not</a></li>
+<li><a class="reference internal" href="#npl-runtime-architecture">NPL Runtime Architecture</a><ul>
+<li><a class="reference internal" href="#message-passing-model">Message Passing Model</a></li>
+<li><a class="reference internal" href="#code-overview">Code Overview</a><ul>
+<li><a class="reference internal" href="#incoming-connections">incoming connections</a></li>
+<li><a class="reference internal" href="#incoming-messages">incoming messages</a></li>
+<li><a class="reference internal" href="#outgoing-messages">outgoing messages</a></li>
+<li><a class="reference internal" href="#npl-message-format">NPL Message Format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-quick-guide">NPL Quick Guide</a></li>
+<li><a class="reference internal" href="#npl-extensibility-and-scripting-performance">NPL Extensibility and Scripting Performance</a></li>
+<li><a class="reference internal" href="#cross-runtime-communication">Cross-Runtime Communication</a></li>
+<li><a class="reference internal" href="#high-level-networking-programming-libraries">High Level Networking Programming Libraries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Plugins.html" title="previous chapter">Extending NPLRuntime With C++ Plugins</a></li>
+      <li>Next: <a href="bootstrapper.html" title="next chapter">Bootstrapping</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/BasicConcept.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/BasicConcept.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

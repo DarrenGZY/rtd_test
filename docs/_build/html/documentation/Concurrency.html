@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Concurrency Model &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Common Libraries" href="commonlib.html" />
+    <link rel="prev" title="Multi-Threading" href="MultiThreading.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="concurrency-model">
+<span id="concurrency-model"></span><h1>Concurrency Model<a class="headerlink" href="#concurrency-model" title="Permalink to this headline">¶</a></h1>
+<p>This is an in-depth topic about NPL&#8217;s concurrency model and design principles. It also compares it with other similar models in popular languages, like <a class="reference external" href="erlang.org">erlang</a>, <a class="reference external" href="https://golang.org/">GO</a>, <a class="reference external" href="http://www.scala-lang.org/">Scala(java)</a>, etc.</p>
+<div class="section" id="what-is-concurrency">
+<span id="what-is-concurrency"></span><h2>What is Concurrency?<a class="headerlink" href="#what-is-concurrency" title="Permalink to this headline">¶</a></h2>
+<p>The mental picture of all computer languages is to execute in sequential order. Concurrency is a language feature about writing code that runs concurrently.  Traditional way of doing this is via threads and locks, which is very troublesome to write. <a class="reference external" href="https://en.wikipedia.org/wiki/Actor_model">The Actor Model</a>, which was first proposed by Carl Hewitt in 1973, takes a different approach to concurrency, which should avoid the problems caused by threading and locking.</p>
+<p>There are many implementations of concurrency model in different languages, they differ both in performance under different use cases, and in the programmers&#8217; mental picture when writing concurrent code.</p>
+<blockquote>
+<div>NPL uses a hybrid approach, which give you the ability to run tens of thousands of tasks in a single thread or across multiple threads. More importantly, you do not need to write any code to spawn a virtual process or write error-prone message loops.  In short, NPL is very fast, scalable and give programmers a mental picture that is close to neurons in the brain.</div></blockquote>
+</div>
+<div class="section" id="concurrent-activation-in-npl">
+<span id="concurrent-activation-in-npl"></span><h2>Concurrent Activation in NPL<a class="headerlink" href="#concurrent-activation-in-npl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preemptive-vs-non-preemptive-file-activation">
+<span id="preemptive-vs-non-preemptive-file-activation"></span><h3>Preemptive vs Non-Preemptive File Activation<a class="headerlink" href="#preemptive-vs-non-preemptive-file-activation" title="Permalink to this headline">¶</a></h3>
+<p>By default NPL activate function is non-preemptive, it is the programmer&#8217;s job to finish
+execution within reasonable time slice. The default non-preemptive mode gives the programmer
+full control of how code is executed and different neuron files can easily share data using global tables in the same thread.</p>
+<p>On the other hand, NPL also allows you to do preemptive activation, in which the NPL runtime will count
+virtual machine instructions until it reaches a user-defined value (such as 1000) and then
+automatically yield(pause) the activate function. The function will be resumed automatically
+in the next time slice. NPL time slice is by default about 16ms (i.e. 60FPS).</p>
+<p>To make file activate function preemptive, simply pass a second parameter <code class="docutils literal"><span class="pre">{PreemptiveCount,</span> <span class="pre">MsgQueueSize,</span> <span class="pre">[filename|name],</span> <span class="pre">clear}</span></code> to <code class="docutils literal"><span class="pre">NPL.this</span></code> like below:</p>
+<ul class="simple">
+<li>PreemptiveCount: is the number of VM instructions to count before it yields. If nil or 0, it is non-preemptive. Please note JIT-compiled code does not count as instruction by default, see below.</li>
+<li>MsgQueueSize: Max message queue size of this file, if not specified, it is same as the NPL thread&#8217;s message queue size.</li>
+<li>filename|name: virtual filename, if not specified, the current file being loaded is used.</li>
+<li>clear: clear all memory used by the file, including its message queue. Normally one never needs to clear.
+A neuron file without messages takes less than 100 bytes of memory (mostly depending on the length&#8217;s of its filename)</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- this is a demo of how to use preemptive activate function. </span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> 
+    <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span> <span class="c1">-- important to keep a copy on stack since we go preemptive.</span>
+    <span class="kd">local</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kr">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">echo</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="o">..</span><span class="n">i</span><span class="p">);</span>
+        <span class="kr">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">400</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="nb">error</span><span class="p">(</span><span class="s2">&quot;test runtime error&quot;</span><span class="p">);</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+<span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="n">PreemptiveCount</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MsgQueueSize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;yourfilename.lua&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>You can test your code with:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;yourfilename.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hi&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>Facts about preemptive activate function:</p>
+<ul class="simple">
+<li>It allows you to run tens of thousands of jobs concurrently in the same system thread.
+Each running job has its own stack and the memory overhead is about 450bytes.
+A neuron file without pending messages takes less than 100 bytes of memory (mostly depending on the length&#8217;s of its filename).
+The only limitation to the number of concurrent jobs is your system memory.</li>
+<li>There is a slight performance penalty on program speed due to counting VM instructions.</li>
+<li>With preemptive activate function, the programmer should pay attention when
+making changes to shared data in the thread, since your function may be paused at any instruction.
+The golden rule here is never make any changes to shared data, but use messages to exchange data.</li>
+<li>C/C++ API call is counted as one instruction, so if you call ParaEngine.Sleep(10),
+it will block all concurrent jobs on that NPL thread for 10 seconds.</li>
+<li>Code in async callbacks (such as timer, remote api call) in activate function are NOT preemptive.
+Because callbacks are invoked from the context of other concurrent activate functions.</li>
+</ul>
+</div>
+<div class="section" id="test-cases-and-examples">
+<span id="test-cases-and-examples"></span><h3>Test Cases and Examples:<a class="headerlink" href="#test-cases-and-examples" title="Permalink to this headline">¶</a></h3>
+<p>see also <code class="docutils literal"><span class="pre">script/ide/System/test/test_concurrency.lua</span></code> for more tests cases.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">test_concurrency</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Core.Test.test_concurrency&quot;</span><span class="p">);</span>
+
+<span class="kr">function</span> <span class="nc">test_concurrency</span><span class="p">:</span><span class="nf">testRuntimeError</span><span class="p">()</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> 
+        <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span> <span class="c1">-- important to keep a copy on stack since we go preemptive.</span>
+        <span class="kd">local</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kr">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="kr">do</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">echo</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="o">..</span><span class="n">i</span><span class="p">);</span>
+            <span class="kr">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">40</span><span class="p">)</span> <span class="kr">then</span>
+                <span class="nb">error</span><span class="p">(</span><span class="s2">&quot;test runtime error&quot;</span><span class="p">);</span>
+            <span class="kr">end</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="n">PreemptiveCount</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MsgQueueSize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;tests/testRuntimeError&quot;</span><span class="p">});</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;tests/testRuntimeError&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">});</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;tests/testRuntimeError&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1000&quot;</span><span class="p">});</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">test_concurrency</span><span class="p">:</span><span class="nf">testLongTask</span><span class="p">()</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> 
+        <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span> <span class="c1">-- important to keep a copy on stack since we go preemptive.</span>
+        <span class="kd">local</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kr">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="kr">do</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">echo</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="n">PreemptiveCount</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MsgQueueSize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;tests/testLongTask&quot;</span><span class="p">});</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;tests/testLongTask&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">});</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">test_concurrency</span><span class="p">:</span><span class="nf">testMessageQueueFull</span><span class="p">()</span>
+    <span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> 
+        <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span> <span class="c1">-- important to keep a copy on stack since we go preemptive.</span>
+        <span class="kd">local</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span> <span class="kr">do</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kr">end</span>
+        <span class="n">echo</span><span class="p">({</span><span class="s2">&quot;finished&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">});</span>
+    <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="n">PreemptiveCount</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MsgQueueSize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;tests/testMessageQueueFull&quot;</span><span class="p">});</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="kr">do</span>
+        <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;tests/testMessageQueueFull&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">index</span><span class="o">=</span><span class="n">i</span><span class="p">});</span>  
+    <span class="kr">end</span>
+    <span class="c1">-- result: only the first three calls will finish.</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">test_concurrency</span><span class="p">:</span><span class="nf">testMemorySize</span><span class="p">()</span>
+    <span class="n">__rts__</span><span class="p">:</span><span class="n">SetMsgQueueSize</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span> <span class="kr">do</span>
+        <span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> 
+            <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span> <span class="c1">-- important to keep a copy on stack since we go preemptive.</span>
+            <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">math.random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> <span class="kr">do</span>
+                <span class="n">msg</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  
+            <span class="kr">end</span>
+            <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+        <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="n">PreemptiveCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MsgQueueSize</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;tests/testMemorySize&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">});</span>
+        <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;tests/testMemorySize&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> <span class="p">{</span><span class="n">index</span><span class="o">=</span><span class="n">i</span><span class="p">});</span> 
+    <span class="kr">end</span>
+    <span class="c1">-- TODO: use a timer to check when it will finish. </span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">test_concurrency</span><span class="p">:</span><span class="nf">testThroughput</span><span class="p">()</span>
+    <span class="n">__rts__</span><span class="p">:</span><span class="n">SetMsgQueueSize</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span> <span class="kr">do</span>
+        <span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> 
+            <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span>
+            <span class="kr">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="kr">do</span>
+                <span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="kr">end</span>
+        <span class="kr">end</span><span class="p">,</span> <span class="p">{</span><span class="n">PreemptiveCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MsgQueueSize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;tests/testThroughput&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">});</span>
+        <span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;tests/testThroughput&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">,</span> <span class="p">{</span><span class="n">index</span><span class="o">=</span><span class="n">i</span><span class="p">});</span> 
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="npl-message-scheduling">
+<span id="npl-message-scheduling"></span><h2>NPL Message Scheduling<a class="headerlink" href="#npl-message-scheduling" title="Permalink to this headline">¶</a></h2>
+<p>Each NPL runtime can have one or more NPL states/threads (i.e. real system threads).
+Each NPL state has a single message queue for input and output with other NPL threads or remote processes.
+Programmer can set the maximum size of this queue, so when it is full, messages are automatically dropped.</p>
+<p>On each time slice, NPL state will process <code class="docutils literal"><span class="pre">ALL</span></code> messages in its message queue in priority order.</p>
+<ul class="simple">
+<li>If a message belongs to a non-preemptive file, it will invoke its activate function immediately.</li>
+<li>If a message belongs to a preemptive file, it will remove the message from the queue and insert it to the target
+file&#8217;s message queue, which may has a different message queue size. If message queue of the file is full, it will drop
+the message immediately.</li>
+</ul>
+<p>In another native thread timer, all active preemptive files (with pending/half-processed messages) will be processed/resumed in <code class="docutils literal"><span class="pre">preemptive</span></code> way. I.e. we will count VM(virtual machine) instructions for each activate function and pause it if necessary.</p>
+<blockquote>
+<div>Note: all TCP/IP network connections are managed by a single global network IO thread. In this way you can have tens of thousands of live TCP connections without using much system memory. A global NPL dispatcher automatically dispatch incoming network messages to the message queue of the target NPL state/thread. Normally, the number of NPL threads used is close to the number of CPU cores on the computer.</div></blockquote>
+<div class="section" id="causions-on-preemptive-programming">
+<span id="causions-on-preemptive-programming"></span><h3>Causions on Preemptive Programming<a class="headerlink" href="#causions-on-preemptive-programming" title="Permalink to this headline">¶</a></h3>
+<p>Since preemptive code and non-preemptive code can coexit in the same NPL state (thread).
+It is the programmers&#8217; job to ensure preemptive code does not modify global data.</p>
+<ul class="simple">
+<li>Note: when NPL debugger is attached, all preemptive code are paused to make debugging possible.</li>
+<li>Also, please note that JIT-compiled code does NOT call hooks by
+default. Either disable the JIT compiler or edit src/Makefile:
+<code class="docutils literal"><span class="pre">XCFLAGS=</span> <span class="pre">-DLUAJIT_ENABLE_CHECKHOOK</span></code> This comes with a speed penalty even hook is not set.
+Our recommendation is to call <code class="docutils literal"><span class="pre">dummy()</span></code> or any NPL API functions and count that.</li>
+</ul>
+</div>
+<div class="section" id="priority-of-concurrent-activation">
+<span id="priority-of-concurrent-activation"></span><h3>Priority of Concurrent Activation<a class="headerlink" href="#priority-of-concurrent-activation" title="Permalink to this headline">¶</a></h3>
+<p>PreemptiveCount is the total number of instructions (or Byte code) executed in an activate function before we pause it.
+In NPL, <code class="docutils literal"><span class="pre">PreemptiveCount</span></code> can be specified per activate function, thus giving you fine control over how much computation each activate function can run in a given time slice.</p>
+<p>The NPL scheduler for preemptive activation file will guarantee each function will run precisely PreemptiveCount instructions after PreemptiveCount * total_active_process_count instructions every time slice.</p>
+<p>So there is absolutely no dead-lock conditions in our user-mode <code class="docutils literal"><span class="pre">preemptive</span></code> scheduler. The only thing that may break your application is running out of memory. However, each active (running) function only take 400-2000 bytes according to usage. even 1 million concurrently running jobs takes only about 1GB memory. If only half of those jobs are busy doing calculation on average, you get only a little over 500MB memory usage.</p>
+</div>
+</div>
+<div class="section" id="language-compare-the-mental-picture">
+<span id="language-compare-the-mental-picture"></span><h2>Language Compare: The Mental Picture<a class="headerlink" href="#language-compare-the-mental-picture" title="Permalink to this headline">¶</a></h2>
+<p>We will compare concurrency model in several languages in terms of programmer&#8217;s mental picture and implementation.</p>
+<div class="section" id="erlang">
+<span id="erlang"></span><h3>Erlang<a class="headerlink" href="#erlang" title="Permalink to this headline">¶</a></h3>
+<p>In <a class="reference external" href="erlang.org">erlang</a>, one has to manually call <code class="docutils literal"><span class="pre">spawn</span></code> function to create a user-mode virtual process. So it is both fast and memory efficient to create millions of erlang processes in a single thread.
+Erlang simulates <code class="docutils literal"><span class="pre">preemptive</span></code> scheduling among those processes by counting byte code executed. Erlang processes are currently scheduled on a reduction count basis as described <a class="reference external" href="http://erlang.org/pipermail/erlang-questions/2001-April/003132.html">here</a> and <a class="reference external" href="https://hamidreza-s.github.io/erlang/scheduling/real-time/preemptive/migration/2016/02/09/erlang-scheduler-details.html">here</a>. One reduction is roughly equivalent to a function call. A process is allowed to run until it pauses to wait for input (a message from some other process) or until it has executed 1000 reductions. A process waiting for a message will be re-scheduled as soon as there
+is something new in the message queue, or as soon as the receive timer (receive ... after Time -&gt; ... end) expires. It will then be put last in the appropriate queue. Erlang has 4 scheduler queues (priorities): &#8216;max&#8217;, &#8216;high&#8217;, &#8216;normal&#8217;, and &#8216;low&#8217;.</p>
+<ul class="simple">
+<li>Pros: In the viewpoint of programmers, erlang process is <code class="docutils literal"><span class="pre">preemptive</span></code>. Underneath it is not true <code class="docutils literal"><span class="pre">preemptive</span></code>, but as along as it does not call <code class="docutils literal"><span class="pre">C</span></code> functions, the scheduler is pretty accurate.</li>
+<li>Cons: The programmers need to manually name, create and manage the process&#8217;s message loop (such as when message queue grows too big).</li>
+</ul>
+<p>Comparison:</p>
+<ul class="simple">
+<li>Similarity:<ul>
+<li>Both NPL and erlang copies messages when sending them</li>
+<li>Both support <code class="docutils literal"><span class="pre">preemptive</span></code> concurrent scheduler.</li>
+<li>Both use user mode code to simulate processes, so that there is almost no limit to the total number of asynchronous entities created.</li>
+</ul>
+</li>
+<li>Differences:<ul>
+<li>Erlang is <code class="docutils literal"><span class="pre">preemptive</span></code>; NPL can be not <code class="docutils literal"><span class="pre">preemptive</span></code> and <code class="docutils literal"><span class="pre">non-preemptive</span></code>.</li>
+<li>NPL use source code file name as the entity name, and it does not require the programmer to create and manually write the message loop. Thus the mental picture is <code class="docutils literal"><span class="pre">each</span> <span class="pre">NPL</span> <span class="pre">file</span> <span class="pre">has</span> <span class="pre">a</span> <span class="pre">hidden</span> <span class="pre">message</span> <span class="pre">loop</span></code>.</li>
+<li>Erlang does not give you explicit control over which real system thread your process is running (instead, it automatically does it for you). In NPL, each neuron file can be explicitly instanced on one or more system-level thread.</li>
+<li>Erlang scheduler does not give you control over Instruction Count per process before it is preemptied. In NPL, one can specify different instruction count per activate function, thus giving you a much finer control over priority.</li>
+<li>In NPL we count each C API as a single instruction, while Erlang tries to convert C API to the number of ByteCode executed in the same time.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="go">
+<span id="go"></span><h3>Go<a class="headerlink" href="#go" title="Permalink to this headline">¶</a></h3>
+<p>To me, <a class="reference external" href="https://golang.org/">GO</a>&#8216;s concurrency model is a wrapper of C/C++ threading model. Its syntax and library can greatly simply the code (if written in C/C++). It uses real system threads, so you can not have many concurrent jobs like erlang or NPL.</p>
+<p>Comparison:</p>
+<ul class="simple">
+<li>NPL can be written in the same fashion of GO, because it give you explicit control over real system-level thread.</li>
+</ul>
+</div>
+<div class="section" id="scala">
+<span id="scala"></span><h3>Scala<a class="headerlink" href="#scala" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.scala-lang.org/">Scala</a> is a meta language over higher general purpose language like java.
+Scala is like a rewrite of Erlang in java. Its syntax is in object-oriented fashion with a mixture of Erlang&#8217;s functional style. So please refer to erlang for comparision. However, Scala is not-preemptive as erlang, it relies on the programmer to yield in its event based library, while NPL supports <code class="docutils literal"><span class="pre">preemptive</span></code> mode in additional to <code class="docutils literal"><span class="pre">non-preemptive</span></code> mode.</p>
+</div>
+<div class="section" id="final-words">
+<span id="final-words"></span><h3>Final Words<a class="headerlink" href="#final-words" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Unlike erlang, go, scala, NPL is a dynamic and weak type language. In NPL, it is faster to invoke C/C++ code, its byte code is as fast as most strongly typed languages. See [[NPLPerformance]] for details.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Concurrency Model</a><ul>
+<li><a class="reference internal" href="#what-is-concurrency">What is Concurrency?</a></li>
+<li><a class="reference internal" href="#concurrent-activation-in-npl">Concurrent Activation in NPL</a><ul>
+<li><a class="reference internal" href="#preemptive-vs-non-preemptive-file-activation">Preemptive vs Non-Preemptive File Activation</a></li>
+<li><a class="reference internal" href="#test-cases-and-examples">Test Cases and Examples:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#npl-message-scheduling">NPL Message Scheduling</a><ul>
+<li><a class="reference internal" href="#causions-on-preemptive-programming">Causions on Preemptive Programming</a></li>
+<li><a class="reference internal" href="#priority-of-concurrent-activation">Priority of Concurrent Activation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#language-compare-the-mental-picture">Language Compare: The Mental Picture</a><ul>
+<li><a class="reference internal" href="#erlang">Erlang</a></li>
+<li><a class="reference internal" href="#go">Go</a></li>
+<li><a class="reference internal" href="#scala">Scala</a></li>
+<li><a class="reference internal" href="#final-words">Final Words</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="MultiThreading.html" title="previous chapter">Multi-Threading</a></li>
+      <li>Next: <a href="commonlib.html" title="next chapter">NPL Common Libraries</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/Concurrency.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/Concurrency.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

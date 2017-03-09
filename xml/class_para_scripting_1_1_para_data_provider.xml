@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_data_provider" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaDataProvider</compoundname>
+    <includes refid="_para_scripting_world_8h" local="no">ParaScriptingWorld.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_data_provider_1a11191b6902f77e53d7f7892b1430c17e" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* ParaScripting::ParaDataProvider::m_pDataProvider</definition>
+        <argsstring></argsstring>
+        <name>m_pDataProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="203" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_data_provider_1aaf99e89a1d13fc22d668cc274e3a4c2d" prot="public" static="no" mutable="no">
+        <type>AttributeProvider *</type>
+        <definition>AttributeProvider* ParaScripting::ParaDataProvider::m_pAttributeProvider</definition>
+        <argsstring></argsstring>
+        <name>m_pAttributeProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="204" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_data_provider_1ae292200007ba8f0c1c6d14631a4181b9" prot="public" static="no" mutable="no">
+        <type>union ParaScripting::ParaDataProvider::@2</type>
+        <definition>union ParaScripting::ParaDataProvider::@2 ParaScripting::ParaDataProvider::@3</definition>
+        <argsstring></argsstring>
+        <name>@3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="210" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1abb1163d8b9b199b6bc6d4d1ceb84956f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaDataProvider::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="215" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="215" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1ad4291befd186ad1976f7662df3b5bb4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaDataProvider::ParaDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>ParaDataProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="217" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1ae3cac2855c1efbeb4877cb1df55187ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaDataProvider::ParaDataProvider</definition>
+        <argsstring>(void *pObj)</argsstring>
+        <name>ParaDataProvider</name>
+        <param>
+          <type>void *</type>
+          <declname>pObj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="218" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="218" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a304c44086c27bf2a0d0d5b900bc80e84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaDataProvider::~ParaDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaDataProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="219" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="219" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1af9d7e0c566c65438e25fe3710e92c922" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaDataProvider::InsertPuzzleRecordFromString</definition>
+        <argsstring>(const char *strRecord)</argsstring>
+        <name>InsertPuzzleRecordFromString</name>
+        <param>
+          <type>const char *</type>
+          <declname>strRecord</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insert the new puzzle record to Puzzle_DB <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>record</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of record will be ignored and filled with actual ID if inserted successfully </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the record is inserted in database </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="235" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="207" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a96ce79ac9b9fea895adadb9a07701fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaDataProvider::DeletePuzzleRecordByID</definition>
+        <argsstring>(int ID)</argsstring>
+        <name>DeletePuzzleRecordByID</name>
+        <param>
+          <type>int</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete the existing puzzle record from Puzzle_DB <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of target record </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the record is deleted in database </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="241" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="219" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a1849dba7d4be58b33e935a6408b8f275" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaDataProvider::GetNPCIDByName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>GetNPCIDByName</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get NPC ID by name <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name of character </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>id is returned if found in database; otherwise non-positive value(-1) is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="254" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="237" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1ad49b5fc10983487b58e6ba1860d895a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaDataProvider::GetNPCCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetNPCCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the total number of NPC in the database. There is no statement cached for this call. <simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="260" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="250" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a756a57956be516a577bb29476ed036b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaDataProvider::DoesAttributeExists</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>DoesAttributeExists</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether a given attribute exists. This function is usually used internally. One common use of this function is to test if a field exists, so that we know if a object has been saved before or not. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: name of the attribute field </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="274" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="262" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1ac3eddbfc67ba572b1b8fcd7dd125ed50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaDataProvider::GetAttribute</definition>
+        <argsstring>(const char *sName, const object &amp;sOut)</argsstring>
+        <name>GetAttribute</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sOut</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute of the current attribute instance in the current table e.g. suppose db is a <ref refid="class_para_scripting_1_1_para_data_provider" kindref="compound">ParaDataProvider</ref> object. local x = db:GetAttribute(&quot;PlayerX&quot;, 0); local name = db:GetAttribute(&quot;PlayerName&quot;, &quot;no_name&quot;); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: name of the attribute field </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sOut</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: [in|out] default value of the field. Currently it may be a string or a number </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the object is returned. Currently it may be a string, boolean or a number. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="285" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="270" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a6efe86528b7511ad70539c796bd2c132" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaDataProvider::UpdateAttribute</definition>
+        <argsstring>(const char *sName, const object &amp;sIn)</argsstring>
+        <name>UpdateAttribute</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sIn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>update the attribute of the current attribute instance in the current table insert the attribute if it is not created before. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: name of the attribute field </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sIn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value of the attribute field. Currently it may be a string, boolean or a number. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="294" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="307" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1aeb7e3b00694de63136f2af00c865ef7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaDataProvider::InsertAttribute</definition>
+        <argsstring>(const char *sName, const object &amp;sIn)</argsstring>
+        <name>InsertAttribute</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>sIn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>insert by simple name value pair <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: name of the attribute field </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sIn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value of the attribute field. Currently it may be a string, boolean or a number. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="302" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="335" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1abd8b464f5d5e45b4570c3deaeb6c0dec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaDataProvider::DeleteAttribute</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>DeleteAttribute</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delete the attribute of the current attribute instance in the current table <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: name of the attribute field </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if succeed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="309" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="363" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1ae9ad44dd32ad022a2783f7331fb6e0be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaDataProvider::ExecSQL</definition>
+        <argsstring>(const char *sCmd)</argsstring>
+        <name>ExecSQL</name>
+        <param>
+          <type>const char *</type>
+          <declname>sCmd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>run a given sql command, commonly used commands are &quot;BEGIN&quot;, &quot;END&quot;, when we are batch saving attributes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="312" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="386" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a691f6476aed43152a445e4cf4a832386" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaDataProvider::SetTableName</definition>
+        <argsstring>(const char *sName)</argsstring>
+        <name>SetTableName</name>
+        <param>
+          <type>const char *</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set current attribute table name, the table will be created if not exists. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>table name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="318" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="371" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_data_provider_1a52da7fac25d6f925516ac9bd2f16679c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaDataProvider::GetTableName</definition>
+        <argsstring>()</argsstring>
+        <name>GetTableName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the current attribute table name <simplesect kind="return"><para>current attribute table name </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingWorld.h" line="323" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.cpp" bodystart="377" bodyend="383"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Wrapper of internal <ref refid="class_para_scripting_1_1_para_world" kindref="compound">ParaWorld</ref> data provider </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingWorld.h" line="199" column="1" bodyfile="ParaScriptBindings/ParaScriptingWorld.h" bodystart="198" bodyend="324"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_data_provider_1abd8b464f5d5e45b4570c3deaeb6c0dec" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>DeleteAttribute</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a96ce79ac9b9fea895adadb9a07701fec" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>DeletePuzzleRecordByID</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a756a57956be516a577bb29476ed036b4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>DoesAttributeExists</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1ae9ad44dd32ad022a2783f7331fb6e0be" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>ExecSQL</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1ac3eddbfc67ba572b1b8fcd7dd125ed50" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>GetAttribute</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1ad49b5fc10983487b58e6ba1860d895a0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>GetNPCCount</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a1849dba7d4be58b33e935a6408b8f275" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>GetNPCIDByName</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a52da7fac25d6f925516ac9bd2f16679c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>GetTableName</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1aeb7e3b00694de63136f2af00c865ef7d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>InsertAttribute</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1af9d7e0c566c65438e25fe3710e92c922" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>InsertPuzzleRecordFromString</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1abb1163d8b9b199b6bc6d4d1ceb84956f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1aaf99e89a1d13fc22d668cc274e3a4c2d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>m_pAttributeProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a11191b6902f77e53d7f7892b1430c17e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>m_pDataProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1ad4291befd186ad1976f7662df3b5bb4d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>ParaDataProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1ae3cac2855c1efbeb4877cb1df55187ba" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>ParaDataProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a691f6476aed43152a445e4cf4a832386" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>SetTableName</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a6efe86528b7511ad70539c796bd2c132" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>UpdateAttribute</name></member>
+      <member refid="class_para_scripting_1_1_para_data_provider_1a304c44086c27bf2a0d0d5b900bc80e84" prot="public" virt="non-virtual"><scope>ParaScripting::ParaDataProvider</scope><name>~ParaDataProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ParaEngine &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ParaScripting" href="ParaScripting.html" />
+    <link rel="prev" title="NPL Runtime Performance Compare" href="documentation/NPLPerformance.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="paraengine">
+<h1>ParaEngine<a class="headerlink" href="#paraengine" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv210ParaEngine">
+<span id="ParaEngine"></span><span class="target" id="nutshellnamespace_para_engine"></span><em class="property">namespace </em><code class="descclassname"></code><code class="descname">ParaEngine</code><a class="headerlink" href="#_CPPv210ParaEngine" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv2N10ParaEngine7my_randEv">
+<span id="ParaEngine::my_rand"></span><span class="target" id="nutshell_para_scripting_global_8cpp_1a316167d5178f6c9cbcadcfa3896b73fb"></span>int <code class="descname">my_rand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10ParaEngine7my_randEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterfaceE">
+<span id="ParaEngine::IObjectScriptingInterface"></span><span class="target" id="nutshellclass_para_engine_1_1_i_object_scripting_interface"></span><em class="property">class </em><code class="descname">IObjectScriptingInterface</code><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterfaceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N25IObjectScriptingInterface17AddScriptCallbackEiRK6string">
+<span id="IObjectScriptingInterface::AddScriptCallback__i.stringCR"></span><span class="target" id="nutshellclass_para_engine_1_1_i_object_scripting_interface_1a64fbbf3066de1dc2d7d39a468f89c511"></span>bool <code class="descname">AddScriptCallback</code><span class="sig-paren">(</span>int <em>func_type</em>, <em class="property">const</em> string &amp;<em>script_func</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N25IObjectScriptingInterface17AddScriptCallbackEiRK6string" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>add a new call back handler. it will override the previous one if any. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">script_func</span></code>: format is [filename];[scode] where file name can be any NPL address, scode is a short code sequence to execute. it may has the same format as the GUI event handler. e.g. &#8221;;function1()&#8221; : calling a global function &#8220;(gl)script/character/npc.lua;npc.on_click()&#8221; : load script if not loaded before and then calling a global function if this is &#8220;&#8221;, <a class="reference internal" href="reference/ParaEngine.html#nutshellclass_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c"><span class="std std-ref">RemoveScriptCallback()</span></a> will be called. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N25IObjectScriptingInterface17GetScriptCallbackEi">
+<span id="IObjectScriptingInterface::GetScriptCallback__i"></span><span class="target" id="nutshellclass_para_engine_1_1_i_object_scripting_interface_1aeddc1ce0a86cbcb362342897a4b47a6f"></span>IObjectScriptingInterface::ScriptCallback *<code class="descname">GetScriptCallback</code><span class="sig-paren">(</span>int <em>func_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N25IObjectScriptingInterface17GetScriptCallbackEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>return NULL if there is no associated script. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N25IObjectScriptingInterface20RemoveScriptCallbackEi">
+<span id="IObjectScriptingInterface::RemoveScriptCallback__i"></span><span class="target" id="nutshellclass_para_engine_1_1_i_object_scripting_interface_1a8eb780dd14c301bb323bbf70375beb4c"></span>bool <code class="descname">RemoveScriptCallback</code><span class="sig-paren">(</span>int <em>func_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N25IObjectScriptingInterface20RemoveScriptCallbackEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>remove a call back handler </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallbackE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback"></span><em class="property">struct </em><code class="descname">ScriptCallback</code><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallbackE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;IObjectScriptingInterface.h&gt;</em><p>the game object will keep a list of script call backs. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback13SetScriptFuncERKNSt6stringE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback::SetScriptFunc__ssCR"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a1daccdd58be30306ab91083c177350b1"></span>void <code class="descname">SetScriptFunc</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>script</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback13SetScriptFuncERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set the script function </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback13ActivateAsyncERKNSt6stringE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback::ActivateAsync__ssCR"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a561926be74fb162b85a59f202ef5f114"></span>int <code class="descname">ActivateAsync</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback13ActivateAsyncERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>activate the script callback with the given code. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback16ActivateLocalNowERKNSt6stringE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback::ActivateLocalNow__ssCR"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a283d8fabb5bdf583d1aa9cc00b4b9ffa"></span>int <code class="descname">ActivateLocalNow</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>script</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback16ActivateLocalNowERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>activate the script callback locally now. when function returns, the script has returned. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback9func_typeE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback::func_type__i"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a376ab3e08ead378efc52dd81116b7f27"></span>int <code class="descname">func_type</code><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback9func_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>function type </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback11script_funcE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback::script_func__ss"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a3e8e66d675bb310c8fc966995117baae"></span>std::string <code class="descname">script_func</code><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback11script_funcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the NPL file and function to be activated. Its format is similar to GUI events. e.g. &#8220;(gl)script/NPC1.lua;NPC1.On_Click();&#8221; </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback11m_nLastTickE">
+<span id="ParaEngine::IObjectScriptingInterface::ScriptCallback::m_nLastTick__unsigned-i"></span><span class="target" id="nutshellstruct_para_engine_1_1_i_object_scripting_interface_1_1_script_callback_1a8b6182b1e939f41f24302fe675ca310c"></span>unsigned int <code class="descname">m_nLastTick</code><a class="headerlink" href="#_CPPv2N10ParaEngine25IObjectScriptingInterface14ScriptCallback11m_nLastTickE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>last time this function is called. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="documentation/NPLPerformance.html" title="previous chapter">NPL Runtime Performance Compare</a></li>
+      <li>Next: <a href="ParaScripting.html" title="next chapter">ParaScripting</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ParaEngine.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/ParaEngine.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

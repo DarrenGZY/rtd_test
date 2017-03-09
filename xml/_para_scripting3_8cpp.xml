@@ -1,0 +1,593 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="_para_scripting3_8cpp" kind="file" language="C++">
+    <compoundname>ParaScripting3.cpp</compoundname>
+    <includes local="yes">ParaEngine.h</includes>
+    <includes refid="_para_scripting_n_p_l_8h" local="yes">ParaScriptingNPL.h</includes>
+    <includes refid="_para_scripting_common_8h" local="yes">ParaScriptingCommon.h</includes>
+    <includes refid="_para_scripting_terrain_8h" local="yes">ParaScriptingTerrain.h</includes>
+    <includes refid="_para_scripting_scene_8h" local="yes">ParaScriptingScene.h</includes>
+    <includes local="yes">lua.h</includes>
+    <includes local="yes">lualib.h</includes>
+    <includes local="yes">lauxlib.h</includes>
+    <includes local="no">luabind/luabind.hpp</includes>
+    <includes local="no">luabind/out_value_policy.hpp</includes>
+    <includes local="no">luabind/return_reference_to_policy.hpp</includes>
+    <includes local="no">luabind/copy_policy.hpp</includes>
+    <includes local="no">luabind/adopt_policy.hpp</includes>
+    <includes local="no">luabind/function.hpp</includes>
+    <includes local="yes">NPLRuntime.h</includes>
+    <includes refid="_para_scripting_i_p_c_8h" local="yes">ParaScriptingIPC.h</includes>
+    <includes refid="_para_scripting_8h" local="yes">ParaScripting.h</includes>
+    <incdepgraph>
+      <node id="118">
+        <label>boost/shared_ptr.hpp</label>
+      </node>
+      <node id="117">
+        <label>ParaScriptingNPL.h</label>
+        <link refid="_para_scripting_n_p_l_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>lua.h</label>
+      </node>
+      <node id="142">
+        <label>NPLScriptingState.h</label>
+      </node>
+      <node id="121">
+        <label>IAttributeFields.h</label>
+      </node>
+      <node id="141">
+        <label>ParaScripting.h</label>
+        <link refid="_para_scripting_8h_source"/>
+        <childnode refid="142" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>luabind/function.hpp</label>
+      </node>
+      <node id="127">
+        <label>ParaScriptingCharacter.h</label>
+        <link refid="_para_scripting_character_8h_source"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+      </node>
+      <node id="137">
+        <label>luabind/adopt_policy.hpp</label>
+      </node>
+      <node id="116">
+        <label>ParaEngine.h</label>
+      </node>
+      <node id="123">
+        <label>string</label>
+      </node>
+      <node id="129">
+        <label>MiniSceneGraph.h</label>
+      </node>
+      <node id="122">
+        <label>map</label>
+      </node>
+      <node id="125">
+        <label>ParaScriptingTerrain.h</label>
+        <link refid="_para_scripting_terrain_8h_source"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>lauxlib.h</label>
+      </node>
+      <node id="139">
+        <label>NPLRuntime.h</label>
+      </node>
+      <node id="115">
+        <label>ParaScriptBindings/ParaScripting3.cpp</label>
+        <link refid="_para_scripting3_8cpp"/>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>ParaScriptingGlobal.h</label>
+        <link refid="_para_scripting_global_8h_source"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>luabind/luabind.hpp</label>
+      </node>
+      <node id="126">
+        <label>ParaScriptingScene.h</label>
+        <link refid="_para_scripting_scene_8h_source"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>BipedObject.h</label>
+      </node>
+      <node id="134">
+        <label>luabind/out_value_policy.hpp</label>
+      </node>
+      <node id="135">
+        <label>luabind/return_reference_to_policy.hpp</label>
+      </node>
+      <node id="136">
+        <label>luabind/copy_policy.hpp</label>
+      </node>
+      <node id="120">
+        <label>util/LogService.h</label>
+      </node>
+      <node id="140">
+        <label>ParaScriptingIPC.h</label>
+        <link refid="_para_scripting_i_p_c_8h_source"/>
+      </node>
+      <node id="131">
+        <label>lualib.h</label>
+      </node>
+      <node id="124">
+        <label>ParaScriptingCommon.h</label>
+        <link refid="_para_scripting_common_8h_source"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespace_para_scripting">ParaScripting</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Class:<sp/><sp/><sp/>CNPLScriptingState<sp/>and<sp/>ParaScripting</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Authors:<sp/>Li,<sp/>Xizhi</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Emails:<sp/><sp/>LiXizhi@yeah.net</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Date:<sp/><sp/><sp/><sp/>2005.4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Revised<sp/>2:<sp/>Andy<sp/>Wang<sp/>2007.8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>Note:<sp/>move<sp/>in<sp/>class<sp/>LoadHAPI_NPL,<sp/>LoadHAPI_ResourceManager<sp/>and<sp/>LoadHAPI_SceneManager<sp/>from<sp/>ParaScripting.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Desc:<sp/>partially<sp/>cross<sp/>platformed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaEngine.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaScriptingNPL.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaScriptingCommon.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaScriptingTerrain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaScriptingScene.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_para_engine" kindref="compound">ParaEngine</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;lua.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;lualib.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;lauxlib.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;luabind/luabind.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;luabind/out_value_policy.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;luabind/return_reference_to_policy.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;luabind/copy_policy.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;luabind/adopt_policy.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;luabind/function.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NPLRuntime.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaScriptingIPC.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ParaScripting.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_para_scripting" kindref="compound">ParaScripting</ref></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CNPLScriptingState::LoadHAPI_SceneManager()</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceluabind" kindref="compound">luabind</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_State*<sp/>L<sp/>=<sp/>GetLuaState();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>LoadParaScene();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>LoadParaWorld();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>module(L)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>namespace_(</highlight><highlight class="stringliteral">&quot;ParaTerrain&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>function<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetElevation&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetElevation),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetTerrainElevFile&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetTerrainElevFile),</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetTerrainOnloadScript&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetTerrainOnloadScript),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetRegionValue&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetRegionValue),</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetRegionValue&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetRegionValue4),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetTextureCount&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetTextureCount),</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetTexture),</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ReplaceTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::ReplaceTexture),</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ReplaceTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::ReplaceTexture_),</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetTexturesInCell&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetTexturesInCell),</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;RemoveTextureInCell&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::RemoveTextureInCell),</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SnapPointToVertexGrid&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SnapPointToVertexGrid,pure_out_value(_3)<sp/>+<sp/>pure_out_value(_4)),</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetVertexSpacing&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetVertexSpacing),</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Flatten&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::Flatten),</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DigCircleFlat&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::DigCircleFlat),</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GaussianHill&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GaussianHill),</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;RadialScale&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::RadialScale),</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Roughen_Smooth&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::Roughen_Smooth),</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Spherical&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::Spherical),</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AddHeightField&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::AddHeightField),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;MergeHeightField&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::MergeHeightField),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Ramp&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::Ramp),</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;PaintTerrainData&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::PaintTerrainData),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetTerrainData&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetTerrainData),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetVisibleDataMask&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetVisibleDataMask),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;IsHole&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::IsHole),</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetHole&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SetHole),</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UpdateHoles&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::UpdateHoles),</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Paint&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::Paint),</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Paint&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::Paint_),</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UpdateTerrain&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::UpdateTerrain),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UpdateTerrain&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::UpdateTerrain1),</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ReloadTerrain&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::ReloadTerrain),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;IsModified&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::IsModified),</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetContentModified&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SetContentModified),</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetContentModified&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SetContentModified4),</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetAllLoadedModified&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SetAllLoadedModified),</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SaveTerrain&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SaveTerrain),</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;EnableLighting&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::EnableLighting),</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetAttributeObject&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetAttributeObject),</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetAttributeObjectAt&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetAttributeObjectAt),</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBlockAttributeObject&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetBlockAttributeObject),</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;EnterBlockWorld&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::EnterBlockWorld),</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LeaveBlockWorld&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::LeaveBlockWorld),</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;IsInBlockWorld&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::IsInBlockWorld),</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SaveBlockWorld&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SaveBlockWorld),</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DeleteAllBlocks&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::DeleteAllBlocks),</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetBlockTemplate&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetBlockTemplateId),</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetBlockTemplateByIdx&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetBlockTemplateIdByIdx),</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBlockTemplate&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetBlockTemplateId),</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBlockTemplateByIdx&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetBlockTemplateIdByIdx),</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetBlockUserData&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetBlockUserData),</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetBlockUserDataByIdx&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetBlockUserDataByIdx),</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBlockUserData&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetBlockUserData),</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBlockUserDataByIdx&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetBlockUserDataByIdx),</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBlocksInRegion&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetBlocksInRegion),</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetActiveRegion&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetVisibleChunkRegion),</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Pick&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::Pick),</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;MousePick&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::MousePick),</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;FindFirstBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::FindFirstBlock),</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetFirstBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::GetFirstBlock),</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;RegisterBlockTemplate&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::RegisterBlockTemplate),</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetTemplateTexture&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetTemplateTexture),</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetBlockWorldYOffset&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetBlockWorldYOffset),</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SelectBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SelectBlock),</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SelectBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SelectBlock1),</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DeselectAllBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::DeselectAllBlock),</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DeselectAllBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::DeselectAllBlock1),</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetDamagedBlock&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetDamagedBlock),</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetDamagedDegree&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetDamageDegree),</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetChunkColumnTimeStamp&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetChunkColumnTimeStamp),</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetChunkColumnTimeStamp&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::SetChunkColumnTimeStamp),</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetMapChunkData&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::GetMapChunkData),</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ApplyMapChunkData&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaTerrain::ApplyMapChunkData),</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetBlockWorldSunIntensity&quot;</highlight><highlight class="normal">,&amp;ParaTerrain::SetBlockWorldSunIntensity)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>];</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>module(L)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>namespace_(</highlight><highlight class="stringliteral">&quot;ParaCamera&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>function<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetPosition&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::GetPosition,<sp/>pure_out_value(_1)<sp/>+<sp/>pure_out_value(_2)<sp/>+<sp/>pure_out_value(_3)),</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetLookAtPosition&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::GetLookAtPosition,<sp/>pure_out_value(_1)<sp/>+<sp/>pure_out_value(_2)<sp/>+<sp/>pure_out_value(_3)),</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;FollowObject&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(*)(<ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref>))&amp;ParaCamera::FollowObject),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;FollowObject&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*))&amp;ParaCamera::FollowObject),</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;FirstPerson&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::FirstPerson),</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ThirdPerson&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::ThirdPerson),</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Default&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::Default),</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Fixed&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::Fixed),</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetKeyMap&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::GetKeyMap),</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetKeyMap&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::SetKeyMap),</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetAttributeObject&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaCamera::GetAttributeObject)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>];</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CNPLScriptingState::LoadHAPI_ResourceManager()</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceluabind" kindref="compound">luabind</ref>;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_State*<sp/>L<sp/>=<sp/>GetLuaState();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>module(L)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>namespace_(</highlight><highlight class="stringliteral">&quot;ParaAsset&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ParaObject<sp/>class<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>class_&lt;ParaAssetObject&gt;(</highlight><highlight class="stringliteral">&quot;ParaAssetObject&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(constructor&lt;&gt;())</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Reload&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::Reload)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;IsLoaded&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::IsLoaded)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetKeyName&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetKeyName)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetFileName&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetFileName)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetAttributeObject&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetAttributeObject)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;IsValid&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::IsValid)</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;equals&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::equals)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetHeight&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetHeight)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetWidth&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetWidth)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetSize&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::SetSize)</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetBoundingBox&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetBoundingBox)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetTextureFPS&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::SetTextureFPS)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;EnableTextureAutoAnimation&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::EnableTextureAutoAnimation)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetCurrentFrameNumber&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::SetCurrentFrameNumber)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetCurrentFrameNumber&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetCurrentFrameNumber)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetFrameCount&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetFrameCount)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;UnloadAsset&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::UnloadAsset)</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;LoadAsset&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::LoadAsset)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Refresh&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::Refresh)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Refresh&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::Refresh1)</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Release&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::Release)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetRefCount&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetRefCount)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GarbageCollectMe&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GarbageCollectMe)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetHandle&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::SetHandle)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetHandle&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetHandle)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetParamBlock&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetParamBlock)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetNumReplaceableTextures&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetNumReplaceableTextures)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetDefaultReplaceableTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetDefaultReplaceableTexture)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Begin&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::Begin)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;BeginPass&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::BeginPass)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::SetTexture)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;EndPass&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::EndPass)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;End&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::End)</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;CommitChanges&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::CommitChanges)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetType&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAssetObject::GetType),</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>parameter<sp/>block<sp/>object<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>class_&lt;ParaParamBlock&gt;(</highlight><highlight class="stringliteral">&quot;ParaParamBlock&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(constructor&lt;&gt;())</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;IsValid&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::IsValid)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetInt&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetInt)</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetBoolean&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetBoolean)</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetFloat&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetFloat)</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetVector2&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetVector2)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetVector3&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetVector3)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetVector4&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetVector4)</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetMatrix43&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetMatrix43)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetParam&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetParam)</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetTexture)</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetTexture_)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetTextureObj&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::SetTextureObj)</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Clear&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaParamBlock::Clear),</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>function<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;OpenArchive&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::OpenArchive),</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;OpenArchive&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::OpenArchive2),</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;OpenArchive&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::OpenArchiveEx),</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;CloseArchive&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::CloseArchive),</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GeneratePkgFile&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::GeneratePkgFile),</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Init&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::Init),</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Unload&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::Unload),</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UnloadAll&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::UnloadAll),</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UnloadDatabase&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::UnloadDatabase),</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GarbageCollect&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::GarbageCollect),</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadEffectFile&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadEffectFile),</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetEffectFile&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::GetEffectFile),</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadParaX&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadParaX),</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadDatabase&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadDatabase),</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadStaticMesh&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadStaticMesh),</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadTexture&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadTexture),</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadRenderTarget&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadRenderTarget),</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadSpriteFrame&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadSpriteFrame),</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadFont&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadFont),</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadImageFont&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::LoadImageFont),</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBoneAnimProviderIDByName&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::GetBoneAnimProviderIDByName),</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetBoneAnimProviderFileNameByID&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::GetBoneAnimProviderFileNameByID),</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;CreateBoneAnimProvider&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::CreateBoneAnimProvider),</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DeleteBoneAnimProvider&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::DeleteBoneAnimProvider),</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;PrintToFile&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::PrintToFile),</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AddFontName&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaAsset::AddFontName),</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetAssetServerUrl&quot;</highlight><highlight class="normal">,<sp/>&amp;<sp/>ParaAsset::SetAssetServerUrl),</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetAssetServerUrl&quot;</highlight><highlight class="normal">,<sp/>&amp;<sp/>ParaAsset::GetAssetServerUrl),</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Refresh&quot;</highlight><highlight class="normal">,<sp/>&amp;<sp/>ParaAsset::Refresh),</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadSound&quot;</highlight><highlight class="normal">,<sp/>&amp;<sp/>ParaAsset::LoadSound)</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>];</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CNPLScriptingState::LoadHAPI_NPL()</highlight></codeline>
+<codeline lineno="277"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceluabind" kindref="compound">luabind</ref>;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>lua_State*<sp/>L<sp/>=<sp/>GetLuaState();</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>module(L)</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>def(&quot;_ALERT&quot;,<sp/>(void<sp/>(*)<sp/>(const<sp/>object&amp;<sp/>))&amp;NPL_Alert),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>namespace_(</highlight><highlight class="stringliteral">&quot;NPL&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>class_&lt;ParaNPLRuntimeState&gt;(</highlight><highlight class="stringliteral">&quot;ParaNPLRuntimeState&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(constructor&lt;&gt;())</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;IsValid&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::IsValid)</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetName&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::GetName)</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Start&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::Start)</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Stop&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::Stop)</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Reset&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::Reset)</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Reset&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::Reset1)</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetCurrentQueueSize&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::GetCurrentQueueSize)</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetProcessedMsgCount&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::GetProcessedMsgCount)</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;SetMsgQueueSize&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::SetMsgQueueSize)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetMsgQueueSize&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::GetMsgQueueSize)</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;WaitForMessage&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::WaitForMessage)</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;WaitForMessage&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::WaitForMessage2)</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;PeekMessage&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::PeekMessage)</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;PopMessageAt&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::PopMessageAt)</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetStats&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaNPLRuntimeState::GetStats),</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>function<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;activate&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::activate),</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;activate&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::activate3),</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;activate&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::activate5),</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;activate&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::activate1),</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;call&quot;</highlight><highlight class="normal">,&amp;CNPL::call),</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetFileName&quot;</highlight><highlight class="normal">,&amp;CNPL::GetFileName),</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;load&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::load1),</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;load&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::load),</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;StartNetServer&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::StartNetServer),</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;StopNetServer&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::StopNetServer),</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AddPublicFile&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::AddPublicFile),</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ClearPublicFiles&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::ClearPublicFiles),</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AddNPLRuntimeAddress&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::AddNPLRuntimeAddress),</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetIP&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::GetIP),</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;accept&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::accept),</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;reject&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::reject),</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetUseCompression&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::SetUseCompression),</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetCompressionKey&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::SetCompressionKey),</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetAttributeObject&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::GetAttributeObject),</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;EnableNetWork&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::EnableNetwork),</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AddDNSRecord&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::AddDNSRecord),</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetExternalIP&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::GetExternalIP),</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetTimer&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::SetTimer),</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;KillTimer&quot;</highlight><highlight class="normal">,&amp;CNPL::KillTimer),</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ChangeTimer&quot;</highlight><highlight class="normal">,&amp;CNPL::ChangeTimer),</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Compile&quot;</highlight><highlight class="normal">,&amp;CNPL::Compile),</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DoString&quot;</highlight><highlight class="normal">,&amp;CNPL::DoString),</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DoString&quot;</highlight><highlight class="normal">,&amp;CNPL::DoString2),</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;test&quot;</highlight><highlight class="normal">,&amp;CNPL::test),</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SerializeToSCode&quot;</highlight><highlight class="normal">,&amp;CNPL::SerializeToSCode),</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;IsSCodePureData&quot;</highlight><highlight class="normal">,&amp;CNPL::IsSCodePureData),</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;IsPureData&quot;</highlight><highlight class="normal">,&amp;CNPL::IsPureData),</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;IsPureTable&quot;</highlight><highlight class="normal">,&amp;CNPL::IsPureTable),</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadTableFromString&quot;</highlight><highlight class="normal">,&amp;CNPL::LoadTableFromString),</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;LoadObjectFromString&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::LoadObjectFromString),</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetSourceName&quot;</highlight><highlight class="normal">,&amp;CNPL::GetSourceName),</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetSourceName&quot;</highlight><highlight class="normal">,&amp;CNPL::SetSourceName),</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetDefaultChannel&quot;</highlight><highlight class="normal">,&amp;CNPL::SetDefaultChannel),</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetDefaultChannel&quot;</highlight><highlight class="normal">,&amp;CNPL::GetDefaultChannel),</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;SetChannelProperty&quot;</highlight><highlight class="normal">,&amp;CNPL::SetChannelProperty),</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ResetChannelProperties&quot;</highlight><highlight class="normal">,&amp;CNPL::ResetChannelProperties),</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetChannelProperty&quot;</highlight><highlight class="normal">,&amp;CNPL::GetChannelProperty,<sp/>pure_out_value(_2)<sp/>+<sp/>pure_out_value(_3)),</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;RegisterWSCallBack&quot;</highlight><highlight class="normal">,&amp;CNPL::RegisterWSCallBack),</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UnregisterWSCallBack&quot;</highlight><highlight class="normal">,&amp;CNPL::UnregisterWSCallBack),</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AsyncDownload&quot;</highlight><highlight class="normal">,&amp;CNPL::AsyncDownload),</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;CancelDownload&quot;</highlight><highlight class="normal">,&amp;CNPL::CancelDownload),</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Download&quot;</highlight><highlight class="normal">,&amp;CNPL::Download),</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;CreateRuntimeState&quot;</highlight><highlight class="normal">,&amp;CNPL::CreateRuntimeState),</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetRuntimeState&quot;</highlight><highlight class="normal">,&amp;CNPL::GetRuntimeState),</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;DeleteRuntimeState&quot;</highlight><highlight class="normal">,&amp;CNPL::DeleteRuntimeState),</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;CreateGetRuntimeState&quot;</highlight><highlight class="normal">,&amp;CNPL::CreateGetRuntimeState),</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;AppendURLRequest&quot;</highlight><highlight class="normal">,&amp;CNPL::AppendURLRequest1),</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;EncodeURLQuery&quot;</highlight><highlight class="normal">,&amp;CNPL::EncodeURLQuery),</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ChangeRequestPoolSize&quot;</highlight><highlight class="normal">,&amp;CNPL::ChangeRequestPoolSize),</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;RegisterEvent&quot;</highlight><highlight class="normal">,&amp;CNPL::RegisterEvent),</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;UnregisterEvent&quot;</highlight><highlight class="normal">,&amp;CNPL::UnregisterEvent),</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;GetStats&quot;</highlight><highlight class="normal">,&amp;CNPL::GetStats),</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;FromJson&quot;</highlight><highlight class="normal">,&amp;CNPL::FromJson),</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ToJson&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::ToJson),</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;ToJson&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::ToJson2),</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Compress&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::Compress),</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Decompress&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::Decompress),</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;this&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::this2_),</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;this&quot;</highlight><highlight class="normal">,<sp/>&amp;CNPL::this_)</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>];</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>PARAENGINE_CLIENT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>module(L)</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>namespace_(</highlight><highlight class="stringliteral">&quot;ParaIPC&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>class_&lt;ParaIPCQueue&gt;(</highlight><highlight class="stringliteral">&quot;ParaIPCQueue&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(constructor&lt;&gt;())</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(constructor&lt;const<sp/>char*,<sp/>int&gt;())</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;GetName&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::GetName)</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Cleanup&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::Cleanup)</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Remove&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::Remove)</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;Clear&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::Clear)</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;send&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::send)</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;try_send&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::try_send)</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;receive&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::receive)</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;try_receive&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::try_receive)</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;IsValid&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPCQueue::IsValid),</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>function<sp/>declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;CreateGetQueue&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPC::CreateGetQueue),</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;RemoveQueue&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPC::RemoveQueue),</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def(</highlight><highlight class="stringliteral">&quot;Clear&quot;</highlight><highlight class="normal">,<sp/>&amp;ParaIPC::Clear)</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>];</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/>LoadHAPI_Jabber();</highlight></codeline>
+<codeline lineno="399"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="401"><highlight class="normal">}</highlight><highlight class="comment">//namespace<sp/>ParaScripting</highlight></codeline>
+    </programlisting>
+    <location file="ParaScriptBindings/ParaScripting3.cpp"/>
+  </compounddef>
+</doxygen>

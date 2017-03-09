@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MCML Markup Language For 2D GUI &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3D Programming" href="3DOverview.html" />
+    <link rel="prev" title="2D GUI Windows" href="System.Window.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mcml-markup-language-for-2d-gui">
+<span id="mcml-markup-language-for-2d-gui"></span><h1>MCML Markup Language For 2D GUI<a class="headerlink" href="#mcml-markup-language-for-2d-gui" title="Permalink to this headline">¶</a></h1>
+<p>MCML or Micro Cosmos Markup Language is a meta language written in NPL since 2008, since then it has become the standard of writing 2D user interface in NPL. MCML is inspired by early version of ASP.net, however it uses local architecture for local user interface.</p>
+<div class="section" id="quick-sample">
+<span id="quick-sample"></span><h2>Quick Sample<a class="headerlink" href="#quick-sample" title="Permalink to this headline">¶</a></h2>
+<p>Here is an example of mcml page in a <code class="docutils literal"><span class="pre">.html</span></code> file, such as <code class="docutils literal"><span class="pre">source/HelloWorldMCML/mcml_window.html</span></code>. The file extension only makes it possible for you to preview the page in other html code editor.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">pe:mcml</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">refresh</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/npl&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;mcml_window.lua&quot;</span><span class="p">&gt;</span><span class="o">&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span>
+    <span class="kd">function</span> <span class="nx">OnClickOK</span><span class="p">()</span>
+        <span class="nx">local</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">Page</span><span class="o">:</span><span class="nx">GetValue</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">)</span> <span class="nx">or</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+        <span class="nx">_guihelper</span><span class="p">.</span><span class="nx">MessageBox</span><span class="p">(</span><span class="s2">&quot;你输入的是:&quot;</span><span class="p">..</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nx">end</span>
+<span class="p">]]</span><span class="o">&gt;</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:#33ff33;background-color:#808080&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:10px;&quot;</span><span class="p">&gt;</span>
+        Hello World from HTML page!
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:10px;&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:200px;height:25px;&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;ok&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;确定&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;OnClickOK&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">pe:mcml</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>To render the page, one can launch it with a window like below. See [[System.Window]] for details.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>    <span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/System/Windows/Window.lua&quot;</span><span class="p">);</span>
+    <span class="kd">local</span> <span class="n">Window</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;System.Windows.Window&quot;</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">:</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">window</span><span class="p">:</span><span class="n">Show</span><span class="p">({</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;source/HelloWorldMCML/mcml_window.html&quot;</span><span class="p">,</span> 
+        <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;_lt&quot;</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mcml-v1-vs-v2">
+<span id="mcml-v1-vs-v2"></span><h2>MCML V1 vs V2<a class="headerlink" href="#mcml-v1-vs-v2" title="Permalink to this headline">¶</a></h2>
+<p>There two implementations of MCML: <code class="docutils literal"><span class="pre">v1</span></code> and <code class="docutils literal"><span class="pre">v2</span></code>. The example above is given by v2, which is the preferred implementation. However, v1 is mature and stable implementation, v2 is new and currently does not have as many build-in controls as v1. We are still working on v2 and hope it can be 100% compatible and powerful with v1.  This article is only about v2. See last section for v1.</p>
+<p><strong>Difference between v1 and v2</strong></p>
+<ul class="simple">
+<li>v1 uses NPL&#8217;s build-in GUI objects written in C++, i.e. ParaUIObject like <code class="docutils literal"><span class="pre">button,</span> <span class="pre">container,</span> <span class="pre">editbox</span></code>. Their implementation is hidden from NPL scripts and user IO is exposed to NPL script via callback functions.</li>
+<li>v2 uses NPL script to draw all the GUI objects using 3d-triangle drawing API and handles user input in NPL script. Therefore the user has complete control over the look of their control in NPL script. One can read the source code of v2 in main package.</li>
+</ul>
+</div>
+<div class="section" id="mcml-tags">
+<span id="mcml-tags"></span><h2>Mcml tags<a class="headerlink" href="#mcml-tags" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of tags which you can use to create interactive content. Besides, one can also create your own custom tags with UI controls, see [[System.Window]] for details. All mcml build-in tags are in the <code class="docutils literal"><span class="pre">pe:</span></code> xml namespace, which stands for ParaEngine or pe.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_div.lua">pe:div</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_button.lua">pe:button</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_container.lua">pe:container</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_custom.lua">pe:custom</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_editbox.lua">pe:editbox</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_identicon.lua">pe:identicon</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_if.lua">pe:if</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_input.lua">pe:input</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_repeat.lua">pe:repeat</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_script.lua">pe:script</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_span.lua">pe:span</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/Elements/pe_text.lua">pe:text</a></li>
+</ul>
+<p>Standard html tags are mapped as follows:</p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">div</span></code> tag is mapped to <code class="docutils literal"><span class="pre">pe:div</span></code> class.</li>
+<li>plain text is mapped to <code class="docutils literal"><span class="pre">pe:text</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">input</span> <span class="pre">type=button</span></code> is mapped to <code class="docutils literal"><span class="pre">pe:button</span></code>, etc.</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<span id="examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>There are many mcml examples where you browse in the paracraft package. Most of them are written in mcml v1, however the syntax should be the same for mcml v2. Click to <a class="reference external" href="https://github.com/NPLPackages/paracraft/search?q=mcml&amp;type=Code&amp;utf8=%E2%9C%93">search paracraft package for mcml</a></p>
+<p>Following is just some quick examples:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>&lt;pe:mcml&gt;
+&lt;script type=&quot;text/npl&quot; refresh=&quot;false&quot;&gt;
+&lt;![CDATA[
+globalVar = &quot;test global var&quot;;
+function OnButtonClick()
+    _guihelper.MessageBox(&quot;refresh page now?&quot;, function()
+        Page:SetValue(&quot;myBtn&quot;, &quot;refreshed&quot;);
+        Page:Refresh(0);
+    end);
+end
+
+repeat_data = { {a=1}, {a=2} };
+function GetDS()
+    return repeat_data;
+end
+]]&gt;
+&lt;/script&gt;
+    &lt;div align=&quot;right&quot; style=&quot;background-color:#ff0000;margin:10px;padding:10px;min-width:400px;min-height:150px&quot;&gt;
+        &lt;div align=&quot;right&quot; style=&quot;padding:5px;background:url(Texture/Aries/Common/ThemeKid/btn_thick_hl_32bits.png:7 7 7 7)&quot;&gt;
+            &lt;div style=&quot;float:left;background-color:#000000;color:#ffd800;font-size:20px;&quot;&gt;
+                hello world中文&lt;font color=&quot;#ff0000&quot;&gt;fontColor&lt;/font&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;float:left;background-color:#0000ff;margin-left:10px;width:20px;height:20px;&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div valign=&quot;bottom&quot;&gt;
+            &lt;div style=&quot;float:left;background-color:#00ff00;width:60px;height:20px;&quot;&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;float:left;background-color:#0000ff;margin-left:10px;width:20px;height:20px;&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        hello world中文&lt;font color=&quot;#ff0000&quot;&gt;fontColor&lt;/font&gt;
+        &lt;span color=&quot;#ff0000&quot;&gt;fontColor&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span color=&quot;#ff0000&quot;&gt;
+        &lt;%=Eval(&#39;globalVar&#39;)%&gt;
+        &lt;%=document.write(&#39;hello world&#39;)%&gt;
+    &lt;/span&gt;
+    &lt;pe:container style=&quot;padding:5px;background-color:#ff0000&quot;&gt;
+        button:&lt;input type=&quot;button&quot; name=&quot;myBtn&quot; value=&quot;RefreshPage&quot; onclick=&quot;OnButtonClick&quot; style=&quot;&quot;/&gt;
+        editbox:&lt;input type=&quot;text&quot; name=&quot;myEditbox&quot; value=&quot;&quot; style=&quot;margin-left:2px;width:64px;height:25px&quot;/&gt;&lt;br/&gt;
+        pe_if: &lt;pe:if condition=&#39;&lt;%=globalVar==&quot;test global var&quot;%&gt;&#39;&gt;true&lt;/pe:if&gt;
+    &lt;/pe:container&gt;
+    &lt;pe:repeat value=&quot;item in repeat_data&quot; style=&quot;float:left&quot;&gt;
+        &lt;div style=&quot;float:left;&quot;&gt;&lt;%=item.a%&gt;&lt;/div&gt;
+    &lt;/pe:repeat&gt;
+    &lt;pe:repeat value=&quot;item in GetDS()&quot; style=&quot;float:left&quot;&gt;
+        &lt;div style=&quot;float:left;&quot;&gt;&lt;%=item.a%&gt;&lt;/div&gt;
+    &lt;/pe:repeat&gt;
+    &lt;pe:repeat DataSource=&#39;&lt;%=GetDS()%&gt;&#39; style=&quot;float:left&quot;&gt;
+        &lt;div style=&quot;float:left;&quot;&gt;&lt;%=a%&gt;&lt;/div&gt;
+    &lt;/pe:repeat&gt;
+&lt;/pe:mcml&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="mcml-layout">
+<span id="mcml-layout"></span><h2>MCML Layout<a class="headerlink" href="#mcml-layout" title="Permalink to this headline">¶</a></h2>
+<p>Please see [[System.Window]] first for basic alignment types. There are over 12 different alignment types, which supports automatic resizing of controls according to parent window size.</p>
+<ul class="simple">
+<li>mcml v1 have a <code class="docutils literal"><span class="pre">&lt;pe:container&gt;</span></code> control which supports all alignment types via <code class="docutils literal"><span class="pre">alignment</span></code> attribute.</li>
+<li>mcml v1 and v2&#8217;s <code class="docutils literal"><span class="pre">&lt;div&gt;</span></code> supports a limited set of alignment type via <code class="docutils literal"><span class="pre">align</span></code> and <code class="docutils literal"><span class="pre">valign</span></code> attribute, where you can align object to left or right.  Please note, due to mcml v1&#8217;s one pass rendering algorithm, <code class="docutils literal"><span class="pre">right</span></code> alignment only works when parent width is fixed sized. mcml v2 does not have this limitation because it uses two pass algorithm. A workaround for mcml v1 is to use <code class="docutils literal"><span class="pre">&lt;pe:container&gt;</span></code> instead of <code class="docutils literal"><span class="pre">&lt;div&gt;</span></code> and use <code class="docutils literal"><span class="pre">alignment</span></code> for right alignment.</li>
+</ul>
+<div class="section" id="relative-positioning">
+<span id="relative-positioning"></span><h3>Relative positioning<a class="headerlink" href="#relative-positioning" title="Permalink to this headline">¶</a></h3>
+<p>Relative position is a way to position controls without occupying any space. It can be specified with <code class="docutils literal"><span class="pre">style=&quot;position:relative;&quot;</span></code>. If all controls in a container is relatively positioned, they can all be accurately positioned at desired location relative to their parent.</p>
+<p>However, relative position is NOT recommended, because a single change in child control size may result in changing all other child controls&#8217; position values and if parent control&#8217;s size changes, the entire UI may be wrong. The recommended way of position is &#8220;float:left&#8221; or line based position. <code class="docutils literal"><span class="pre">&lt;div&gt;</span></code> defaults to line based position, in which it will automatically add <code class="docutils literal"><span class="pre">line</span> <span class="pre">break</span></code> at end. Specify &#8220;float:left&#8221; to make it float. Many other controls default to &#8220;float:left&#8221;, such as <code class="docutils literal"><span class="pre">&lt;input&gt;</span></code>, <code class="docutils literal"><span class="pre">&lt;span&gt;</span></code>. Some UI designer in special product may still prefer relative position despite of this.</p>
+</div>
+</div>
+<div class="section" id="mcml-vs-html">
+<span id="mcml-vs-html"></span><h2>MCML vs HTML<a class="headerlink" href="#mcml-vs-html" title="Permalink to this headline">¶</a></h2>
+<p>MCML only supports a very limited subset of HTML. The most useful layout method in mcml is <code class="docutils literal"><span class="pre">&lt;div&gt;</span></code> tag.</p>
+</div>
+<div class="section" id="npl-code-behind-and-embedding">
+<span id="npl-code-behind-and-embedding"></span><h2>NPL Code Behind and Embedding<a class="headerlink" href="#npl-code-behind-and-embedding" title="Permalink to this headline">¶</a></h2>
+<p>In MCML page, there are three ways to embed NPL code.</p>
+<ul class="simple">
+<li>Use <code class="docutils literal"><span class="pre">&lt;script</span> <span class="pre">src=&quot;helloworld.lua&quot;&gt;</span></code>, this will load the npl file relative to the current page file.</li>
+<li>Embed NPL code section inside <code class="docutils literal"><span class="pre">&lt;script&gt;</span></code> anywhere in the page file</li>
+<li>Embed code in xml attribute in quotations like this <code class="docutils literal"><span class="pre">attrname='&lt;%=</span> <span class="pre">%&gt;'</span></code>. Please note it depends on whether the tag implementation support it. For each attribute you can not mix code with text. Unlike in NPL web server page, all code in MCML are evaluated at runtime rather than preprocessed. This is very important.</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/npl&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;somefile.lua&quot;</span> <span class="na">refresh</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;</span>
+<span class="o">&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span>
+<span class="nx">globalVar</span> <span class="o">=</span> <span class="s2">&quot;test global var&quot;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">OnButtonClick</span><span class="p">()</span>
+    <span class="nx">_guihelper</span><span class="p">.</span><span class="nx">MessageBox</span><span class="p">(</span><span class="s2">&quot;refresh page now?&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+        <span class="nx">Page</span><span class="o">:</span><span class="nx">SetValue</span><span class="p">(</span><span class="s2">&quot;myBtn&quot;</span><span class="p">,</span> <span class="s2">&quot;refreshed&quot;</span><span class="p">);</span>
+        <span class="nx">Page</span><span class="o">:</span><span class="nx">Refresh</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nx">end</span><span class="p">);</span>
+<span class="nx">end</span>
+<span class="nx">repeat_data</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="nx">a</span><span class="o">=</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="nx">a</span><span class="o">=</span><span class="mi">2</span><span class="p">}</span> <span class="p">};</span>
+<span class="kd">function</span> <span class="nx">GetDS</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">repeat_data</span><span class="p">;</span>
+<span class="nx">end</span>
+<span class="p">]]</span><span class="o">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#39;&lt;%=format(&quot;width:%dpx&quot;, 100) %&gt;&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="page-variable-scoping">
+<span id="page-variable-scoping"></span><h3>Page Variable Scoping<a class="headerlink" href="#page-variable-scoping" title="Permalink to this headline">¶</a></h3>
+<p>Global variables or functions defined in inline script are local to the page and not visible outside the page.
+So consider using a separate code behind file if one wants to expose values to external environment or simply your code is too long.</p>
+<p>There is a predefined variable called <code class="docutils literal"><span class="pre">Page</span></code>, which is accessible to the page&#8217;s sandbox&#8217;s environment.</p>
+</div>
+<div class="section" id="two-way-databinding">
+<span id="two-way-databinding"></span><h3>Two-Way Databinding<a class="headerlink" href="#two-way-databinding" title="Permalink to this headline">¶</a></h3>
+<p>Many HTML developers have a <code class="docutils literal"><span class="pre">jquery</span></code> mindset, where they like to manipulate the DOM (Document Object Model or XML node) directly, which is <strong>NOT</strong> supported in mcml. Instead, one should have a <code class="docutils literal"><span class="pre">databinding</span> <span class="pre">mindset</span></code> like in <code class="docutils literal"><span class="pre">angularjs</span></code>. In MCML v1, <code class="docutils literal"><span class="pre">DOM</span> <span class="pre">!=</span> <span class="pre">Controls</span></code>. DOM is only a static template for creating controls in a page. Controls can never modify static template unless you write explicit code, which is really rare.</p>
+<p>Most mcml tags only support one-way data binding from static DOM template to controls only at the time when controls are created (i.e. Page Refresh, see below). To read value back from controls, one must either listen to <code class="docutils literal"><span class="pre">onchange</span></code> event of individual control or manually call <code class="docutils literal"><span class="pre">Page:GetValue(name)</span></code> for a collection of controls in a callback function, such as when user pressed <code class="docutils literal"><span class="pre">OK</span></code> button.</p>
+<p>Two-way data-binding is useful but hard to implement in any system. Some HTML framework like <code class="docutils literal"><span class="pre">angularjs</span></code> does it by using a timer to periodically check watched data model and hook into every control&#8217;s <code class="docutils literal"><span class="pre">onchange</span></code> event. One can simulate it manually in mcml. In mcml v2, DOM is almost equal to controls, hence it is relatively easy to implement two-way data binding in v2 than in v1.</p>
+<blockquote>
+<div>Automatic two-way data-binding is not natively supported in both v1 and v2. But we are planning to support it in the near future. The following example shows how to do manual two-way binding in mcml.</div></blockquote>
+<div class="highlight-lua"><div class="highlight"><pre><span></span>&lt;pe:mcml&gt;
+&lt;p&gt;Two-way databinding Example in mcml:&lt;/p&gt;
+&lt;script type=&quot;text/npl&quot; refresh=&quot;false&quot;&gt;&lt;![CDATA[
+-- nodes are generated according to this data source object, ds is global in page scope so that it is shared between page refresh
+ds = {
+    block1 = nil,
+    block2 = nil,
+};
+
+function asyncFillBlock1()
+    PullData();
+    -- use timer to simulate async API, such as fetching from a remote server.
+    commonlib.TimerManager.SetTimeout(function()  
+        -- simulate some random data from remote server
+        ds.block1 = {};
+        for i=1, math.random(2,8) do
+            ds.block1[i] = {key=&quot;firstdata&quot;..i, value=false};
+        end
+        ds.block2 = nil;
+        ApplyData();
+    end, 1000)
+end
+
+function asyncFillBlock2()
+    PullData();
+    commonlib.TimerManager.SetTimeout(function()  
+        ds.block2 = {};
+
+        -- count is based on the number of checked item in data1(block1)
+        local data1_count = 0;
+        for i, data in pairs(ds.block1) do
+            data1_count = data1_count + (data.value and 1 or 0);
+        end
+        
+        -- generate block2 according to current checked item in data1(block1)
+        for i=1, data1_count do
+            ds.block2[i] = {key=&quot;seconddata&quot;..i, value=false};
+        end
+        ApplyData();
+    end, 1000)
+end
+
+-- apply data source to dom
+function ApplyData()
+    Page(&quot;#block1&quot;):ClearAllChildren();
+    Page(&quot;#block2&quot;):ClearAllChildren();
+
+    if(ds.block1) then
+        local parentNode = Page(&quot;#block1&quot;);
+        for i, data in pairs(ds.block1) do
+            local node = Page(&quot;&lt;span /&gt;&quot;, {attr={style=&quot;margin:5px&quot;}, data.key });
+            parentNode:AddChild(node);
+            local node = Page(&quot;&lt;input /&gt;&quot;, {attr={type=&quot;checkbox&quot;, name=data.key, checked = data.value and &quot;true&quot;} });
+            parentNode:AddChild(node);
+        end
+        local node = Page(&quot;&lt;input /&gt;&quot;, {attr={type=&quot;button&quot;, value=&quot;FillBlock2&quot;, onclick = &quot;asyncFillBlock2&quot;} });
+        parentNode:AddChild(node);
+    end
+
+    if(ds.block2) then
+        local parentNode = Page(&quot;#block2&quot;);
+        for i, data in pairs(ds.block2) do
+            local node = Page(&quot;&lt;span /&gt;&quot;, {attr={style=&quot;margin:5px&quot;}, data.key });
+            parentNode:AddChild(node);
+            local node = Page(&quot;&lt;input /&gt;&quot;,  {attr={type=&quot;text&quot;, EmptyText=&quot;enter text&quot;, name=data.key, value=data.value, style=&quot;width:80px;&quot;} });
+            parentNode:AddChild(node);
+        end
+    end
+
+    Page:Refresh(0.01);
+end
+
+-- pull data from DOM
+function PullData()
+    if(ds.block1) then
+        for i, data in pairs(ds.block1) do
+            data.value = Page:GetValue(data.key);
+        end
+    end
+    if(ds.block2) then
+        for i, data in pairs(ds.block2) do
+            data.value = Page(&quot;#&quot;..data.key):value(); -- just another way of Page:GetValue()
+        end
+    end
+end
+
+function OnClickSubmit()
+    -- TODO: one can also use a timer and hook to every onchange event of controls to automatically invoke Apply and Pull Data. 
+    -- Here we just need to manually call it. 
+    PullData();
+    _guihelper.MessageBox(ds);
+end
+]]&gt;&lt;/script&gt;
+&lt;div&gt;
+    &lt;input type=&quot;button&quot; value=&quot;FillBlock1&quot; onclick=&quot;asyncFillBlock1()&quot;/&gt;&lt;br /&gt;
+    block1: &lt;div name=&quot;block1&quot;&gt;&lt;/div&gt;
+    block2: &lt;div name=&quot;block2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;input type=&quot;button&quot; value=&quot;Submit&quot; onclick=&quot;OnClickSubmit()&quot; /&gt;&lt;br /&gt;
+&lt;/pe:mcml&gt;
+</pre></div>
+</div>
+<p>In above example, When user clicks <code class="docutils literal"><span class="pre">FillBlock1</span></code> button, some random data is filled in <code class="docutils literal"><span class="pre">ds.block1</span></code>, each data is displayed as checkbox, and the user can check any number of them and click the <code class="docutils literal"><span class="pre">FillBlock2</span></code> button. This time we will fill <code class="docutils literal"><span class="pre">ds.block2</span></code> with same number of checked items in <code class="docutils literal"><span class="pre">ds.block1</span></code>, and each item is displayed as a text input box. When user clicks <code class="docutils literal"><span class="pre">Submit</span></code> button, the current <code class="docutils literal"><span class="pre">ds</span></code> is displayed in a message box with user filled data.</p>
+<p>We call <code class="docutils literal"><span class="pre">ApplyData</span></code> to rebuild all related DOM whenever <code class="docutils literal"><span class="pre">ds</span></code> is modified externally, and we call <code class="docutils literal"><span class="pre">PullData</span></code> in the first line of each callback function so that our <code class="docutils literal"><span class="pre">ds</span></code> data is always up to date with mcml controls. The above example is called manual two-way binding because we have to call <code class="docutils literal"><span class="pre">ApplyData</span></code> and <code class="docutils literal"><span class="pre">PullData</span></code> manually. One can also use a timer and hook to every onchange event of controls to automatically invoke <code class="docutils literal"><span class="pre">ApplyData</span></code> and <code class="docutils literal"><span class="pre">PullData</span></code>, so that we do not have to write them everywhere in our callback functions.</p>
+<blockquote>
+<div>There is an old two-way data binding code called <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/DataBinding.lua">BindingContext</a>, which is only used in <code class="docutils literal"><span class="pre">&lt;form&gt;</span></code> tag in mcml, it may cause some strange behaviors when you are manipulating DOM.</div></blockquote>
+</div>
+<div class="section" id="page-refresh">
+<span id="page-refresh"></span><h3>Page Refresh<a class="headerlink" href="#page-refresh" title="Permalink to this headline">¶</a></h3>
+<p>For dynamic pages, it is very common to change some variable in NPL script and refresh the page to reflect the changes.</p>
+<p><code class="docutils literal"><span class="pre">&lt;script</span> <span class="pre">refresh='false'&gt;</span></code> means that the code section will not be reevaluated when page is refreshed.
+Also note that global variables or functions are shared between multiple script sections or multiple page refreshes.</p>
+<p>Please also note that code changes in inline script blocks are usually reparsed when window is rebuild. However, if one use code behind model, npl file is cached and you need to restart your application to take effect. It is good practise to write in inline script first, and when code is stable move them to a code behind page. This will also make your page load faster during frequent page refresh or rebuild.</p>
+</div>
+</div>
+<div class="section" id="writing-dynamic-pages">
+<span id="writing-dynamic-pages"></span><h2>Writing Dynamic Pages<a class="headerlink" href="#writing-dynamic-pages" title="Permalink to this headline">¶</a></h2>
+<p>MCML has its own way of writing dynamic pages. In short, mcml uses frequent full <code class="docutils literal"><span class="pre">page</span> <span class="pre">refresh</span></code> to build responsive UI layout. Please note that each mcml page refresh does NOT rebuild (reparse) the entire DOM tree again, it simply reuses the old DOM tree and re-execute any embedded code on them each time. If the code is marked as <code class="docutils literal"><span class="pre">refresh=&quot;false&quot;</span></code> (see last section), its last calculated value will be used.</p>
+<p>Generally, MCML v1 uses a single pass to render the entire web page. MCML v2 uses two passes (click <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/PageElement.lua">here</a> to see details).</p>
+<p>Unlike HTML/Javascript(especially jquery) where programmers are encouraged to manipulate the document tree directly, in mcml, you are NOT advised to change the DOM with your own code (although we do provide a jquery like interface to its DOM). Instead, we encourage you to data-bind your code and create different code paths using conditional component like <code class="docutils literal"><span class="pre">&lt;pe:if&gt;</span></code>, when everything is set you do a full page refresh with <code class="docutils literal"><span class="pre">Page:refresh()</span></code>. This is a little bit like <code class="docutils literal"><span class="pre">AngularJS</span></code>, but we do it with real-time executed inline code. The difference is that <code class="docutils literal"><span class="pre">AngularJS</span></code> will compile all tags and convert everything from angular DOM to HTML DOM, but mcml just does one pass rendering of the mcml tags and execute the code as it converts DOM to real NPL controls.</p>
+<p>Another thing is that unlike in AngularJS where data changes are watched and page is automatically refreshed, in mcml, one has to manually call <code class="docutils literal"><span class="pre">Page:refresh(delayTimeSeconds)</span></code> to refresh the whole page, such as when user pressed a button to change the layout. Please note, changing the DOM does not automatically refresh the page, one still need to call the refresh function.  Mcml code logics is much simpler to understand and learn, while angularJS, although powerful, but with too many hidden dark-magic that programmers will never figure out on their own.</p>
+<p>Finally, mcml page is NOT preprocessed into a second DOM tree before rendering like what NPL web server page or PHP does. Every tag in mcml is a real mcml control or <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/PageElement.lua">PageElement</a> and the DOM tree is persistent across page refresh. MCML uses a single pass to render all of them. This also makes full page <code class="docutils literal"><span class="pre">Page:refresh()</span></code> much faster than other technologies. Please note, mcml v2 has even faster page refresh than mcml v1, this is because in mcml v2, NPL controls are pure script objects, while in v1 they are ParaUIObject in ParaEngine. The former is much faster to create/destroy or even shared during page refresh depending on each PageElement&#8217;s implementation.</p>
+<div class="section" id="mcml-controls">
+<span id="mcml-controls"></span><h3>MCML Controls<a class="headerlink" href="#mcml-controls" title="Permalink to this headline">¶</a></h3>
+<p>Remember mcml is meant to be replacement for tedious control creation in the whole application, not a stateless and isolated web page.  Each mcml page is an integral part of the application, they run in the same thread and have access to everything in that thread. They usually have direct interactions (or data-binding) with the 3D scene and other UI controls. To get the underlying control, one can use <code class="docutils literal"><span class="pre">Page:FindControl(name)</span></code></p>
+</div>
+<div class="section" id="mcml-page-refresh-delaytime">
+<span id="mcml-page-refresh-delaytime"></span><h3>MCML Page:Refresh(DelayTime)<a class="headerlink" href="#mcml-page-refresh-delaytime" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">Page:Refresh(DelayTime)</span></code> refresh the entire page after DelayTime seconds. Please note that during the delay time period,
+if there is another call to this function with a longer delay time, the actual refresh page activation will be further delayed
+Note: This function is usually used with a design pattern when the MCML page contains asynchronous content such as pe:name, etc. whenever an asynchronous tag is created, it will first check if data for display is available at that moment. if yes, it will just display it as static content; if not, it will retrieve the data with a callback function. In the callback function, it calls this Refresh method of the associated page with a delay time. Hence, when the last delay time is reached, the page is rebuilt and the dynamic content will be accessible by then.</p>
+<ul class="simple">
+<li>&#64;param DelayTime: if nil, it will default to self.DefaultRefreshDelayTime (usually 1.5 second).</li>
+<li>tip: If one set this to a negative value, it may causes an immediate page refresh.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="page-styling-and-themes">
+<span id="page-styling-and-themes"></span><h2>Page Styling and Themes<a class="headerlink" href="#page-styling-and-themes" title="Permalink to this headline">¶</a></h2>
+<p>MCML has limited support of inline css in <code class="docutils literal"><span class="pre">style</span></code> or <code class="docutils literal"><span class="pre">class</span></code> parameter.
+MCML v1 and v2 support style tag, in which we can define inline or file based css in the form of a standard NPL table.
+Please note, the syntax is not <code class="docutils literal"><span class="pre">text/css</span></code>, but <code class="docutils literal"><span class="pre">text/mcss</span></code>. It is simply a table object with key name, value pairs. The key name can be tag class name or class name, compound names with <code class="docutils literal"><span class="pre">tag,</span> <span class="pre">id,</span> <span class="pre">class</span></code> filtering is not supported.</p>
+<p>Here is an example of defining styles with different class names, all mcml tags can have zero or more class names.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;pe:mcml&gt;</span>
+<span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">&quot;text/mcss&quot;</span> <span class="na">src=</span><span class="s">&quot;script/ide/System/test/test_file_style.mcss&quot;</span><span class="nt">&gt;</span>
+{
+    color_red = { color = &quot;#ff0000&quot; },
+    color_blue = { color = &quot;#0000ff&quot;, [&quot;margin-left&quot;] = 10 },
+    bold = { [&quot;font-weight&quot;]=&quot;bold&quot;    }
+}
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;color_blue bold&quot;</span><span class="nt">&gt;</span>css class<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/pe:mcml&gt;</span>
+</pre></div>
+</div>
+<p>External css files are loaded and cached throughout the lifetime of the application process. Its content is also NPL table, such as <code class="docutils literal"><span class="pre">script/ide/System/test/test_file_style.mcss</span></code>:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- Testing mcml css: script/ide/System/test/test_file_style.mcss</span>
+<span class="p">{</span>
+<span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#ffffff&quot;</span> <span class="p">},</span>
+<span class="p">[</span><span class="s2">&quot;mobile_button&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">background</span> <span class="o">=</span> <span class="s2">&quot;Texture/Aries/Creator/Mobile/blocks_UI_32bits.png;1 1 34 34:12 12 12 12&quot;</span><span class="p">,</span> 
+<span class="p">},</span>
+<span class="n">color_red</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#ff0000&quot;</span> <span class="p">},</span>
+<span class="n">color_blue</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#0000ff&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;margin-left&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;font-size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span> <span class="p">},</span>
+<span class="n">bold</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;font-weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bold&quot;</span>    <span class="p">},</span>
+<span class="p">[</span><span class="s2">&quot;pe:button&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">padding</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#00ff00&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In most cases, we can style the object directly in style attributes using 9 tiled image file.  See next section.</p>
+<p>To change the style of unthemed tags or buildin classes, one must progammatically modify the following table:</p>
+<ul class="simple">
+<li>In mcml v1, there is a global table like <a class="reference external" href="https://github.com/NPLPackages/paracraft/tree/master/script/apps/Aries/Creator/Game/DefaultTheme.mc.lua">this one</a></li>
+<li>In mcml v2, there is a class called <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Windows/mcml/StyleDefault.lua">StyleDefault</a></li>
+</ul>
+</div>
+<div class="section" id="tile-image">
+<span id="tile-image"></span><h2>9-Tile Image<a class="headerlink" href="#tile-image" title="Permalink to this headline">¶</a></h2>
+<p>MCML supports a feature called image tiling. It can use a specified section of an image and divide the subsection into 9 images and automatically stretch the 5 middle images as the target resizes (4 images at the corner are unstretched).  This is very useful to create good looking buttons with various sizes.</p>
+<p>The syntax is like this:
+<code class="docutils literal"><span class="pre">&lt;div</span> <span class="pre">style=&quot;background:url(someimage_32bits.png#0</span> <span class="pre">0</span> <span class="pre">64</span> <span class="pre">21:</span> <span class="pre">10</span> <span class="pre">10</span> <span class="pre">10</span> <span class="pre">10);&quot;</span> <span class="pre">&gt;</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">#left</span> <span class="pre">top</span> <span class="pre">width</span> <span class="pre">height</span></code> is optional, which specifies a sub region. if ignored it means the entire image.</li>
+<li><code class="docutils literal"><span class="pre">:left</span> <span class="pre">top</span> <span class="pre">to_right</span> <span class="pre">to_bottom</span></code> means distance to left, top, right and bottom of the above sub region.</li>
+<li><code class="docutils literal"><span class="pre">_32bits.png</span></code> means that we should use 32bits color, otherwise we will compress the color to save video memory</li>
+<li>Image size must of order of 2, like 2,4,8,16,64, 128, 256, etc. Because <code class="docutils literal"><span class="pre">directX/openGL</span></code> only supports order of 2 images. If your image file is not order of 2, they will be stretched and become blurred when rendered.</li>
+</ul>
+<p>Please note, in css file or <code class="docutils literal"><span class="pre">&lt;style&gt;</span></code> tag, <code class="docutils literal"><span class="pre">#</span></code> can also be <code class="docutils literal"><span class="pre">;</span></code> when specifying a sub region.</p>
+</div>
+<div class="section" id="setting-key-focus">
+<span id="setting-key-focus"></span><h2>Setting Key Focus<a class="headerlink" href="#setting-key-focus" title="Permalink to this headline">¶</a></h2>
+<p>For mcml v1, one can set key focus by following code. It only works for text box.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ctl</span> <span class="o">=</span> <span class="n">Page</span><span class="p">:</span><span class="n">FindControl</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="kr">if</span><span class="p">(</span><span class="n">ctl</span><span class="p">)</span> <span class="kr">then</span>
+   <span class="n">ctl</span><span class="p">:</span><span class="n">Focus</span><span class="p">();</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>For input text box, one can also use.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">autofocus</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>  <span class="o">...</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>But there can only be one such control in a window. If there are multiple ones, the last one get focus. For example</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;pe:mcml&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        Text: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;myAutoFocusEditBox&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    ... many other div here...
+    <span class="c">&lt;!-- This should be the last in the page --&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/npl&quot;</span> <span class="na">refresh=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+        local ctl = Page(&quot;#myAutoFocusEditBox&quot;):GetControl()
+        ctl:Focus();
+        ctl:SetCaretPosition(-1);
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/pe:mcml&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<span id="conclusion"></span><h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>MCML v2 implementation is not very complete yet.  You are welcome to contribute your own tags or controls to our main package.</p>
+</div>
+<div class="section" id="faq">
+<span id="faq"></span><h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Why large font size appears to be blurred in mcml?</div></blockquote>
+<p>MCML uses 3D API to do all the graphical drawing. For each font size, an image must be loaded into video memory. Thus by default, mcml may scale an existing font to prevent creating unnecessary image. To prevent this behavior, one can use <code class="docutils literal"><span class="pre">style=&quot;base-font-size:30;font-size:30&quot;</span></code> this will always create a base font image for your current font setting. In general, an application should limit the number of font settings used in your graphical application.</p>
+<div class="section" id="references">
+<span id="references"></span><h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="documentation-for-mcml-v1">
+<span id="documentation-for-mcml-v1"></span><h4>Documentation For MCML V1<a class="headerlink" href="#documentation-for-mcml-v1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/tree/master/script/kids/3DMapSystemApp/mcml">mcml v1 Source Code</a>, such as:<ul>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_html.lua">pe_html</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_editor.lua">pe_editor</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_html_input.lua">pe_html_input</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_gridview.lua">pe_gridview</a>: <a class="reference external" href="pe_gridview_doc">more examples</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_treeview.lua">pe_treeview</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_design.lua">pe_design</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_component.lua">pe_component</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/pe_script.lua">pe_script</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/tree/master/script/kids/3DMapSystemApp/mcml/test">Test cases(Examples) for mcml v1</a><ul>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/kids/3DMapSystemApp/mcml/test/test_pe_gridview.html">test_pe_gridview</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div>More over, many existing GUI of paracraft are actually created with mcml v1. Search the source code for any HTML pages for examples.</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MCML Markup Language For 2D GUI</a><ul>
+<li><a class="reference internal" href="#quick-sample">Quick Sample</a></li>
+<li><a class="reference internal" href="#mcml-v1-vs-v2">MCML V1 vs V2</a></li>
+<li><a class="reference internal" href="#mcml-tags">Mcml tags</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#mcml-layout">MCML Layout</a><ul>
+<li><a class="reference internal" href="#relative-positioning">Relative positioning</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mcml-vs-html">MCML vs HTML</a></li>
+<li><a class="reference internal" href="#npl-code-behind-and-embedding">NPL Code Behind and Embedding</a><ul>
+<li><a class="reference internal" href="#page-variable-scoping">Page Variable Scoping</a></li>
+<li><a class="reference internal" href="#two-way-databinding">Two-Way Databinding</a></li>
+<li><a class="reference internal" href="#page-refresh">Page Refresh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-dynamic-pages">Writing Dynamic Pages</a><ul>
+<li><a class="reference internal" href="#mcml-controls">MCML Controls</a></li>
+<li><a class="reference internal" href="#mcml-page-refresh-delaytime">MCML Page:Refresh(DelayTime)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#page-styling-and-themes">Page Styling and Themes</a></li>
+<li><a class="reference internal" href="#tile-image">9-Tile Image</a></li>
+<li><a class="reference internal" href="#setting-key-focus">Setting Key Focus</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#faq">FAQ</a><ul>
+<li><a class="reference internal" href="#references">References</a><ul>
+<li><a class="reference internal" href="#documentation-for-mcml-v1">Documentation For MCML V1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="System.Window.html" title="previous chapter">2D GUI Windows</a></li>
+      <li>Next: <a href="3DOverview.html" title="next chapter">3D Programming</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/mcml.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/mcml.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

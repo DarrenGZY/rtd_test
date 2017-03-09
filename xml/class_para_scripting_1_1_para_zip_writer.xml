@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_zip_writer" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaZipWriter</compoundname>
+    <includes refid="_para_scripting_i_o_8h" local="no">ParaScriptingIO.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_zip_writer_1a3b9576848da04849fa31bf4563c04cf8" prot="public" static="no" mutable="no">
+        <type>ref_ptr&lt; CZipWriter &gt;</type>
+        <definition>ref_ptr&lt;CZipWriter&gt; ParaScripting::ParaZipWriter::m_writer</definition>
+        <argsstring></argsstring>
+        <name>m_writer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="256" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1a91e0ea6a839b6ae7b231a1426fb2767f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaZipWriter::ParaZipWriter</definition>
+        <argsstring>()</argsstring>
+        <name>ParaZipWriter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="253" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1422" bodyend="1425"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1afb0a66dfb60d595bb68fefdd02125611" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaZipWriter::ParaZipWriter</definition>
+        <argsstring>(CZipWriter *writer)</argsstring>
+        <name>ParaZipWriter</name>
+        <param>
+          <type>CZipWriter *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="254" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1427" bodyend="1430"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1aa6a48603be8e1fcc393be8e306004060" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaZipWriter::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether it is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="261" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1468" bodyend="1471"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1abe24b1e61639da5957ead2ef9225e6ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaZipWriter::ZipAdd</definition>
+        <argsstring>(const char *dstzn, const char *fn)</argsstring>
+        <name>ZipAdd</name>
+        <param>
+          <type>const char *</type>
+          <declname>dstzn</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a zip file to the zip. file call this for each file to be added to the zip. <simplesect kind="return"><para>: 0 if succeed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="267" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1433" bodyend="1439"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1ababbdb72fb17a5292ef2bbbe9f97917e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaZipWriter::ZipAddFolder</definition>
+        <argsstring>(const char *dstzn)</argsstring>
+        <name>ZipAddFolder</name>
+        <param>
+          <type>const char *</type>
+          <declname>dstzn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a zip folder to the zip file. call this for each folder to be added to the zip. <simplesect kind="return"><para>: 0 if succeed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="273" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1441" bodyend="1447"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1a10c0e1ca3fb57b40f8cd68e6dd9e5405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaZipWriter::AddDirectory</definition>
+        <argsstring>(const char *dstzn, const char *filepattern, int nSubLevel=0)</argsstring>
+        <name>AddDirectory</name>
+        <param>
+          <type>const char *</type>
+          <declname>dstzn</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>filepattern</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSubLevel</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add everything in side a directory to the zip. e.g. AddDirectory(&quot;myworld/&quot;, &quot;worlds/myworld/ *.*&quot;, 10); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dstzn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>all files in fn will be appended with this string to be saved in the zip file. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filepattern</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file patterns, which can include wild characters in the file portion. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nSubLevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sub directory levels. 0 means only files at parent directory. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="282" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1449" bodyend="1455"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_zip_writer_1a2ed4a35bec2e75e99dda1acfda23d045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::ParaZipWriter::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>call this when you have finished adding files and folders to the zip file. Note: you can&apos;t add any more after calling this. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="288" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1457" bodyend="1466"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_para_scripting_1_1_para_zip_writer" kindref="compound">ParaZipWriter</ref> class: creating zip files</para><para>e.g. (1) Traditional use, creating a zipfile from existing files local writer = <ref refid="class_para_scripting_1_1_para_i_o_1a5563fc7b4d17aec56bb1171e186c787f" kindref="member">ParaIO.CreateZip</ref>(&quot;c:\\simple1.zip&quot;,&quot;&quot;); writer:ZipAdd(&quot;znsimple.bmp&quot;, &quot;c:\\simple.bmp&quot;); writer:ZipAdd(&quot;znsimple.txt&quot;, &quot;c:\\simple.txt&quot;); writer:<ref refid="class_para_scripting_1_1_para_zip_writer_1a2ed4a35bec2e75e99dda1acfda23d045" kindref="member">close()</ref>; </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.h" line="251" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="250" bodyend="289"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1a10c0e1ca3fb57b40f8cd68e6dd9e5405" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>AddDirectory</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1a2ed4a35bec2e75e99dda1acfda23d045" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>close</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1aa6a48603be8e1fcc393be8e306004060" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1a3b9576848da04849fa31bf4563c04cf8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>m_writer</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1a91e0ea6a839b6ae7b231a1426fb2767f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>ParaZipWriter</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1afb0a66dfb60d595bb68fefdd02125611" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>ParaZipWriter</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1abe24b1e61639da5957ead2ef9225e6ad" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>ZipAdd</name></member>
+      <member refid="class_para_scripting_1_1_para_zip_writer_1ababbdb72fb17a5292ef2bbbe9f97917e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaZipWriter</scope><name>ZipAddFolder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_object_node" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaObjectNode</compoundname>
+    <includes refid="_para_scripting_global_8h" local="no">ParaScriptingGlobal.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_para_scripting_1_1_para_object_node_1a36070702e96c44082aa3a3c121917efc" prot="public" static="no">
+        <name>objecttype</name>
+        <enumvalue id="class_para_scripting_1_1_para_object_node_1a36070702e96c44082aa3a3c121917efca207e4073b18a0b36a02c0076a839e6e8" prot="public">
+          <name>number</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_para_scripting_1_1_para_object_node_1a36070702e96c44082aa3a3c121917efcadf907e47bc9ddc9595b2143c316dff4f" prot="public">
+          <name>string</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="101" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_object_node_1ae4fdb30cad104df2da8e55e7eef6f9bc" prot="public" static="no" mutable="no">
+        <type>enum ParaScripting::ParaObjectNode::objecttype</type>
+        <definition>enum ParaScripting::ParaObjectNode::objecttype
+		 ParaScripting::ParaObjectNode::oType</definition>
+        <argsstring></argsstring>
+        <name>oType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="102" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_object_node_1a36304ce453e85f9deee8aa2609bdb360" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ParaScripting::ParaObjectNode::dNumber</definition>
+        <argsstring></argsstring>
+        <name>dNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="105" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_object_node_1a42427b8e201a9391474aa531dbb1011a" prot="public" static="no" mutable="no">
+        <type>union ParaScripting::ParaObjectNode::@0</type>
+        <definition>union ParaScripting::ParaObjectNode::@0 ParaScripting::ParaObjectNode::@1</definition>
+        <argsstring></argsstring>
+        <name>@1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="106" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_object_node_1a7d7c1c731a37e0304b5de4ee65006dc3" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::ParaObjectNode::str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="107" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_object_node_1a09c5fb619944685e7a79e741a7734b98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaObjectNode::ParaObjectNode</definition>
+        <argsstring>(double n)</argsstring>
+        <name>ParaObjectNode</name>
+        <param>
+          <type>double</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="109" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_object_node_1ad44eca71241db9fe70f9ced2ad230a29" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaObjectNode::ParaObjectNode</definition>
+        <argsstring>(const char *newstr)</argsstring>
+        <name>ParaObjectNode</name>
+        <param>
+          <type>const char *</type>
+          <declname>newstr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="113" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="113" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>for Para Script global dictionary object </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="99" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="98" bodyend="117"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_object_node_1a36304ce453e85f9deee8aa2609bdb360" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>dNumber</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1a36070702e96c44082aa3a3c121917efca207e4073b18a0b36a02c0076a839e6e8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>number</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1a36070702e96c44082aa3a3c121917efc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>objecttype</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1ae4fdb30cad104df2da8e55e7eef6f9bc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>oType</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1a09c5fb619944685e7a79e741a7734b98" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>ParaObjectNode</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1ad44eca71241db9fe70f9ced2ad230a29" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>ParaObjectNode</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1a7d7c1c731a37e0304b5de4ee65006dc3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>str</name></member>
+      <member refid="class_para_scripting_1_1_para_object_node_1a36070702e96c44082aa3a3c121917efcadf907e47bc9ddc9595b2143c316dff4f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaObjectNode</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

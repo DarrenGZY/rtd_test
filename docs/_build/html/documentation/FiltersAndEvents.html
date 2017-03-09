@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Localization" href="Localization.html" />
+    <link rel="prev" title="Mouse and Key Input" href="MouseAndKeyInput.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="overview">
+<span id="overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>To write modular code, a system may expose its interface in the form of virtual functions, events or filters.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">virtual</span> <span class="pre">functions</span></code>: allows a derived class to hook the input and output of a single function in the base class.</li>
+<li><code class="docutils literal"><span class="pre">events</span></code>: feeds input to external functions when certain things happened. Events only hooks the input without providing an output.</li>
+<li><code class="docutils literal"><span class="pre">filters</span></code>: allows external functions to form input-output chains to modify data at any point of execution.</li>
+</ul>
+<p>Use whatever patterns to allow external modifications to the input-output of your modular code.</p>
+<div class="section" id="filters">
+<span id="filters"></span><h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
+<p>Filters is a design pattern of input-output chains. Please see <a class="reference external" href="https://github.com/NPLPackages/main/blob/master/script/ide/System/Core/Filters.lua">script/ide/System/Core/Filters.lua</a> for detailed usage.</p>
+<p>You can simply apply a named filters at any point of execution in your code to allow other users to modify your data.</p>
+<p>For example, one can turn <code class="docutils literal"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">data;</span></code> into an equivalent filter, like below</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="p">.</span><span class="n">GetFilters</span><span class="p">():</span><span class="n">apply_filters</span><span class="p">(</span><span class="s2">&quot;my_data&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">some_parameters</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The above code does nothing until some other modules <code class="docutils literal"><span class="pre">add_filters</span></code> to <code class="docutils literal"><span class="pre">&quot;my_data&quot;</span></code>.</p>
+<p>Each filter function takes the output of the previous filter function as its first parameter, all other input parameters are shared by all filter functions, like below</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F1</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span><span class="o">--&gt;</span><span class="n">F2</span><span class="p">(</span><span class="n">F1_output</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span><span class="o">--&gt;</span><span class="n">F3</span><span class="p">(</span><span class="n">F2_output</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span><span class="o">--&gt;</span><span class="n">F3_output</span>
+</pre></div>
+</div>
+<p>Filters is the recommended way for plugin/app developers to extend or modify paracraft.</p>
+<blockquote>
+<div><a class="reference external" href="https://github.com/NPLPackages/paracraft/blob/master/script/apps/Aries/Creator/Game/ParacraftFilters.md">Click here to see all Paracraft Filters</a></div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#filters">Filters</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="MouseAndKeyInput.html" title="previous chapter">Mouse and Key Input</a></li>
+      <li>Next: <a href="Localization.html" title="next chapter">Localization</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/FiltersAndEvents.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/FiltersAndEvents.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

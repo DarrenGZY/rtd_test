@@ -1,0 +1,1247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_attribute_object" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaAttributeObject</compoundname>
+    <includes refid="_para_scripting_global_8h" local="no">ParaScriptingGlobal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_attribute_object_1a43587957d170de2e91d6f07c4ad7bad4" prot="public" static="no" mutable="no">
+        <type>IAttributeFields::WeakPtr_type</type>
+        <definition>IAttributeFields::WeakPtr_type ParaScripting::ParaAttributeObject::m_pAttribute</definition>
+        <argsstring></argsstring>
+        <name>m_pAttribute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="457" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_attribute_object_1a2491a392bc643f0b2c9df1bf13aeb224" prot="public" static="no" mutable="no">
+        <type>CAttributeClass *</type>
+        <definition>CAttributeClass* ParaScripting::ParaAttributeObject::m_pAttClass</definition>
+        <argsstring></argsstring>
+        <name>m_pAttClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="458" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a2834ce8c6a546cf25392ce26b84f6ace" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaAttributeObject::ParaAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>ParaAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="460" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="460" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a4cf2e46b1ce75cce2d1b761ba261b9eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaAttributeObject::ParaAttributeObject</definition>
+        <argsstring>(IAttributeFields *pAttribute, CAttributeClass *pAttClass)</argsstring>
+        <name>ParaAttributeObject</name>
+        <param>
+          <type>IAttributeFields *</type>
+          <declname>pAttribute</declname>
+        </param>
+        <param>
+          <type>CAttributeClass *</type>
+          <declname>pAttClass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="461" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="318" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ae8fa58d7a536bf0f75beba35202b7521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaAttributeObject::ParaAttributeObject</definition>
+        <argsstring>(IAttributeFields *pAttribute)</argsstring>
+        <name>ParaAttributeObject</name>
+        <param>
+          <type>IAttributeFields *</type>
+          <declname>pAttribute</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="462" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="310" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a1dafebb6b60ecf7da7feaf8bc9c41a4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaAttributeObject::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object. This function return a clone of this object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="465" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1506" bodyend="1509"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ac089d51c1ae70b71847a661142dd87ec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaAttributeObject::equals</definition>
+        <argsstring>(const ParaAttributeObject &amp;obj) const</argsstring>
+        <name>equals</name>
+        <param>
+          <type>const <ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return true, if this object is the same as the given object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="470" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1510" bodyend="1513"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1adc52d274cabfe0d92920bb5a72fb119e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaAttributeObject::GetChild</definition>
+        <argsstring>(const std::string &amp;sName)</argsstring>
+        <name>GetChild</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get child attribute object. this can be regarded as an intrusive data model of a given object. once you get an attribute object, you can use this model class to access all data in the hierarchy. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="475" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="921" bodyend="924"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ae0b578947e2e355eb91e112d4f707ff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaAttributeObject::GetChildAt</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetChildAt</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="476" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="936" bodyend="939"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a98d6e7467a87fdaeef68327b3d8c7528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaAttributeObject::GetChildAt2</definition>
+        <argsstring>(int nRowIndex, int nColumnIndex)</argsstring>
+        <name>GetChildAt2</name>
+        <param>
+          <type>int</type>
+          <declname>nRowIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nColumnIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="477" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="941" bodyend="944"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a2cf04c1e7e21396e97e78a8fedbb70de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::GetChildCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetChildCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="478" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="926" bodyend="929"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a7cf5833d990d4d570ea94b3a3973a0b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::GetChildCount2</definition>
+        <argsstring>(int nColumnIndex)</argsstring>
+        <name>GetChildCount2</name>
+        <param>
+          <type>int</type>
+          <declname>nColumnIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="479" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="931" bodyend="934"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a9200a6f064078511df955bada8405f52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::GetColumnCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetColumnCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>we support multi-dimensional child object. by default objects have only one column. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="481" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="946" bodyend="949"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a3f424550a584433bad89af90b90bc2fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaAttributeObject::AddChild</definition>
+        <argsstring>(ParaAttributeObject &amp;obj)</argsstring>
+        <name>AddChild</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a child object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="484" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="952" bodyend="955"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a5862caba6f6698adb2b117ce3d802671" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
+        <definition>const ParaObject &amp; ParaScripting::ParaAttributeObject::QueryObject</definition>
+        <argsstring>()</argsstring>
+        <name>QueryObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>query object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="487" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="957" bodyend="962"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a2f1be9071570c0319a9ba0696ed58dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref> &amp;</type>
+        <definition>const ParaUIObject &amp; ParaScripting::ParaAttributeObject::QueryUIObject</definition>
+        <argsstring>()</argsstring>
+        <name>QueryUIObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="488" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="964" bodyend="969"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ab5a426befb726dcbe1f9af62b653ea4b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaAttributeObject::IsValid</definition>
+        <argsstring>() const</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="493" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="327" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1aa9431fc1c5917b9b7ff8d98873b08bbf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaAttributeObject::GetClassID</definition>
+        <argsstring>() const</argsstring>
+        <name>GetClassID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>class ID </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="496" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="332" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a088db201eba2afa4d654837ddaec318c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetClassName</definition>
+        <argsstring>() const</argsstring>
+        <name>GetClassName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>class name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="498" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="341" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a2a7e7d7c8c9dc947f527564b1055acea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetClassName1</definition>
+        <argsstring>() const</argsstring>
+        <name>GetClassName1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="499" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="337" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a93cd5e03d580064e09ccf92e191b8fc1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetClassDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>GetClassDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>class description </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="501" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="345" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a23499d13070fa6bd10563b4d14544c67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::SetOrder</definition>
+        <argsstring>(int order)</argsstring>
+        <name>SetOrder</name>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set which order fields are saved. enum Field_Order { Sort_ByName, Sort_ByCategory, Sort_ByInstallOrder, }; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="510" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="350" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a6dde5dd6d009e0286d3fd35d6301bb36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaAttributeObject::GetOrder</definition>
+        <argsstring>()</argsstring>
+        <name>GetOrder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get which order fields are saved. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="512" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="356" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a9823db569378d73162ca3cbefe5d7bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaAttributeObject::GetFieldNum</definition>
+        <argsstring>()</argsstring>
+        <name>GetFieldNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the total number of field. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="515" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="361" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a8b4bba8453a517a95d09087047248de5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetFieldName</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetFieldName</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get field at the specified index. &quot;&quot; will be returned if index is out of range. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="517" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="366" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a982f750f30d584f1a9d49be7eda7b8a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaAttributeObject::GetFieldIndex</definition>
+        <argsstring>(const char *sFieldname)</argsstring>
+        <name>GetFieldIndex</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get field index of a given field name. -1 will be returned if name not found. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFieldname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="524" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="379" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a28f86178fe65d1cf7f48a41fbda91396" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetFieldType</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetFieldType</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the field type as string <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: index of the field </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the following type may be returned &quot;void&quot; &quot;bool&quot; &quot;string&quot; &quot;int&quot; &quot;float&quot; &quot;float_float&quot; &quot;float_float_float&quot; &quot;double&quot; &quot;vector2&quot; &quot;vector3&quot; &quot;vector4&quot; &quot;enum&quot; &quot;deprecated&quot; &quot;&quot; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="532" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="397" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1abe11f8323044e69ee8b1c878dd826abf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaAttributeObject::IsFieldReadOnly</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>IsFieldReadOnly</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether the field is read only. a field is ready only if and only if it has only a get method. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: index of the field </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if it is ready only or field does not exist </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="538" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="385" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a9dd9a6dd86e498d13f272811f1d0d10c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetFieldSchematics</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetFieldSchematics</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get Field Schematics string <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the field </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>&quot;&quot; will be returned if index is out of range </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="546" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="410" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1adb60915ec107483ac88eb566e554eaf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetSchematicsType</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetSchematicsType</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>parse the schema type from the schema string. <simplesect kind="return"><para>: simple schema type. it may be any of the following value. unspecified: &quot;&quot; color3 &quot;:rgb&quot; file &quot;:file&quot; script &quot;:script&quot; integer &quot;:int&quot; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="556" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="442" bodyend="453"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a2812ef76ec41221b8e84702a4ea88e7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::GetSchematicsMinMax</definition>
+        <argsstring>(int nIndex, float fMinIn, float fMaxIn, float &amp;fMin, float &amp;fMax)</argsstring>
+        <name>GetSchematicsMinMax</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fMinIn</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fMaxIn</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>fMin</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>fMax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>parse the schema min max value from the schema string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the field </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fMin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: [in|out] default value </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fMax</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: [in|out] default value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if found min max. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="565" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="423" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a7c93dd8f2e3f09d74181063b553ef7f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaAttributeObject::GetField</definition>
+        <argsstring>(const char *sFieldname, const object &amp;output)</argsstring>
+        <name>GetField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get field by name. e.g. suppose att is the attribute object. local bGloble = att:GetField(&quot;global&quot;, true); local facing = att:GetField(&quot;facing&quot;, 0); local pos = att:GetField(&quot;position&quot;, {0,0,0}); pos[1] = pos[1]+100;pos[2] = 0;pos[3] = 10;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFieldname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>field name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value. if field type is vectorN, output is a table with N items. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return the field result. If field not found, output will be returned. if field type is vectorN, return a table with N items.Please note table index start from 1 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="579" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="971" bodyend="1097"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a79d1606776093cf25333b0dcea18faa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaAttributeObject::GetStringField</definition>
+        <argsstring>(const char *sFieldname)</argsstring>
+        <name>GetStringField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>similar to <ref refid="class_para_scripting_1_1_para_attribute_object_1a7c93dd8f2e3f09d74181063b553ef7f5" kindref="member">GetField()</ref>. except that the output is a string. Used for API exporting. not thread safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="582" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1270" bodyend="1286"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a4016960651da52c29680767fa422ac83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaAttributeObject::GetValueField</definition>
+        <argsstring>(const char *sFieldname, int nIndex=0)</argsstring>
+        <name>GetValueField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>similar to <ref refid="class_para_scripting_1_1_para_attribute_object_1a7c93dd8f2e3f09d74181063b553ef7f5" kindref="member">GetField()</ref>. except that the output is a value. Used for API exporting. not thread safe. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the value has multiple component, such as a vector3. this is the index of the componet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="586" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1288" bodyend="1380"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ade0631da4a2ff613d268b4c0ffd0b7bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::SetField</definition>
+        <argsstring>(const char *sFieldname, const object &amp;input)</argsstring>
+        <name>SetField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set field by name e.g. suppose att is the attribute object. att:SetField(&quot;facing&quot;, 3.14); att:SetField(&quot;position&quot;, {100,0,0}); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFieldname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>field name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input value. if field type is vectorN, input is a table with N items. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="594" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1099" bodyend="1268"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a6778197003015dc83d88cb7c4e7cb2c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::SetStringField</definition>
+        <argsstring>(const char *sFieldname, const char *input)</argsstring>
+        <name>SetStringField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>similar to <ref refid="class_para_scripting_1_1_para_attribute_object_1ade0631da4a2ff613d268b4c0ffd0b7bf" kindref="member">SetField()</ref>. except that the input is a string. Used for API exporting. not thread safe. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="597" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1382" bodyend="1393"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a492ebbfd154f86663474f5f341a10c25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::SetValueField</definition>
+        <argsstring>(const char *sFieldname, int nIndex, double value)</argsstring>
+        <name>SetValueField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>similar to <ref refid="class_para_scripting_1_1_para_attribute_object_1ade0631da4a2ff613d268b4c0ffd0b7bf" kindref="member">SetField()</ref>. except that the input is a string. Used for API exporting. not thread safe. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the value has multiple component, such as a vector3. this is the index of the component. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="601" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1395" bodyend="1483"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ad13bbb55c6bf1bdb550ef0db1e95cae8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::CallField</definition>
+        <argsstring>(const char *sFieldname)</argsstring>
+        <name>CallField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>call field by name. This function is only valid when The field type is void. It simply calls the function associated with the field name. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="605" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="455" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a9f2a5fa3774b82a3fedef85f9eb1c165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaAttributeObject::PrintObject</definition>
+        <argsstring>(const char *file)</argsstring>
+        <name>PrintObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>print attribute to file <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file name to save the manual to. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="610" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1485" bodyend="1491"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a6eb6977a66cb0ddab3e4f56ab2cdf087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaAttributeObject::ResetField</definition>
+        <argsstring>(int nFieldID)</argsstring>
+        <name>ResetField</name>
+        <param>
+          <type>int</type>
+          <declname>nFieldID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the field to its initial or default value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nFieldID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: field ID </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if value is set; false if value not set. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="617" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1492" bodyend="1497"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a5927d6069dcadf5ee8d3d8d4035f0f7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaAttributeObject::InvokeEditor</definition>
+        <argsstring>(int nFieldID, const char *sParameters)</argsstring>
+        <name>InvokeEditor</name>
+        <param>
+          <type>int</type>
+          <declname>nFieldID</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sParameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Invoke an (external) editor for a given field. This is usually for NPL script field <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nFieldID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: field ID </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: the parameter passed to the editor </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if editor is invoked, false if failed or field has no editor. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="625" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="1499" bodyend="1504"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a3a7086480c15da451a808e1fd4207152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaAttributeObject::GetDynamicField</definition>
+        <argsstring>(const char *sFieldname, const object &amp;output)</argsstring>
+        <name>GetDynamicField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get field by name. e.g. suppose att is the attribute object. local bGloble = att:GetField(&quot;URL&quot;, nil); local facing = att:GetField(&quot;Title&quot;, &quot;default one&quot;);</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFieldname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>field name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value. if field type is vectorN, output is a table with N items. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return the field result. If field not found, output will be returned. if field type is vectorN, return a table with N items.Please note table index start from 1 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="641" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="469" bodyend="476"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a34319c9c54bab05702e6b8d65aefef35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaAttributeObject::GetDynamicField_</definition>
+        <argsstring>(int nIndex, const object &amp;output)</argsstring>
+        <name>GetDynamicField_</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a dynamic field with a given index. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="646" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="486" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a3d1f79398f1186a38eb145ce671ea2da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>luabind::object ParaScripting::ParaAttributeObject::GetDynamicFieldImp</definition>
+        <argsstring>(CDynamicAttributeField *pField, const object &amp;output)</argsstring>
+        <name>GetDynamicFieldImp</name>
+        <param>
+          <type>CDynamicAttributeField *</type>
+          <declname>pField</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="648" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="495" bodyend="587"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a54c0d754a06eaeac10b94bbaf4f6dce6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaAttributeObject::GetDynamicFieldNameByIndex</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetDynamicFieldNameByIndex</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get field name by index </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="651" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="478" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a9da93d73de59073cf8e8cb8f9f8e5176" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::GetDynamicFieldCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetDynamicFieldCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>how many dynamic field this object currently have. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="654" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="642" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ad9a5d21a969b61c3fc04fb07881f7e35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::SetDynamicField</definition>
+        <argsstring>(const char *sFieldname, const object &amp;input)</argsstring>
+        <name>SetDynamicField</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set field by name e.g. suppose att is the attribute object. att:SetDynamicField(&quot;URL&quot;, 3.14); att:SetDynamicField(&quot;Title&quot;, {100,0,0}); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sFieldname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>field name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input value. can be value or string type </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: -1 failed, if 0 means modified, if 1 means a new key is added, if 2 means a key is removed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="664" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="709" bodyend="783"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ac82071fa37128c67a6ab69fc68b7dddc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::SetDynamicField_</definition>
+        <argsstring>(int nFieldIndex, const object &amp;input)</argsstring>
+        <name>SetDynamicField_</name>
+        <param>
+          <type>int</type>
+          <declname>nFieldIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="665" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="785" bodyend="859"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a4f8b48c3349463f731a922ceecf7b82b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::GetFieldKeyNums</definition>
+        <argsstring>(const char *sFieldname)</argsstring>
+        <name>GetFieldKeyNums</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="667" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="861" bodyend="871"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a9c1a4ecf56a56a2a319ae4d8257d6749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAttributeObject::SetFieldKeyNums</definition>
+        <argsstring>(const char *sFieldname, int nKeyNum)</argsstring>
+        <name>SetFieldKeyNums</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nKeyNum</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="668" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="873" bodyend="882"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a8218b04cc70f4216fecd47ae1b7d9dfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAttributeObject::SetFieldKeyTime</definition>
+        <argsstring>(const char *sFieldname, int nKeyIndex, int nTime)</argsstring>
+        <name>SetFieldKeyTime</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nKeyIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="670" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="884" bodyend="893"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ad9f22ef8c199c75851be7c29cd779f9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::GetFieldKeyTime</definition>
+        <argsstring>(const char *sFieldname, int nKeyIndex)</argsstring>
+        <name>GetFieldKeyTime</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nKeyIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="671" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="895" bodyend="905"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1ace3dbfa7c0a994f136952bd762bced5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAttributeObject::SetFieldKeyValue</definition>
+        <argsstring>(const char *sFieldname, int nKeyIndex, const object &amp;input)</argsstring>
+        <name>SetFieldKeyValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nKeyIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="673" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="651" bodyend="707"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1a7ed6cc63cb89c33fcd921bc7f3afe461" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>luabind::object ParaScripting::ParaAttributeObject::GetFieldKeyValue</definition>
+        <argsstring>(const char *sFieldname, int nKeyIndex, const object &amp;output)</argsstring>
+        <name>GetFieldKeyValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFieldname</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nKeyIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="674" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="589" bodyend="640"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1aa76724dd979d6df64d0994fb3e843470" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaAttributeObject::RemoveAllDynamicFields</definition>
+        <argsstring>()</argsstring>
+        <name>RemoveAllDynamicFields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove all dynamic fields </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="677" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="908" bodyend="914"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_attribute_object_1af3a869a43eeb960d98f009d034bd2c26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaAttributeObject::AddDynamicField</definition>
+        <argsstring>(const std::string &amp;sName, int dwType)</argsstring>
+        <name>AddDynamicField</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dwType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add dynamic field and return field index <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dwType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of ATTRIBUTE_FIELDTYPE </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="682" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.cpp" bodystart="916" bodyend="919"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>it represents an attribute object associated with an object. Call <ref refid="class_para_scripting_1_1_para_object_1af89fe292cb8f53af915efa9e2fbeb0a8" kindref="member">ParaObject::GetAttributeObject()</ref> or <ref refid="class_para_scripting_1_1_para_object_1af89fe292cb8f53af915efa9e2fbeb0a8" kindref="member">ParaObject::GetAttributeObject()</ref> to get an instance of this object. e.g. In NPL, one can write local att = player:<ref refid="class_para_scripting_1_1_para_attribute_object_1a1dafebb6b60ecf7da7feaf8bc9c41a4a" kindref="member">GetAttributeObject()</ref>; local bGloble = att:GetField(&quot;global&quot;, true); local facing = att:GetField(&quot;facing&quot;, 0); att:SetField(&quot;facing&quot;, facing+3.14); local pos = att:GetField(&quot;position&quot;, {0,0,0}); pos[1] = pos[1]+100;pos[2] = 0;pos[3] = 10; att:SetField(&quot;position&quot;, pos); att:PrintObject(&quot;test.txt&quot;);</para><para>the following shows objects and their supported attributes.</para><para><programlisting></programlisting> <programlisting></programlisting> <programlisting></programlisting> <programlisting></programlisting> <programlisting></programlisting> <programlisting></programlisting> <programlisting></programlisting> <programlisting></programlisting> </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="455" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="454" bodyend="683"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a3f424550a584433bad89af90b90bc2fa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>AddChild</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1af3a869a43eeb960d98f009d034bd2c26" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>AddDynamicField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ad13bbb55c6bf1bdb550ef0db1e95cae8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>CallField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ac089d51c1ae70b71847a661142dd87ec" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>equals</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a1dafebb6b60ecf7da7feaf8bc9c41a4a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1adc52d274cabfe0d92920bb5a72fb119e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetChild</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ae0b578947e2e355eb91e112d4f707ff7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetChildAt</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a98d6e7467a87fdaeef68327b3d8c7528" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetChildAt2</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a2cf04c1e7e21396e97e78a8fedbb70de" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetChildCount</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a7cf5833d990d4d570ea94b3a3973a0b8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetChildCount2</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a93cd5e03d580064e09ccf92e191b8fc1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetClassDescription</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1aa9431fc1c5917b9b7ff8d98873b08bbf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetClassID</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a088db201eba2afa4d654837ddaec318c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetClassName</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a2a7e7d7c8c9dc947f527564b1055acea" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetClassName1</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a9200a6f064078511df955bada8405f52" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetColumnCount</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a3a7086480c15da451a808e1fd4207152" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetDynamicField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a34319c9c54bab05702e6b8d65aefef35" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetDynamicField_</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a9da93d73de59073cf8e8cb8f9f8e5176" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetDynamicFieldCount</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a3d1f79398f1186a38eb145ce671ea2da" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetDynamicFieldImp</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a54c0d754a06eaeac10b94bbaf4f6dce6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetDynamicFieldNameByIndex</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a7c93dd8f2e3f09d74181063b553ef7f5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a982f750f30d584f1a9d49be7eda7b8a9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldIndex</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a4f8b48c3349463f731a922ceecf7b82b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldKeyNums</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ad9f22ef8c199c75851be7c29cd779f9d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldKeyTime</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a7ed6cc63cb89c33fcd921bc7f3afe461" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldKeyValue</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a8b4bba8453a517a95d09087047248de5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldName</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a9823db569378d73162ca3cbefe5d7bfd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldNum</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a9dd9a6dd86e498d13f272811f1d0d10c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldSchematics</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a28f86178fe65d1cf7f48a41fbda91396" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetFieldType</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a6dde5dd6d009e0286d3fd35d6301bb36" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetOrder</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a2812ef76ec41221b8e84702a4ea88e7c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetSchematicsMinMax</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1adb60915ec107483ac88eb566e554eaf8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetSchematicsType</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a79d1606776093cf25333b0dcea18faa8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetStringField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a4016960651da52c29680767fa422ac83" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>GetValueField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a5927d6069dcadf5ee8d3d8d4035f0f7f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>InvokeEditor</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1abe11f8323044e69ee8b1c878dd826abf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>IsFieldReadOnly</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ab5a426befb726dcbe1f9af62b653ea4b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a2491a392bc643f0b2c9df1bf13aeb224" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>m_pAttClass</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a43587957d170de2e91d6f07c4ad7bad4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>m_pAttribute</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a2834ce8c6a546cf25392ce26b84f6ace" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>ParaAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a4cf2e46b1ce75cce2d1b761ba261b9eb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>ParaAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ae8fa58d7a536bf0f75beba35202b7521" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>ParaAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a9f2a5fa3774b82a3fedef85f9eb1c165" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>PrintObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a5862caba6f6698adb2b117ce3d802671" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>QueryObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a2f1be9071570c0319a9ba0696ed58dd9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>QueryUIObject</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1aa76724dd979d6df64d0994fb3e843470" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>RemoveAllDynamicFields</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a6eb6977a66cb0ddab3e4f56ab2cdf087" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>ResetField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ad9a5d21a969b61c3fc04fb07881f7e35" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetDynamicField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ac82071fa37128c67a6ab69fc68b7dddc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetDynamicField_</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ade0631da4a2ff613d268b4c0ffd0b7bf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a9c1a4ecf56a56a2a319ae4d8257d6749" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetFieldKeyNums</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a8218b04cc70f4216fecd47ae1b7d9dfd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetFieldKeyTime</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1ace3dbfa7c0a994f136952bd762bced5d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetFieldKeyValue</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a23499d13070fa6bd10563b4d14544c67" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetOrder</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a6778197003015dc83d88cb7c4e7cb2c3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetStringField</name></member>
+      <member refid="class_para_scripting_1_1_para_attribute_object_1a492ebbfd154f86663474f5f341a10c25" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAttributeObject</scope><name>SetValueField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

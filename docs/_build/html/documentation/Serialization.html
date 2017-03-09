@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Serialization, Encoding and Logging &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HTTP request" href="HTTP.html" />
+    <link rel="prev" title="Timer" href="Timer.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="serialization-encoding-and-logging">
+<span id="serialization-encoding-and-logging"></span><h1>Serialization, Encoding and Logging<a class="headerlink" href="#serialization-encoding-and-logging" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Serialization: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/serialization.lua">script/ide/serialization.lua</a></li>
+<li>Encoding: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/Encoding.lua">script/ide/Encoding.lua</a></li>
+<li>Logging: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/log.lua">script/ide/log.lua</a></li>
+<li>SHA1: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/System/Encoding/sha1.lua">script/ide/System/Encoding/sha1.lua</a></li>
+</ul>
+<div class="section" id="npl-lua-table-serialization">
+<span id="npl-lua-table-serialization"></span><h2>NPL/Lua Table Serialization<a class="headerlink" href="#npl-lua-table-serialization" title="Permalink to this headline">¶</a></h2>
+<p>see <code class="docutils literal"><span class="pre">script/test/TestNPL.lua</span></code></p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">};</span>
+
+<span class="c1">-- serialize to string</span>
+<span class="kd">local</span> <span class="n">str</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">serialize_compact</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="c1">-- write string to log.txt</span>
+<span class="n">log</span><span class="p">(</span><span class="n">str</span><span class="p">);</span> 
+<span class="c1">-- string to NPL table again</span>
+<span class="kd">local</span> <span class="n">o</span> <span class="o">=</span> <span class="n">NPL</span><span class="p">.</span><span class="n">LoadTableFromString</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="c1">-- echo to output any object to log.txt</span>
+<span class="n">echo</span><span class="p">(</span><span class="n">o</span><span class="p">);</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-formatting">
+<span id="data-formatting"></span><h2>Data Formatting<a class="headerlink" href="#data-formatting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;succeed: test case %.3f for %s</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">));</span>
+<span class="c1">-- format is faster than string.format, but only support limited place holder like %s and %d. </span>
+<span class="n">log</span><span class="p">(</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;succeed: test case %d for %s</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-encoding">
+<span id="data-encoding"></span><h2>Data Encoding<a class="headerlink" href="#data-encoding" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Encoding: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/Encoding.lua">script/ide/Encoding.lua</a></li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">commonlib</span><span class="p">.</span><span class="n">echo</span><span class="p">(</span><span class="n">NPL</span><span class="p">.</span><span class="n">EncodeURLQuery</span><span class="p">(</span><span class="s2">&quot;http://www.paraengine.com&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;name1&quot;</span><span class="p">,</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;name2&quot;</span><span class="p">,</span> <span class="s2">&quot;中文&quot;</span><span class="p">,}))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utf8-vs-default-text-encoding">
+<span id="utf8-vs-default-text-encoding"></span><h2>UTF8 vs Default Text Encoding<a class="headerlink" href="#utf8-vs-default-text-encoding" title="Permalink to this headline">¶</a></h2>
+<p>Encoding is a complex topic. The rule of thumb in NPL is to use utf8 encoding wherever possible, such as in source code, XML/html/page files, UI text, network messages, etc. However, system file path must be encoded in the operating system&#8217;s default encoding, which may be different from utf8, so we need to use following methods to convert between the default and utf8 encoding for a given text to be used as system file path, such as <code class="docutils literal"><span class="pre">ParaIO.open(filename)</span></code> requires <code class="docutils literal"><span class="pre">filename</span></code> to be in default encoding.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/Encoding.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">Encoding</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">gettable</span><span class="p">(</span><span class="s2">&quot;commonlib.Encoding&quot;</span><span class="p">);</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">Encoding</span><span class="p">.</span><span class="n">Utf8ToDefault</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">Encoding</span><span class="p">.</span><span class="n">DefaultToUtf8</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-encoding">
+<span id="json-encoding"></span><h2>Json Encoding<a class="headerlink" href="#json-encoding" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Json Encoding: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/Json.lua">script/ide/Json.lua</a></li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/Json.lua&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span> 
+<span class="p">[</span><span class="s2">&quot;name1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+<span class="p">[</span><span class="s2">&quot;name2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="mf">23.54</span><span class="p">,</span> <span class="s2">&quot;a </span><span class="se">\021</span><span class="s2"> string&quot;</span><span class="p">},</span>
+<span class="n">name3</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">Json</span><span class="p">.</span><span class="n">Null</span><span class="p">()</span> 
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">Json</span><span class="p">.</span><span class="n">Encode</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">json</span><span class="p">)</span> 
+<span class="c1">--&gt; {&quot;name1&quot;:&quot;value1&quot;,&quot;name3&quot;:null,&quot;name2&quot;:[1,false,true,23.54,&quot;a \u0015 string&quot;]}</span>
+
+<span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">Json</span><span class="p">.</span><span class="n">Decode</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">name2</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="c1">--&gt; 23.54</span>
+
+<span class="c1">-- also consider the NPL version</span>
+<span class="kd">local</span> <span class="n">out</span><span class="o">=</span><span class="p">{};</span>
+<span class="kr">if</span><span class="p">(</span><span class="n">NPL</span><span class="p">.</span><span class="n">FromJson</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">out</span><span class="p">))</span> <span class="kr">then</span>
+    <span class="n">commonlib</span><span class="p">.</span><span class="n">echo</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="xml-encoding">
+<span id="xml-encoding"></span><h2>XML Encoding<a class="headerlink" href="#xml-encoding" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>XML Encoding: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/LuaXML.lua">script/ide/LuaXML.lua</a></li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/LuaXML.lua&quot;</span><span class="p">);</span>
+<span class="kr">function</span> <span class="nc">TestLuaXML</span><span class="p">:</span><span class="nf">test_LuaXML_CPlusPlus</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">input</span> <span class="o">=</span> <span class="s">[[&lt;paragraph justify=&quot;centered&quot; &gt;first child&lt;b &gt;bold&lt;/b&gt;second child&lt;/paragraph&gt;]]</span>
+    <span class="kd">local</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ParaXML</span><span class="p">.</span><span class="n">LuaXML_ParseString</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+    <span class="nb">assert</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;paragraph&quot;</span><span class="p">);</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">TestLuaXML</span><span class="p">:</span><span class="nf">test_LuaXML_NPL</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">input</span> <span class="o">=</span> <span class="s">[[&lt;paragraph justify=&quot;centered&quot; &gt;first child&lt;b &gt;bold&lt;/b&gt;second child&lt;/paragraph&gt;]]</span>
+    <span class="kd">local</span> <span class="n">xmlRoot</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">XML2Lua</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+    <span class="nb">assert</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">Lua2XmlString</span><span class="p">(</span><span class="n">xmlRoot</span><span class="p">)</span> <span class="o">==</span> <span class="n">input</span><span class="p">);</span>
+    <span class="n">log</span><span class="p">(</span><span class="n">commonlib</span><span class="p">.</span><span class="n">Lua2XmlString</span><span class="p">(</span><span class="n">xmlRoot</span><span class="p">,</span> <span class="kc">true</span><span class="p">))</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="binary-data">
+<span id="binary-data"></span><h2>Binary Data<a class="headerlink" href="#binary-data" title="Permalink to this headline">¶</a></h2>
+<p>To read or write binary data to or from string, we can use the file API with a special filename called <code class="docutils literal"><span class="pre">&lt;memory&gt;</span></code>, see below.</p>
+<ul class="simple">
+<li>To read binary string, simply call <code class="docutils literal"><span class="pre">WritingString</span></code> to write input string to a memory buffer file and then <code class="docutils literal"><span class="pre">seek(0)</span></code> and read data out in any way you like.</li>
+<li>To write binary string, simply call <code class="docutils literal"><span class="pre">WritingString</span></code>, <code class="docutils literal"><span class="pre">WriteBytes</span></code> or <code class="docutils literal"><span class="pre">WritingInt</span></code>, once finished, call <code class="docutils literal"><span class="pre">GetText(0,</span> <span class="pre">-1)</span></code> to get the final output binary string.</li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">test_MemoryFile</span><span class="p">()</span>
+    <span class="c1">-- &quot;&lt;memory&gt;&quot; is a special name for memory file, both read/write is possible. </span>
+    <span class="kd">local</span> <span class="n">file</span> <span class="o">=</span> <span class="n">ParaIO</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;&lt;memory&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">);</span>
+    <span class="kr">if</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="n">IsValid</span><span class="p">())</span> <span class="kr">then</span> 
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteString</span><span class="p">(</span><span class="s2">&quot;hello &quot;</span><span class="p">);</span>
+        <span class="kd">local</span> <span class="n">nPos</span> <span class="o">=</span> <span class="n">file</span><span class="p">:</span><span class="n">GetFileSize</span><span class="p">();</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteString</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteInt</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">seek</span><span class="p">(</span><span class="n">nPos</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteString</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">SetFilePointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">-- 2 is relative to end of file</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteInt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteString</span><span class="p">(</span><span class="s2">&quot;End&quot;</span><span class="p">);</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">WriteBytes</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">});</span>
+        <span class="c1">-- read entire binary text data back to npl string</span>
+        <span class="n">echo</span><span class="p">(</span><span class="o">#</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="n">GetText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)));</span>
+        <span class="n">file</span><span class="p">:</span><span class="n">close</span><span class="p">();</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="xpath-query-in-xml">
+<span id="xpath-query-in-xml"></span><h2>XPath query in XML<a class="headerlink" href="#xpath-query-in-xml" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>XPath: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/XPath.lua">script/ide/XPath.lua</a></li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/XPath.lua&quot;</span><span class="p">);</span>
+
+<span class="kd">local</span> <span class="n">xmlDocIP</span> <span class="o">=</span> <span class="n">ParaXML</span><span class="p">.</span><span class="n">LuaXML_ParseFile</span><span class="p">(</span><span class="s2">&quot;script/apps/Poke/IP.xml&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;/mcml:mcml/mcml:packageList/mcml:package/&quot;</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;//mcml:IPList/mcml:IP[@text = &#39;Level2_2&#39;]&quot;</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;//mcml:IPList/mcml:IP[@version = 5]&quot;</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;//mcml:IPList/mcml:IP[@version &lt; 6]&quot;</span><span class="p">;</span> <span class="c1">-- only supported by selectNodes2</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;//mcml:IPList/mcml:IP[@version &gt; 4]&quot;</span><span class="p">;</span> <span class="c1">-- only supported by selectNodes2</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;//mcml:IPList/mcml:IP[@version &gt;= 5]&quot;</span><span class="p">;</span> <span class="c1">-- only supported by selectNodes2</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;//mcml:IPList/mcml:IP[@version &lt;= 5]&quot;</span><span class="p">;</span> <span class="c1">-- only supported by selectNodes2</span>
+
+<span class="kd">local</span> <span class="n">xmlDocIP</span> <span class="o">=</span> <span class="n">ParaXML</span><span class="p">.</span><span class="n">LuaXML_ParseFile</span><span class="p">(</span><span class="s2">&quot;character/v3/Pet/MGBB/mgbb.xml&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;/mesh/shader/@index&quot;</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;/mesh/boundingbox/@minx&quot;</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;/mesh/submesh/@filename&quot;</span><span class="p">;</span>
+<span class="kd">local</span> <span class="n">xpath</span> <span class="o">=</span> <span class="s2">&quot;/mesh/submesh&quot;</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- select nodes to an array table</span>
+<span class="c1">--</span>
+<span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">XPath</span><span class="p">.</span><span class="n">selectNodes</span><span class="p">(</span><span class="n">xmlDocIP</span><span class="p">,</span> <span class="n">xpath</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">XPath</span><span class="p">.</span><span class="n">selectNodes</span><span class="p">(</span><span class="n">xmlDocIP</span><span class="p">,</span> <span class="n">xpath</span><span class="p">,</span> <span class="n">nMaxResultCount</span><span class="p">);</span> <span class="c1">-- select at most nMaxResultCount result</span>
+
+<span class="c1">--</span>
+<span class="c1">-- select a single node or nil</span>
+<span class="c1">--</span>
+<span class="kd">local</span> <span class="n">node</span> <span class="o">=</span> <span class="n">XPath</span><span class="p">.</span><span class="n">selectNode</span><span class="p">(</span><span class="n">xmlDocIP</span><span class="p">,</span> <span class="n">xpath</span><span class="p">);</span>
+
+<span class="c1">--</span>
+<span class="c1">-- iterate on all nodes. </span>
+<span class="c1">--</span>
+<span class="kr">for</span> <span class="n">node</span> <span class="kr">in</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">XPath</span><span class="p">.</span><span class="n">eachNode</span><span class="p">(</span><span class="n">xmlDocIP</span><span class="p">,</span> <span class="n">xpath</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="n">commonlib</span><span class="p">.</span><span class="n">echo</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging">
+<span id="logging"></span><h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">log.txt</span></code> may take a few seconds to be flushed to disk file.</div></blockquote>
+<ul class="simple">
+<li>Logging: <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/log.lua">script/ide/log.lua</a></li>
+</ul>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- write formatted logs to log.txt</span>
+<span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;sub_system_name&quot;</span><span class="p">,</span> <span class="s2">&quot;some formated message: %s&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">);</span> 
+<span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span> <span class="s2">&quot;sub_system_name&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;any table object&quot;</span><span class="p">});</span> 
+<span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;sub_system_name&quot;</span><span class="p">,</span> <span class="s2">&quot;error code here&quot;</span><span class="p">);</span> 
+<span class="n">LOG</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="s2">&quot;warn&quot;</span><span class="p">,</span> <span class="s2">&quot;sub_system_name&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">);</span> 
+</pre></div>
+</div>
+<p>Log redirection and configurations:
+It is also possible to redirect <code class="docutils literal"><span class="pre">log.txt</span></code> to different files on startup. see [[NPLCommandLine]]</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;(gl)script/ide/log.lua&quot;</span><span class="p">);</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;hello %s </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;paraengine&quot;</span><span class="p">)</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">log</span><span class="p">({</span><span class="s2">&quot;anything&quot;</span><span class="p">})</span>
+<span class="kd">local</span> <span class="n">fromPos</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">log</span><span class="p">.</span><span class="n">GetLogPos</span><span class="p">()</span>
+<span class="n">log</span><span class="p">(</span><span class="n">fromPos</span><span class="o">..</span><span class="s2">&quot; babababa...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="kd">local</span> <span class="n">text</span> <span class="o">=</span> <span class="n">commonlib</span><span class="p">.</span><span class="n">log</span><span class="p">.</span><span class="n">GetLog</span><span class="p">(</span><span class="n">fromPos</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="n">log</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">..</span><span class="s2">&quot; is retrieved</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">commonlib</span><span class="p">.</span><span class="n">applog</span><span class="p">(</span><span class="s2">&quot;hello paraengine&quot;</span><span class="p">);</span> <span class="c1">--&gt; ./log.txt --&gt; 20090711 02:59:19|0|hello paraengine|script/shell_loop.lua:23: in function FunctionName|</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">applog</span><span class="p">(</span><span class="s2">&quot;hello %s&quot;</span><span class="p">,</span> <span class="s2">&quot;paraengine&quot;</span><span class="p">)</span> 
+
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">(</span><span class="s2">&quot;MyService&quot;</span><span class="p">,</span> <span class="s2">&quot;hello paraengine&quot;</span><span class="p">);</span> <span class="c1">--&gt; ./MyService_20090711.log --&gt; 2009-07-11 10:53:27|0|hello paraengine||</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">(</span><span class="s2">&quot;MyService&quot;</span><span class="p">,</span> <span class="s2">&quot;hello %s&quot;</span><span class="p">,</span> <span class="s2">&quot;paraengine&quot;</span><span class="p">);</span>
+
+<span class="c1">-- set log properties before using the log</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">.</span><span class="n">GetLogger</span><span class="p">(</span><span class="s2">&quot;no_append&quot;</span><span class="p">):</span><span class="n">SetLogFile</span><span class="p">(</span><span class="s2">&quot;log/no_append.log&quot;</span><span class="p">)</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">.</span><span class="n">GetLogger</span><span class="p">(</span><span class="s2">&quot;no_append&quot;</span><span class="p">):</span><span class="n">SetAppendMode</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">.</span><span class="n">GetLogger</span><span class="p">(</span><span class="s2">&quot;no_append&quot;</span><span class="p">):</span><span class="n">SetForceFlush</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">(</span><span class="s2">&quot;no_append&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">);</span>
+
+<span class="c1">-- This will change the default logger&#39;s file position at runtime.</span>
+<span class="n">commonlib</span><span class="p">.</span><span class="n">servicelog</span><span class="p">.</span><span class="n">GetLogger</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">):</span><span class="n">SetLogFile</span><span class="p">(</span><span class="s2">&quot;log/log_2016.5.19.txt&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Serialization, Encoding and Logging</a><ul>
+<li><a class="reference internal" href="#npl-lua-table-serialization">NPL/Lua Table Serialization</a></li>
+<li><a class="reference internal" href="#data-formatting">Data Formatting</a></li>
+<li><a class="reference internal" href="#data-encoding">Data Encoding</a></li>
+<li><a class="reference internal" href="#utf8-vs-default-text-encoding">UTF8 vs Default Text Encoding</a></li>
+<li><a class="reference internal" href="#json-encoding">Json Encoding</a></li>
+<li><a class="reference internal" href="#xml-encoding">XML Encoding</a></li>
+<li><a class="reference internal" href="#binary-data">Binary Data</a></li>
+<li><a class="reference internal" href="#xpath-query-in-xml">XPath query in XML</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Timer.html" title="previous chapter">Timer</a></li>
+      <li>Next: <a href="HTTP.html" title="next chapter">HTTP request</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/Serialization.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/Serialization.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

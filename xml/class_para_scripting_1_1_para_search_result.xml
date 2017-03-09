@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_search_result" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaSearchResult</compoundname>
+    <includes refid="_para_scripting_i_o_8h" local="no">ParaScriptingIO.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_search_result_1a097feadb86b8ee2893fe259291dc66b6" prot="public" static="no" mutable="no">
+        <type>CSearchResult *</type>
+        <definition>CSearchResult* ParaScripting::ParaSearchResult::m_pResult</definition>
+        <argsstring></argsstring>
+        <name>m_pResult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="204" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1a587e0e7083d046e9a48c1217ae9d235d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaSearchResult::ParaSearchResult</definition>
+        <argsstring>()</argsstring>
+        <name>ParaSearchResult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="206" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="206" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1a3e52cf4a581ba0c2a426e2610ccd0719" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaSearchResult::ParaSearchResult</definition>
+        <argsstring>(CSearchResult *pResult)</argsstring>
+        <name>ParaSearchResult</name>
+        <param>
+          <type>CSearchResult *</type>
+          <declname>pResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="207" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1ab7db4bf8fa96b89ee079eeec444fcf70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSearchResult::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if the object is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="212" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="434" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1a9892f10f14113aeeff838f18292f0e54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaSearchResult::Release</definition>
+        <argsstring>()</argsstring>
+        <name>Release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>release results. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="215" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="439" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1aa409b48ef1935d275467916f4a30a574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaSearchResult::GetRootPath</definition>
+        <argsstring>()</argsstring>
+        <name>GetRootPath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the root path </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="218" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="447" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1ad3448d6719075ca3d185ecb66b8fef1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaSearchResult::GetNumOfResult</definition>
+        <argsstring>()</argsstring>
+        <name>GetNumOfResult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the total number of result found </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="221" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="456" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1a2f36428b9d881f1f225a745ac885579e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaSearchResult::AddResult</definition>
+        <argsstring>(const char *sItem)</argsstring>
+        <name>AddResult</name>
+        <param>
+          <type>const char *</type>
+          <declname>sItem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>add a new item. return false if the search is completed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="224" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="465" bodyend="472"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1abc5df33f475d58b88b151d4d3ba3615b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::ParaSearchResult::GetItem</definition>
+        <argsstring>(int nIndex)</argsstring>
+        <name>GetItem</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the item at the specified index. return &quot;&quot; if nIndex is out of range. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="227" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="474" bodyend="481"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_search_result_1a8d6eebfc11ffb6c6e25f3bc5ba457ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaSearchResult::GetItemData</definition>
+        <argsstring>(int nIndex, const object &amp;output)</argsstring>
+        <name>GetItemData</name>
+        <param>
+          <type>int</type>
+          <declname>nIndex</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the item at the specified index. return nil if nIndex is out of range. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[in|out] default value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return the field result. If field not found, output will be returned. e.g. {filename=&quot;abc.txt&quot;, filesize=0, fileattr=0, createdate=&quot;1982-11-26&quot;, writedate=&quot;&quot;, accessdate=&quot;&quot;} fileattr is the value same as defined in WIN32_FIND_DATA.dwFileAttributes </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="235" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="519" bodyend="536"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>it represents a search result. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.h" line="202" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="201" bodyend="236"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_search_result_1a2f36428b9d881f1f225a745ac885579e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>AddResult</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1abc5df33f475d58b88b151d4d3ba3615b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>GetItem</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1a8d6eebfc11ffb6c6e25f3bc5ba457ff1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>GetItemData</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1ad3448d6719075ca3d185ecb66b8fef1c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>GetNumOfResult</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1aa409b48ef1935d275467916f4a30a574" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>GetRootPath</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1ab7db4bf8fa96b89ee079eeec444fcf70" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1a097feadb86b8ee2893fe259291dc66b6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>m_pResult</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1a587e0e7083d046e9a48c1217ae9d235d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>ParaSearchResult</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1a3e52cf4a581ba0c2a426e2610ccd0719" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>ParaSearchResult</name></member>
+      <member refid="class_para_scripting_1_1_para_search_result_1a9892f10f14113aeeff838f18292f0e54" prot="public" virt="non-virtual"><scope>ParaScripting::ParaSearchResult</scope><name>Release</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

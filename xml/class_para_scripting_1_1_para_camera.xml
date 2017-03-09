@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_camera" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaCamera</compoundname>
+    <includes refid="_para_scripting_scene_8h" local="no">ParaScriptingScene.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1ae031bf397ff70b38b1b84b39f6b8f4e5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::FollowObject</definition>
+        <argsstring>(ParaObject obj)</argsstring>
+        <name>FollowObject</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref></type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the character to follow. the object is also set as the current player <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> to follow, one can call </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1207" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2701" bodyend="2709"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1ad039f7162a916cd64c6de838b9e4b502" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::FollowObject</definition>
+        <argsstring>(const char *strObjectName)</argsstring>
+        <name>FollowObject</name>
+        <param>
+          <type>const char *</type>
+          <declname>strObjectName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set the character to follow. the object must be global in order to be found by its name. It is also set as the current player currently, <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strObjectName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the object to follow </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1214" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2711" bodyend="2715"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a836f40e91bc5df17371ed0ba026334fe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::FirstPerson</definition>
+        <argsstring>(int nTransitionMode, float fHeight, float fAngle)</argsstring>
+        <name>FirstPerson</name>
+        <param>
+          <type>int</type>
+          <declname>nTransitionMode</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fHeight</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current camera to follow a certain object, using first person view of the object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nTransitionMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>1 (default) smooth move or 0 immediate move </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fRadius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the distance from the person to the camera </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera lift up angle, this is usually Pi/4: 45 degrees </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1222" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2717" bodyend="2720"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1ac164f30db3c7ef382f635c89fa8a70b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::ThirdPerson</definition>
+        <argsstring>(int nTransitionMode, float fHeight, float fFacing, float fAngle)</argsstring>
+        <name>ThirdPerson</name>
+        <param>
+          <type>int</type>
+          <declname>nTransitionMode</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fHeight</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fFacing</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current camera to follow a certain object, using Third Person view of the object, where character is always centered while allowing rotation around it from 360 degree angles, <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nTransitionMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>1 (default) smooth move or 0 immediate move </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fRadius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the distance from the person to the camera </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fFacing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera facing, around the y axis, which is the world height axis. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera lift up angle, this is usually Pi/4: 45 degrees </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1232" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2722" bodyend="2725"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a13842ab2b31519e7e61e2329688485b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::Default</definition>
+        <argsstring>(int nTransitionMode, float fHeight, float fAngle)</argsstring>
+        <name>Default</name>
+        <param>
+          <type>int</type>
+          <declname>nTransitionMode</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fHeight</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>: Set the current camera to follow a certain object, using the default view of the object. character restricted to move within a rectangular region, while camera is facing a fixed direction. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nTransitionMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>1 (default) smooth move or 0 immediate move </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>relative camera height above the object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera lift up angle, this is usually Pi/4: 45 degrees </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1242" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2726" bodyend="2729"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a34150d36c238b27b615a64e7d94a114b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::Fixed</definition>
+        <argsstring>(int nTransitionMode, float fX, float fY, float fZ)</argsstring>
+        <name>Fixed</name>
+        <param>
+          <type>int</type>
+          <declname>nTransitionMode</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current camera to look at a certain object, from a fixed camera location while allowing rotation around it from 360 degree angles, <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nTransitionMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>1 (default) smooth move or 0 immediate move </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera location: x </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera location: y </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fZ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camera location: z </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1252" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2730" bodyend="2733"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a0566cb51e4c591f14b03430366f7688c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::GetPosition</definition>
+        <argsstring>(float *x, float *y, float *z)</argsstring>
+        <name>GetPosition</name>
+        <param>
+          <type>float *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the world position of the camera eye. This function takes no parameters. x,y,z are not input, but pure output. In the script, we can call it as below x,y,z = <ref refid="class_para_scripting_1_1_para_camera_1a0566cb51e4c591f14b03430366f7688c" kindref="member">ParaCamera.GetPosition()</ref>; <ndash/> get the camera&apos;s eye position in Luabind, it is defined as .def(&quot;GetPosition&quot;, &amp;<ref refid="class_para_scripting_1_1_para_camera_1a0566cb51e4c591f14b03430366f7688c" kindref="member">ParaCamera::GetPosition</ref>, pure_out_value(_1) + pure_out_value(_2) + pure_out_value(_3)) please note, y is the absolute position in world coordinate <simplesect kind="see"><para>SetPosition(float x, float y, float z) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1262" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2735" bodyend="2740"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a44efdee96e1eae87d824451e2adbbc5f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::GetLookAtPosition</definition>
+        <argsstring>(float *x, float *y, float *z)</argsstring>
+        <name>GetLookAtPosition</name>
+        <param>
+          <type>float *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the position that the camera is currently looking at. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1265" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2742" bodyend="2747"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1acbcdf4c75fbfacb477995ff265109588" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::SetKeyMap</definition>
+        <argsstring>(int key, int scancode)</argsstring>
+        <name>SetKeyMap</name>
+        <param>
+          <type>int</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>scancode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>we can alter key map at runtime <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CharacterAndCameraKeys . [0-10] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scancode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DIK_A, DIK_D,DIK_W,DIK_S,DIK_Q,DIK_E,DIK_SPACE,0,0,DIK_INSERT,DIK_DELETE </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1270" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2749" bodyend="2752"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1af9d752da410a8017197767c18a4a0dca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaCamera::GetKeyMap</definition>
+        <argsstring>(int key)</argsstring>
+        <name>GetKeyMap</name>
+        <param>
+          <type>int</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get scancode from key id </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1273" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2754" bodyend="2757"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a7711e9264e547d5b9db69206984b36e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaAttributeObject ParaScripting::ParaCamera::GetAttributeObject</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the attribute object associated with the current camera object. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1276" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2693" bodyend="2696"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_camera_1a0e5d27e64e91ba0311450bb860501ca9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaCamera::GetAttributeObject_</definition>
+        <argsstring>(ParaAttributeObject &amp;output)</argsstring>
+        <name>GetAttributeObject_</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref> &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>used for API exportation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.h" line="1278" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="2697" bodyend="2700"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The camera controller. First call <ref refid="class_para_scripting_1_1_para_camera_1ae031bf397ff70b38b1b84b39f6b8f4e5" kindref="member">FollowObject()</ref> method to set the character to follow. set call any of the camera transition functions to set the camera follow mode </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingScene.h" line="1199" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.h" bodystart="1198" bodyend="1279"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_camera_1a13842ab2b31519e7e61e2329688485b7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>Default</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1a836f40e91bc5df17371ed0ba026334fe" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>FirstPerson</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1a34150d36c238b27b615a64e7d94a114b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>Fixed</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1ae031bf397ff70b38b1b84b39f6b8f4e5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>FollowObject</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1ad039f7162a916cd64c6de838b9e4b502" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>FollowObject</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1a7711e9264e547d5b9db69206984b36e8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>GetAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1a0e5d27e64e91ba0311450bb860501ca9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>GetAttributeObject_</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1af9d752da410a8017197767c18a4a0dca" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>GetKeyMap</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1a44efdee96e1eae87d824451e2adbbc5f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>GetLookAtPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1a0566cb51e4c591f14b03430366f7688c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>GetPosition</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1acbcdf4c75fbfacb477995ff265109588" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>SetKeyMap</name></member>
+      <member refid="class_para_scripting_1_1_para_camera_1ac164f30db3c7ef382f635c89fa8a70b4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCamera</scope><name>ThirdPerson</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

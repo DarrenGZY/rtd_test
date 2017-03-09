@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is NPL? &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install NPL Runtime" href="InstallGuide.html" />
+    <link rel="prev" title="Welcome to NPL" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-is-npl">
+<span id="what-is-npl"></span><h1>What is NPL?<a class="headerlink" href="#what-is-npl" title="Permalink to this headline">¶</a></h1>
+<p>NPL is short for neural parallel language.</p>
+<ul class="simple">
+<li>NPL is a general-purpose open-source language. Its syntax is 100% compatible with <a class="reference external" href="http://www.lua.org/">Lua</a>.</li>
+<li>NPL provides essential functionality for building <code class="docutils literal"><span class="pre">3D/2D/Web/Server</span></code> <a class="reference external" href="projects">applications</a>.</li>
+<li>NPL provides rich C/C++ <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/">API</a> and large collections of <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide">libraries</a> written in NPL.</li>
+<li>NPL is a single language solution for advanced and interactive GUI, complex opengl/DirectX 3D graphics, scalable <a class="reference external" href="WebServer">webserver</a> and distributed software frameworks. It is cross-platform, <a class="reference external" href="NPLPerformance">high performance</a>, extensible and <a class="reference external" href="NPLCodeWiki">debuggable</a>.</li>
+<li>NPL is a language system initially designed to operate like the brain. Nodes and connections are ubiquitous; <a class="reference external" href="MultiThreading">threading</a> and networking logics are hidden from developers.</li>
+<li>NPL can mix user-mode <code class="docutils literal"><span class="pre">preemptive</span></code> and <code class="docutils literal"><span class="pre">non-preemptive</span></code> code. It gives you the <a class="reference external" href="Concurrency">concurrency</a> of <a class="reference external" href="http://www.erlang.org/">Erlang</a> and speed of <code class="docutils literal"><span class="pre">Java/C++</span></code> in the same dynamic and weakly-typed language.</li>
+</ul>
+<blockquote>
+<div>See <a class="reference external" href="projects">here</a> for a list of projects written in NPL.</div></blockquote>
+<div class="section" id="facts-you-should-know">
+<span id="facts-you-should-know"></span><h2>Facts You Should Know<a class="headerlink" href="#facts-you-should-know" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>NPL runtime is written in C/C++. It can utilize the <a class="reference external" href="http://luajit.org/">luajit</a> compiler, which dynamically compiles script/byte code into native machine code, thus it can approach native C/C++ performance with some caveats.</li>
+<li>NPL runtime native API is a rich collection of C/C++ functions that is callable from NPL script. It includes networking, graphics, io, audio, assets management, and core NPL/ParaEngine infrastructure. <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime">NPL Reference</a> contains its full documentation. However, 99% of time, we never use native API directly in NPL script.</li>
+<li>Instead, we use NPL libraries, which are pure NPL/lua script files, distributed open sourced or in a zip/pkg file. Over 1 million lines of fully-documented NPL script code are available for use. Try to search in the repository of NPL source code, before writing your own.</li>
+<li>NPL libraries are all written in <code class="docutils literal"><span class="pre">object</span> <span class="pre">oriented</span></code> fashion, code is organized in folders and table namespaces.</li>
+<li>Because NPL is written in C/C++, it is cross-platform, extensible and easy to integrate with other thirty-party tools. For examples, NPLRuntime is distributed with following built in plugins: <a class="reference external" href="http://bulletphysics.org/">bullet</a>(a robust 3d physics engine), <a class="reference external" href="http://www.mono-project.com/">mono</a>(C# scripting module with NPL API), <a class="reference external" href="https://www.mysql.com/">mysql</a>/<a class="reference external" href="https://www.sqlite.org/">sqlite</a>(database engine), <a class="reference external" href="https://curl.haxx.se/">libcurl</a>(a robust http/ssh client).</li>
+<li>There are two ways to use Lua, one is embedding, the other is extending it. NPL takes the former approach. For example, true preemptive programming would NOT be possible with the second approach. The embedding approach also allows NPL to expose all of its API and language features to other compiler, for example, each NPL runtime states can host Lua/Mono C#/C++ compiler states all together.</li>
+</ul>
+</div>
+<div class="section" id="hello-world-in-npl">
+<span id="hello-world-in-npl"></span><h2><code class="docutils literal"><span class="pre">Hello</span> <span class="pre">World</span></code> in NPL<a class="headerlink" href="#hello-world-in-npl" title="Permalink to this headline">¶</a></h2>
+<p>Run in command line <code class="docutils literal"><span class="pre">npl</span> <span class="pre">helloworld.lua</span></code>.
+The content of <code class="docutils literal"><span class="pre">helloworld.lua</span></code> is like this:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, there comes a more complicated helloworld. It turns an ordinary <code class="docutils literal"><span class="pre">helloworld.lua</span></code> file into a neuron file, by associating an <code class="docutils literal"><span class="pre">activate</span></code> function with it. The file is then callable from any NPL thread or remote computer by its NPL address(url).</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(gl)helloworld.lua&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;hello world!&quot;</span><span class="p">})</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">activate</span><span class="p">()</span>
+   <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">;</span>
+   <span class="kr">if</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">data</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+   <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">this</span><span class="p">(</span><span class="n">activate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If your code has <code class="docutils literal"><span class="pre">*.npl</span></code> file extension, you can use or extend NPL syntax via <a class="reference external" href="MetaProgramming">meta programming</a>.
+For example, above code can be written with NPL syntax in <code class="docutils literal"><span class="pre">helloworld.npl</span></code> as below.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;(gl)helloworld.npl&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;hello world!&quot;</span><span class="p">})</span>
+<span class="n">this</span><span class="p">(</span><span class="n">msg</span><span class="p">){</span>
+   <span class="kr">if</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">data</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+   <span class="kr">end</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="why-should-i-use-npl">
+<span id="why-should-i-use-npl"></span><h2>Why Should I Use NPL?<a class="headerlink" href="#why-should-i-use-npl" title="Permalink to this headline">¶</a></h2>
+<p>You may write your next big project in NPL, if you meet any following condition, if not all:</p>
+<ul class="simple">
+<li>If you like truly dynamic language like lua.</li>
+<li>If you care about C/C++ compatibility and [[performance|NPLPerformance]].</li>
+<li>Coming from the C/C++ world, yet looking for a replacement language for java/C#, that can handle heavy load of 2d/3d graphical client or server applications, easier than C/C++.</li>
+<li>Looking for a scripting language for both client and server development that is small and easy to deploy on windows and other platforms.</li>
+<li>Looking for a dynamic language that can be just-in-time compiled and modified at run time.</li>
+<li>Mix user-mode <code class="docutils literal"><span class="pre">preemptive</span></code> and <code class="docutils literal"><span class="pre">non-preemptive</span></code> code for massive concurrent computation.</li>
+</ul>
+<blockquote>
+<div>Note: calling API between C++/scripting runtime, usually requires a context switch which is computationally expensive most language also involves type translation (such as string parameter), managed/unmanaged environment transition (garbage collection), etc. NPL/LUA has the smallest cost among all languages, and with luajit, type translation is even unnecessary. Thus making it ideal to choose NPL when some part of your responsive app needs to be developed in C/C++.</div></blockquote>
+</div>
+<div class="section" id="background">
+<span id="background"></span><h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>NPL prototype was designed in 2004, which was then called &#8216;parallel oriented language&#8217;. In 2005, it was implemented together with ParaEngine, a distributed 3d computer game engine.</p>
+<div class="section" id="why-a-new-programming-language">
+<span id="why-a-new-programming-language"></span><h3>Why a New Programming Language?<a class="headerlink" href="#why-a-new-programming-language" title="Permalink to this headline">¶</a></h3>
+<p>NPL is initially designed to write flexible algorithms that works in a multi-threaded, and distributed environment with many computers across the network. More specifically, I want to have a language that is suitable for writing neural network algorithms, 3d simulation and visualization. Lua and C/C++ affinity was chosen from the beginning.</p>
+</div>
+<div class="section" id="communicate-like-the-brain">
+<span id="communicate-like-the-brain"></span><h3>Communicate Like The Brain<a class="headerlink" href="#communicate-like-the-brain" title="Permalink to this headline">¶</a></h3>
+<p>Although we are still unclear about our brain&#8217;s exact computational model, however, following fact seems ubiquitous in our brain.</p>
+<ul class="simple">
+<li>The brain consists of neurons and connections.</li>
+<li>Data flows from one neuron to another: it is asynchronously, single-direction and without callback.
+Communication in NPL is the same as above. Each file can become a neuron file to receive messages from other neuron files. They communicate asynchronously without callback. As a result, no lock is required because there is no shared data; making it both simple and fast to write and test distributed algorithms and deploy software in heterogeneous environment.</li>
+</ul>
+</div>
+<div class="section" id="compare-npl-with-other-languages">
+<span id="compare-npl-with-other-languages"></span><h3>Compare NPL With Other Languages<a class="headerlink" href="#compare-npl-with-other-languages" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">C/C++</span></code>:<ul>
+<li>Pros: They are actually the only popular cross-platform language. NPL Runtime is also written in C++.</li>
+<li>Cons: But you really need a more flexible scripting language which are dynamically compiled and easier to use.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">Mono</span> <span class="pre">C#</span></code>, <code class="docutils literal"><span class="pre">Java</span></code>:<ul>
+<li>Pros: Suitable for server side or heavy client. Rich libraries.</li>
+<li>Cons: Deployment on windows platform is big. Writing C++ plugins is hard, calling into C++ function is usually slow. Language is strong typed, not really dynamic.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">Node.js</span></code>, <code class="docutils literal"><span class="pre">Electron</span></code>:<ul>
+<li>Pros: Suitable for server side or heavy client. HTML5/javascript is popular.</li>
+<li>Cons: Deployment on the client-side is very big. writing C++ plugins is very hard.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">Python</span></code>, <code class="docutils literal"><span class="pre">Ruby</span></code>, <code class="docutils literal"><span class="pre">ActionScript</span></code> and many others:<ul>
+<li>Pros: Popular and modular</li>
+<li>Cons: Performance is not comparable to C/C++; standard-alone client-side deployment is very big; syntax too strict for a scripting language. Some of them looks alien for C/C++ developers.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">Lua</span></code>:<ul>
+<li><code class="docutils literal"><span class="pre">Pros</span></code>: NPL is 100% compatible with it. Really dynamic language, highly extensible by C/C++, and syntax is clear for C/C++ developers.</li>
+<li><code class="docutils literal"><span class="pre">Cons</span></code>: Born as an embedded language, it does not have a standalone general-purpose runtime with native API support and rich libraries for complex client/server side programming. This is where NPL fits in.</li>
+</ul>
+</li>
+<li>[[Concurrency Model|Concurrency]]: in-depth compare with erlang, GO, scala</li>
+</ul>
+</div>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Click the links, if you like to read the old history:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/LiXizhi/lixizhi.github.io/blob/master/downloads/2.0.ParaEngine.and.NPL.doc">NPL prototype doc in 2005</a></li>
+<li><a class="reference external" href="https://github.com/LiXizhi/lixizhi.github.io/blob/master/downloads/DisGameEngineThesis.pdf">A thesis on NPL/ParaEngine in 2005</a></li>
+<li><a class="reference external" href="https://github.com/LiXizhi/lixizhi.github.io/blob/master/downloads/DisGameEngineVol1_review.pdf">A book on ParaEngine in 2006</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is NPL?</a><ul>
+<li><a class="reference internal" href="#facts-you-should-know">Facts You Should Know</a></li>
+<li><a class="reference internal" href="#hello-world-in-npl"><code class="docutils literal"><span class="pre">Hello</span> <span class="pre">World</span></code> in NPL</a></li>
+<li><a class="reference internal" href="#why-should-i-use-npl">Why Should I Use NPL?</a></li>
+<li><a class="reference internal" href="#background">Background</a><ul>
+<li><a class="reference internal" href="#why-a-new-programming-language">Why a New Programming Language?</a></li>
+<li><a class="reference internal" href="#communicate-like-the-brain">Communicate Like The Brain</a></li>
+<li><a class="reference internal" href="#compare-npl-with-other-languages">Compare NPL With Other Languages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to NPL</a></li>
+      <li>Next: <a href="InstallGuide.html" title="next chapter">Install NPL Runtime</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/WhatIsNPL.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/WhatIsNPL.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

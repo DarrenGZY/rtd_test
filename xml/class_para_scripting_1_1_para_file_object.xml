@@ -1,0 +1,783 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_file_object" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaFileObject</compoundname>
+    <includes refid="_para_scripting_i_o_8h" local="no">ParaScriptingIO.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_file_object_1a4adca31e9111a675590d84b17dab4365" prot="public" static="no" mutable="no">
+        <type>boost::shared_ptr&lt; CParaFile &gt;</type>
+        <definition>boost::shared_ptr&lt;CParaFile&gt; ParaScripting::ParaFileObject::m_pFile</definition>
+        <argsstring></argsstring>
+        <name>m_pFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="65" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_file_object_1aed75617937b9d948950784c15e213973" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::m_nFromByte</definition>
+        <argsstring></argsstring>
+        <name>m_nFromByte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="66" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_file_object_1a4b03ec5fc7065cbccc60558623cae2ae" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::m_nByteCount</definition>
+        <argsstring></argsstring>
+        <name>m_nByteCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="67" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_para_scripting_1_1_para_file_object_1ac9e6b5cdb3052d3cd6b0458e04de8423" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::ParaFileObject::m_sTempBuffer</definition>
+        <argsstring></argsstring>
+        <name>m_sTempBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="69" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ac79425117003334c2df1e2c76b2791e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFileObject::ParaFileObject</definition>
+        <argsstring>()</argsstring>
+        <name>ParaFileObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="70" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ae7cd158944db85c82494e16e3ba657a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFileObject::ParaFileObject</definition>
+        <argsstring>(boost::shared_ptr&lt; CParaFile &gt; pFile)</argsstring>
+        <name>ParaFileObject</name>
+        <param>
+          <type>boost::shared_ptr&lt; CParaFile &gt;</type>
+          <declname>pFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="71" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a06497a57cc4f17a72278ad1206139aa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::ParaFileObject::~ParaFileObject</definition>
+        <argsstring>()</argsstring>
+        <name>~ParaFileObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="72" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="996" bodyend="999"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a1d6942804ca66288a41802f127b13149" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaFileObject::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>whether file is valid </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="75" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1412" bodyend="1415"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a2a7a2aa526089681cb416484d2659c1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Close the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="77" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1001" bodyend="1004"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a96e7e13560705e2456053335e5754aac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::SetSegment</definition>
+        <argsstring>(int nFromByte, int nByteCount)</argsstring>
+        <name>SetSegment</name>
+        <param>
+          <type>int</type>
+          <declname>nFromByte</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nByteCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>by setting the segment, we can inform NPL that we only transmit the file content in the segment to a remote place. it also affects the returned result of the GetBase64String. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nFromByte</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>from which byte </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nByteCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bytes of the segment. if -1, it is end of file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: return the number of bytes in the segment. it is usually the same as nByteCount, unless nBytesCount exceeds the file length. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="85" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1357" bodyend="1362"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1af9f0085184480d421057497db5f35239" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaFileObject::GetBase64StringEx</definition>
+        <argsstring>(int *pnStrLength=0)</argsstring>
+        <name>GetBase64StringEx</name>
+        <param>
+          <type>int *</type>
+          <declname>pnStrLength</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get base 64 string of the binary data in the current file segment. to change segment, use SetSegment. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pnStrLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] length of the returned string. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pOutString: a static global buffer containing the string. it ends with &apos;\0&apos;. it is NULL, if file is invalid. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="92" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1364" bodyend="1405"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a413ad1bfdec1de25b0cf3da16a522ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaFileObject::GetBase64String</definition>
+        <argsstring>()</argsstring>
+        <name>GetBase64String</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="93" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1407" bodyend="1410"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a093a6e383c3ef820965eccb9f4bfdc0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::seek</definition>
+        <argsstring>(int offset)</argsstring>
+        <name>seek</name>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>always call seek(0) if one opens a old file for overwritten </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1132" bodyend="1138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a3be74ba383410206ed0132ec3ed9ab11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::seekRelative</definition>
+        <argsstring>(int offset)</argsstring>
+        <name>seekRelative</name>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="99" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1140" bodyend="1146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ac0f59b57c9522ce2755d564aef83ca84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::getpos</definition>
+        <argsstring>()</argsstring>
+        <name>getpos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get current reader or writer cursor position offset in bytes </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="101" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1148" bodyend="1155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a2c8ed142ff3ae73c474e724a597f4b62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::SetFilePointer</definition>
+        <argsstring>(int lDistanceToMove, int dwMoveMethod)</argsstring>
+        <name>SetFilePointer</name>
+        <param>
+          <type>int</type>
+          <declname>lDistanceToMove</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dwMoveMethod</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The SetFilePointer function moves the file pointer of an open file. this function only works when the ParaFile object is an actual windows file, instead of a virtual file. for virtual file, use the seek and seekRelative function. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lDistanceToMove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dwMoveMethod</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0: FILE_BEGIN The starting point is 0 (zero) or the beginning of the file. 1: FILE_CURRENT The starting point is the current value of the file pointer. 2: FILE_END The starting point is the current end-of-file position. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="113" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1157" bodyend="1163"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ae0bd56fd0e1d04a924a9d36cec49f8a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaScripting::ParaFileObject::SetEndOfFile</definition>
+        <argsstring>()</argsstring>
+        <name>SetEndOfFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The SetEndOfFile function moves the end-of-file (EOF) position for the specified file to the current position of the file pointer.This function can be used to truncate or extend a file. If the file is extended, the contents of the file between the old EOF position and the new position are not defined. <simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="121" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1165" bodyend="1172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a1caa3f6144f1225ccc3b54bdeceabc2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::writeline</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>writeline</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="123" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1006" bodyend="1013"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a773119ec226baa6e5cd4f992c80525fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaFileObject::readline</definition>
+        <argsstring>()</argsstring>
+        <name>readline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>read line as a string. The string is guaranteed to be ended with &apos;\0&apos;. if end of file is reached, it will return NULL. which is nil in the script. if a line begins with &quot;--&quot;, it is automatically recognized as a comment line and will be skipped. a blank line will also be skipped. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="129" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1023" bodyend="1054"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a580e2b587273ae164fb1d9248a9188de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * ParaScripting::ParaFileObject::GetText</definition>
+        <argsstring>()</argsstring>
+        <name>GetText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the content of the file as text. Text encoding is escaped. If you want to get the raw file text with the heading BOM, such as utf8 (EE BB BF), use GetText2(0,-1) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="132" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1057" bodyend="1078"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1af73dcebdd97de838200a3755dee12f01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; ParaScripting::ParaFileObject::GetText2</definition>
+        <argsstring>(int fromPos, int nCount)</argsstring>
+        <name>GetText2</name>
+        <param>
+          <type>int</type>
+          <declname>fromPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the content of the file as text between two positions. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>position in bytes. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nCount in bytes. if -1, it defaults to end of file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="138" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1080" bodyend="1096"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1affd27df5fd9946c81bc811fa63552719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; ParaScripting::ParaFileObject::ReadString</definition>
+        <argsstring>(int nCount)</argsstring>
+        <name>ReadString</name>
+        <param>
+          <type>int</type>
+          <declname>nCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>read a binary string of length nCount from current position. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nCount in bytes. if -1, it defaults to end of file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="143" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1098" bodyend="1117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a01f10c9743d61716235a608cb9dab443" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteString</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>WriteString</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write a string to the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="146" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1015" bodyend="1021"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a75a5ff649251b837ad9cf353625291d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteString2</definition>
+        <argsstring>(const char *buffer, int nSize)</argsstring>
+        <name>WriteString2</name>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write a buffer to the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="148" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1119" bodyend="1122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a986e9d5b3a0df2a61479942cd660f62b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::write</definition>
+        <argsstring>(const char *buffer, int nSize)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write a buffer to the current file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="151" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1124" bodyend="1130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ab087c05b73cb4a98cd6a5532b1f6b305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::WriteBytes</definition>
+        <argsstring>(int nSize, const object &amp;input)</argsstring>
+        <name>WriteBytes</name>
+        <param>
+          <type>int</type>
+          <declname>nSize</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>write bytes to file; e.g. local nBytes = <ulink url="file:WriteBytes">file:WriteBytes</ulink>(3, {[1]=255, [2]=0, [3]=128}); <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bytes to write </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array of integers, each represents a byte </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: number of bytes written </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="159" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1174" bodyend="1193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ac900ba1dcf686695821ea28d2611f2bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>object</type>
+        <definition>object ParaScripting::ParaFileObject::ReadBytes</definition>
+        <argsstring>(int nSize, const object &amp;output)</argsstring>
+        <name>ReadBytes</name>
+        <param>
+          <type>int</type>
+          <declname>nSize</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>read bytes from file. e.g. local data={};local nBytes = <ulink url="file:ReadBytes">file:ReadBytes</ulink>(3, data); data[1], data[2], data[3] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bytes to read. if negative, it will be total file size </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in/out, it should be an empty table. When the function returns, it will contain an array of integers, each represents a byte if output is nil or &quot;&quot;, the returned value will also be a string(may contain \0) of the content read </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>string or a table array </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="168" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1195" bodyend="1222"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a5c1906de60279ac49263a0a28762dc8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteFloat</definition>
+        <argsstring>(float value)</argsstring>
+        <name>WriteFloat</name>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>float is 32 bits </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="171" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1224" bodyend="1230"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1af1b21586f01c3bad8883305b937d72c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ParaScripting::ParaFileObject::ReadFloat</definition>
+        <argsstring>()</argsstring>
+        <name>ReadFloat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="172" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1231" bodyend="1240"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a167d31458c8208c1eda38daeb131c9a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteWord</definition>
+        <argsstring>(int value)</argsstring>
+        <name>WriteWord</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>integer is converted 16 bits unsigned word </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="175" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1242" bodyend="1257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ab06a7d418b5d99039d281d15ed674691" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::ReadWord</definition>
+        <argsstring>()</argsstring>
+        <name>ReadWord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="176" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1259" bodyend="1268"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ac5d4d62623d87925d1dae6e16e451d9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteDouble</definition>
+        <argsstring>(double value)</argsstring>
+        <name>WriteDouble</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="178" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1270" bodyend="1276"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1aa13382a1e135a7bd404440aa8a493aa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParaScripting::ParaFileObject::ReadDouble</definition>
+        <argsstring>()</argsstring>
+        <name>ReadDouble</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="179" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1278" bodyend="1287"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a52e83fb6636d2a37f8026768ef7d7591" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteInt</definition>
+        <argsstring>(int value)</argsstring>
+        <name>WriteInt</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>integer is 32 bits </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="182" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1289" bodyend="1296"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ab76a5af460d6aeeebc7e2d2fc6b62b88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::ReadInt</definition>
+        <argsstring>()</argsstring>
+        <name>ReadInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="183" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1297" bodyend="1306"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1ac4670f85ea4dd05a619317f388b50e3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteShort</definition>
+        <argsstring>(int value)</argsstring>
+        <name>WriteShort</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>integer is 16 bits signed int </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="186" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1308" bodyend="1315"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a1cc8aa99684ce94c29a7fbdb7c1d3dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::ReadShort</definition>
+        <argsstring>()</argsstring>
+        <name>ReadShort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="187" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1317" bodyend="1326"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a6d1cf77d7b9e6295643e9a3ebc8d8bff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::ParaFileObject::WriteUInt</definition>
+        <argsstring>(unsigned int value)</argsstring>
+        <name>WriteUInt</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>integer is 32 bits unsigned </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="190" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1328" bodyend="1335"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a13ca48e1dd02e1029fb7009a0e2d3bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ParaScripting::ParaFileObject::ReadUInt</definition>
+        <argsstring>()</argsstring>
+        <name>ReadUInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="191" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1337" bodyend="1346"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_file_object_1a84b5b5cc322b88e083ca316c466e0355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::ParaFileObject::GetFileSize</definition>
+        <argsstring>()</argsstring>
+        <name>GetFileSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the file size in bytes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.h" line="194" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1348" bodyend="1355"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>file object. Always call <ref refid="class_para_scripting_1_1_para_file_object_1a2a7a2aa526089681cb416484d2659c1e" kindref="member">close()</ref> when finished with the file. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.h" line="63" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.h" bodystart="62" bodyend="195"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_file_object_1a2a7a2aa526089681cb416484d2659c1e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>close</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a413ad1bfdec1de25b0cf3da16a522ee3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>GetBase64String</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1af9f0085184480d421057497db5f35239" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>GetBase64StringEx</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a84b5b5cc322b88e083ca316c466e0355" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>GetFileSize</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ac0f59b57c9522ce2755d564aef83ca84" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>getpos</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a580e2b587273ae164fb1d9248a9188de" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>GetText</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1af73dcebdd97de838200a3755dee12f01" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>GetText2</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a1d6942804ca66288a41802f127b13149" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>IsValid</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a4b03ec5fc7065cbccc60558623cae2ae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>m_nByteCount</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1aed75617937b9d948950784c15e213973" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>m_nFromByte</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a4adca31e9111a675590d84b17dab4365" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>m_pFile</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ac9e6b5cdb3052d3cd6b0458e04de8423" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>m_sTempBuffer</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ac79425117003334c2df1e2c76b2791e4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ParaFileObject</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ae7cd158944db85c82494e16e3ba657a0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ParaFileObject</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ac900ba1dcf686695821ea28d2611f2bb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadBytes</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1aa13382a1e135a7bd404440aa8a493aa8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadDouble</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1af1b21586f01c3bad8883305b937d72c8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadFloat</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ab76a5af460d6aeeebc7e2d2fc6b62b88" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadInt</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a773119ec226baa6e5cd4f992c80525fb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>readline</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a1cc8aa99684ce94c29a7fbdb7c1d3dd9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadShort</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1affd27df5fd9946c81bc811fa63552719" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadString</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a13ca48e1dd02e1029fb7009a0e2d3bf9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadUInt</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ab06a7d418b5d99039d281d15ed674691" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>ReadWord</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a093a6e383c3ef820965eccb9f4bfdc0d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>seek</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a3be74ba383410206ed0132ec3ed9ab11" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>seekRelative</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ae0bd56fd0e1d04a924a9d36cec49f8a5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>SetEndOfFile</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a2c8ed142ff3ae73c474e724a597f4b62" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>SetFilePointer</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a96e7e13560705e2456053335e5754aac" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>SetSegment</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a986e9d5b3a0df2a61479942cd660f62b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>write</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ab087c05b73cb4a98cd6a5532b1f6b305" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteBytes</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ac5d4d62623d87925d1dae6e16e451d9b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteDouble</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a5c1906de60279ac49263a0a28762dc8d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteFloat</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a52e83fb6636d2a37f8026768ef7d7591" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteInt</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a1caa3f6144f1225ccc3b54bdeceabc2a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>writeline</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1ac4670f85ea4dd05a619317f388b50e3a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteShort</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a01f10c9743d61716235a608cb9dab443" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteString</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a75a5ff649251b837ad9cf353625291d9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteString2</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a6d1cf77d7b9e6295643e9a3ebc8d8bff" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteUInt</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a167d31458c8208c1eda38daeb131c9a9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>WriteWord</name></member>
+      <member refid="class_para_scripting_1_1_para_file_object_1a06497a57cc4f17a72278ad1206139aa7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFileObject</scope><name>~ParaFileObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback" kind="struct" language="C++" prot="public">
+    <compoundname>ParaScripting::FileSystemWatcher_NPLCallback</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback_1af97c4af9eac7fa04009be9088a27379b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::FileSystemWatcher_NPLCallback::m_sCallbackScript</definition>
+        <argsstring></argsstring>
+        <name>m_sCallbackScript</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="1856" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1856" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback_1a2aed3227d6f48cfbe84621575d772c4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::FileSystemWatcher_NPLCallback::FileSystemWatcher_NPLCallback</definition>
+        <argsstring>(const std::string &amp;sCallback)</argsstring>
+        <name>FileSystemWatcher_NPLCallback</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sCallback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="1835" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1835" bodyend="1835"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback_1a249af3b7ce44ad566ab1d9340b20036c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParaScripting::FileSystemWatcher_NPLCallback::operator()</definition>
+        <argsstring>(const ParaEngine::CFileSystemWatcher::DirMonitorEvent &amp;event)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const ParaEngine::CFileSystemWatcher::DirMonitorEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="1837" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1837" bodyend="1854"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>callback to npl runtime </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="1833" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1832" bodyend="1857"/>
+    <listofallmembers>
+      <member refid="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback_1a2aed3227d6f48cfbe84621575d772c4d" prot="public" virt="non-virtual"><scope>ParaScripting::FileSystemWatcher_NPLCallback</scope><name>FileSystemWatcher_NPLCallback</name></member>
+      <member refid="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback_1af97c4af9eac7fa04009be9088a27379b" prot="private" virt="non-virtual"><scope>ParaScripting::FileSystemWatcher_NPLCallback</scope><name>m_sCallbackScript</name></member>
+      <member refid="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback_1a249af3b7ce44ad566ab1d9340b20036c" prot="public" virt="non-virtual"><scope>ParaScripting::FileSystemWatcher_NPLCallback</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

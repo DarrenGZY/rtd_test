@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_para_scripting_1_1_para_config" kind="class" language="C++" prot="public">
+    <compoundname>ParaScripting::ParaConfig</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1aa8246c0e0afea7b1caab271d83b0b775" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::SetIntValue</definition>
+        <argsstring>(const char *szName, int value)</argsstring>
+        <name>SetIntValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="18" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a4d4a5e357bd8ce39bee7612d2f71d69f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::SetDoubleValue</definition>
+        <argsstring>(const char *szName, double value)</argsstring>
+        <name>SetDoubleValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="19" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a7b5a8a954848dbfcf3ec3688f6599755" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::SetTextValue</definition>
+        <argsstring>(const char *szName, const char *value)</argsstring>
+        <name>SetTextValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="20" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a3aab77e6cf58413898996822ed181876" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::GetIntValue</definition>
+        <argsstring>(const char *szName, int *value)</argsstring>
+        <name>GetIntValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="21" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a6f93b6043a270b5f1a6aa2399ffee834" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::GetDoubleValue</definition>
+        <argsstring>(const char *szName, double *value)</argsstring>
+        <name>GetDoubleValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="22" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1afd1f014d5e01534b9a11650eba58f1bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaConfig::GetTextValue</definition>
+        <argsstring>(const char *szName)</argsstring>
+        <name>GetTextValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="23" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1aeed37a0ae157b9ef006182c207f14952" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::SetIntValueEx</definition>
+        <argsstring>(const char *szName, int value, int index)</argsstring>
+        <name>SetIntValueEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="24" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="72" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a138e1a61ef23e836e472a19b093a6ff8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::SetDoubleValueEx</definition>
+        <argsstring>(const char *szName, double value, int index)</argsstring>
+        <name>SetDoubleValueEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="25" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="58" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a2c1bcf34b0412343640ad2e7c31d5e73" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::SetTextValueEx</definition>
+        <argsstring>(const char *szName, const char *value, int index)</argsstring>
+        <name>SetTextValueEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="26" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="86" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a694643f120ad024284963dccedc9102a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::GetIntValueEx</definition>
+        <argsstring>(const char *szName, int *value, int index)</argsstring>
+        <name>GetIntValueEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="27" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1ab96e0df87e29ef9dacfe92450e673b2e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::GetDoubleValueEx</definition>
+        <argsstring>(const char *szName, double *value, int index)</argsstring>
+        <name>GetDoubleValueEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="28" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="16" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a9f8d06c4219362bbf1a12d676d9379fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaConfig::GetTextValueEx</definition>
+        <argsstring>(const char *szName, int index)</argsstring>
+        <name>GetTextValueEx</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="29" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="43" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a06545f5e7f7d070b5a6bf2c1ba318ce2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::AppendIntValue</definition>
+        <argsstring>(const char *szName, int value)</argsstring>
+        <name>AppendIntValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="30" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="108" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1ab1550d5b44ae8a4a992f1c4e9833087e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::AppendDoubleValue</definition>
+        <argsstring>(const char *szName, double value)</argsstring>
+        <name>AppendDoubleValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="31" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="100" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_config_1a4887ec8165c4818cb8d63f2d094e842e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ParaConfig::AppendTextValue</definition>
+        <argsstring>(const char *szName, const char *value)</argsstring>
+        <name>AppendTextValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>szName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIC.h" line="32" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.cpp" bodystart="116" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingIC.h" line="16" column="1" bodyfile="ParaScriptBindings/ParaScriptingIC.h" bodystart="15" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_para_scripting_1_1_para_config_1ab1550d5b44ae8a4a992f1c4e9833087e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>AppendDoubleValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a06545f5e7f7d070b5a6bf2c1ba318ce2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>AppendIntValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a4887ec8165c4818cb8d63f2d094e842e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>AppendTextValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a6f93b6043a270b5f1a6aa2399ffee834" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>GetDoubleValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1ab96e0df87e29ef9dacfe92450e673b2e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>GetDoubleValueEx</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a3aab77e6cf58413898996822ed181876" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>GetIntValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a694643f120ad024284963dccedc9102a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>GetIntValueEx</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1afd1f014d5e01534b9a11650eba58f1bc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>GetTextValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a9f8d06c4219362bbf1a12d676d9379fa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>GetTextValueEx</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a4d4a5e357bd8ce39bee7612d2f71d69f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>SetDoubleValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a138e1a61ef23e836e472a19b093a6ff8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>SetDoubleValueEx</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1aa8246c0e0afea7b1caab271d83b0b775" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>SetIntValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1aeed37a0ae157b9ef006182c207f14952" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>SetIntValueEx</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a7b5a8a954848dbfcf3ec3688f6599755" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>SetTextValue</name></member>
+      <member refid="class_para_scripting_1_1_para_config_1a2c1bcf34b0412343640ad2e7c31d5e73" prot="public" virt="non-virtual"><scope>ParaScripting::ParaConfig</scope><name>SetTextValueEx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

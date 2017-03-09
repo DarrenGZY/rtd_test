@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL vs Lua &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Architecture" href="NPLArchitecture.html" />
+    <link rel="prev" title="Projects Written in NPL" href="projects.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-vs-lua">
+<span id="npl-vs-lua"></span><h1>NPL vs Lua<a class="headerlink" href="#npl-vs-lua" title="Permalink to this headline">¶</a></h1>
+<p>NPL embeds the small Lua/luajit compiler, and adds tons of native C/C++ API and new programming paradigms, making NPL a general purpose language/runtime.</p>
+<p>Lua is an embedded language with the world fastest JIT compiler. The entire lua runtime is written in 6000 lines of code, making it very small and memory efficient to be embedded in another host language/runtime.</p>
+<div class="section" id="host-languages-vs-embedded-compilers">
+<span id="host-languages-vs-embedded-compilers"></span><h2>Host Languages vs Embedded Compilers<a class="headerlink" href="#host-languages-vs-embedded-compilers" title="Permalink to this headline">¶</a></h2>
+<p>A high-level language contains its syntax, native API and libraries.
+All dynamic language runtimes must embed one or more compiler implementations in it. Compilers contains low-level implementation of compiling text code to bytecode and then to machine code.</p>
+<p>For example, some version of JAVA, python, mono C#, objective C are first compiled into <a class="reference external" href="http://llvm.org/">LLVM</a> bytecode, and then the LLVM runtime compiles the bytecode to machine code.  LLVM byte code is similar to lua or luajit byte code. Java/Python/MonoC# runtime embeds LLVM compiler in the same way as we embed lua/luajit in NPL. The difference is that LLVM is large and based on C/C++ syntax; but luajit is really small, and based on lua syntax. Languages like Java/Python/C# also have tons of host API in addition to LLVM in the same way of NPL hosting lua. This is why lua is designed to be an <a class="reference external" href="https://www.lua.org/ddj.html">embedded language</a> over which other host languages can be devised.</p>
+<div class="section" id="facts-about-npl-vs-lua">
+<span id="facts-about-npl-vs-lua"></span><h3>Facts about NPL vs Lua:<a class="headerlink" href="#facts-about-npl-vs-lua" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>NPL provides its own set of libraries written in NPL scripts, whose syntax is 100% compatible with Lua. This means that one can use any existing Lua code in NPL script, but the reverse is NOT possible.</li>
+<li>NPL runtime has over 700 000 lines of C/C++ <a class="reference external" href="https://codedocs.xyz/LiXizhi/NPLRuntime/">NPL Host API</a> code (not counting third-party library files), on which all  NPL library files depends on. In NPL, we advise writing NPL modules in our recommend way, rather than using Lua&#8217;s <code class="docutils literal"><span class="pre">require</span></code> function to load any external third-party modules.</li>
+<li>NPL library has over 1 000 000 lines of NPL script code covering many aspects of general-purpose programming. They are distributed as open source [[NPL packages|npl_packages]]. You are welcome to contribute your own NPL package utilizing our rich set of host API and libraries.</li>
+<li>NPL provides both non-preemptive and [[preemptive programming paradigm|Concurrency]] that is not available in Lua.</li>
+<li>NPL has built-in support for multi-threading and message passing system that is not available in lua.</li>
+<li>Finally, NPL loves Lua syntax. By default all NPL script files has <code class="docutils literal"><span class="pre">.lua</span></code> extension for ease of editing. Whenever possible, NPL will not deviate its syntax from lua. However, in case, NPL extends Lua syntax, NPL script file will use a different file extension. For example, <code class="docutils literal"><span class="pre">*.page</span></code>, <code class="docutils literal"><span class="pre">*.npl</span></code> are used just in case the script uses Non-Lua compatible syntax.</li>
+</ul>
+<blockquote>
+<div>NPL is not a wrapper of lua. It hosts lua&#8217;s JIT compiler to provide its own programming API and language features, in addition to several other compilers, like mono C#, see below.</div></blockquote>
+</div>
+<div class="section" id="compilers-in-npl">
+<span id="compilers-in-npl"></span><h3>Compilers in NPL<a class="headerlink" href="#compilers-in-npl" title="Permalink to this headline">¶</a></h3>
+<p>NPL runtime state can run on top of three compiler frameworks simultaneously:</p>
+<ul class="simple">
+<li>Lua/Luajit compiler</li>
+<li>C/C++</li>
+<li>Mono/C# compiler
+Which means that you can write code with all NPL API and framework features in either of the above three compilers, and these code can communicate with one another with <code class="docutils literal"><span class="pre">NPL.activate</span></code> in the same NPL runtime process.  Please see [[NPL Architecture|NPLArchitecture]] for details.</li>
+</ul>
+<blockquote>
+<div>Code targeting C/C++ should be pre-compiled. The other two can be compiled on the fly.</div></blockquote>
+</div>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Figure 1.0: <a class="reference external" href="https://sketchboard.me/NzZQDl1sCrGu#/">NPL Architecture Stack</a></p>
+<p><img alt="NPL Architecture Stack" src="https://github.com/LiXizhi/wiki/blob/master/images/nplarchitecturestack.png" /></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL vs Lua</a><ul>
+<li><a class="reference internal" href="#host-languages-vs-embedded-compilers">Host Languages vs Embedded Compilers</a><ul>
+<li><a class="reference internal" href="#facts-about-npl-vs-lua">Facts about NPL vs Lua:</a></li>
+<li><a class="reference internal" href="#compilers-in-npl">Compilers in NPL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="projects.html" title="previous chapter">Projects Written in NPL</a></li>
+      <li>Next: <a href="NPLArchitecture.html" title="next chapter">NPL Architecture</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/NPLVsLua.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/NPLVsLua.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

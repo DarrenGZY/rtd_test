@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Localization &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Interface" href="UIOverview.html" />
+    <link rel="prev" title="Overview" href="FiltersAndEvents.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="localization">
+<span id="localization"></span><h1>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h1>
+<p>There are some helper class for you to implement localization. For best practices, please see example in paracraft package, which uses <code class="docutils literal"><span class="pre">poedit</span></code> to edit and store localization strings with multi-languages.</p>
+<ul class="simple">
+<li>Helper class for translation table:<ul>
+<li><a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/Locale.lua">script/ide/Locale.lua</a></li>
+</ul>
+</li>
+<li>paracraft examples:<ul>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/tree/master/script/apps/Aries/Creator/Game/Common/Translation.lua">Translation</a></li>
+<li><a class="reference external" href="https://github.com/NPLPackages/paracraft/tree/master/script/apps/Aries/Creator/Game/Common/TranslationGetText.lua">TranslationGetText</a></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="overview">
+<span id="overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>UTF8 encoding should be used where ever possible in your source code or mcml files. Everything returned from NPL is also UTF8 encoded, except for native file path.</p>
+<p>Follow following steps:</p>
+<ul class="simple">
+<li>Use <a class="reference external" href="https://github.com/NPLPackages/main/tree/master/script/ide/Locale.lua">this class</a> to create a global table <code class="docutils literal"><span class="pre">L</span></code> to look up for localized text with a primary key.</li>
+<li>When your application start, populate <code class="docutils literal"><span class="pre">table</span> <span class="pre">L</span></code> with data from your localization files according to current language setting.</li>
+<li>In your script code or mcml UI page files, replace any text &#8220;XXX&#8221; with <code class="docutils literal"><span class="pre">L&quot;XXX&quot;</span></code></li>
+<li>Re-Run <code class="docutils literal"><span class="pre">Poedit</span></code> to scan for all source files and update the localization database file.</li>
+<li>Inform your translator to translate the <code class="docutils literal"><span class="pre">*.po</span></code> files into multiple languages and generate <code class="docutils literal"><span class="pre">*.mo</span></code> files. Or you may just use google translate or other services.</li>
+<li>Iterate above three steps when you insert new text in your source code.</li>
+</ul>
+<blockquote>
+<div>Always use</div></blockquote>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- Right way</span>
+<span class="kd">local</span> <span class="n">text</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="n">L</span><span class="s2">&quot;Some text %d times&quot;</span><span class="p">,</span> <span class="n">times</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>instead of</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="c1">-- BAD &amp; Wrong Way!!!</span>
+<span class="kd">local</span> <span class="n">text</span> <span class="o">=</span> <span class="n">L</span><span class="s2">&quot;Some text &quot;</span><span class="o">..</span><span class="n">times</span><span class="o">..</span><span class="n">L</span><span class="s2">&quot; times&quot;</span>
+</pre></div>
+</div>
+<p>for better translation because different language have different syntax.</p>
+</div>
+<div class="section" id="localization-gettext-tools">
+<span id="localization-gettext-tools"></span><h2>Localization GetText Tools<a class="headerlink" href="#localization-gettext-tools" title="Permalink to this headline">¶</a></h2>
+<p>To store your language strings, you can use plain table in script or use a third-party tool like Poedit. We have created <code class="docutils literal"><span class="pre">Poedit</span></code> plugin to support NPL code, download the <a class="reference external" href="https://github.com/LiXizhi/NPLgettext">NPLgettext</a> tool here.</p>
+<p>In paracraft, there is a command called <code class="docutils literal"><span class="pre">/poedit</span></code> which does the <code class="docutils literal"><span class="pre">gettext</span></code> job automatically.</p>
+<p><img alt="image" src="https://cloud.githubusercontent.com/assets/94537/19267027/0b8fed48-8fdf-11e6-8eb2-727e17ecb614.png" /></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Localization</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#localization-gettext-tools">Localization GetText Tools</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="FiltersAndEvents.html" title="previous chapter">Overview</a></li>
+      <li>Next: <a href="UIOverview.html" title="next chapter">User Interface</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/Localization.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/Localization.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

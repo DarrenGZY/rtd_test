@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bootstrapping &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build-in NPL CommandLine" href="NPLCommandLine.html" />
+    <link rel="prev" title="NPL Basic Concept" href="BasicConcept.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bootstrapping">
+<span id="bootstrapping"></span><h1>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">¶</a></h1>
+<p>Bootstrapping is to specify the first script file to load when starting NPL runtime, it will also be activated every 0.5 seconds. There are several ways to do it via [[command line|NPLCommandLine]].</p>
+<p>The recommended way is to specify it explicitly with <code class="docutils literal"><span class="pre">bootstrapper=filename</span></code> parameters. Like below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;script/gameinterface.lua&quot;</span>
+</pre></div>
+</div>
+<p>If no file name is specified, <code class="docutils literal"><span class="pre">script/gameinterface.lua</span></code> will be used. A more concise way is to specify the file name as first parameter, like below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">helloworld</span><span class="o">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+<p>Internally, the boot order of NPL is like below:</p>
+<ul class="simple">
+<li>When the NPL runtime starts, it first reads all of its command line arguments as name, value pairs and save them to an internal data structure for later use.</li>
+<li>NPL recognizes several predefined command names, one of them is bootstrapper. It specifies the main loop file.</li>
+<li>NPL initializes itself. This can take several seconds, involving reading configurations, graphics initialization, script API bindings, etc.</li>
+<li>When everything is initialized, the majority of NPL&#8217;s Core API is available to the scripting interface and NPL loads the main loop script specified by the bootstrapper and calls its activation function every 0.5 seconds.</li>
+<li>Anything happens afterwards is up to the progammer who wrote the main loop script.</li>
+</ul>
+<p>In addition to script file, one can also use XML file as the bootstrapper.
+The content of the xml should look like below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;MainGameLoop&gt;</span>(gl)script/apps/Taurus/main_loop.lua<span class="nt">&lt;/MainGameLoop&gt;</span>
+</pre></div>
+</div>
+<p>To start it, we can use</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">script</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">Taurus</span><span class="o">/</span><span class="n">bootstrapper</span><span class="o">.</span><span class="n">xml</span>
+</pre></div>
+</div>
+<div class="section" id="understanding-file-path">
+<span id="understanding-file-path"></span><h2>Understanding File Path<a class="headerlink" href="#understanding-file-path" title="Permalink to this headline">¶</a></h2>
+<p>When programming with NPL, the code will reference other script or asset file by relative file name. The search order of a file is as follows:</p>
+<ul class="simple">
+<li>check if file exists in the current development directory (in release time, this is the same as the working directory)</li>
+<li>check if file exists in the search paths (by default it is the current working directory)</li>
+<li>check if file exists in any loaded archive files (mainXXX.PKG or world/plugins ZIP files) in their loading order.</li>
+<li>if the file is NPL script file, look for precompiled binary file at ./bin/<em>filename</em>.o also in above places and order.</li>
+<li>if the file is listed in <code class="docutils literal"><span class="pre">asset_manifest.txt</span></code>, we will download it or open it from <code class="docutils literal"><span class="pre">./temp/cache</span></code> if already downloaded.</li>
+<li>check if disk file exists in all search paths of [[npl_packages]].</li>
+<li>if none of above places are found, we will report file not found.
+Please also note, some API allows you to use specify search order, temporarily disable some places, or include certain directory like the current writable directory. Please refer to the usage of each API for details.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bootstrapping</a><ul>
+<li><a class="reference internal" href="#understanding-file-path">Understanding File Path</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="BasicConcept.html" title="previous chapter">NPL Basic Concept</a></li>
+      <li>Next: <a href="NPLCommandLine.html" title="next chapter">Build-in NPL CommandLine</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/bootstrapper.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/bootstrapper.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

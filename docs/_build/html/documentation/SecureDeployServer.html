@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deploy NPL Web Server With SSL (https) &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Use Links" href="Resources.html" />
+    <link rel="prev" title="Using MySql Client" href="UsingMySql.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="deploy-npl-web-server-with-ssl-https">
+<span id="deploy-npl-web-server-with-ssl-https"></span><h1>Deploy NPL Web Server With SSL (https)<a class="headerlink" href="#deploy-npl-web-server-with-ssl-https" title="Permalink to this headline">¶</a></h1>
+<p>This post shows <code class="docutils literal"><span class="pre">How</span> <span class="pre">To</span> <span class="pre">Configure</span> <span class="pre">Nginx</span> <span class="pre">with</span> <span class="pre">SSL</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">Reverse</span> <span class="pre">Proxy</span> <span class="pre">for</span> <span class="pre">NPL</span> <span class="pre">Web</span> <span class="pre">Server</span></code>.</p>
+<div class="section" id="why-npl-does-not-support-ssl-natively">
+<span id="why-npl-does-not-support-ssl-natively"></span><h2>Why NPL Does Not Support SSL Natively?<a class="headerlink" href="#why-npl-does-not-support-ssl-natively" title="Permalink to this headline">¶</a></h2>
+<p>NPL protocol is TCP based, which can run HTTP and NPL&#8217;s TCP protocol on the <code class="docutils literal"><span class="pre">same</span></code> port.
+If the TCP connection is encoded with SSL, it will break NPL&#8217;s internal TCP protocol.
+This is why NPL does not support SSL natively. However, NPL server can fetch data via <code class="docutils literal"><span class="pre">https</span></code>,
+so it is perfectly fine to call SSL protected rest API within the NPL server.</p>
+</div>
+<div class="section" id="introduction">
+<span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>By default, NPL comes with its own built in web server, which listens on port 8099.
+This is convenient if you run a private NPL instance, or if you just need to get something up quickly
+and don&#8217;t care about security. Once you have real production data going to your host, though,
+it&#8217;s a good idea to use a more secure web server proxy in front like <a class="reference external" href="https://nginx.org/">Nginx</a>.</p>
+</div>
+<div class="section" id="prerequisites">
+<span id="prerequisites"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>This post will detail how to wrap your site with SSL using the Nginx web server as a reverse proxy for your NPL instance. This tutorial assumes some familiarity with Linux commands, a working NPL Runtime installation, and a Ubuntu 14.04 installation.</p>
+<p>You can install NPL runtime later in this tutorial, if you don&#8217;t have it installed yet.</p>
+</div>
+<div class="section" id="step-one-configure-nginx">
+<span id="step-one-configure-nginx"></span><h2>Step One — Configure Nginx<a class="headerlink" href="#step-one-configure-nginx" title="Permalink to this headline">¶</a></h2>
+<p>Nginx has become a favored web server for its speed and flexibility in recents years, so that is the web server we will be using.</p>
+<div class="section" id="install-nginx">
+<span id="install-nginx"></span><h3>Install Nginx<a class="headerlink" href="#install-nginx" title="Permalink to this headline">¶</a></h3>
+<p>Update your package lists and install Nginx:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">nginx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-a-certificate">
+<span id="get-a-certificate"></span><h3>Get a Certificate<a class="headerlink" href="#get-a-certificate" title="Permalink to this headline">¶</a></h3>
+<p>Next, you will need to purchase or create an SSL certificate. These commands are for a self-signed certificate, but you should get an officially signed certificate if you want to avoid browser warnings.</p>
+<p>Move into the proper directory and generate a certificate:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span>
+<span class="n">sudo</span> <span class="n">openssl</span> <span class="n">req</span> <span class="o">-</span><span class="n">x509</span> <span class="o">-</span><span class="n">nodes</span> <span class="o">-</span><span class="n">days</span> <span class="mi">365</span> <span class="o">-</span><span class="n">newkey</span> <span class="n">rsa</span><span class="p">:</span><span class="mi">2048</span> <span class="o">-</span><span class="n">keyout</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">cert</span><span class="o">.</span><span class="n">key</span> <span class="o">-</span><span class="n">out</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">cert</span><span class="o">.</span><span class="n">crt</span>
+</pre></div>
+</div>
+<p>You will be prompted to enter some information about the certificate. You can fill this out however you&#8217;d like; just be aware the information will be visible in the certificate properties. We&#8217;ve set the number of bits to 2048 since that&#8217;s the minimum needed to get it signed by a CA. If you want to get the certificate signed, you will need to create a CSR.</p>
+</div>
+<div class="section" id="edit-the-configuration">
+<span id="edit-the-configuration"></span><h3>Edit the Configuration<a class="headerlink" href="#edit-the-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Next you will need to edit the default Nginx configuration file.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="n">default</span>
+</pre></div>
+</div>
+<p>Here is what the final config might look like; the sections are broken down and briefly explained below. You can update or replace the existing config file, although you may want to make a quick copy first.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>server {
+    listen 80;
+    return 301 https://$host$request_uri;
+}
+
+server {
+
+    listen 443;
+    server_name npl.domain.com;
+
+    ssl_certificate           /etc/nginx/cert.crt;
+    ssl_certificate_key       /etc/nginx/cert.key;
+
+    ssl on;
+    ssl_session_cache  builtin:1000  shared:SSL:10m;
+    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
+    ssl_prefer_server_ciphers on;
+
+    access_log            /var/log/nginx/npl.access.log;
+
+    location / {
+
+      proxy_set_header        Host $host;
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Forwarded-Proto $scheme;
+
+      # Fix the “It appears that your reverse proxy set up is broken&quot; error.
+      proxy_pass          http://localhost:8099;
+      proxy_read_timeout  90;
+
+      proxy_redirect      http://localhost:8099 https://npl.domain.com;
+    }
+  }
+</pre></div>
+</div>
+<p>In our configuration, the cert.crt and cert.key settings reflect the location where we created our SSL certificate. You will need to update the servername and <code class="docutils literal"><span class="pre">proxyredirect</span></code> lines with your own domain name. There is some additional Nginx magic going on as well that tells requests to be read by Nginx and rewritten on the response side to ensure the reverse proxy is working.</p>
+<p>The first section tells the Nginx server to listen to any requests that come in on port 80 (default HTTP) and redirect them to HTTPS.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>...
+server {
+   listen 80;
+   return 301 https://$host$request_uri;
+}
+...
+</pre></div>
+</div>
+<p>Next we have the SSL settings. This is a good set of defaults but can definitely be expanded on. For more explanation, please read this tutorial.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>...
+  listen 443;
+  server_name npl.domain.com;
+
+  ssl_certificate           /etc/nginx/cert.crt;
+  ssl_certificate_key       /etc/nginx/cert.key;
+
+  ssl on;
+  ssl_session_cache  builtin:1000  shared:SSL:10m;
+  ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
+  ssl_prefer_server_ciphers on;
+  ...
+</pre></div>
+</div>
+<p>The final section is where the proxying happens. It basically takes any incoming requests and proxies them to the NPL instance that is bound/listening to port 8099 on the local network interface. This is a slightly different situation, but this tutorial has some good information about the Nginx proxy settings.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>...
+location / {
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    # Fix the “It appears that your reverse proxy set up is broken&quot; error.
+    proxy_pass          http://localhost:8099;
+    proxy_read_timeout  90;
+
+    proxy_redirect      http://localhost:8099 https://npl.domain.com;
+}
+...
+</pre></div>
+</div>
+<p>A few quick things to point out here. If you don&#8217;t have a domain name that resolves to your NPL server, then the proxy_redirect statement above won&#8217;t function correctly without modification, so keep that in mind.</p>
+</div>
+</div>
+<div class="section" id="step-two-configure-npl-runtime">
+<span id="step-two-configure-npl-runtime"></span><h2>Step Two — Configure NPL Runtime<a class="headerlink" href="#step-two-configure-npl-runtime" title="Permalink to this headline">¶</a></h2>
+<p>As stated previously, this tutorial assumes that NPL is already installed. <a class="reference external" href="InstallGuide">This tutorial</a> will show you how to install NPL if necessary. You will probably need to switch to the root user for that article.</p>
+<p>For NPL to work with Nginx, we need to update the NPL config to listen only on the localhost interface instead of all (0.0.0.0), to ensure traffic gets handled properly. This is an important step because if NPL is still listening on all interfaces, then it will still potentially be accessible via its original port (8099).</p>
+<p>For example, one may start npl webserver like <a class="reference external" href="https://github.com/NPLPackages/WebServerExample/blob/master/start.sh">this</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pkill</span> <span class="o">-</span><span class="mi">9</span> <span class="n">npl</span>
+<span class="n">npl</span> <span class="o">-</span><span class="n">d</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;WebServerExample/&quot;</span> <span class="n">ip</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;8099&quot;</span> <span class="n">bootstrapper</span><span class="o">=</span><span class="s2">&quot;script/apps/WebServer/WebServer.lua&quot;</span> 
+</pre></div>
+</div>
+<p>Notice that the <code class="docutils literal"><span class="pre">ip=&quot;127.0.0.1&quot;</span></code> setting needs to be either added or modified.</p>
+<p>Then go ahead and restart NPL and Nginx.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">nginx</span> <span class="n">restart</span>
+</pre></div>
+</div>
+<p>You should now be able to visit your domain using either HTTP or HTTPS, and the NPL web site will be served securely. You will see a certificate warning if you used a self-signed certificate.</p>
+</div>
+<div class="section" id="conclusion">
+<span id="conclusion"></span><h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>The only thing left to do is verify that everything worked correctly. As mentioned above, you should now be able to browse to your newly configured URL - npl.domain.com - over either HTTP or HTTPS. You should be redirected to the secure site, and should see some site information, including your newly updated SSL settings. As noted previously, if you are not using hostnames via DNS, then your redirection may not work as desired. In that case, you will need to modify the proxy_pass section in the Nginx config file.</p>
+<p>You may also want to use your browser to examine your certificate. You should be able to click the lock to look at the certificate properties from within your browser.</p>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>This is a rewrite of this <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-with-ssl-as-a-reverse-proxy-for-jenkins">post</a> in terms of NPL.</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Deploy NPL Web Server With SSL (https)</a><ul>
+<li><a class="reference internal" href="#why-npl-does-not-support-ssl-natively">Why NPL Does Not Support SSL Natively?</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#step-one-configure-nginx">Step One — Configure Nginx</a><ul>
+<li><a class="reference internal" href="#install-nginx">Install Nginx</a></li>
+<li><a class="reference internal" href="#get-a-certificate">Get a Certificate</a></li>
+<li><a class="reference internal" href="#edit-the-configuration">Edit the Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-two-configure-npl-runtime">Step Two — Configure NPL Runtime</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="UsingMySql.html" title="previous chapter">Using MySql Client</a></li>
+      <li>Next: <a href="Resources.html" title="next chapter">Use Links</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/SecureDeployServer.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/SecureDeployServer.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

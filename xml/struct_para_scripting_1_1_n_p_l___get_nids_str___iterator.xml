@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator" kind="struct" language="C++" prot="public">
+    <compoundname>ParaScripting::NPL_GetNidsStr_Iterator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NPLConnectionCallBack</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1ad007679bf815032f092e687871230711" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ParaScripting::NPL_GetNidsStr_Iterator::m_nids_str</definition>
+        <argsstring></argsstring>
+        <name>m_nids_str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1585" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1585" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1af2ade43a470b4e54381a2bc7c7b0c84e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ParaScripting::NPL_GetNidsStr_Iterator::NPL_GetNidsStr_Iterator</definition>
+        <argsstring>()</argsstring>
+        <name>NPL_GetNidsStr_Iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1567" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1567" bodyend="1567"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1ae368010adbe7a86798126ca558babd2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int ParaScripting::NPL_GetNidsStr_Iterator::DoCallBack</definition>
+        <argsstring>(const NPL::NPLConnection_ptr &amp;c)</argsstring>
+        <name>DoCallBack</name>
+        <param>
+          <type>const NPL::NPLConnection_ptr &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1569" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1569" bodyend="1581"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1aaa7bdf5d72cf74260d19b842cb530082" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; ParaScripting::NPL_GetNidsStr_Iterator::ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1582" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1582" bodyend="1582"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="20">
+        <label>ParaScripting::NPL_GetNidsStr_Iterator</label>
+        <link refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>NPLConnectionCallBack</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="22">
+        <label>ParaScripting::NPL_GetNidsStr_Iterator</label>
+        <link refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>NPLConnectionCallBack</label>
+      </node>
+    </collaborationgraph>
+    <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1565" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1564" bodyend="1586"/>
+    <listofallmembers>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1ae368010adbe7a86798126ca558babd2f" prot="public" virt="virtual"><scope>ParaScripting::NPL_GetNidsStr_Iterator</scope><name>DoCallBack</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1ad007679bf815032f092e687871230711" prot="private" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsStr_Iterator</scope><name>m_nids_str</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1af2ade43a470b4e54381a2bc7c7b0c84e" prot="public" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsStr_Iterator</scope><name>NPL_GetNidsStr_Iterator</name></member>
+      <member refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator_1aaa7bdf5d72cf74260d19b842cb530082" prot="public" virt="non-virtual"><scope>ParaScripting::NPL_GetNidsStr_Iterator</scope><name>ToString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NPL Packages &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Meta Programming in NPL" href="MetaProgramming.html" />
+    <link rel="prev" title="Deploy Your Application" href="DeployGuide.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="npl-packages">
+<span id="npl-packages"></span><h1>NPL Packages<a class="headerlink" href="#npl-packages" title="Permalink to this headline">¶</a></h1>
+<p>NPL Package is a special folder under <code class="docutils literal"><span class="pre">npl_packages/[package_name]/</span></code>. Files in it are always organized as if they are relative to the working directory. So this folder can be used as a search path directly, or zipped to a <code class="docutils literal"><span class="pre">*.zip|pkg</span></code> to be used as an <a class="reference external" href="DeployGuide">archive file</a>, or loaded by <a class="reference external" href="LoadFile">file module name</a> all at the same time.</p>
+<p>NPL package serves following purposes:</p>
+<ul class="simple">
+<li>it provides a way to release your software modules to be used by someone else.</li>
+<li>it can be used as additional search path for third-party plugins, which I will explain later.</li>
+<li>it provides a way to allow different versions of the same file module to coexist by putting them in different npl packages in a single application. See [[LoadFile]]</li>
+<li>it provides a way to install third-party modules at development time.</li>
+</ul>
+<div class="section" id="package-as-search-path">
+<span id="package-as-search-path"></span><h2>Package As Search Path<a class="headerlink" href="#package-as-search-path" title="Permalink to this headline">¶</a></h2>
+<p>Files in <code class="docutils literal"><span class="pre">npl_packages/[package_name]</span></code> are usually relative to the root working directory.</p>
+<p>Therefore, developer who wants to use other people&#8217;s modules can simply add <code class="docutils literal"><span class="pre">npl_packages/[package_name]</span></code> to global search path by calling following code:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;npl_packages/some_test_module/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The trick is to end with <code class="docutils literal"><span class="pre">/</span></code> in file name. What this function does is actually find the package folder
+in a number of possible locations (see next section), and then add it to the global search path.
+By default, when NPL starts, it will always try to load the official &#8216;npl_packages/main/&#8217; package.
+So you do not need to call <code class="docutils literal"><span class="pre">NPL.load(&quot;npl_packages/main/&quot;)</span></code> in order to use the rich set of open source NPL libraries.</p>
+<p>Another way is to load via command line, such as below. See [[NPLCommandLine]]</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npl</span> <span class="n">loadpackage</span><span class="o">=</span><span class="s2">&quot;npl_packages/paracraft/&quot;</span> <span class="n">dev</span><span class="o">=</span><span class="s2">&quot;/&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-npl-locate-packages">
+<span id="how-npl-locate-packages"></span><h2>How NPL Locate Packages<a class="headerlink" href="#how-npl-locate-packages" title="Permalink to this headline">¶</a></h2>
+<p>NPL locates package folder given by its relative path in following order:</p>
+<ul class="simple">
+<li>search in current working directory</li>
+<li>search in current executable directory</li>
+<li>search recursively for 5 parent directories of the executable directory.</li>
+</ul>
+<p>For example, suppose:</p>
+<ul class="simple">
+<li>your current working directory is <code class="docutils literal"><span class="pre">/home/myapp/</span></code>,</li>
+<li>and your executable directory is <code class="docutils literal"><span class="pre">/opt/NPLRuntime/redist/bin64/</span></code>,</li>
+</ul>
+<p>then <code class="docutils literal"><span class="pre">NPL.load(&quot;npl_packages/main/&quot;)</span></code> will search following directories until one exists and add it to the search path.</p>
+<ul class="simple">
+<li>/home/myapp/npl_packages/main/</li>
+<li>/opt/NPLRuntime/redist/bin64/npl_packages/main/</li>
+<li>/opt/NPLRuntime/redist/npl_packages/main/</li>
+<li>/opt/NPLRuntime/npl_packages/main/</li>
+<li>/opt/npl_packages/main/</li>
+<li>/npl_packages/main/</li>
+</ul>
+<div class="section" id="what-happened-after-loading-a-package">
+<span id="what-happened-after-loading-a-package"></span><h3>What Happened After Loading A Package<a class="headerlink" href="#what-happened-after-loading-a-package" title="Permalink to this headline">¶</a></h3>
+<p>The short answer is <code class="docutils literal"><span class="pre">nothing</span> <span class="pre">happens</span></code>, because loading a package only add its folder to the global search path.
+You still need to load any module files in the package folder with <code class="docutils literal"><span class="pre">NPL.load</span></code>.
+For example, support you have <code class="docutils literal"><span class="pre">NPL.load(&quot;npl_packages/test/&quot;)</span></code> successfully loaded at &#8216;/home/myapp/npl_packages/test/&#8217;
+and there is module file at <code class="docutils literal"><span class="pre">/home/myapp/npl_packages/test/script/any_module_folder/test.lua</span></code>
+Then you can load it with relative file path. <code class="docutils literal"><span class="pre">NPL.load(&quot;script/any_module_folder/test.lua&quot;)</span></code>
+However, if there is a file at your working directory such as <code class="docutils literal"><span class="pre">/home/myapp/script/any_module_folder/test.lua</span></code>, this file will be loaded rather than the one in the global search path.</p>
+</div>
+<div class="section" id="file-search-order">
+<span id="file-search-order"></span><h3>File Search Order<a class="headerlink" href="#file-search-order" title="Permalink to this headline">¶</a></h3>
+<p>Files in current working directory are always searched first (including those in zipped archive files) before we resolve to global search path. Moreover, search path added last is actually searched first.
+There is one exception, if NPL is run with dev directory in its command line <code class="docutils literal"><span class="pre">dev=&quot;dev_folder&quot;</span></code>, NPL packages in <code class="docutils literal"><span class="pre">dev_folder</span></code> are loaded before zipped archive files. This allows one to use the latest source code during development.</p>
+<p>For example:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;npl_packages/A/&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;npl_packages/B/&quot;</span><span class="p">)</span>
+<span class="n">NPL</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;test.lua&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">test.lua</span></code> is searched first in current working directory and any loaded archive (zip, pkg) file.
+If not exist, it will search in <code class="docutils literal"><span class="pre">npl_packages/B/</span></code> and then in <code class="docutils literal"><span class="pre">npl_packages/A/</span></code>.</p>
+</div>
+<div class="section" id="usage">
+<span id="usage"></span><h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="for-package-developers">
+<span id="for-package-developers"></span><h4>For package developers:<a class="headerlink" href="#for-package-developers" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>NPL packages are mostly used at development time by other developers (not end users).</div></blockquote>
+<p>i.e. If you want other developers&#8217; to use your code, you can upload your working directory to git, so that other developers can clone your project to their <code class="docutils literal"><span class="pre">npl_packages/[your</span> <span class="pre">module</span> <span class="pre">name]</span></code>. Package can include not only source code, but also binary asset files, like images, textures, sound, 3d models, etc.</p>
+</div>
+<div class="section" id="for-other-developers">
+<span id="for-other-developers"></span><h4>For other developers:<a class="headerlink" href="#for-other-developers" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>Other developers should merge all used npl_packages to working directory, before releasing their software.</div></blockquote>
+<p>i.e. It is the developer&#8217;s job to resolve dependencies, in case multiple versions of the same file exist among used npl_packages. At release time, it is recommended NOT to redistribute the npl_package folder, but copy/merge the content in them to the working directory, pre-compile all source code and package code and/or assets in one or multiple archive files. Please see the [[DeployGuide]] for details. However, if different versions of the same file must coexist, we can use <a class="reference external" href="LoadFile">file-based modules</a> to distribute in separate <code class="docutils literal"><span class="pre">npl_packages</span></code> folders.</p>
+</div>
+</div>
+</div>
+<div class="section" id="where-to-find-npl-packages">
+<span id="where-to-find-npl-packages"></span><h2>Where To Find NPL Packages<a class="headerlink" href="#where-to-find-npl-packages" title="Permalink to this headline">¶</a></h2>
+<p>Each repository under <a class="reference external" href="https://github.com/NPLPackages/">NPLPackages</a> is a valid npl_package managed by the community.</p>
+<blockquote>
+<div>Click <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/wiki/npl_packages">here</a> for more details on NPL packages.</div></blockquote>
+<p>If one want to upload their own package here, please make an <a class="reference external" href="https://github.com/NPLPackages/NPLPackages/issues">issue here</a>, and provide links to its code.</p>
+</div>
+<div class="section" id="how-to-install-a-package">
+<span id="how-to-install-a-package"></span><h2>How To Install A Package<a class="headerlink" href="#how-to-install-a-package" title="Permalink to this headline">¶</a></h2>
+<p>Simply create a folder under your development&#8217;s working directory, create a sub folder called <code class="docutils literal"><span class="pre">npl_packages</span></code>.
+And then run git clone from there. Like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">npl_packages</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NPLPackages</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>See also <a class="reference external" href="https://github.com/NPLPackages/paracraft/wiki">paracraft package</a> for another example.</p>
+</div>
+<div class="section" id="file-based-modules">
+<span id="file-based-modules"></span><h2>File-based Modules<a class="headerlink" href="#file-based-modules" title="Permalink to this headline">¶</a></h2>
+<p>See [[LoadFile]].</p>
+</div>
+<div class="section" id="how-to-contribute">
+<span id="how-to-contribute"></span><h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>It is NOT advised to modify or add files in the ./npl_packages folder, instead create a similar directory structure in your project&#8217;s development directory if you want to add or modify package source code. If you do want to contribute to any npl packages, please fork it on github and send pull requests to its author on github.</p>
+<p>For example, if you want to modify or add a file like <code class="docutils literal"><span class="pre">./npl_packages/main/.../ABC.lua</span></code>
+Instead of modify it in the npl package folder, you simply create a file at the root development folder with the same directory structure like this <code class="docutils literal"><span class="pre">./.../ABC.lua</span></code>. At runtime, your version of file will be loaded instead of the one in npl package folder.</p>
+<p>When your code is mature, you may consider fork the given npl_package in another place, and merge your changed files and send the author a pull request. If the author responds fast, he or she may accept your changes and you can later get rid of your changed files in your original project.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NPL Packages</a><ul>
+<li><a class="reference internal" href="#package-as-search-path">Package As Search Path</a></li>
+<li><a class="reference internal" href="#how-npl-locate-packages">How NPL Locate Packages</a><ul>
+<li><a class="reference internal" href="#what-happened-after-loading-a-package">What Happened After Loading A Package</a></li>
+<li><a class="reference internal" href="#file-search-order">File Search Order</a></li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#for-package-developers">For package developers:</a></li>
+<li><a class="reference internal" href="#for-other-developers">For other developers:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#where-to-find-npl-packages">Where To Find NPL Packages</a></li>
+<li><a class="reference internal" href="#how-to-install-a-package">How To Install A Package</a></li>
+<li><a class="reference internal" href="#file-based-modules">File-based Modules</a></li>
+<li><a class="reference internal" href="#how-to-contribute">How to Contribute</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="DeployGuide.html" title="previous chapter">Deploy Your Application</a></li>
+      <li>Next: <a href="MetaProgramming.html" title="next chapter">Meta Programming in NPL</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/npl_packages.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/npl_packages.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

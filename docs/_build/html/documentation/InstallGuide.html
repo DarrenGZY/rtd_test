@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Install NPL Runtime &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Projects Written in NPL" href="projects.html" />
+    <link rel="prev" title="What is NPL?" href="WhatIsNPL.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install-npl-runtime">
+<span id="install-npl-runtime"></span><h1>Install NPL Runtime<a class="headerlink" href="#install-npl-runtime" title="Permalink to this headline">¶</a></h1>
+<p>You can redistribute NPLRuntime side-by-side with your scripts and resource files on windows/linux/iOS, etc.
+However, this section is only about installing NPL runtime to your development computer and setting up a recommended coding environment for NPL.</p>
+<div class="section" id="install-on-windows">
+<span id="install-on-windows"></span><h2>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-from-windows-installer">
+<span id="install-from-windows-installer"></span><h3>Install from Windows Installer<a class="headerlink" href="#install-from-windows-installer" title="Permalink to this headline">¶</a></h3>
+<p>It is very easy to install on windows. The win32 executable of NPL runtime is currently released in two forms, choose one that is most suitable to you:</p>
+<ul class="simple">
+<li>32bits/64bits most recent development version (recommended for standalone application or module dev). <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/releases">Click to download</a></li>
+<li>Official stable version released in ParacraftSDK (recommended for paracraft mod dev). See below.</li>
+</ul>
+<p><a class="reference external" href="http://www.paracraft.cn">Paracraft</a> is an IDE written completely in NPL.
+Follow the steps:</p>
+<ul class="simple">
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/archive/master.zip">ParacraftSDK</a><ul>
+<li>or you can clone it with following commands (you need <a class="reference external" href="https://git-scm.com/">git</a> installed):</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># clone repository &amp; sub modules</span>
+git clone https://github.com/LiXizhi/ParaCraftSDK.git
+<span class="nb">cd</span> ParaCraftSDK
+git submodule init
+git submodule update
+<span class="c1"># Go into the repository</span>
+<span class="nb">cd</span> ParaCraftSDK
+<span class="c1"># install paracraft</span>
+redist<span class="se">\p</span>aracraft.exe
+<span class="c1"># install NPLRuntime</span>
+NPLRuntime<span class="se">\i</span>nstall.bat
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">redist\paracraft.exe</span></code> will install the most recent version of <code class="docutils literal"><span class="pre">Paracraft</span></code> to  <code class="docutils literal"><span class="pre">./redist</span></code> folder<ul>
+<li>if you failed to install, please manually download from <a class="reference external" href="http://www.paracraft.cn">Paracraft</a> and copy all files to <code class="docutils literal"><span class="pre">redist</span></code> folder.</li>
+</ul>
+</li>
+<li>Inside <code class="docutils literal"><span class="pre">./NPLRuntime/install.bat</span></code><ul>
+<li>The NPL Runtime will be copied from <code class="docutils literal"><span class="pre">./redist</span></code> folder to <code class="docutils literal"><span class="pre">./NPLRuntime/win/bin</span></code></li>
+<li>The above path will be added to your <code class="docutils literal"><span class="pre">%path%</span></code> variable, so that you can run npl script from any folder.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="update-npl-runtime-to-latest-version">
+<span id="update-npl-runtime-to-latest-version"></span><h4>Update NPL Runtime to latest version<a class="headerlink" href="#update-npl-runtime-to-latest-version" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>If you use NPLRuntime installer, simply <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/releases">download and reinstall it here</a></li>
+<li>If you use paracraftSDK, we regularly update <code class="docutils literal"><span class="pre">paracraft</span></code> (weekly) on windows platform, you can update to latest version of NPL Runtime following following steps.<ul>
+<li>run <code class="docutils literal"><span class="pre">redist\paracraft.exe</span></code> to update paracraft&#8217;s NPL runtime in <code class="docutils literal"><span class="pre">redist</span></code> folder</li>
+<li>run <code class="docutils literal"><span class="pre">NPLRuntime\install.bat</span></code> to copy NPL runtime executable from <code class="docutils literal"><span class="pre">redist</span></code> to <code class="docutils literal"><span class="pre">NPLRuntime/win/bin</span></code> folder</li>
+</ul>
+</li>
+<li>Compiling from source code is always the latest version (recommended for serious developers), see next section.</li>
+</ul>
+</div>
+<div class="section" id="on-64bits-version">
+<span id="on-64bits-version"></span><h4>On 64bits version<a class="headerlink" href="#on-64bits-version" title="Permalink to this headline">¶</a></h4>
+<p>To build 64bits version of NPLRuntime, you need to build from source code (see next section), or download prebuild version from [[http://www.paracraft.cn]].</p>
+<p>Our current build target for public users is still 32bits on windows platform.</p>
+<blockquote>
+<div>Please note that all compiled and non-compiled NPL/lua code can be loaded by both 32bits/64bits version of NPL runtime across all supported platforms (windows/linux/mac/android/ios) etc. However, if you use any C++ plugins (such as mysql, mono, etc), they must be built for each platform and CPU architecture.</div></blockquote>
+</div>
+</div>
+<div class="section" id="install-on-windows-from-source">
+<span id="install-on-windows-from-source"></span><h3>Install on Windows From Source<a class="headerlink" href="#install-on-windows-from-source" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>see <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/blob/master/appveyor.yml">.travis.yml</a> or our <a class="reference external" href="https://ci.appveyor.com/project/DarrenGZY/nplruntime-e8wud">build output</a> for reference</div></blockquote>
+<ul class="simple">
+<li>You need to download and build <a class="reference external" href="http://www.boost.org/">boost</a> from source code. Version <code class="docutils literal"><span class="pre">1.55.0</span></code> and <code class="docutils literal"><span class="pre">1.60.0</span></code> are tested,but the latest version should be fine.
+Suppose you have unzipped the boost to <code class="docutils literal"><span class="pre">D:\boost</span></code>, you can build with following command.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bootstrap</span>
+<span class="n">b2</span> <span class="o">--</span><span class="n">build</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">complete</span>
+</pre></div>
+</div>
+<p>and then add a system environment variable called <code class="docutils literal"><span class="pre">BOOST_ROOT</span></code>, with value <code class="docutils literal"><span class="pre">D:\boost</span></code>(or where your boost is located), so that our build-tool will find boost for you.</p>
+<ul class="simple">
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime">NPLRuntime source code</a>, or clone it by running:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">LiXizhi</span><span class="o">/</span><span class="n">NPLRuntime</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Download <a class="reference external" href="https://cmake.org/">cmake</a>, and build either <code class="docutils literal"><span class="pre">server</span></code> or <code class="docutils literal"><span class="pre">client</span></code> version. They share the same code base but with different <code class="docutils literal"><span class="pre">cmakelist.txt</span></code>; <code class="docutils literal"><span class="pre">client</span></code> version has everything <code class="docutils literal"><span class="pre">server</span></code> has plus graphics API.<ul>
+<li><code class="docutils literal"><span class="pre">Server</span></code> version: run <code class="docutils literal"><span class="pre">NPLRuntime/NPLRuntime/CMakeList.txt</span></code>  in <code class="docutils literal"><span class="pre">NPLRuntime/bin/win32</span></code> folder (any folder is fine, but do not use the <code class="docutils literal"><span class="pre">cmakelist.txt</span></code> source folder), please refer to <code class="docutils literal"><span class="pre">./build_win32.bat</span></code> for details</li>
+<li><code class="docutils literal"><span class="pre">Client</span></code> version: run <code class="docutils literal"><span class="pre">NPLRuntime/Client/CMakeList.txt</span></code>  in <code class="docutils literal"><span class="pre">NPLRuntime/bin/Client</span></code> folder (any folder is fine, but do not use the <code class="docutils literal"><span class="pre">cmakelist.txt</span></code> source folder)<ul>
+<li><strong>REQUIRED:</strong> Install latest DirectX9 SDK in default location <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/blob/master/NPLRuntime/ParaEngineClient/cmake/DirectX.cmake">here</a>.</li>
+<li>There is also a cmake option called <code class="docutils literal"><span class="pre">ParaEngineClient_DLL</span></code> which will build NPLRuntime as shared library, instead of executable.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If successful, you will have visual studio solution files generated. Open it with visual studio and build.</li>
+<li>The final executable is in <code class="docutils literal"><span class="pre">./ParaWorld/bin/</span></code> directory.</li>
+</ul>
+<div class="section" id="how-to-debug-nplruntime-c-source-code">
+<span id="how-to-debug-nplruntime-c-source-code"></span><h4>How to Debug NPLRuntime C++ source code<a class="headerlink" href="#how-to-debug-nplruntime-c-source-code" title="Permalink to this headline">¶</a></h4>
+<p>When you build NPLRuntime from source code, all binary file(dlls) are automatically copied to <code class="docutils literal"><span class="pre">./ParaWorld/bin/</span></code> directory. All debug version files have <code class="docutils literal"><span class="pre">_d</span></code> appended to the end of the dll or exe files, such as <code class="docutils literal"><span class="pre">sqlite_d.dll</span></code>, etc.</p>
+<p>To debug your application, you need to start your application using the executable in <code class="docutils literal"><span class="pre">./ParaWorld/bin/</span></code>, such as <code class="docutils literal"><span class="pre">paraengineclient_d.exe</span></code>. You also need to specify a working directory where your application resides, such as <code class="docutils literal"><span class="pre">./redist</span></code> folder in <code class="docutils literal"><span class="pre">ParacraftSDK</span></code>. Alternatively, one can also copy all dependent <code class="docutils literal"><span class="pre">*_d.dll</span></code> files from <code class="docutils literal"><span class="pre">./ParaWorld/bin/</span></code> to your application&#8217;s working directory.</p>
+<p>Applications written in NPL are usually in pure NPL scripts. So you can download and install any NPL powered application (such as <a class="reference external" href="http://www.paracraft.cn">this one</a> ), and set your executable&#8217;s working directory to it before debugging from source code. <code class="docutils literal"><span class="pre">ParacraftSDK</span></code> also contains a good collection of example NPL programs. Please see the video at [[TutorialWebSite]] for install guide.</p>
+</div>
+</div>
+</div>
+<div class="section" id="install-on-linux">
+<span id="install-on-linux"></span><h2>Install on Linux<a class="headerlink" href="#install-on-linux" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Click here to download precompiled <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/releases">NPL Runtime linux 64bits release</a>.</div></blockquote>
+<p>Under linux, it is highly recommended to build NPL from source code with latest packages and build tools on your dev/deployment machine.</p>
+<ul class="simple">
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime">NPLRuntime source code</a>, or clone it by running:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">LiXizhi</span><span class="o">/</span><span class="n">NPLRuntime</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span> <span class="o">&amp;&amp;</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Install third-party packages and latest build tools.<ul>
+<li>see <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/blob/master/.travis.yml">.travis.yml</a> or our <a class="reference external" href="https://travis-ci.org/LiXizhi/NPLRuntime">build output</a> for reference (on debian/ubuntu). In most cases, you need <code class="docutils literal"><span class="pre">gcc</span> <span class="pre">4.9</span> <span class="pre">or</span> <span class="pre">above,</span> <span class="pre">cmake,</span> <span class="pre">bzip2,</span> <span class="pre">boost,</span> <span class="pre">libcurl</span></code>. Optionally, you can install <code class="docutils literal"><span class="pre">mysql,</span> <span class="pre">mono,</span> <span class="pre">postgresql</span></code> if want to build NPL plugins for them.</li>
+</ul>
+</li>
+<li>Run <a class="reference external" href="https://github.com/LiXizhi/NPLRuntime/blob/master/build_linux.sh">./build_linux.sh</a> from the root directory. Be patient to wait for build to complete.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build_linux</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<blockquote>
+<div>Please note, you need to have at least 2GB memory to build with gcc, or you need to step up <a class="reference external" href="http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/">swap memory</a></div></blockquote>
+<ul class="simple">
+<li>The final executable is in <code class="docutils literal"><span class="pre">./ParaWorld/bin64/</span></code> directory. A symbolic link to the executable is created in <code class="docutils literal"><span class="pre">/usr/local/bin/npl</span></code>, so that you can run NPL script from anywhere.</li>
+</ul>
+</div>
+<div class="section" id="install-on-mac-osx">
+<span id="install-on-mac-osx"></span><h2>Install on MAC OSX<a class="headerlink" href="#install-on-mac-osx" title="Permalink to this headline">¶</a></h2>
+<p>We use <a class="reference external" href="https://cmake.org/">cmake</a> to build under MAC OSX, it is very similar to <code class="docutils literal"><span class="pre">install</span> <span class="pre">on</span> <span class="pre">linux</span></code>, but you should use</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build_mac_server</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Currently, only server version is working on mac, client version is still under development.</p>
+</div>
+<div class="section" id="editors-and-debuggers">
+<span id="editors-and-debuggers"></span><h2>Editors and Debuggers<a class="headerlink" href="#editors-and-debuggers" title="Permalink to this headline">¶</a></h2>
+<p>You can use your preferred editors that support lua syntax highlighting.
+NPL Runtime has a built-in web server called [[NPL Code Wiki|NPLCodeWiki]], it allows you to edit and debug via HTTP from any web browser on any platform.</p>
+<ul class="simple">
+<li>[[NPL Code Wiki|NPLCodeWiki]]: build-in debugger and editor.</li>
+</ul>
+<p>It is though highly recommended that you install NPL Runtime on windows, and use following editors:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.visualstudio.com/">Visual Studio Community Edition</a>: the free version of <code class="docutils literal"><span class="pre">visual</span> <span class="pre">studio</span></code>. This one is what I use.</li>
+<li><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>: a very good free/cross-platform editor based on <code class="docutils literal"><span class="pre">Atom</span></code></li>
+</ul>
+<p>We have developed several useful open-source NPL language plugins for visual studio products:
+In visual studio, select <code class="docutils literal"><span class="pre">menu::Tools::Extensions</span></code>, and search online for <code class="docutils literal"><span class="pre">npl</span></code> to install following plugins:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://visualstudiogallery.msdn.microsoft.com/7782dc20-924a-4726-8656-d876cdbb3417">NPL/Lua language service for visual studio</a>: used by thousands of developers worldwide.<ul>
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/NPL">Source code</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="https://visualstudiogallery.msdn.microsoft.com/7ebe665c-4f1d-41fd-91e1-52176cf2d9db">NPL Debugger for visual studio</a>: set break points and attach to running NPL process.<ul>
+<li>Download <a class="reference external" href="https://github.com/LiXizhi/NPL">Source code</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="https://visualstudiogallery.msdn.microsoft.com/accd022b-ec37-4614-8c08-30e291d28bd5">NPL/ParaEngine Tools</a> for visual studio: misc tools</li>
+</ul>
+<p><img alt="NPL language service" src="https://i1.visualstudiogallery.msdn.s-msft.com/7782dc20-924a-4726-8656-d876cdbb3417/image/file/168690/1/npl_language_service.png" /></p>
+<p><img alt="Editors" src="https://visualstudiogallery.msdn.microsoft.com/site/view/file/136918/1/peeditor2.png" /></p>
+</div>
+<div class="section" id="example-code">
+<span id="example-code"></span><h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK">ParacraftSDK</a> contains many example projects written in NPL.</p>
+<ul class="simple">
+<li>See <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/wiki">ParacraftSDK wiki</a> site for more details.</li>
+<li>You may now get your hand dirty by this <a class="reference external" href="https://github.com/LiXizhi/ParaCraftSDK/wiki/TutorialSimplePlugin">tutorial</a> or continue reading here.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Install NPL Runtime</a><ul>
+<li><a class="reference internal" href="#install-on-windows">Install on Windows</a><ul>
+<li><a class="reference internal" href="#install-from-windows-installer">Install from Windows Installer</a><ul>
+<li><a class="reference internal" href="#update-npl-runtime-to-latest-version">Update NPL Runtime to latest version</a></li>
+<li><a class="reference internal" href="#on-64bits-version">On 64bits version</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-on-windows-from-source">Install on Windows From Source</a><ul>
+<li><a class="reference internal" href="#how-to-debug-nplruntime-c-source-code">How to Debug NPLRuntime C++ source code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-on-linux">Install on Linux</a></li>
+<li><a class="reference internal" href="#install-on-mac-osx">Install on MAC OSX</a></li>
+<li><a class="reference internal" href="#editors-and-debuggers">Editors and Debuggers</a></li>
+<li><a class="reference internal" href="#example-code">Example Code</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="WhatIsNPL.html" title="previous chapter">What is NPL?</a></li>
+      <li>Next: <a href="projects.html" title="next chapter">Projects Written in NPL</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/InstallGuide.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/InstallGuide.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

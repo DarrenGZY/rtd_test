@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Extending NPLRuntime With C++ Plugins &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NPL Basic Concept" href="BasicConcept.html" />
+    <link rel="prev" title="Embedding NPLRuntime" href="EmbeddingNPLRuntime.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="extending-nplruntime-with-c-plugins">
+<span id="extending-nplruntime-with-c-plugins"></span><h1>Extending NPLRuntime With C++ Plugins<a class="headerlink" href="#extending-nplruntime-with-c-plugins" title="Permalink to this headline">¶</a></h1>
+<p>NPL provides three extensibility modes: (1) NPL scripting  (2) Mono C# dll (3) C++ plugin interface. All of them can be used simultaneously. Please see [[BasicConcept]] for details.</p>
+<div class="section" id="c-plugins">
+<span id="c-plugins"></span><h2>C++ plugins<a class="headerlink" href="#c-plugins" title="Permalink to this headline">¶</a></h2>
+<p>C++ plugins allows us to treat dll/so file as a single script file. We would only want to use it for performance critical tasks or functions that make heavy use of other third-party C/C++ libraries.</p>
+<p>The following is a sample c++ plugin.
+[[https://github.com/LiXizhi/ParaCraftSDK/tree/master/samples/plugins/HelloWorldCppDll]]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;stdafx.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;HelloWorld.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#ifdef WIN32</span>
+<span class="cp">#define CORE_EXPORT_DECL    __declspec(dllexport)</span>
+<span class="cp">#else</span>
+<span class="cp">#define CORE_EXPORT_DECL</span>
+<span class="cp">#endif</span>
+
+<span class="c1">// forward declare of exported functions. </span>
+<span class="cp">#ifdef __cplusplus</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
+<span class="cp">#endif</span>
+    <span class="n">CORE_EXPORT_DECL</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">LibDescription</span><span class="p">();</span>
+    <span class="n">CORE_EXPORT_DECL</span> <span class="kt">int</span> <span class="nf">LibNumberClasses</span><span class="p">();</span>
+    <span class="n">CORE_EXPORT_DECL</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">LibVersion</span><span class="p">();</span>
+    <span class="n">CORE_EXPORT_DECL</span> <span class="n">ParaEngine</span><span class="o">::</span><span class="n">ClassDescriptor</span><span class="o">*</span> <span class="n">LibClassDesc</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">CORE_EXPORT_DECL</span> <span class="kt">void</span> <span class="nf">LibInit</span><span class="p">();</span>
+    <span class="n">CORE_EXPORT_DECL</span> <span class="kt">void</span> <span class="nf">LibActivate</span><span class="p">(</span><span class="kt">int</span> <span class="n">nType</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">pVoid</span><span class="p">);</span>
+<span class="cp">#ifdef __cplusplus</span>
+<span class="p">}</span>   <span class="cm">/* extern &quot;C&quot; */</span>
+<span class="cp">#endif</span>
+ 
+<span class="n">HINSTANCE</span> <span class="n">Instance</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">ParaEngine</span><span class="p">;</span>
+
+<span class="n">ClassDescriptor</span><span class="o">*</span> <span class="nf">HelloWorldPlugin_GetClassDesc</span><span class="p">();</span>
+<span class="k">typedef</span> <span class="n">ClassDescriptor</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">GetClassDescMethod</span><span class="p">)();</span>
+
+<span class="n">GetClassDescMethod</span> <span class="n">Plugins</span><span class="p">[]</span> <span class="o">=</span> 
+<span class="p">{</span>
+    <span class="n">HelloWorldPlugin_GetClassDesc</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="cm">/** This has to be unique, change this id for each new plugin.</span>
+<span class="cm">*/</span>
+<span class="cp">#define HelloWorld_CLASS_ID Class_ID(0x2b905a29, 0x47b409af)</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldPluginDesc</span><span class="o">:</span><span class="k">public</span> <span class="n">ClassDescriptor</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">Create</span><span class="p">(</span><span class="kt">bool</span> <span class="n">loading</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CHelloWorld</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ClassName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;IHelloWorld&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">SClass_ID</span> <span class="n">SuperClassID</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">OBJECT_MODIFIER_CLASS_ID</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Class_ID</span> <span class="n">ClassID</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">HelloWorld_CLASS_ID</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">Category</span><span class="p">()</span> 
+    <span class="p">{</span> 
+        <span class="k">return</span> <span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span> 
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">InternalName</span><span class="p">()</span> 
+    <span class="p">{</span> 
+        <span class="k">return</span> <span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span> 
+    <span class="p">}</span>
+
+    <span class="n">HINSTANCE</span> <span class="n">HInstance</span><span class="p">()</span> 
+    <span class="p">{</span> 
+        <span class="k">extern</span> <span class="n">HINSTANCE</span> <span class="n">Instance</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">Instance</span><span class="p">;</span> 
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">ClassDescriptor</span><span class="o">*</span> <span class="nf">HelloWorldPlugin_GetClassDesc</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="n">HelloWorldPluginDesc</span> <span class="n">s_desc</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">s_desc</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">CORE_EXPORT_DECL</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">LibDescription</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s">&quot;ParaEngine HelloWorld Ver 1.0.0&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">CORE_EXPORT_DECL</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">LibVersion</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">CORE_EXPORT_DECL</span> <span class="kt">int</span> <span class="nf">LibNumberClasses</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Plugins</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Plugins</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="n">CORE_EXPORT_DECL</span> <span class="n">ClassDescriptor</span><span class="o">*</span> <span class="nf">LibClassDesc</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">LibNumberClasses</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">Plugins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Plugins</span><span class="p">[</span><span class="n">i</span><span class="p">]();</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">CORE_EXPORT_DECL</span> <span class="kt">void</span> <span class="nf">LibInit</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="cp">#ifdef WIN32</span>
+<span class="n">BOOL</span> <span class="n">WINAPI</span> <span class="nf">DllMain</span><span class="p">(</span><span class="n">HINSTANCE</span> <span class="n">hinstDLL</span><span class="p">,</span><span class="n">ULONG</span> <span class="n">fdwReason</span><span class="p">,</span><span class="n">LPVOID</span> <span class="n">lpvReserved</span><span class="p">)</span>
+<span class="cp">#else</span>
+<span class="kt">void</span> <span class="n">__attribute__</span> <span class="p">((</span><span class="n">constructor</span><span class="p">))</span> <span class="n">DllMain</span><span class="p">()</span>
+<span class="cp">#endif</span>
+<span class="p">{</span>
+    <span class="c1">// TODO: dll start up code here</span>
+<span class="cp">#ifdef WIN32</span>
+    <span class="n">Instance</span> <span class="o">=</span> <span class="n">hinstDLL</span><span class="p">;</span>                <span class="c1">// Hang on to this DLL&#39;s instance handle.</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="cm">/** this is the main activate function to be called, when someone calls NPL.activate(&quot;this_file.dll&quot;, msg); </span>
+<span class="cm">*/</span>
+<span class="n">CORE_EXPORT_DECL</span> <span class="kt">void</span> <span class="nf">LibActivate</span><span class="p">(</span><span class="kt">int</span> <span class="n">nType</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">pVoid</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">nType</span> <span class="o">==</span> <span class="n">ParaEngine</span><span class="o">::</span><span class="n">PluginActType_STATE</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NPL</span><span class="o">::</span><span class="n">INPLRuntimeState</span><span class="o">*</span> <span class="n">pState</span> <span class="o">=</span> <span class="p">(</span><span class="n">NPL</span><span class="o">::</span><span class="n">INPLRuntimeState</span><span class="o">*</span><span class="p">)</span><span class="n">pVoid</span><span class="p">;</span>
+        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">sMsg</span> <span class="o">=</span> <span class="n">pState</span><span class="o">-&gt;</span><span class="n">GetCurrentMsg</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">nMsgLength</span> <span class="o">=</span> <span class="n">pState</span><span class="o">-&gt;</span><span class="n">GetCurrentMsgLength</span><span class="p">();</span>
+
+        <span class="n">NPLInterface</span><span class="o">::</span><span class="n">NPLObjectProxy</span> <span class="n">input_msg</span> <span class="o">=</span> <span class="n">NPLInterface</span><span class="o">::</span><span class="n">NPLHelper</span><span class="o">::</span><span class="n">MsgStringToNPLTable</span><span class="p">(</span><span class="n">sMsg</span><span class="p">);</span>
+        <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">sCmd</span> <span class="o">=</span> <span class="n">input_msg</span><span class="p">[</span><span class="s">&quot;cmd&quot;</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">sCmd</span> <span class="o">==</span> <span class="s">&quot;hello&quot;</span> <span class="o">||</span> <span class="nb">true</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">NPLInterface</span><span class="o">::</span><span class="n">NPLObjectProxy</span> <span class="n">output_msg</span><span class="p">;</span>
+            <span class="n">output_msg</span><span class="p">[</span><span class="s">&quot;succeed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;true&quot;</span><span class="p">;</span>
+            <span class="n">output_msg</span><span class="p">[</span><span class="s">&quot;sample_number_output&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="mi">1234567</span><span class="p">);</span>
+            <span class="n">output_msg</span><span class="p">[</span><span class="s">&quot;result&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;hello world!&quot;</span><span class="p">;</span>
+
+            <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">output</span><span class="p">;</span>
+            <span class="n">NPLInterface</span><span class="o">::</span><span class="n">NPLHelper</span><span class="o">::</span><span class="n">NPLTableToString</span><span class="p">(</span><span class="s">&quot;msg&quot;</span><span class="p">,</span> <span class="n">output_msg</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+            <span class="n">pState</span><span class="o">-&gt;</span><span class="n">activate</span><span class="p">(</span><span class="s">&quot;script/test/echo.lua&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">output</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The most important function is <code class="docutils literal"><span class="pre">LibActivate</span></code> which is like <code class="docutils literal"><span class="pre">NPL.this(function()</span> <span class="pre">end)</span></code> in NPL script.</p>
+<p>It is the function to be invoked when someone calls something like below:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">NPL</span><span class="p">.</span><span class="n">activate</span><span class="p">(</span><span class="s2">&quot;this_file.dll&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">cmd</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>One can also place dll or so file under sub directories of the working directory, such as <code class="docutils literal"><span class="pre">NPL.activate(&quot;mod/this_file.dll&quot;,</span> <span class="pre">{cmd=&quot;hello&quot;})</span></code></p>
+<div class="section" id="note-to-linux-developers">
+<span id="note-to-linux-developers"></span><h3>Note to Linux Developers<a class="headerlink" href="#note-to-linux-developers" title="Permalink to this headline">¶</a></h3>
+<p>Under linux, the generated plugin file name is usually &#8220;libXXX.so&#8221;, please copy this file to working directory and load using <code class="docutils literal"><span class="pre">NPL.activate(&quot;XXX.dll&quot;,</span> <span class="pre">{cmd=&quot;hello&quot;})</span></code> instead of the actual filename. NPLRuntime will automatically replace <code class="docutils literal"><span class="pre">XXX.dll</span></code> with <code class="docutils literal"><span class="pre">libXXX.so</span></code> when searching for the dll file. This way, your script code does not need to change when deploying to linux and windows platform.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Extending NPLRuntime With C++ Plugins</a><ul>
+<li><a class="reference internal" href="#c-plugins">C++ plugins</a><ul>
+<li><a class="reference internal" href="#note-to-linux-developers">Note to Linux Developers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="EmbeddingNPLRuntime.html" title="previous chapter">Embedding NPLRuntime</a></li>
+      <li>Next: <a href="BasicConcept.html" title="next chapter">NPL Basic Concept</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/Plugins.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/Plugins.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

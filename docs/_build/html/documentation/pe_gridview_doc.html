@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Binding with the GridView Control &#8212; NPL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>pe:gridview and related tags(pe:pager, pe:bindingblock) are used for displaying a long list of templated data with paging. Such as friends list, application list, etc.
+A recurring task in software development is to display tabular data. With the GridView control, you can display, edit, and delete data
+from many different kinds of data sources, including databases, XML files, NPL tables and business objects that expose data.</p>
+<p>Using the GridView you can:</p>
+<ul class="simple">
+<li>Automatically bind to and display data from a data source control.</li>
+<li>Select, sort, page through, edit, and delete data from a data source control.
+Additionally, you can customize the appearance and behavior of the GridView control by:</li>
+<li>Specifying custom columns and styles.</li>
+<li>Utilizing templates to create custom user interface (UI) elements.</li>
+</ul>
+<p>Grid view sample code:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>&lt;pe:gridview style=&quot;margin:10px&quot; name=&quot;gvwTableTest&quot; CellPadding=&quot;5&quot;  AllowPaging=&quot;True&quot; DefaultNodeHeight = &quot;20&quot; pagesize=&quot;10&quot;
+        DataSource=&#39;&lt;%={{username=&quot;LiXizhi&quot;, Company=&quot;ParaEngine&quot;}, {username=&quot;Andy&quot;, Company=&quot;ParaEngine&quot;}, {username=&quot;Gandhi&quot;, Company=&quot;PE&quot;}}%&gt;&#39;
+        DataBound = &quot;gvwTableTest_DataBound()&quot; OnPageIndexChanging=&quot;gvwTableTest_PageIndexChanging()&quot; OnPageIndexChanged=&quot;gvwTableTest_PageIndexChanged()&quot;&gt;
+    &lt;Columns&gt;
+        Row index is &lt;%=Eval(&quot;index&quot;)%&gt;&lt;a href=&#39;&lt;%=&quot;profile?name=&quot;..Eval(&quot;username&quot;)%&gt;&#39;&gt;User Name is &lt;%=Eval(&quot;username&quot;)%&gt;&lt;/a&gt;Company: &lt;%=Eval(&quot;Company&quot;)%&gt;
+    &lt;/Columns&gt;
+    &lt;EmptyDataTemplate&gt;
+        &lt;b&gt;NO MATCHING USER IS FOUND 没有找到符合要求的用户&lt;/b&gt;
+    &lt;/EmptyDataTemplate&gt;
+    &lt;FetchingDataTemplate&gt;
+        &lt;b&gt;Please wait while fetching data&lt;/b&gt;
+    &lt;/FetchingDataTemplate&gt;
+    &lt;PagerSettings Position=&quot;TopAndBottom&quot; height=&quot;26&quot; PreviousPageText=&quot;&quot; NextPageText=&quot;&quot;/&gt;
+    &lt;!--&lt;PagerTemplate&gt;&lt;form&gt;&lt;input type=&quot;button&quot; name=&quot;pre&quot; value=&quot;previous page&quot;/&gt;&lt;input type=&quot;button&quot; name=&quot;next&quot; value=&quot;next page&quot;/&gt;&lt;label name=&quot;page&quot; style=&quot;height:18px;margin:4px&quot;/&gt;&lt;/form&gt;&lt;/PagerTemplate&gt;--&gt;
+&lt;/pe:gridview&gt;
+</pre></div>
+</div>
+<div class="section" id="data-binding-with-the-gridview-control">
+<span id="data-binding-with-the-gridview-control"></span><h1>Data Binding with the GridView Control<a class="headerlink" href="#data-binding-with-the-gridview-control" title="Permalink to this headline">¶</a></h1>
+<p>The GridView control provides you with two choices for binding to data:</p>
+<ul class="simple">
+<li>Data binding using the DataSourceID property, which allows you to bind the GridView control to a data source control.
+This is a simple approach because it allows the GridView control to take advantage of the capabilities of the data
+source control and provide built-in functionality for sorting, paging, and updating.</li>
+<li>Data binding using the DataSource property, which allows you to bind to various objects, including NPL array table, NPL function(nRowIndex) (see below).
+This approach requires you to write code for any additional functionality such as paging, and updating.
+However, using NPL function is the recommended way if your data is dynamically and asynchronously loaded such as from a web server.</li>
+</ul>
+<p>If you bind to an data source <code class="docutils literal"><span class="pre">function(nRowIndex)</span> <span class="pre">end</span></code>, the function must return value with following rules:</p>
+<ul class="simple">
+<li>if nRowIndex is number, it returns the fields in a table of the given row index.</li>
+<li>if nRowIndex is nil, it returns totalItems. One can return nil as totalItems, which tells that control that data is not available, possibly still fetching from web services.</li>
+</ul>
+<p>The following is pseudo code of your datasource function.</p>
+<div class="highlight-lua"><div class="highlight"><pre><span></span><span class="n">MyPage</span><span class="p">.</span><span class="n">ds</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">;</span>
+<span class="kr">function</span> <span class="nc">MyPage</span><span class="p">.</span><span class="nf">DS_Func_MyRemote</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> 
+    <span class="kr">if</span><span class="p">(</span><span class="n">MyPage</span><span class="p">.</span><span class="n">ds</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="c1">-- if we already have local data, provide it</span>
+        <span class="kr">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">index</span><span class="p">)</span> <span class="kr">then</span>
+            <span class="c1">-- return the number of items</span>
+            <span class="kr">return</span> <span class="o">#</span><span class="p">(</span><span class="n">MyPage</span><span class="p">.</span><span class="n">ds</span><span class="p">);</span> 
+        <span class="kr">else</span>
+            <span class="kr">return</span> <span class="n">MyPage</span><span class="p">.</span><span class="n">ds</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+        <span class="kr">end</span>
+    <span class="kr">else</span>
+        <span class="c1">-- data is not available, we will return nil and fetch the data. This will only be called once.</span>
+        <span class="c1">-- we will use a timer to simulate remote call. </span>
+        <span class="n">commonlib</span><span class="p">.</span><span class="n">TimerManager</span><span class="p">.</span><span class="n">SetTimeout</span><span class="p">(</span>
+            <span class="kr">function</span><span class="p">()</span>  
+                <span class="n">MyPage</span><span class="p">.</span><span class="n">ds</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="n">data</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span> <span class="p">,</span> <span class="p">{</span><span class="n">data</span><span class="o">=</span><span class="mi">2</span><span class="p">}</span> <span class="p">};</span>
+                <span class="c1">-- when data is available refresh the page again or just call DataBind method of the control.</span>
+                <span class="n">MyPage</span><span class="p">:</span><span class="n">RefreshPage</span><span class="p">();</span>
+            <span class="kr">end</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span> 
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="formatting-data-display-in-the-gridview-control">
+<span id="formatting-data-display-in-the-gridview-control"></span><h1>Formatting Data Display in the GridView Control<a class="headerlink" href="#formatting-data-display-in-the-gridview-control" title="Permalink to this headline">¶</a></h1>
+<p>You can specify the layout of the GridView control&#8217;s rows by using any other MCML tags inside the Columns node as shown in the grid view example above.
+Inside Columns node, use embedded script block with Eval() or XPath() method to extract data from columns of the current row.
+| ItemsPerLine | it is a pe:gridview property which controls how many items to show on one line. Default value is 1. One can set it to a bigger value to show
+| LineWidth | width of a line in pixel. it is usually same as the grid view width. |
+| LineAlign | it can only be &#8220;center&#8221;. if it is &#8220;center&#8221; and ItemsPerLine is lager than 1, the columns will be centered, especially for the last row. LineWidth must also be specified.  |
+| ClickThrough | wheather mouse event will leak to 3d scene. default to false  |
+| | a grid of databind items, where each items is customizable via the columns property. |
+| RememberScrollPos | true to remember scroll position within current page. |
+| ScrollBarTrackWidth | |
+| VerticalScrollBarWidth | |
+| RememberLastPage | true to remember last opened page during page refresh |
+| AllowPaging | true to allow paging |
+| ClickThrough | whether mouse event will leak to 3d scene. default to false  |
+| PagerTemplate.AutoHidePager | boolean. |
+| FitHeight | if true, the height of the control will best contain the data nodes. css.min-height can also be specified. |</p>
+</div>
+<div class="section" id="gridview-paging-functionality">
+<span id="gridview-paging-functionality"></span><h1>GridView Paging Functionality<a class="headerlink" href="#gridview-paging-functionality" title="Permalink to this headline">¶</a></h1>
+<p>A pager row is displayed in a GridView control when the paging feature is enabled (when the AllowPaging property is set to true).
+The pager row contains the controls that allow the user to navigate to the different pages in the control.
+Instead of using the built-in pager row user interface (UI), you can define your own UI by using the PagerTemplate property.</p>
+<p>To specify a custom template for the pager row, first place PagerTemplate followed by a form tags between the opening and closing tags of the GridView control.
+You can then list the contents of the template between the opening and closing PagerTemplate tags. If any buttons are named &#8220;pre&#8221; and &#8220;next&#8221; in the content, they are automatically
+bounded to command action previous page and next page. If any text or label are named &#8220;page&#8221;, it will be used to display current page number/page count. Here is an example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="n">PagerTemplate</span><span class="o">&gt;&lt;</span><span class="n">form</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;pre&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;previous page&quot;</span><span class="o">/&gt;&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;next&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;next page&quot;</span><span class="o">/&gt;&lt;</span><span class="n">label</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;page&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;height:18px;margin:4px&quot;</span><span class="o">/&gt;&lt;/</span><span class="n">form</span><span class="o">&gt;&lt;/</span><span class="n">PagerTemplate</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>one can also apply css style to PageSettings, like below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="n">PagerSettings</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;margin-left:300px&quot;</span> <span class="n">Position</span><span class="o">=</span><span class="s2">&quot;Bottom&quot;</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gridview-events">
+<span id="gridview-events"></span><h1>GridView Events<a class="headerlink" href="#gridview-events" title="Permalink to this headline">¶</a></h1>
+<p>You can customize the functionality of the GridView control by handling events. The GridView control provides events that occur both before and after a navigation.</p>
+<ul class="simple">
+<li>PageIndexChanging(gridviewName, pageindex): Occurs when a pager button is clicked, but before the GridView control performs the paging operation. This event is often handled to cancel the paging operation.</li>
+<li>PageIndexChanged(gridviewName, pageindex): Occurs when a pager button is clicked, but after the GridView control performs the paging operation. This event is commonly handled when you need to perform a task after the user navigates to a different page in the control.</li>
+<li>DataBound(gridviewName, datasource): Occurs after the GridView control has finished binding to the data source.</li>
+</ul>
+</div>
+<div class="section" id="use-the-lib">
+<span id="use-the-lib"></span><h1>use the lib:<a class="headerlink" href="#use-the-lib" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="npl-load-gl-script-kids-3dmapsystemapp-mcml-pe-gridview-lua">
+<span id="npl-load-gl-script-kids-3dmapsystemapp-mcml-pe-gridview-lua"></span><h1>NPL.load(&#8220;(gl)script/kids/3DMapSystemApp/mcml/pe_gridview.lua&#8221;);<a class="headerlink" href="#npl-load-gl-script-kids-3dmapsystemapp-mcml-pe-gridview-lua" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data Binding with the GridView Control</a></li>
+<li><a class="reference internal" href="#formatting-data-display-in-the-gridview-control">Formatting Data Display in the GridView Control</a></li>
+<li><a class="reference internal" href="#gridview-paging-functionality">GridView Paging Functionality</a></li>
+<li><a class="reference internal" href="#gridview-events">GridView Events</a></li>
+<li><a class="reference internal" href="#use-the-lib">use the lib:</a></li>
+<li><a class="reference internal" href="#npl-load-gl-script-kids-3dmapsystemapp-mcml-pe-gridview-lua">NPL.load(&#8220;(gl)script/kids/3DMapSystemApp/mcml/pe_gridview.lua&#8221;);</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documentation/pe_gridview_doc.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Zhiyuan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/documentation/pe_gridview_doc.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
