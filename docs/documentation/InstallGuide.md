@@ -1,4 +1,4 @@
-#Install NPL Runtime
+# Install NPL Runtime
 
 You can redistribute NPLRuntime side-by-side with your scripts and resource files on windows/linux/iOS, etc.
 However, this section is only about installing NPL runtime to your development computer and setting up a recommended coding environment for NPL. 
