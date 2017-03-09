@@ -9,7 +9,7 @@ The main documentation for the site is organized into two sections:
 .. _docs:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Documentation
 
    documentation/WhatIsNPL
