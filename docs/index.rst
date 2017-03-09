@@ -116,6 +116,7 @@ Welcome to NPL
    :maxdepth: 1
    :caption: API References
 
-   reference/ParaBlockWorld
+   reference/ParaEngine
+   reference/ParaScripting
 
 

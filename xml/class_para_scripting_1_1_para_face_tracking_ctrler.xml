@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="217" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="217" bodyend="-1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="217" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="217" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
 <para>check if the object is valid </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="222" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="222" bodyend="222"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="222" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="222" bodyend="222"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1aeebb04fb54d433e91fb031f417020140" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="224" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="224" bodyend="224"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="224" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="224" bodyend="224"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1ab356dfd65f2ec7106a3c192a6c4c9a0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="225" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="225" bodyend="225"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="225" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="225" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1a4a35bec5a05f50d3ee265f087866ac41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="226" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="226" bodyend="226"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="226" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="226" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_face_tracking_ctrler_1ac04e32a843f016a4ef381a1328837cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -119,14 +119,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="233" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="233" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1370" bodyend="1377"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para><ref refid="class_para_scripting_1_1_para_face_tracking_ctrler" kindref="compound">ParaFaceTrackingCtrler</ref> object: it will allow the biped to always face to a given target or another biped. </para>    </detaileddescription>
-    <location file="ParaScriptingCharacter.h" line="215" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="214" bodyend="234"/>
+    <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="215" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="214" bodyend="234"/>
     <listofallmembers>
       <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1ac04e32a843f016a4ef381a1328837cb5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>FaceTarget</name></member>
       <member refid="class_para_scripting_1_1_para_face_tracking_ctrler_1a02ea018deb0fab79da111a4dc22f1a1e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaFaceTrackingCtrler</scope><name>IsValid</name></member>

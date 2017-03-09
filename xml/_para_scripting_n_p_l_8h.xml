@@ -3,52 +3,51 @@
   <compounddef id="_para_scripting_n_p_l_8h" kind="file" language="C++">
     <compoundname>ParaScriptingNPL.h</compoundname>
     <includes local="no">boost/shared_ptr.hpp</includes>
-    <includes local="yes">ParaScriptingGlobal.h</includes>
-    <includes local="yes">util/LogService.h</includes>
-    <includes local="yes">IAttributeFields.h</includes>
-    <includes local="no">map</includes>
-    <includes local="no">string</includes>
+    <includes refid="_para_scripting_global_8h" local="yes">ParaScriptingGlobal.h</includes>
+    <includedby refid="_para_scripting2_8cpp" local="yes">ParaScriptBindings/ParaScripting2.cpp</includedby>
+    <includedby refid="_para_scripting3_8cpp" local="yes">ParaScriptBindings/ParaScripting3.cpp</includedby>
+    <includedby refid="_para_scripting_n_p_l_8cpp" local="yes">ParaScriptBindings/ParaScriptingNPL.cpp</includedby>
+    <includedby refid="_para_scripting_test_8cpp" local="yes">ParaScriptBindings/ParaScriptingTest.cpp</includedby>
     <incdepgraph>
-      <node id="1">
+      <node id="682">
         <label>boost/shared_ptr.hpp</label>
       </node>
-      <node id="0">
-        <label>ParaScriptingNPL.h</label>
+      <node id="681">
+        <label>ParaScriptBindings/ParaScriptingNPL.h</label>
         <link refid="_para_scripting_n_p_l_8h"/>
-        <childnode refid="1" relation="include">
+        <childnode refid="682" relation="include">
         </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="683" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="685">
         <label>IAttributeFields.h</label>
       </node>
-      <node id="6">
+      <node id="687">
         <label>string</label>
       </node>
-      <node id="5">
+      <node id="686">
         <label>map</label>
       </node>
-      <node id="2">
+      <node id="683">
         <label>ParaScriptingGlobal.h</label>
+        <link refid="_para_scripting_global_8h_source"/>
+        <childnode refid="684" relation="include">
+        </childnode>
+        <childnode refid="685" relation="include">
+        </childnode>
+        <childnode refid="686" relation="include">
+        </childnode>
+        <childnode refid="687" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="684">
         <label>util/LogService.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="class_para_scripting_1_1_para_n_p_l_runtime_state" prot="public">ParaScripting::ParaNPLRuntimeState</innerclass>
     <innerclass refid="class_para_scripting_1_1_c_n_p_l" prot="public">ParaScripting::CNPL</innerclass>
     <innernamespace refid="namespace_para_scripting">ParaScripting</innernamespace>
-    <innernamespace refid="namespaceluabind">luabind</innernamespace>
-    <innernamespace refid="namespacestd">std</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -126,7 +125,7 @@
 <codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>this_(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>funcActivate);</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>this2_(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>funcActivate,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>params);</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ParaAttributeObject<sp/>GetAttributeObject();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref><sp/>GetAttributeObject();</highlight></codeline>
 <codeline lineno="210"><highlight class="normal"></highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>load(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>filePath,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bReload);</highlight></codeline>
@@ -265,6 +264,6 @@
 <codeline lineno="720"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="721"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="ParaScriptingNPL.h"/>
+    <location file="ParaScriptBindings/ParaScriptingNPL.h"/>
   </compounddef>
 </doxygen>

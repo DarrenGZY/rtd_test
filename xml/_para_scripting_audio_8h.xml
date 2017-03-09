@@ -3,14 +3,16 @@
   <compounddef id="_para_scripting_audio_8h" kind="file" language="C++">
     <compoundname>ParaScriptingAudio.h</compoundname>
     <includes local="yes">AudioEngine2.h</includes>
+    <includedby refid="_para_scripting2_8cpp" local="yes">ParaScriptBindings/ParaScripting2.cpp</includedby>
+    <includedby refid="_para_scripting_audio_8cpp" local="yes">ParaScriptBindings/ParaScriptingAudio.cpp</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>ParaScriptingAudio.h</label>
+      <node id="218">
+        <label>ParaScriptBindings/ParaScriptingAudio.h</label>
         <link refid="_para_scripting_audio_8h"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="219" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="219">
         <label>AudioEngine2.h</label>
       </node>
     </incdepgraph>
@@ -226,6 +228,6 @@
 <codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="370"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="ParaScriptingAudio.h"/>
+    <location file="ParaScriptBindings/ParaScriptingAudio.h"/>
   </compounddef>
 </doxygen>

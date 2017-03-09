@@ -4,9 +4,9 @@
     <compoundname>ParaScripting::ParaAudio</compoundname>
     <includes refid="_para_scripting_audio_8h" local="no">ParaScriptingAudio.h</includes>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ac88b9261892ab814fd88e57410a49401" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ab8fc3c0db4ced2de825b64d9c0affad5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAudio::IsAudioEngineEnabled</definition>
+        <definition>bool ParaAudio::IsAudioEngineEnabled</definition>
         <argsstring>()</argsstring>
         <name>IsAudioEngineEnabled</name>
         <briefdescription>
@@ -15,11 +15,11 @@
 <para>-------------<mdash/> Audio Engine Functions -------------<mdash/> get is audio engine enabled </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="240" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="240" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="17" bodyend="20"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a33f1ab3066ed564b8b487af77efa756e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a61b91daa24f1859c3d938ebc77d5a130" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAudio::EnableAudioEngine</definition>
+        <definition>void ParaAudio::EnableAudioEngine</definition>
         <argsstring>(bool bEnable)</argsstring>
         <name>EnableAudioEngine</name>
         <param>
@@ -32,11 +32,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="243" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="243" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="22" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a23db17921bd9d1acc2e06e604f13c77e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a2ec6b9df9d8c9a87bb62d7e543d03bce" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAudio::SetVolume</definition>
+        <definition>void ParaAudio::SetVolume</definition>
         <argsstring>(float fVolume)</argsstring>
         <name>SetVolume</name>
         <param>
@@ -57,11 +57,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="249" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="249" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="27" bodyend="31"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a016c330d5ac8d7c59d75e7e9fe2d1ae2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a1eeaba29f3a760a8ebebff305d733176" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
-        <definition>static float ParaScripting::ParaAudio::GetVolume</definition>
+        <definition>float ParaAudio::GetVolume</definition>
         <argsstring>()</argsstring>
         <name>GetVolume</name>
         <briefdescription>
@@ -71,11 +71,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="254" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="254" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="33" bodyend="36"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a2f76331a35e974f5365003cb9e6bcca7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a1beea112437bfef4984313799d201464" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_audio_source" kindref="compound">ParaAudioSource</ref></type>
-        <definition>static ParaAudioSource ParaScripting::ParaAudio::Create</definition>
+        <definition>ParaAudioSource ParaAudio::Create</definition>
         <argsstring>(const char *sName, const char *sWavePath, bool bStream)</argsstring>
         <name>Create</name>
         <param>
@@ -119,11 +119,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="262" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="262" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="92" bodyend="96"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a16576e54a31ac21e16629f61c79754cf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a89ca6776bd40ed7dbfb8eae62e05886f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_audio_source" kindref="compound">ParaAudioSource</ref></type>
-        <definition>static ParaAudioSource ParaScripting::ParaAudio::Get</definition>
+        <definition>ParaAudioSource ParaAudio::Get</definition>
         <argsstring>(const char *sName)</argsstring>
         <name>Get</name>
         <param>
@@ -133,14 +133,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>get audio source by name. The source should be created by <ref refid="class_para_scripting_1_1_para_audio_1a2f76331a35e974f5365003cb9e6bcca7" kindref="member">Create()</ref> function. </para>        </detaileddescription>
+<para>get audio source by name. The source should be created by <ref refid="class_para_scripting_1_1_para_audio_1a1beea112437bfef4984313799d201464" kindref="member">Create()</ref> function. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="265" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="265" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="98" bodyend="102"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a7705f407eefa6a0d5fe9fc2a567e513f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a2bb6be96e91ee474044a6849594fd492" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_audio_source" kindref="compound">ParaAudioSource</ref></type>
-        <definition>static ParaAudioSource ParaScripting::ParaAudio::CreateGet</definition>
+        <definition>ParaAudioSource ParaAudio::CreateGet</definition>
         <argsstring>(const char *sName, const char *sWavePath, bool bStream)</argsstring>
         <name>CreateGet</name>
         <param>
@@ -184,11 +184,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="273" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="273" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="104" bodyend="108"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a41c2bc842c9bf7dfe253cde02847201b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a37a0550cc447a1e91aa2c3723d0d708d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAudio::SetDistanceModel</definition>
+        <definition>void ParaScripting::ParaAudio::SetDistanceModel</definition>
         <argsstring>(int eDistModel)</argsstring>
         <name>SetDistanceModel</name>
         <param>
@@ -209,11 +209,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="290" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="290" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="110" bodyend="113"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a93453553a53163c50a786851a81d7fe6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ac2039ca5a3ad97ce2cdfd6bc553dcf7d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAudio::PlayWaveFile</definition>
+        <definition>bool ParaAudio::PlayWaveFile</definition>
         <argsstring>(const char *szWavePath, int nLoop)</argsstring>
         <name>PlayWaveFile</name>
         <param>
@@ -245,11 +245,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="303" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="303" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="43" bodyend="62"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a83ae980ec0b334fd9ef7f203790f3bde" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a1ccfbec08ba66c76c7b619c7b4acee1f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAudio::PlayWaveFile1</definition>
+        <definition>bool ParaAudio::PlayWaveFile1</definition>
         <argsstring>(const char *szWavePath)</argsstring>
         <name>PlayWaveFile1</name>
         <param>
@@ -262,11 +262,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="304" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="304" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="64" bodyend="67"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a26c584c9ce69160675af33b769856262" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a80cb13e1675aa2b5d6223c47f8fb15f1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaAudio::PlayMidiMsg</definition>
+        <definition>int ParaScripting::ParaAudio::PlayMidiMsg</definition>
         <argsstring>(DWORD dwMsg)</argsstring>
         <name>PlayMidiMsg</name>
         <param>
@@ -287,11 +287,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="308" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="308" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="38" bodyend="41"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ad1b4f8153ec41f0a2bc968c61002789b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ab354c6112f220983515c8fec32d4c695" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAudio::StopWaveFile</definition>
+        <definition>bool ParaAudio::StopWaveFile</definition>
         <argsstring>(const char *szWavePath, bool bImmediateStop)</argsstring>
         <name>StopWaveFile</name>
         <param>
@@ -323,11 +323,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="317" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="317" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="69" bodyend="76"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ae1a13e7febaf78455d125c0a0a658862" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1a4feaf31faeb8a20f0f22b2ccffa5615a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAudio::StopWaveFile1</definition>
+        <definition>bool ParaAudio::StopWaveFile1</definition>
         <argsstring>(const char *szWavePath)</argsstring>
         <name>StopWaveFile1</name>
         <param>
@@ -340,11 +340,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="318" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="318" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="78" bodyend="81"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1aab26ae81a4e7bfd463e28292d6ec1f87" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_1ac0bd05990fca4cb020d3dcc78bd85b2e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAudio::ReleaseWaveFile</definition>
+        <definition>bool ParaAudio::ReleaseWaveFile</definition>
         <argsstring>(const char *szWavePath)</argsstring>
         <name>ReleaseWaveFile</name>
         <param>
@@ -365,29 +365,29 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="324" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="324" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="83" bodyend="90"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Audio Engine functions </para>    </detaileddescription>
-    <location file="ParaScriptingAudio.h" line="236" column="1" bodyfile="ParaScriptingAudio.h" bodystart="235" bodyend="369"/>
+    <location file="ParaScriptBindings/ParaScriptingAudio.h" line="236" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.h" bodystart="235" bodyend="369"/>
     <listofallmembers>
-      <member refid="class_para_scripting_1_1_para_audio_1a2f76331a35e974f5365003cb9e6bcca7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>Create</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a7705f407eefa6a0d5fe9fc2a567e513f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>CreateGet</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a33f1ab3066ed564b8b487af77efa756e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>EnableAudioEngine</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a16576e54a31ac21e16629f61c79754cf" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>Get</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a016c330d5ac8d7c59d75e7e9fe2d1ae2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>GetVolume</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1ac88b9261892ab814fd88e57410a49401" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>IsAudioEngineEnabled</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a26c584c9ce69160675af33b769856262" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>PlayMidiMsg</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a93453553a53163c50a786851a81d7fe6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>PlayWaveFile</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a83ae980ec0b334fd9ef7f203790f3bde" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>PlayWaveFile1</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1aab26ae81a4e7bfd463e28292d6ec1f87" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>ReleaseWaveFile</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a41c2bc842c9bf7dfe253cde02847201b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>SetDistanceModel</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1a23db17921bd9d1acc2e06e604f13c77e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>SetVolume</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1ad1b4f8153ec41f0a2bc968c61002789b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>StopWaveFile</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_1ae1a13e7febaf78455d125c0a0a658862" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>StopWaveFile1</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a1beea112437bfef4984313799d201464" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>Create</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a2bb6be96e91ee474044a6849594fd492" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>CreateGet</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a61b91daa24f1859c3d938ebc77d5a130" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>EnableAudioEngine</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a89ca6776bd40ed7dbfb8eae62e05886f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>Get</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a1eeaba29f3a760a8ebebff305d733176" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>GetVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1ab8fc3c0db4ced2de825b64d9c0affad5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>IsAudioEngineEnabled</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a80cb13e1675aa2b5d6223c47f8fb15f1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>PlayMidiMsg</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1ac2039ca5a3ad97ce2cdfd6bc553dcf7d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>PlayWaveFile</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a1ccfbec08ba66c76c7b619c7b4acee1f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>PlayWaveFile1</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1ac0bd05990fca4cb020d3dcc78bd85b2e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>ReleaseWaveFile</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a37a0550cc447a1e91aa2c3723d0d708d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>SetDistanceModel</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a2ec6b9df9d8c9a87bb62d7e543d03bce" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>SetVolume</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1ab354c6112f220983515c8fec32d4c695" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>StopWaveFile</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_1a4feaf31faeb8a20f0f22b2ccffa5615a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudio</scope><name>StopWaveFile1</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

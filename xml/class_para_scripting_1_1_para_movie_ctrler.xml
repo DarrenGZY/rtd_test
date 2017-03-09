@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="35" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="35" bodyend="-1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="35" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
 <para>check if the object is valid </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="40" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="40" bodyend="40"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="40" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="40" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1afd961a6584b569242c2149d640cf03df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="42" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="42" bodyend="42"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="42" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="42" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a3dc9d9d886139300a60b21d23185cbdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="43" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="43" bodyend="43"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="43" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="43" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1ad2fe37482f1d453a005768829e12cf52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="44" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="44" bodyend="44"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="44" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="44" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1aa38ba360ab8e5c4cf04393211f5e5639" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -98,7 +98,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="58" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="58" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="125" bodyend="153"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a72961a284e49ac39fbc00d3f47d0a15f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -123,7 +123,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="62" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="62" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="119" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a2aee13004a62298a9a9349fad1eb5345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -136,7 +136,7 @@
 <para>suspend the movie </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="64" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="64" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="58" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a3b941ab34372107c57b397c76486e56d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -149,7 +149,7 @@
 <para>resume the movie </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="66" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="66" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="63" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a229c95383274cef9ca617c4bd24f5474" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -162,7 +162,7 @@
 <para>play the movie </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="68" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="68" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="68" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a56ff5274c7aa4c66de5296fa20654f26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -175,7 +175,7 @@
 <para>record the movie from its current position. all movies behind will be erased. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="72" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="72" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="73" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1ab7ab55c66aa965f127f1fe76b71ccc4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -192,7 +192,7 @@
 <para>add a new dialog record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="75" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="75" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="79" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a50a655cbec96fe4d759802c0cbea56fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -209,7 +209,7 @@
 <para>add a new action record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="77" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="77" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="84" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a5311da1c3fd1da991426a4416e252f0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -230,7 +230,7 @@
 <para>add a new action record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="79" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="79" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="90" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a669b41f65a31196eafdf9b5182bace74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -251,7 +251,7 @@
 <para>add a new effect record to the current time. All trailing dialog will be removed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="81" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="81" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="97" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a4b3de9e250ecbc9393b42ea5d43c9915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -276,7 +276,7 @@
 <para>get the offset position of the movie. All movie&apos;s position key are relative to it. if there is no position key, 0,0,0 is returned e.g. x,y,z = movieCtrler:<ref refid="class_para_scripting_1_1_para_movie_ctrler_1a4b3de9e250ecbc9393b42ea5d43c9915" kindref="member">GetOffsetPosition()</ref>; </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="87" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="87" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="102" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1adce0458cb748602a8b15f06740e819d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -301,7 +301,7 @@
 <para>set the offset position of the movie. All movie&apos;s position key are relative to it. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="89" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="89" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="113" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1a740456a571197fc228942f11c200a455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -326,7 +326,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="94" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="94" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="46" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_movie_ctrler_1aa87414035ab875420a7a6f19e007ce9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -351,14 +351,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="98" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="52" bodyend="56"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para><ref refid="class_para_scripting_1_1_para_movie_ctrler" kindref="compound">ParaMovieCtrler</ref> object: it is used to control time based movie of character object. </para>    </detaileddescription>
-    <location file="ParaScriptingCharacter.h" line="33" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="32" bodyend="99"/>
+    <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="33" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="32" bodyend="99"/>
     <listofallmembers>
       <member refid="class_para_scripting_1_1_para_movie_ctrler_1a4b3de9e250ecbc9393b42ea5d43c9915" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>GetOffsetPosition</name></member>
       <member refid="class_para_scripting_1_1_para_movie_ctrler_1aa38ba360ab8e5c4cf04393211f5e5639" prot="public" virt="non-virtual"><scope>ParaScripting::ParaMovieCtrler</scope><name>GetTime</name></member>

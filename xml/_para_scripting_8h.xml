@@ -3,14 +3,17 @@
   <compounddef id="_para_scripting_8h" kind="file" language="C++">
     <compoundname>ParaScripting.h</compoundname>
     <includes local="yes">NPLScriptingState.h</includes>
+    <includedby refid="_para_scripting2_8cpp" local="yes">ParaScriptBindings/ParaScripting2.cpp</includedby>
+    <includedby refid="_para_scripting3_8cpp" local="yes">ParaScriptBindings/ParaScripting3.cpp</includedby>
+    <includedby refid="_para_scripting5_8cpp" local="yes">ParaScriptBindings/ParaScripting5.cpp</includedby>
     <incdepgraph>
-      <node id="1">
+      <node id="50">
         <label>NPLScriptingState.h</label>
       </node>
-      <node id="0">
-        <label>ParaScripting.h</label>
+      <node id="49">
+        <label>ParaScriptBindings/ParaScripting.h</label>
         <link refid="_para_scripting_8h"/>
-        <childnode refid="1" relation="include">
+        <childnode refid="50" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -30,6 +33,6 @@
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_para_scripting" kindref="compound">ParaScripting</ref>;</highlight></codeline>
     </programlisting>
-    <location file="ParaScripting.h"/>
+    <location file="ParaScriptBindings/ParaScripting.h"/>
   </compounddef>
 </doxygen>

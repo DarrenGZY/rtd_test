@@ -4,9 +4,9 @@
     <compoundname>ParaScripting::ParaAsset</compoundname>
     <includes refid="_para_scripting_common_8h" local="no">ParaScriptingCommon.h</includes>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a8a331200f7a2857082f93632b63d908a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a617c8a26eaa8c72f5e944550106d6d18" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAsset::OpenArchive</definition>
+        <definition>bool ParaAsset::OpenArchive</definition>
         <argsstring>(const char *strFileName)</argsstring>
         <name>OpenArchive</name>
         <param>
@@ -27,11 +27,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="331" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="331" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="602" bodyend="608"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a1c1ec704d48b30ad102d2aa9f8b4b890" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a72e0b41c153bf56864275c2c4a67b4f3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAsset::GeneratePkgFile</definition>
+        <definition>bool ParaAsset::GeneratePkgFile</definition>
         <argsstring>(const char *srcZip, const char *destPkg)</argsstring>
         <name>GeneratePkgFile</name>
         <param>
@@ -64,11 +64,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="341" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="341" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="610" bodyend="642"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a9dde90efd24336a423eb5630543bdfbc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ad491b0aade4b60ca5ea11f548ba88f22" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAsset::OpenArchive2</definition>
+        <definition>bool ParaAsset::OpenArchive2</definition>
         <argsstring>(const char *strFileName, bool bUseRelativePath)</argsstring>
         <name>OpenArchive2</name>
         <param>
@@ -100,11 +100,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="349" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="349" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="644" bodyend="650"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a6bfdbebcba55681040409d4051851208" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a76ef47e692ffb046abcfbbf36f895f76" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAsset::OpenArchiveEx</definition>
+        <definition>bool ParaAsset::OpenArchiveEx</definition>
         <argsstring>(const char *strFileName, const char *sRootDir)</argsstring>
         <name>OpenArchiveEx</name>
         <param>
@@ -136,11 +136,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="356" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="356" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="652" bodyend="658"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a341dd383dc2e4306b0f64ac3660b23b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a1d264bcbab23ed118ac1f64b12e1c2dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::CloseArchive</definition>
+        <definition>void ParaAsset::CloseArchive</definition>
         <argsstring>(const string &amp;path)</argsstring>
         <name>CloseArchive</name>
         <param>
@@ -153,11 +153,11 @@
 <para>close an archive. When done with an archive, one should always close it. Too many opened archives will compromise the IO performances. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="360" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="360" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="659" bodyend="662"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ae591588f7fa250869e48d43502e8b18a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ae79ade032fd3ba9771924d241f5cfbc2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
-        <definition>static const char* ParaScripting::ParaAsset::GetAssetServerUrl</definition>
+        <definition>const char * ParaAsset::GetAssetServerUrl</definition>
         <argsstring>()</argsstring>
         <name>GetAssetServerUrl</name>
         <briefdescription>
@@ -166,11 +166,11 @@
 <para>when an asset is not found, we will try to find it via this url. e.g. if asset is &quot;model/test.dds&quot;, and asset url is &quot;http://asset.paraengine.com/&quot;, then we will fetch the asset via &quot;http://asset.paraengine.com/model/test.dds&quot; if the asset path is &quot;&quot;, asset server will be disabled. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="366" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="366" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="876" bodyend="879"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a859412d86a5fbb37fd63c87f6252f386" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a5f22926d97e07fb9f8f056b075bda276" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::SetAssetServerUrl</definition>
+        <definition>void ParaAsset::SetAssetServerUrl</definition>
         <argsstring>(const char *path)</argsstring>
         <name>SetAssetServerUrl</name>
         <param>
@@ -191,25 +191,25 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="373" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="373" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="881" bodyend="884"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ab6a79ce37061b794c6dff37cea257803" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a2e81a0a87a103e8cc444ba32625bd0de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::GarbageCollect</definition>
+        <definition>void ParaAsset::GarbageCollect</definition>
         <argsstring>()</argsstring>
         <name>GarbageCollect</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Garbage Collect all assets according to reference count. If the reference count is not maintained well by the user, this function is not effective as <ref refid="class_para_scripting_1_1_para_asset_1a0751177f9be1c59d63288bae0a648bfe" kindref="member">UnloadAll()</ref>. <simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_asset_1a0751177f9be1c59d63288bae0a648bfe" kindref="member">UnloadAll()</ref>. </para></simplesect>
+<para>Garbage Collect all assets according to reference count. If the reference count is not maintained well by the user, this function is not effective as <ref refid="class_para_scripting_1_1_para_asset_1a645ec4fd3611f559f989567b875a296a" kindref="member">UnloadAll()</ref>. <simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_asset_1a645ec4fd3611f559f989567b875a296a" kindref="member">UnloadAll()</ref>. </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="377" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="377" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="692" bodyend="695"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::Unload</definition>
+        <definition>void ParaAsset::Unload</definition>
         <argsstring>(const char *assettype)</argsstring>
         <name>Unload</name>
         <param>
@@ -229,31 +229,31 @@
 </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_asset_1a0751177f9be1c59d63288bae0a648bfe" kindref="member">UnloadAll()</ref><itemizedlist>
-<listitem><para>&quot;ParaX&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" kindref="member">Unload</ref> all ParaX models</para></listitem><listitem><para>&quot;StaticMesh&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" kindref="member">Unload</ref> all StaticMesh models</para></listitem><listitem><para>&quot;Texture&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" kindref="member">Unload</ref> all Texture</para></listitem><listitem><para>&quot;Sound&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" kindref="member">Unload</ref> all Sound</para></listitem><listitem><para>&quot;Font&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" kindref="member">Unload</ref> all Font TODO: currently only &quot;*&quot; is supported. </para></listitem></itemizedlist>
+<simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_asset_1a645ec4fd3611f559f989567b875a296a" kindref="member">UnloadAll()</ref><itemizedlist>
+<listitem><para>&quot;ParaX&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" kindref="member">Unload</ref> all ParaX models</para></listitem><listitem><para>&quot;StaticMesh&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" kindref="member">Unload</ref> all StaticMesh models</para></listitem><listitem><para>&quot;Texture&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" kindref="member">Unload</ref> all Texture</para></listitem><listitem><para>&quot;Sound&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" kindref="member">Unload</ref> all Sound</para></listitem><listitem><para>&quot;Font&quot;: <ref refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" kindref="member">Unload</ref> all Font TODO: currently only &quot;*&quot; is supported. </para></listitem></itemizedlist>
 </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="389" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="389" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="673" bodyend="681"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a0751177f9be1c59d63288bae0a648bfe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a645ec4fd3611f559f989567b875a296a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::UnloadAll</definition>
+        <definition>void ParaAsset::UnloadAll</definition>
         <argsstring>()</argsstring>
         <name>UnloadAll</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>unload all assets. once an unloaded asset is used again, its device resource will be reinitialized. <simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" kindref="member">Unload()</ref> </para></simplesect>
+<para>unload all assets. once an unloaded asset is used again, its device resource will be reinitialized. <simplesect kind="see"><para><ref refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" kindref="member">Unload()</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="392" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="392" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="688" bodyend="691"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a82bbbf77bcec2899118424809970fc36" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1afefbdb611615b6346561485e91fd11a2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::UnloadDatabase</definition>
+        <definition>void ParaAsset::UnloadDatabase</definition>
         <argsstring>()</argsstring>
         <name>UnloadDatabase</name>
         <briefdescription>
@@ -262,11 +262,11 @@
 <para>unload all databases. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="395" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="395" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="683" bodyend="686"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a6383295c00d25fb00302d43f860a0b5c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ad625d3e477d4c18685e6003b0fb4976e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::Init</definition>
+        <definition>void ParaAsset::Init</definition>
         <argsstring>()</argsstring>
         <name>Init</name>
         <briefdescription>
@@ -274,12 +274,12 @@
         <detaileddescription>
 <para>initialize all objects that have not been created yet NOTE: always call this function at least once when finished creating a batch of assets assets created using any of the functions in this namespace can not be used until this function is called. </para>        </detaileddescription>
         <inbodydescription>
-        </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="403" column="1"/>
+<para>you can call &quot;init&quot; as many times as you like. Asset Manager guaranteed that if a object is valid, it will not be reinitialied</para><para>we needs to call RestoreDeviceObjects() to initialize device dependence object like the local mesh in the Mesh entity. </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="403" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="664" bodyend="672"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1afe82c0906b0824f3f16f7ff47f19ccb7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1aa7520d44dc3cce19da928887524281b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadEffectFile</definition>
+        <definition>ParaScripting::ParaAssetObject ParaAsset::LoadEffectFile</definition>
         <argsstring>(const char *strAssetName, const char *strFilePath)</argsstring>
         <name>LoadEffectFile</name>
         <param>
@@ -296,11 +296,11 @@
 <para>Load effect file from a text or compiled HLSL file. It will return the old effect if effect is already loaded before. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="408" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="408" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="832" bodyend="843"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ac0b24e8421ff42b82f6597b9f89d35f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a21a6e728b570262e4220ff3885f5152e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::GetEffectFile</definition>
+        <definition>ParaScripting::ParaAssetObject ParaAsset::GetEffectFile</definition>
         <argsstring>(const char *strAssetName)</argsstring>
         <name>GetEffectFile</name>
         <param>
@@ -313,11 +313,11 @@
 <para>load an effect file by its name. it will return an invalid effect if the effect is not found. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="413" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="413" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="845" bodyend="853"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a3658653eaff2f31a92a935d43117b86a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1abd2af1e6d2a5414ab1a9f8f4952543d3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadParaX</definition>
+        <definition>ParaAssetObject ParaAsset::LoadParaX</definition>
         <argsstring>(const char *strAssetName, const char *strFilePath)</argsstring>
         <name>LoadParaX</name>
         <param>
@@ -334,11 +334,11 @@
 <para>Load ParaX model asset, ParaX model file contains mesh, skeletal animation, etc. Currently ParaX and mdx file format is supported, please refer to ParaX file document for creating ParaX file based multianimation asset. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="420" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="420" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="697" bodyend="708"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1af0bd42e0a3d7cc49ec1efdb748ea80e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a4a40c725eb540ddc69608e2a584a88b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadDatabase</definition>
+        <definition>ParaScripting::ParaAssetObject ParaAsset::LoadDatabase</definition>
         <argsstring>(const char *strAssetName, const char *strFilePath)</argsstring>
         <name>LoadDatabase</name>
         <param>
@@ -355,11 +355,11 @@
 <para>Load Database asset. it must be sqlite database at the moment. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="425" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="425" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="800" bodyend="804"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a525479eac76264bd1e3a9fc6014561f9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ab7ce028375ab020e16d8b37cc2a85376" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadStaticMesh</definition>
+        <definition>ParaAssetObject ParaAsset::LoadStaticMesh</definition>
         <argsstring>(const char *strAssetName, const char *strFilePath)</argsstring>
         <name>LoadStaticMesh</name>
         <param>
@@ -376,11 +376,11 @@
 <para>Load a X file based static mesh object. If any side of the mesh&apos;s bounding box is longer than 50 meters(units) and that the triangle count is over 1500, Octree will be used to sort its triangle lists, otherwise no culling optimization will be used when rendering the mesh. Static mesh is suitable for rendering small repeated object such as stones, trees, or large object such as level mesh. another usage is that it can be used as physical data to be fed to the physics engine, in which case simple and convex geometry should be used as much as possible. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="436" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="436" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="710" bodyend="739"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a9b4e48656a47a072316ea018815ac8b1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ab1f148feddf4a43b27d3a00847b403b3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadTexture</definition>
+        <definition>ParaAssetObject ParaAsset::LoadTexture</definition>
         <argsstring>(const char *strAssetName, const char *strFilePath, int nSurfaceType)</argsstring>
         <name>LoadTexture</name>
         <param>
@@ -425,11 +425,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="466" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="466" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="740" bodyend="754"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a03a2b452cf679228edea143ee6a6f8f5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1aa51b2627ecb0dd918bb3010f29f24a13" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadRenderTarget</definition>
+        <definition>ParaScripting::ParaAssetObject ParaAsset::LoadRenderTarget</definition>
         <argsstring>(const char *strAssetName, int width, int height)</argsstring>
         <name>LoadRenderTarget</name>
         <param>
@@ -450,11 +450,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="467" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="467" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="757" bodyend="773"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a1e286eed189680897178a357600b8aae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a997b70f814b890c284ec6c28113b5f5d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadSpriteFrame</definition>
+        <definition>ParaAssetObject ParaAsset::LoadSpriteFrame</definition>
         <argsstring>(const char *strAssetName, int nFrames, int nRow, int nCol)</argsstring>
         <name>LoadSpriteFrame</name>
         <param>
@@ -501,11 +501,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="475" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="475" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="775" bodyend="783"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a712f71eb6653e830092aab60d94630dd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a06398510a7ee75dcbef0be4920363fb9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadFont</definition>
+        <definition>ParaAssetObject ParaAsset::LoadFont</definition>
         <argsstring>(const char *strAssetName, const char *FontName, int nFontSize)</argsstring>
         <name>LoadFont</name>
         <param>
@@ -534,11 +534,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="480" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="480" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="784" bodyend="788"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1abd94b6168266be20d056e48cc488b5d5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1aae393441010f77173a662a5c7ad909fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadImageFont</definition>
+        <definition>ParaAssetObject ParaAsset::LoadImageFont</definition>
         <argsstring>(const char *strAssetName, const char *TextureName, int nSize, int nTxtColumns)</argsstring>
         <name>LoadImageFont</name>
         <param>
@@ -563,11 +563,11 @@
 <para>load an image based font, not tested. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="484" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="484" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="789" bodyend="792"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ad8322477d8812b1acbdd7ec86ab1fad4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a774c8a6264c41dd393b955bb8e618646" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref></type>
-        <definition>static ParaAssetObject ParaScripting::ParaAsset::LoadSound</definition>
+        <definition>ParaAssetObject ParaAsset::LoadSound</definition>
         <argsstring>(const char *strAssetName, const char *strFilePath, bool bInit)</argsstring>
         <name>LoadSound</name>
         <param>
@@ -596,11 +596,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="489" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="489" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="793" bodyend="798"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1afcc28cb56bbef22d8eb4c1a6219df2d7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1af669f6266a26b615f116d971b8c2ffca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaAsset::AddFontName</definition>
+        <definition>void ParaAsset::AddFontName</definition>
         <argsstring>(const string &amp;sLocalName, const string &amp;sTypeFaceName)</argsstring>
         <name>AddFontName</name>
         <param>
@@ -632,11 +632,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="499" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="499" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="871" bodyend="874"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1ab89ff13d9b1fcbbbadb0952ed5511cf9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a5e353cd1db8ae1f2342de22cf97b1b90" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaAsset::GetBoneAnimProviderIDByName</definition>
+        <definition>int ParaAsset::GetBoneAnimProviderIDByName</definition>
         <argsstring>(const char *sName)</argsstring>
         <name>GetBoneAnimProviderIDByName</name>
         <param>
@@ -649,11 +649,11 @@
 <para>Get provider id by name. Name is used when creating the provider instance. It is usually the same as the file path from which animation data is loaded. return -1 if not found </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="512" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="512" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="806" bodyend="809"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a7db3c4fd5352b98cd6cb3edc32161016" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1af05a1e3810c7794a76fd3f9d3eb8d4fb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
-        <definition>static const char* ParaScripting::ParaAsset::GetBoneAnimProviderFileNameByID</definition>
+        <definition>const char * ParaAsset::GetBoneAnimProviderFileNameByID</definition>
         <argsstring>(int nAnimID)</argsstring>
         <name>GetBoneAnimProviderFileNameByID</name>
         <param>
@@ -666,11 +666,11 @@
 <para>get the file name of a given animID. It may return NULL, if animID is invalid or is an internal animation id. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="517" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="517" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="811" bodyend="819"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a1df9e3a95a9935b54d758798f733a140" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a887a8da720bedbf3016f4d346e8dc7c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaAsset::CreateBoneAnimProvider</definition>
+        <definition>int ParaAsset::CreateBoneAnimProvider</definition>
         <argsstring>(int nAnimID, const char *name, const char *filename, bool bOverwrite)</argsstring>
         <name>CreateBoneAnimProvider</name>
         <param>
@@ -725,11 +725,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="528" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="528" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="821" bodyend="825"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1aed0171a66dbe3a37c8b604a3d7f2ce26" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a446e0217129c25da2b4e004c2fb3cc35" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAsset::DeleteBoneAnimProvider</definition>
+        <definition>bool ParaAsset::DeleteBoneAnimProvider</definition>
         <argsstring>(int nAnimID)</argsstring>
         <name>DeleteBoneAnimProvider</name>
         <param>
@@ -743,11 +743,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="533" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="533" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="827" bodyend="830"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a5e3d8c21dc89f273f73b967d66009d67" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1a2f21158554c1be759090178f7a765d7f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaAsset::PrintToFile</definition>
+        <definition>int ParaAsset::PrintToFile</definition>
         <argsstring>(const char *strFileName, DWORD dwSelection)</argsstring>
         <name>PrintToFile</name>
         <param>
@@ -780,11 +780,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="541" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="541" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="855" bodyend="869"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1abd49d466989267d61fca164bc94ad16c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_asset_1acb8f29005912715027e044c13202a6da" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaAsset::Refresh</definition>
+        <definition>bool ParaAsset::Refresh</definition>
         <argsstring>(const char *filename)</argsstring>
         <name>Refresh</name>
         <param>
@@ -794,48 +794,48 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>refresh asset if it is already loaded. it will search for all refreshable asset type, such as textures and mesh, etc. if found, it will call the <ref refid="class_para_scripting_1_1_para_asset_1abd49d466989267d61fca164bc94ad16c" kindref="member">Refresh()</ref> method on the asset entity and return true, or return false. </para>        </detaileddescription>
+<para>refresh asset if it is already loaded. it will search for all refreshable asset type, such as textures and mesh, etc. if found, it will call the <ref refid="class_para_scripting_1_1_para_asset_1acb8f29005912715027e044c13202a6da" kindref="member">Refresh()</ref> method on the asset entity and return true, or return false. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="546" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="546" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="886" bodyend="889"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="class_para_scripting_1_1_para_asset" kindref="compound">ParaAsset</ref> namespace contains a list of HAPI functions to manage resources(asset) used in game world composing, such as 3d models, textures, animations, sound, etc. Resources are used to create scene objects. assets of the same type must have different names. Assets must be initialized before they can be used, and this should be manually done in scripts by calling <ref refid="class_para_scripting_1_1_para_asset_1a6383295c00d25fb00302d43f860a0b5c" kindref="member">Init()</ref>. </para>    </detaileddescription>
-    <location file="ParaScriptingCommon.h" line="323" column="1" bodyfile="ParaScriptingCommon.h" bodystart="322" bodyend="547"/>
+<para><ref refid="class_para_scripting_1_1_para_asset" kindref="compound">ParaAsset</ref> namespace contains a list of HAPI functions to manage resources(asset) used in game world composing, such as 3d models, textures, animations, sound, etc. Resources are used to create scene objects. assets of the same type must have different names. Assets must be initialized before they can be used, and this should be manually done in scripts by calling <ref refid="class_para_scripting_1_1_para_asset_1ad625d3e477d4c18685e6003b0fb4976e" kindref="member">Init()</ref>. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingCommon.h" line="323" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.h" bodystart="322" bodyend="547"/>
     <listofallmembers>
-      <member refid="class_para_scripting_1_1_para_asset_1afcc28cb56bbef22d8eb4c1a6219df2d7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>AddFontName</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a341dd383dc2e4306b0f64ac3660b23b7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>CloseArchive</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a1df9e3a95a9935b54d758798f733a140" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>CreateBoneAnimProvider</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1aed0171a66dbe3a37c8b604a3d7f2ce26" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>DeleteBoneAnimProvider</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1ab6a79ce37061b794c6dff37cea257803" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GarbageCollect</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a1c1ec704d48b30ad102d2aa9f8b4b890" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GeneratePkgFile</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1ae591588f7fa250869e48d43502e8b18a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetAssetServerUrl</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a7db3c4fd5352b98cd6cb3edc32161016" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetBoneAnimProviderFileNameByID</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1ab89ff13d9b1fcbbbadb0952ed5511cf9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetBoneAnimProviderIDByName</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1ac0b24e8421ff42b82f6597b9f89d35f2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetEffectFile</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a6383295c00d25fb00302d43f860a0b5c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>Init</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1af0bd42e0a3d7cc49ec1efdb748ea80e4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadDatabase</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1afe82c0906b0824f3f16f7ff47f19ccb7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadEffectFile</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a712f71eb6653e830092aab60d94630dd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadFont</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1abd94b6168266be20d056e48cc488b5d5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadImageFont</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a3658653eaff2f31a92a935d43117b86a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadParaX</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a03a2b452cf679228edea143ee6a6f8f5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadRenderTarget</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1ad8322477d8812b1acbdd7ec86ab1fad4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadSound</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a1e286eed189680897178a357600b8aae" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadSpriteFrame</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a525479eac76264bd1e3a9fc6014561f9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadStaticMesh</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a9b4e48656a47a072316ea018815ac8b1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadTexture</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a8a331200f7a2857082f93632b63d908a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>OpenArchive</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a9dde90efd24336a423eb5630543bdfbc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>OpenArchive2</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a6bfdbebcba55681040409d4051851208" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>OpenArchiveEx</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a5e3d8c21dc89f273f73b967d66009d67" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>PrintToFile</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1abd49d466989267d61fca164bc94ad16c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>Refresh</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a859412d86a5fbb37fd63c87f6252f386" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>SetAssetServerUrl</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a566ccc3b413d0f07df6e60280440fc63" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>Unload</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a0751177f9be1c59d63288bae0a648bfe" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>UnloadAll</name></member>
-      <member refid="class_para_scripting_1_1_para_asset_1a82bbbf77bcec2899118424809970fc36" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>UnloadDatabase</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1af669f6266a26b615f116d971b8c2ffca" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>AddFontName</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a1d264bcbab23ed118ac1f64b12e1c2dc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>CloseArchive</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a887a8da720bedbf3016f4d346e8dc7c5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>CreateBoneAnimProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a446e0217129c25da2b4e004c2fb3cc35" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>DeleteBoneAnimProvider</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a2e81a0a87a103e8cc444ba32625bd0de" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GarbageCollect</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a72e0b41c153bf56864275c2c4a67b4f3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GeneratePkgFile</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1ae79ade032fd3ba9771924d241f5cfbc2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetAssetServerUrl</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1af05a1e3810c7794a76fd3f9d3eb8d4fb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetBoneAnimProviderFileNameByID</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a5e353cd1db8ae1f2342de22cf97b1b90" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetBoneAnimProviderIDByName</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a21a6e728b570262e4220ff3885f5152e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>GetEffectFile</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1ad625d3e477d4c18685e6003b0fb4976e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>Init</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a4a40c725eb540ddc69608e2a584a88b4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadDatabase</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1aa7520d44dc3cce19da928887524281b6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadEffectFile</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a06398510a7ee75dcbef0be4920363fb9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadFont</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1aae393441010f77173a662a5c7ad909fa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadImageFont</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1abd2af1e6d2a5414ab1a9f8f4952543d3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadParaX</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1aa51b2627ecb0dd918bb3010f29f24a13" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadRenderTarget</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a774c8a6264c41dd393b955bb8e618646" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadSound</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a997b70f814b890c284ec6c28113b5f5d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadSpriteFrame</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1ab7ce028375ab020e16d8b37cc2a85376" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadStaticMesh</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1ab1f148feddf4a43b27d3a00847b403b3" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>LoadTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a617c8a26eaa8c72f5e944550106d6d18" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>OpenArchive</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1ad491b0aade4b60ca5ea11f548ba88f22" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>OpenArchive2</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a76ef47e692ffb046abcfbbf36f895f76" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>OpenArchiveEx</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a2f21158554c1be759090178f7a765d7f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>PrintToFile</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1acb8f29005912715027e044c13202a6da" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>Refresh</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a5f22926d97e07fb9f8f056b075bda276" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>SetAssetServerUrl</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a02aa0c1c1860227cb708b84b3fd8afb9" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>Unload</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1a645ec4fd3611f559f989567b875a296a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>UnloadAll</name></member>
+      <member refid="class_para_scripting_1_1_para_asset_1afefbdb611615b6346561485e91fd11a2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAsset</scope><name>UnloadDatabase</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

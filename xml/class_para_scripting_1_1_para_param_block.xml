@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="40" column="1" bodyfile="ParaScriptingCommon.h" bodystart="40" bodyend="-1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="40" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="41" column="1" bodyfile="ParaScriptingCommon.h" bodystart="41" bodyend="41"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="41" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.h" bodystart="41" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a119af53af806a5e8fc7ecbd6481a8d2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="42" column="1" bodyfile="ParaScriptingCommon.h" bodystart="42" bodyend="42"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="42" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.h" bodystart="42" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a3085c641d0e64c9cf3ea90f8eb6fcf8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -60,7 +60,7 @@
 <para>check if the object is valid </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="47" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="47" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="464" bodyend="467"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1ad31f5cccc5a9984db5ceb9610b4a4ac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -73,7 +73,7 @@
 <para>clear all parameters </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="50" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="50" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="469" bodyend="475"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1ad03ab1d38c5499c7f7f63c3007b25d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="52" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="52" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="477" bodyend="483"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1ab5efe2b74c52bf0f4a50b95322363eb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="53" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="53" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="485" bodyend="491"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1aca40ac5ea6d6194af3f2162188519e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="54" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="54" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="493" bodyend="499"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a0dbc6ea6c1671fbdfaf4d54d46be7dd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="55" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="55" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="501" bodyend="507"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1af002663cd14efddfded7572c9bb777d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -190,7 +190,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="56" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="56" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="509" bodyend="515"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a56fd668e1c122c962953b6beb0c3b817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="57" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="57" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="517" bodyend="523"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a1a95e0ac9571771a64044bbf4f88b9c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -245,7 +245,7 @@
 &quot;mat._11, mat._12, mat._13, mat._21, mat._22, mat._23,mat._31, mat._32, mat._33,mat._41, mat._42, mat._43&quot; If a blank string(&quot;&quot;) is specified, identity matrix is set </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="63" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="63" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="525" bodyend="544"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a041ce4aee55e4409f501c424d32e0b0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -274,7 +274,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="67" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="67" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="546" bodyend="552"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a9b2596aef249b37539d8b951fea39699" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -310,7 +310,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="74" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="74" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="554" bodyend="570"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1aaf0a7ce8f2a777061ca13a813282c348" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -331,7 +331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="75" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="75" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="572" bodyend="579"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_param_block_1a962e032c08f6f4cc267cbe2c3bbd2ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -352,14 +352,14 @@
 <para>same as SetTexture, except that <ref refid="class_para_scripting_1_1_para_asset_object" kindref="compound">ParaAssetObject</ref> is an object. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCommon.h" line="78" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCommon.h" line="78" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.cpp" bodystart="581" bodyend="593"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>a list of CParameter{name, value} pairs of anything. usually used for DirectX effect parameter block. value can be integer, float, vector3, vector4, matrix, TextureEntity, etc. </para>    </detaileddescription>
-    <location file="ParaScriptingCommon.h" line="38" column="1" bodyfile="ParaScriptingCommon.h" bodystart="37" bodyend="79"/>
+    <location file="ParaScriptBindings/ParaScriptingCommon.h" line="38" column="1" bodyfile="ParaScriptBindings/ParaScriptingCommon.h" bodystart="37" bodyend="79"/>
     <listofallmembers>
       <member refid="class_para_scripting_1_1_para_param_block_1ad31f5cccc5a9984db5ceb9610b4a4ac8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaParamBlock</scope><name>Clear</name></member>
       <member refid="class_para_scripting_1_1_para_param_block_1a3085c641d0e64c9cf3ea90f8eb6fcf8e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaParamBlock</scope><name>IsValid</name></member>

@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="ParaScriptingAudio.h" line="9" column="1"/>
+    <location file="ParaScriptBindings/ParaScriptingAudio.h" line="9" column="1"/>
   </compounddef>
 </doxygen>

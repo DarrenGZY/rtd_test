@@ -2,39 +2,39 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="_para_scripting_block_world_8h" kind="file" language="C++">
     <compoundname>ParaScriptingBlockWorld.h</compoundname>
-    <includes local="yes">ParaScriptingGlobal.h</includes>
-    <includes local="yes">util/LogService.h</includes>
-    <includes local="yes">IAttributeFields.h</includes>
-    <includes local="no">map</includes>
-    <includes local="no">string</includes>
+    <includes refid="_para_scripting_global_8h" local="yes">ParaScriptingGlobal.h</includes>
+    <includedby refid="_para_scripting4_8cpp" local="yes">ParaScriptBindings/ParaScripting4.cpp</includedby>
+    <includedby refid="_para_scripting_block_world_8cpp" local="yes">ParaScriptBindings/ParaScriptingBlockWorld.cpp</includedby>
+    <includedby refid="_para_scripting_terrain_8cpp" local="yes">ParaScriptBindings/ParaScriptingTerrain.cpp</includedby>
     <incdepgraph>
-      <node id="9">
+      <node id="266">
         <label>IAttributeFields.h</label>
       </node>
-      <node id="11">
+      <node id="268">
         <label>string</label>
       </node>
-      <node id="10">
+      <node id="267">
         <label>map</label>
       </node>
-      <node id="7">
+      <node id="264">
         <label>ParaScriptingGlobal.h</label>
+        <link refid="_para_scripting_global_8h_source"/>
+        <childnode refid="265" relation="include">
+        </childnode>
+        <childnode refid="266" relation="include">
+        </childnode>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
       </node>
-      <node id="8">
+      <node id="265">
         <label>util/LogService.h</label>
       </node>
-      <node id="6">
-        <label>ParaScriptingBlockWorld.h</label>
+      <node id="263">
+        <label>ParaScriptBindings/ParaScriptingBlockWorld.h</label>
         <link refid="_para_scripting_block_world_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="264" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -88,7 +88,7 @@
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetVersion(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>pWorld);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ParaAttributeObject<sp/>GetBlockAttributeObject(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>pWorld);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref><sp/>GetBlockAttributeObject(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>pWorld);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>RegisterBlockTemplate(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>pWorld,<sp/>uint16_t<sp/>templateId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">&amp;<sp/>params);</highlight></codeline>
@@ -147,6 +147,6 @@
 <codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="189"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="ParaScriptingBlockWorld.h"/>
+    <location file="ParaScriptBindings/ParaScriptingBlockWorld.h"/>
   </compounddef>
 </doxygen>

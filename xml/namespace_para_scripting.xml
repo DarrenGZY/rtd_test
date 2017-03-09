@@ -2,20 +2,368 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespace_para_scripting" kind="namespace" language="C++">
     <compoundname>ParaScripting</compoundname>
+    <innerclass refid="class_para_scripting_1_1_c_asset_script_callback_data" prot="public">ParaScripting::CAssetScriptCallbackData</innerclass>
+    <innerclass refid="class_para_scripting_1_1_c_n_p_l" prot="public">ParaScripting::CNPL</innerclass>
+    <innerclass refid="class_para_scripting_1_1_c_para_engine" prot="public">ParaScripting::CParaEngine</innerclass>
+    <innerclass refid="struct_para_scripting_1_1_c_string_compare" prot="public">ParaScripting::CStringCompare</innerclass>
+    <innerclass refid="struct_para_scripting_1_1_file_system_watcher___n_p_l_callback" prot="public">ParaScripting::FileSystemWatcher_NPLCallback</innerclass>
+    <innerclass refid="struct_para_scripting_1_1lua__func__entry" prot="public">ParaScripting::lua_func_entry</innerclass>
+    <innerclass refid="struct_para_scripting_1_1lua__vale__entry" prot="public">ParaScripting::lua_vale_entry</innerclass>
+    <innerclass refid="struct_para_scripting_1_1_n_p_l___get_nids_array___iterator" prot="public">ParaScripting::NPL_GetNidsArray_Iterator</innerclass>
+    <innerclass refid="struct_para_scripting_1_1_n_p_l___get_nids_str___iterator" prot="public">ParaScripting::NPL_GetNidsStr_Iterator</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_asset" prot="public">ParaScripting::ParaAsset</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_asset_object" prot="public">ParaScripting::ParaAssetObject</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_attribute_object" prot="public">ParaScripting::ParaAttributeObject</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_audio" prot="public">ParaScripting::ParaAudio</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_audio_source" prot="public">ParaScripting::ParaAudioSource</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_block_world" prot="public">ParaScripting::ParaBlockWorld</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_boot_strapper" prot="public">ParaScripting::ParaBootStrapper</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_browser_manager" prot="public">ParaScripting::ParaBrowserManager</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_camera" prot="public">ParaScripting::ParaCamera</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_character" prot="public">ParaScripting::ParaCharacter</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_config" prot="public">ParaScripting::ParaConfig</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_data_provider" prot="public">ParaScripting::ParaDataProvider</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_face_tracking_ctrler" prot="public">ParaScripting::ParaFaceTrackingCtrler</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_file_object" prot="public">ParaScripting::ParaFileObject</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_file_system_watcher" prot="public">ParaScripting::ParaFileSystemWatcher</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_global" prot="public">ParaScripting::ParaGlobal</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_h_t_m_l_browser" prot="public">ParaScripting::ParaHTMLBrowser</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_i_o" prot="public">ParaScripting::ParaIO</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_mini_scene_graph" prot="public">ParaScripting::ParaMiniSceneGraph</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_misc" prot="public">ParaScripting::ParaMisc</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_movie" prot="public">ParaScripting::ParaMovie</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_movie_ctrler" prot="public">ParaScripting::ParaMovieCtrler</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_network" prot="public">ParaScripting::ParaNetwork</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_n_p_l_runtime_state" prot="public">ParaScripting::ParaNPLRuntimeState</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_object" prot="public">ParaScripting::ParaObject</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_object_node" prot="public">ParaScripting::ParaObjectNode</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_painter" prot="public">ParaScripting::ParaPainter</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_param_block" prot="public">ParaScripting::ParaParamBlock</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_scene" prot="public">ParaScripting::ParaScene</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_search_result" prot="public">ParaScripting::ParaSearchResult</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_selection" prot="public">ParaScripting::ParaSelection</innerclass>
     <innerclass refid="class_para_scripting_1_1_para_seq_ctrler" prot="public">ParaScripting::ParaSeqCtrler</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_service_logger" prot="public">ParaScripting::ParaServiceLogger</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_terrain" prot="public">ParaScripting::ParaTerrain</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_u_i" prot="public">ParaScripting::ParaUI</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_u_i_font" prot="public">ParaScripting::ParaUIFont</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_u_i_object" prot="public">ParaScripting::ParaUIObject</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_u_i_texture" prot="public">ParaScripting::ParaUITexture</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_world" prot="public">ParaScripting::ParaWorld</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_x_m_l" prot="public">ParaScripting::ParaXML</innerclass>
+    <innerclass refid="class_para_scripting_1_1_para_zip_writer" prot="public">ParaScripting::ParaZipWriter</innerclass>
+    <innerclass refid="class_para_scripting_1_1_stack_object_ptr" prot="public">ParaScripting::StackObjectPtr</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespace_para_scripting_1a880589157b180c6ab84d54c0f0ce6730" prot="public" static="no">
+        <type>pair&lt; const char *, <ref refid="class_para_scripting_1_1_para_object_node" kindref="compound">ParaObjectNode</ref> &gt;</type>
+        <definition>typedef pair&lt;const char *, ParaObjectNode&gt; ParaScripting::ParaObject_Pair</definition>
+        <argsstring></argsstring>
+        <name>ParaObject_Pair</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="127" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_para_scripting_1a764879dc5153cf65c5cf5715ff313121" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_para_scripting_1_1lua__func__entry" kindref="compound">lua_func_entry</ref></type>
+        <definition>lua_func_entry ParaScripting::luaxml_api_entries[]</definition>
+        <argsstring>[]</argsstring>
+        <name>luaxml_api_entries</name>
+        <initializer>= {
+	{ &quot;LuaXML_ParseFile&quot;,		ParaXML::LuaXML_ParseFile },
+	{ &quot;LuaXML_ParseString&quot;, ParaXML::LuaXML_ParseString },
+	{ 0, 0 }
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="186" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_para_scripting_1a3a038d348065508788a270654e07b783" prot="public" static="no" mutable="no">
+        <type>CParaFile</type>
+        <definition>CParaFile ParaScripting::g_currentIOfile</definition>
+        <argsstring></argsstring>
+        <name>g_currentIOfile</name>
+        <briefdescription>
+<para>the current IO file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="52" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_para_scripting_1a30a78a14bbe724829050be9d89024692" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool ParaScripting::s_bIsWhiteSpaceCollapsed</definition>
+        <argsstring></argsstring>
+        <name>s_bIsWhiteSpaceCollapsed</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="1790" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="1790" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_para_scripting_1a49f88039a7894f165d9df284967b4a1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ParaScripting::NPL_dummy</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>NPL_dummy</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>split registration to save compiling time. void register_part1(class_&lt;X&gt;&amp; x){ x.def(...); } void register_part2(class_&lt;X&gt;&amp; x){ x.def(...); } void register_(lua_State* L){ class_&lt;X&gt; x(&quot;x&quot;); register_part1(x); register_part2(x); module(L) [ x ]; }this function does nothing but count as one instruction in preemptive function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting.cpp" line="56" column="1" bodyfile="ParaScriptBindings/ParaScripting.cpp" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1a2b0b5cab138d83d7b22885e078038d4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::lua_register_funcs_totable</definition>
+        <argsstring>(lua_State *L, lua_func_entry entries[])</argsstring>
+        <name>lua_register_funcs_totable</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_para_scripting_1_1lua__func__entry" kindref="compound">lua_func_entry</ref></type>
+          <declname>entries</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>for registering functions </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="64" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="64" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1a13e7f22e0459fd256b1c7d852576cfeb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ParaScripting::lua_register_values_totable</definition>
+        <argsstring>(lua_State *L, lua_vale_entry entries[])</argsstring>
+        <name>lua_register_values_totable</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_para_scripting_1_1lua__vale__entry" kindref="compound">lua_vale_entry</ref></type>
+          <declname>entries</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>for registering values </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="77" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="77" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1af188788bef838906d22f963c479c1193" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::NPL_Print</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>NPL_Print</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>e.g. print(&quot;Hello ParaEngine %d&quot;, 10); Receives any number of arguments, and prints their values in stdout, using the tostring function to convert them to strings. This function is not intended for formatted output, but only as a quick way to show a value, typically for debugging. For formatted output, use string.format </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="96" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="96" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1a46f59bbadb59d9cd17ad4216db9129a6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::NPL_Format</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>NPL_Format</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this function is the same as string.format, except that it only support d, and s, and f (always printed as %.2f) We do not use sprintf internally, so it runs much faster than string.format which uses sprintf. e.g. a = format(&quot;%s hello %d, %f&quot;, &quot;Hello ParaEngine&quot;,10, 10.1234); </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="125" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="125" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1aa58fb68a2ba1319c89e2f3a5a0540b64" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ParaScripting::luaopen_luaxml</definition>
+        <argsstring>(lua_State *L)</argsstring>
+        <name>luaopen_luaxml</name>
+        <param>
+          <type>lua_State *</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the luaxml api will be returned in a table, usually we can assign this table like this <ref refid="class_para_scripting_1_1_para_x_m_l" kindref="compound">ParaXML</ref> = luaopen_luaxml(); </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScripting5.cpp" line="197" column="1" bodyfile="ParaScriptBindings/ParaScripting5.cpp" bodystart="197" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1abc495f3bcbb13d826e6c807a96ee850a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* ParaScripting::get_pointer</definition>
+        <argsstring>(StackObjectPtr&lt; T &gt; const &amp;pointer)</argsstring>
+        <name>get_pointer</name>
+        <param>
+          <type><ref refid="class_para_scripting_1_1_stack_object_ptr" kindref="compound">StackObjectPtr</ref>&lt; T &gt; const &amp;</type>
+          <declname>pointer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="67" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1a551b063b95fc2b452ef9049b39f15f4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* ParaScripting::get_pointer</definition>
+        <argsstring>(T const &amp;pointer)</argsstring>
+        <name>get_pointer</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>pointer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>this defines a rule, so that every object defined in <ref refid="namespace_para_scripting" kindref="compound">ParaScripting</ref> namespace will be treated as StackObject by luabind. i.e. all objects such as <ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref>, <ref refid="class_para_scripting_1_1_para_u_i_object" kindref="compound">ParaUIObject</ref>, etc are passed by value on the stack, instead of using std::auto_ptr( new ParaObject(p)). if one wants to pass by reference, overwrite this method. <simplesect kind="see"><para>: see make_pointee_instance in luabind/policy.hpp and object_rep.hpp. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingGlobal.h" line="77" column="1" bodyfile="ParaScriptBindings/ParaScriptingGlobal.h" bodystart="77" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1aa649ef32ab1a6db22249f2869b808bca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ParaScripting::FileTimeToDateString</definition>
+        <argsstring>(const FILETIME *pTime)</argsstring>
+        <name>FileTimeToDateString</name>
+        <param>
+          <type>const FILETIME *</type>
+          <declname>pTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingIO.cpp" line="484" column="1" bodyfile="ParaScriptBindings/ParaScriptingIO.cpp" bodystart="484" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1ae904e64f5fa09f62044bbf6c2dcdc19f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ParaScripting::traverse</definition>
+        <argsstring>(const Json::Value &amp;var, const object &amp;outTable, const T &amp;sKey, bool bFirstTable=false)</argsstring>
+        <name>traverse</name>
+        <param>
+          <type>const Json::Value &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>const object &amp;</type>
+          <declname>outTable</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>sKey</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bFirstTable</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingNPL.cpp" line="1011" column="1" bodyfile="ParaScriptBindings/ParaScriptingNPL.cpp" bodystart="1011" bodyend="1094"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1ad95f980d54864a87dc5c7af09d3a22ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OBJECT_FILTER_CALLBACK</type>
+        <definition>OBJECT_FILTER_CALLBACK ParaScripting::GetFilterFuncByName</definition>
+        <argsstring>(const char *sFilterFunc)</argsstring>
+        <name>GetFilterFuncByName</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilterFunc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.cpp" line="87" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="87" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_para_scripting_1a22005d59cfab951409e57bf47856fc3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DWORD</type>
+        <definition>DWORD ParaScripting::GetPhysicsGroupMaskByName</definition>
+        <argsstring>(const char *sFilterFunc)</argsstring>
+        <name>GetPhysicsGroupMaskByName</name>
+        <param>
+          <type>const char *</type>
+          <declname>sFilterFunc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>get the physics group mask by filter name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingScene.cpp" line="142" column="1" bodyfile="ParaScriptBindings/ParaScriptingScene.cpp" bodystart="142" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-    </detaileddescription>
-    <location file="ParaScripting.h" line="6" column="1"/>
+<para>for luabind, The main drawback of this approach is that the compilation time will increase for the file that does the registration, it is therefore recommended that you register everything in the same cpp-file.</para><para><ref refid="namespace_para_scripting" kindref="compound">ParaScripting</ref> contains all classes and functions used for communication between the game engine and scripts. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScripting.cpp" line="39" column="1"/>
   </compounddef>
 </doxygen>

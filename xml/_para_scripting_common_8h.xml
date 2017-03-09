@@ -2,34 +2,113 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="_para_scripting_common_8h" kind="file" language="C++">
     <compoundname>ParaScriptingCommon.h</compoundname>
-    <includes local="yes">ParaScriptingGlobal.h</includes>
+    <includes refid="_para_scripting_global_8h" local="yes">ParaScriptingGlobal.h</includes>
     <includes local="no">string</includes>
-    <includedby refid="_para_scripting_character_8h" local="yes">ParaScriptingCharacter.h</includedby>
+    <includedby refid="_para_scripting_scene_8h" local="yes">ParaScriptBindings/ParaScriptingScene.h</includedby>
+    <includedby refid="_para_scripting_character_8h" local="yes">ParaScriptBindings/ParaScriptingCharacter.h</includedby>
+    <includedby refid="_para_scripting_g_u_i_8h" local="yes">ParaScriptBindings/ParaScriptingGUI.h</includedby>
+    <includedby refid="_para_scripting_painter_8h" local="yes">ParaScriptBindings/ParaScriptingPainter.h</includedby>
+    <includedby refid="_para_scripting3_8cpp" local="yes">ParaScriptBindings/ParaScripting3.cpp</includedby>
+    <includedby refid="_para_scripting_terrain_8h" local="yes">ParaScriptBindings/ParaScriptingTerrain.h</includedby>
+    <includedby refid="_para_scripting_i_o_8h" local="yes">ParaScriptBindings/ParaScriptingIO.h</includedby>
+    <includedby refid="_para_scripting_movie_8h" local="yes">ParaScriptBindings/ParaScriptingMovie.h</includedby>
+    <includedby refid="_para_scripting_common_8cpp" local="yes">ParaScriptBindings/ParaScriptingCommon.cpp</includedby>
+    <includedby refid="_para_scripting_misc_8cpp" local="yes">ParaScriptBindings/ParaScriptingMisc.cpp</includedby>
     <incdepgraph>
-      <node id="21">
+      <node id="363">
+        <label>IAttributeFields.h</label>
+      </node>
+      <node id="365">
         <label>string</label>
       </node>
-      <node id="20">
-        <label>ParaScriptingGlobal.h</label>
+      <node id="364">
+        <label>map</label>
       </node>
-      <node id="19">
-        <label>ParaScriptingCommon.h</label>
-        <link refid="_para_scripting_common_8h"/>
-        <childnode refid="20" relation="include">
+      <node id="361">
+        <label>ParaScriptingGlobal.h</label>
+        <link refid="_para_scripting_global_8h_source"/>
+        <childnode refid="362" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="363" relation="include">
+        </childnode>
+        <childnode refid="364" relation="include">
+        </childnode>
+        <childnode refid="365" relation="include">
+        </childnode>
+      </node>
+      <node id="362">
+        <label>util/LogService.h</label>
+      </node>
+      <node id="360">
+        <label>ParaScriptBindings/ParaScriptingCommon.h</label>
+        <link refid="_para_scripting_common_8h"/>
+        <childnode refid="361" relation="include">
+        </childnode>
+        <childnode refid="365" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="23">
-        <label>ParaScriptingCharacter.h</label>
-        <link refid="_para_scripting_character_8h_source"/>
+      <node id="372">
+        <label>ParaScriptBindings/ParaScriptingPainter.h</label>
+        <link refid="_para_scripting_painter_8h_source"/>
+        <childnode refid="371" relation="include">
+        </childnode>
       </node>
-      <node id="22">
-        <label>ParaScriptingCommon.h</label>
+      <node id="369">
+        <label>ParaScriptBindings/ParaScriptingWorld.h</label>
+        <link refid="_para_scripting_world_8h_source"/>
+      </node>
+      <node id="370">
+        <label>ParaScriptBindings/ParaScriptingCharacter.h</label>
+        <link refid="_para_scripting_character_8h_source"/>
+        <childnode refid="367" relation="include">
+        </childnode>
+      </node>
+      <node id="375">
+        <label>ParaScriptBindings/ParaScriptingMovie.h</label>
+        <link refid="_para_scripting_movie_8h_source"/>
+      </node>
+      <node id="373">
+        <label>ParaScriptBindings/ParaScriptingTerrain.h</label>
+        <link refid="_para_scripting_terrain_8h_source"/>
+      </node>
+      <node id="371">
+        <label>ParaScriptBindings/ParaScriptingGUI.h</label>
+        <link refid="_para_scripting_g_u_i_8h_source"/>
+      </node>
+      <node id="367">
+        <label>ParaScriptBindings/ParaScriptingScene.h</label>
+        <link refid="_para_scripting_scene_8h_source"/>
+        <childnode refid="368" relation="include">
+        </childnode>
+        <childnode refid="369" relation="include">
+        </childnode>
+      </node>
+      <node id="374">
+        <label>ParaScriptBindings/ParaScriptingIO.h</label>
+        <link refid="_para_scripting_i_o_8h_source"/>
+      </node>
+      <node id="368">
+        <label>ParaScriptBindings/ParaScriptingMisc.h</label>
+        <link refid="_para_scripting_misc_8h_source"/>
+      </node>
+      <node id="366">
+        <label>ParaScriptBindings/ParaScriptingCommon.h</label>
         <link refid="_para_scripting_common_8h"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="367" relation="include">
+        </childnode>
+        <childnode refid="370" relation="include">
+        </childnode>
+        <childnode refid="371" relation="include">
+        </childnode>
+        <childnode refid="372" relation="include">
+        </childnode>
+        <childnode refid="373" relation="include">
+        </childnode>
+        <childnode refid="374" relation="include">
+        </childnode>
+        <childnode refid="375" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -150,7 +229,7 @@
 <codeline lineno="198"><highlight class="normal"></highlight></codeline>
 <codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetHandle();</highlight></codeline>
 <codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ParaAttributeObject<sp/>GetAttributeObject();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref><sp/>GetAttributeObject();</highlight></codeline>
 <codeline lineno="205"><highlight class="normal"></highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>effect<sp/>entity<sp/></highlight><highlight class="normal"></highlight></codeline>
@@ -265,6 +344,6 @@
 <codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="548"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="ParaScriptingCommon.h"/>
+    <location file="ParaScriptBindings/ParaScriptingCommon.h"/>
   </compounddef>
 </doxygen>

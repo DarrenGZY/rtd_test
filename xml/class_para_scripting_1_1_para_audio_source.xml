@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="31" column="1" bodyfile="ParaScriptingAudio.h" bodystart="31" bodyend="-1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="31" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="33" column="1" bodyfile="ParaScriptingAudio.h" bodystart="33" bodyend="33"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="33" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.h" bodystart="33" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a4d218b834496aa1e27a669f2a7036c60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="34" column="1" bodyfile="ParaScriptingAudio.h" bodystart="34" bodyend="34"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="34" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.h" bodystart="34" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a5960049c381c153a642bc940ce869348" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -60,7 +60,7 @@
 <para>true if valid </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="37" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="37" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="121" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1abb76b3d5ce45aa0b1c14f29665e280fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -73,7 +73,7 @@
 <para>stop and unload this audio source from memory. It will make the sound source invalid after calling this function. it is good practice to unload unused sound. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="42" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="42" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="127" bodyend="130"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1a322e1e5037730c83c11c23a7662937" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -87,11 +87,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="47" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="47" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="142" bodyend="149"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1acfc1b2116928c21b115f09d3d9d2f95f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a36f15fdba9cf155dbb9495d671a6761a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
-        <definition>const char* ParaScripting::ParaAudioSource::GetName</definition>
+        <definition>const char * ParaScripting::ParaAudioSource::GetName</definition>
         <argsstring>()</argsstring>
         <name>GetName</name>
         <briefdescription>
@@ -100,7 +100,7 @@
 <para>get the source name. (this may not be the file name) </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="50" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="50" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="133" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a389c7372264059a84e2971b2d76f3b39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -126,7 +126,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="56" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="56" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="151" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a74c736fdfcf49dedf92e3bae94afab99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -182,7 +182,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="64" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="64" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="160" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a59b632010958754d8366c8edaf8cba63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -195,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="67" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="67" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="169" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af9295bbf785b2ecb03aa4f4c853eed96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -208,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="70" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="70" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="177" bodyend="183"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ae18cbc3488cc4189e8d2f27f0baf6c50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -233,7 +233,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="74" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="74" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="185" bodyend="191"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a0a7a751a99dd6d8cee2f7c40aac8e93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -270,7 +270,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="81" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="81" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="193" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aecaf7dd2bb94cb820d0fe5c8a0581391" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -284,7 +284,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="84" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="84" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="202" bodyend="209"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9e55f8bf8e77ede47419a515e0ba49ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -298,7 +298,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="87" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="87" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="211" bodyend="218"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a36d7d3961147b9dfadb4137b70ab80f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -312,7 +312,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="90" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="90" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="220" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af2d78c9b41f1e622526aee433c11a12e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -326,7 +326,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="93" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="93" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="229" bodyend="236"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aef30b35c0ba9dc1a13c694878f88347a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -340,7 +340,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="97" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="97" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="238" bodyend="245"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a74a7f2ec22c2c618a91ac4646aaa3d26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -354,7 +354,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="100" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="100" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="247" bodyend="254"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1acaee142a4f092ef49211bc773f4f8590" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -368,7 +368,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="103" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="103" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="256" bodyend="263"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a66273e468e0a9a188618c4e39b638252" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -382,7 +382,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="106" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="106" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="265" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a611cf3cb8413d4e0920399a245d707d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -396,7 +396,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="109" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="109" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="274" bodyend="281"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9d8f70061514c68bcc0f85f4f51f8e24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -429,7 +429,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="113" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="113" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="283" bodyend="289"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a942ff0d7eda18a651708fc21fc81c919" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -462,7 +462,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="117" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="117" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="291" bodyend="297"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aaec30231c9d1d6a7c433a7c3fb329def" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -495,7 +495,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="122" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="122" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="299" bodyend="305"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1bdc19ddaf047bcf24fd969f9027f806" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -520,7 +520,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="128" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="128" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="307" bodyend="313"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a2ac4ac4cb1061ac69c37da42426215df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -545,7 +545,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="134" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="134" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="315" bodyend="321"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ab5c066d83a3fcc47bf851ca27ebec7fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -570,7 +570,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="139" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="139" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="323" bodyend="329"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ad75caa48764566cf376f58dcf0e08bd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -595,7 +595,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="144" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="144" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="331" bodyend="337"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a005496f26906e201389bf4919e8ae86f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -620,7 +620,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="149" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="149" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="339" bodyend="345"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1afab55e4761588ab312624035722d9872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -645,7 +645,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="154" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="154" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="347" bodyend="353"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a7daf0478800f46ebf23a699ff5027c60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -670,7 +670,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="159" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="159" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="355" bodyend="361"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a4518b7a28d77100b24c041934f7a79a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -695,7 +695,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="164" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="164" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="363" bodyend="369"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ae9e4452825650fc71192852efca07d56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -720,7 +720,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="170" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="170" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="371" bodyend="377"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ae4446b977d0ba4821159a44da768ab31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -745,7 +745,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="176" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="176" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="379" bodyend="385"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a2979601f01be7f794f5eca42b4b2d48a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -770,7 +770,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="181" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="181" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="387" bodyend="393"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ac76154cb09f0488c70fa662dd5c4a306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -803,7 +803,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="186" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="186" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="395" bodyend="401"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9acbddb10bd85bb086946c4224b30199" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -829,7 +829,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="189" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="189" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="403" bodyend="412"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af3c550f27705f41ebb5741e616fa0934" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -855,7 +855,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="192" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="192" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="414" bodyend="423"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1a1b6cc6bc02be723582165060074199" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -881,7 +881,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="195" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="195" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="425" bodyend="434"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a343ae119156df2d813a5509f1f876a3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -895,7 +895,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="198" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="198" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="436" bodyend="443"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1e5d311a0ac437d892c35a52ca3b63f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -909,7 +909,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="201" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="201" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="445" bodyend="452"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aba04de170f58975bda8c53c060b7aaa1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -923,7 +923,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="204" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="204" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="454" bodyend="461"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1ad989e50ca9d3455a3053475f0ea17748" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -937,7 +937,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="207" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="207" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="463" bodyend="470"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a9871306e9809933ccea6ed4781b5cea8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -951,7 +951,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="210" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="210" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="472" bodyend="479"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1af077dea1fafdadbb2b4f6087da0ea9dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -965,7 +965,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="213" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="213" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="481" bodyend="488"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1aac13263d9ea267204aad7ff912a486a4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -979,7 +979,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="216" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="216" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="490" bodyend="497"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a1cbc0977253f68d96367f6cd690ec0e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -993,7 +993,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="219" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="219" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="499" bodyend="506"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a7b50d2ca75c9b61dbaced34d727e9f57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1007,7 +1007,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="222" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="222" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="508" bodyend="515"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a484203de6b01f71e0002ec4f3fff16ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1021,7 +1021,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="225" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="225" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="517" bodyend="524"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_audio_source_1a2970c17976aac56d01168882a0e00983" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1035,14 +1035,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingAudio.h" line="228" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingAudio.h" line="228" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.cpp" bodystart="526" bodyend="533"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>It represents a 2D or 3D audio source object. </para>    </detaileddescription>
-    <location file="ParaScriptingAudio.h" line="29" column="1" bodyfile="ParaScriptingAudio.h" bodystart="28" bodyend="229"/>
+    <location file="ParaScriptBindings/ParaScriptingAudio.h" line="29" column="1" bodyfile="ParaScriptBindings/ParaScriptingAudio.h" bodystart="28" bodyend="229"/>
     <listofallmembers>
       <member refid="class_para_scripting_1_1_para_audio_source_1af2d78c9b41f1e622526aee433c11a12e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getCurrentAudioPosition</name></member>
       <member refid="class_para_scripting_1_1_para_audio_source_1a36d7d3961147b9dfadb4137b70ab80f8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getCurrentAudioTime</name></member>
@@ -1052,7 +1052,7 @@
       <member refid="class_para_scripting_1_1_para_audio_source_1a1cbc0977253f68d96367f6cd690ec0e2" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMaxVolume</name></member>
       <member refid="class_para_scripting_1_1_para_audio_source_1aba04de170f58975bda8c53c060b7aaa1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMinDistance</name></member>
       <member refid="class_para_scripting_1_1_para_audio_source_1aac13263d9ea267204aad7ff912a486a4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getMinVolume</name></member>
-      <member refid="class_para_scripting_1_1_para_audio_source_1acfc1b2116928c21b115f09d3d9d2f95f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>GetName</name></member>
+      <member refid="class_para_scripting_1_1_para_audio_source_1a36f15fdba9cf155dbb9495d671a6761a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>GetName</name></member>
       <member refid="class_para_scripting_1_1_para_audio_source_1a484203de6b01f71e0002ec4f3fff16ac" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getOuterConeAngle</name></member>
       <member refid="class_para_scripting_1_1_para_audio_source_1a2970c17976aac56d01168882a0e00983" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getOuterConeVolume</name></member>
       <member refid="class_para_scripting_1_1_para_audio_source_1a9871306e9809933ccea6ed4781b5cea8" prot="public" virt="non-virtual"><scope>ParaScripting::ParaAudioSource</scope><name>getPitch</name></member>

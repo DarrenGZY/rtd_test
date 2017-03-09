@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="244" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="244" bodyend="-1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="244" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="244" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
 <para>check if the object is valid </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="249" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="249" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1291" bodyend="1294"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a5918ebf3a85d7204b1577e338c4b6506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="251" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="251" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="158" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ace39fa38fa222517e1079d766a32fd99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="252" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="252" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="162" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad53d249e5ef04cd31fef830dd2c24633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="253" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="253" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="167" bodyend="169"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9386b793ed8144a5360f37e6d4542059" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -90,7 +90,7 @@
 <para>the default value of speed scale is 1.0f, which will use the character&apos;s default speed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="258" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="258" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="194" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1afe831d6e18dca9324a1b1aba2bc02c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="259" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="259" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="201" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9e36d75f31c0078b58c6cfdcacb23b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -116,7 +116,7 @@
 <para>if the biped is in air, it will fall down. In case a biped is put to stop and the terrain below it changes. one should manually call this function to let the biped fall down. Internally it just set the vertical speed to a small value </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="264" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="264" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="171" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad32b9d491dd3994159fc61cb08a82238" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -133,7 +133,7 @@
 <para>the default value of size scale is 1.0f, which will use the character&apos;s default size. increasing this value will enlarge the character as well as its physical radius. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="270" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="270" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="178" bodyend="183"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ac74ad74e17b640fa4ebbff13a65b6532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="271" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="271" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="185" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af77c813d578bd702526de393b8384fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -159,7 +159,7 @@
 <para>ask the camera to follow this character.The camera will be immediately focused on this character without translation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="276" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="276" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="210" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1add7504a5c7080e5e9e1c8b7d3fb6544f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -195,7 +195,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="284" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="284" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="800" bodyend="850"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ab11d6e82b6332a4812af6634a4830c8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -212,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="285" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="285" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="789" bodyend="799"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9c425e6726d1d50c9a364f88e8a1657c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -225,7 +225,7 @@
 <para>return true if character uses walk as the default moving animation.otherwise it uses running. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="288" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="288" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="851" bodyend="859"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad9dfd4f10aa268419ac967f40f045e86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -250,7 +250,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="293" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="293" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1282" bodyend="1289"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a917769fc3ea9c3c2f2100a39761f9862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -263,7 +263,7 @@
 <para>check whether this character is customizable. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="298" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="298" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1165" bodyend="1176"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a7786cc176a8090ea980afc7e0f76773a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -288,7 +288,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="308" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="308" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="218" bodyend="224"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a06711c42f36c88a5f3168f0d71a909ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -313,7 +313,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="315" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="315" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="226" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af3bcc68daef7abaeb042a4d896496a66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -326,7 +326,7 @@
 <para>return the current skin index. the default skin is at index 0. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="318" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="318" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="237" bodyend="247"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1afc1c56041b71498c2e313099112b8f48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -351,7 +351,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="327" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="327" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="249" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af698f2d85f5f68a6afa762f88bccb72b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -371,14 +371,14 @@
 </parameternamelist>
 <parameterdescription>
 <para><itemizedlist>
-<listitem><para>it can be int of animation ID(external animation id is supported) see local nAnimID = <ref refid="class_para_scripting_1_1_para_asset_1a1df9e3a95a9935b54d758798f733a140" kindref="member">ParaAsset.CreateBoneAnimProvider</ref>(-1, filename, filename, false);</para></listitem><listitem><para>it can also be string of animation file name</para></listitem><listitem><para>it can also be a table of {animID, animID}: currently only two are supported. The first one is usually a non-loop, and second one can be loop or non-loop. </para></listitem></itemizedlist>
+<listitem><para>it can be int of animation ID(external animation id is supported) see local nAnimID = <ref refid="class_para_scripting_1_1_para_asset_1a887a8da720bedbf3016f4d346e8dc7c5" kindref="member">ParaAsset.CreateBoneAnimProvider</ref>(-1, filename, filename, false);</para></listitem><listitem><para>it can also be string of animation file name</para></listitem><listitem><para>it can also be a table of {animID, animID}: currently only two are supported. The first one is usually a non-loop, and second one can be loop or non-loop. </para></listitem></itemizedlist>
 </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="336" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="336" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="364" bodyend="416"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad45a56c672f17cd4be43f4504d2c2add" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -388,15 +388,15 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>get the current animation ID of the character. Usually 0-46 is for normal animation like idle and walking; 0-1000 are reserved for internally animation. 1000-2000 are game specific; 2000 plus are automatically generated. One should call <ref refid="class_para_scripting_1_1_para_character_1aaddaadcfd49263fd80e5773c08467ccc" kindref="member">GetAnimFileName()</ref> for id above 2000. <simplesect kind="return"><para>: it may return -1 if invalid. </para></simplesect>
+<para>get the current animation ID of the character. Usually 0-46 is for normal animation like idle and walking; 0-1000 are reserved for internally animation. 1000-2000 are game specific; 2000 plus are automatically generated. One should call <ref refid="class_para_scripting_1_1_para_character_1a38c0cd8a8b61f61f8843d4dfaead645e" kindref="member">GetAnimFileName()</ref> for id above 2000. <simplesect kind="return"><para>: it may return -1 if invalid. </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="343" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="343" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1263" bodyend="1270"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aaddaadcfd49263fd80e5773c08467ccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a38c0cd8a8b61f61f8843d4dfaead645e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
-        <definition>const char* ParaScripting::ParaCharacter::GetAnimFileName</definition>
+        <definition>const char * ParaScripting::ParaCharacter::GetAnimFileName</definition>
         <argsstring>()</argsstring>
         <name>GetAnimFileName</name>
         <briefdescription>
@@ -405,7 +405,7 @@
 <para>get the current animation&apos;s filename. If it is an internal animation, it will return nil. If it is from bone animation provider, it returns the file name from which the animation is loaded. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="347" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="347" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1272" bodyend="1280"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a302c33e261651f16eb5933dad22df3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -422,7 +422,7 @@
 <para>set whether the m_mapAnimIDs will be used. Disabled by default </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="352" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="352" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1203" bodyend="1208"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a441009813e6665669bf744af38abd2e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -435,7 +435,7 @@
 <para>get whether the m_mapAnimIDs will be used.Disabled by default </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="357" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="357" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1210" bodyend="1216"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a5b9890a8e0d02f2f823ba2361a1d3621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -472,7 +472,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="368" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="368" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1219" bodyend="1248"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9b0d25612c81058b18abcf94f732f717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -485,7 +485,7 @@
 <para>remove all mapping. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="371" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="371" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1251" bodyend="1261"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a1dfd27fb9117ee7f87430a1c1d86a243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -510,7 +510,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="377" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="377" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="861" bodyend="869"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a1b8093522c3911f449983aa9365e664c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -523,7 +523,7 @@
 <para>whether the object is mounted on another object. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="380" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="380" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="871" bodyend="880"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a2fbb0cfcb3625e9d5183eaa88ab41880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -548,7 +548,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="385" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="385" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="769" bodyend="779"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af2a3ca2a19fc9fda7e16d2560ed500b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -556,7 +556,7 @@
         <argsstring>(ParaObject &amp;target)</argsstring>
         <name>MountOn</name>
         <param>
-          <type>ParaObject &amp;</type>
+          <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
           <declname>target</declname>
         </param>
         <briefdescription>
@@ -573,7 +573,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="391" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="391" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="764" bodyend="767"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a78a3752aa964cfa8d30550f786857d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -581,7 +581,7 @@
         <argsstring>(ParaObject &amp;target, int nMountID)</argsstring>
         <name>MountOn2</name>
         <param>
-          <type>ParaObject &amp;</type>
+          <type><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> &amp;</type>
           <declname>target</declname>
         </param>
         <param>
@@ -609,7 +609,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="398" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="398" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="755" bodyend="762"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a449546034f29e6c5335a8fdff98c4043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -622,7 +622,7 @@
 <para>this will force unmount the characer. However, it is usually not natural to do this explicitly, since we do not know how the character should behave after mount. Instead, one can call player_obj:ToCharacter():AddAction(action_table.ActionSymbols.S_JUMP_START) to unmount by jumping off. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="404" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="404" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="781" bodyend="787"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a965cdb8e5d4f33d8b4c95caf1a079343" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -655,7 +655,7 @@
 <para>Set the character body parameters. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after finished with the settings. All body parameters are integer ranging from 0 to maxType, where maxType is the maximum number of types of of a certain body parameter. For each body parameter, one can specify -1 to retain its current value. This is useful, when the caller only wants to change one or several of the body parameters. The default body parameters is (0,0,0,0,0). </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="414" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="414" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="280" bodyend="289"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1add38b5aaad2e6ce1c813ea75a888861f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -672,7 +672,7 @@
 <para>Get the character body parameters. @ param type: the body parameter type of the character BP_SKINCOLOR =0, BP_FACETYPE = 1, BP_HAIRCOLOR = 2, BP_HAIRSTYLE = 3, BP_FACIALHAIR = 4 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="425" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="425" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="291" bodyend="302"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a5ce98ef65ee8914355c4e0622f04e0cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -697,7 +697,7 @@
 <para>Set the display options for the character. in case of boolean input: 1 stands for true; 0 stands for false, -1 stands for retaining its current value. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after finished with the settings. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="431" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="431" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="304" bodyend="313"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a8a01dcc228062c9e7e6f6660184969a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -714,7 +714,7 @@
 <para>Get the display option parameters. @ param type: the display option parameter of the character DO_SHOWUNDERWEAR =0, DO_SHOWEARS = 1, DO_SHOWHAIR = 2 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="440" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="440" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="315" bodyend="326"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a0b671e90c7465f9abb92f3d27647da6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -750,7 +750,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="474" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="474" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="328" bodyend="338"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aaf62e78261ffe675e24f328b54c4eb5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -776,7 +776,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="480" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="480" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="340" bodyend="351"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1afbd1d6043a9ed0c6c2f57ce3559e33fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -793,7 +793,7 @@
 <para>load all settings of the model to file. Need to call <ref refid="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" kindref="member">RefreshModel()</ref> after loading. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="486" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="486" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="257" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a8fadb628af8ddff6c1186d12dfa5d66e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -810,7 +810,7 @@
 <para>save all settings of the model to file. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="488" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="488" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="269" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a6577e34cf857bf06db62b82e259a517b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -823,7 +823,7 @@
 <para>update the entire model from its characters settings, such as body parameters and equipments. This will rebuild the composed character texture. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="492" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="492" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="353" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ae3afbabc4b8eacaacf12e3a6e948df84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -848,7 +848,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="500" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="500" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="442" bodyend="447"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ab58251bf3cb736e9ca1beca869c117ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -886,8 +886,8 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 </para><para>sAICtrlerName = &quot;movie&quot;: enable a movie controller. sParam1 = &quot;&quot;|&quot;true&quot;|&quot;false&quot;: &quot;&quot; or &quot;true&quot; to enable a movie, or &quot;false&quot; to disable it. e.g. Char:AssignAIController(&quot;movie&quot;, &quot;true&quot;);Char:AssignAIController(&quot;movie&quot;, &quot;false&quot;); use <ref refid="class_para_scripting_1_1_para_character_1a7b4c8d6051a677af7a693929bd83b3dc" kindref="member">GetMovieController()</ref> to get the controller</para><para>sAICtrlerName = &quot;sequence&quot;: enable a sequence controller. sParam1 = &quot;&quot;|&quot;true&quot;|&quot;false&quot;: &quot;&quot; or &quot;true&quot; to enable a sequence, or &quot;false&quot; to disable it. e.g. Char:AssignAIController(&quot;sequence&quot;, &quot;true&quot;);Char:AssignAIController(&quot;sequence&quot;, &quot;false&quot;); use <ref refid="class_para_scripting_1_1_para_character_1a069c0469aefc21d4b8184d77e4b7182e" kindref="member">GetSeqController()</ref> to get the controller</para><para><simplesect kind="see"><para>: <ref refid="class_para_scripting_1_1_para_character_1ae3afbabc4b8eacaacf12e3a6e948df84" kindref="member">UseAIModule()</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
-        </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="532" column="1"/>
+<para>if there is no AI object, we will create a default one to use </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="532" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="560" bodyend="618"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a1e2d5b2772c0495e7d177190dfcba9da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -911,8 +911,8 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 </parameterlist>
 </para>        </detaileddescription>
         <inbodydescription>
-        </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="537" column="1"/>
+<para>if there is no AI object, return false </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="537" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="526" bodyend="558"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a7b4c8d6051a677af7a693929bd83b3dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_movie_ctrler" kindref="compound">ParaMovieCtrler</ref></type>
@@ -924,8 +924,8 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         <detaileddescription>
 <para>get the movie controller. the movie controller will be created if it does not exist. </para>        </detaileddescription>
         <inbodydescription>
-        </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="542" column="1"/>
+<para>if there is no AI object, we will create a default one to use </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="542" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="449" bodyend="473"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a069c0469aefc21d4b8184d77e4b7182e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_seq_ctrler" kindref="compound">ParaSeqCtrler</ref></type>
@@ -937,8 +937,8 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         <detaileddescription>
 <para>get the sequence controller. the sequence controller will be created if it does not exist. </para>        </detaileddescription>
         <inbodydescription>
-        </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="547" column="1"/>
+<para>if there is no AI object, we will create a default one to use </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="547" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="474" bodyend="498"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a8ed880dc88142efa854be976628c41da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_para_scripting_1_1_para_face_tracking_ctrler" kindref="compound">ParaFaceTrackingCtrler</ref></type>
@@ -950,8 +950,8 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         <detaileddescription>
 <para>get the face tracking controller. the sequence controller will be created if it does not exist. </para>        </detaileddescription>
         <inbodydescription>
-        </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="552" column="1"/>
+<para>if there is no AI object, we will create a default one to use </para>        </inbodydescription>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="552" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="500" bodyend="523"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a54cccc4581fd48e01f2bcfc438abf816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -976,7 +976,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="558" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="558" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="684" bodyend="687"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a3cc64a1f92cc18a7f660e679ad045906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1012,7 +1012,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="575" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="575" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="689" bodyend="753"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a45c436d7c195fd5298e58184a73972bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1069,7 +1069,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="602" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="602" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="665" bodyend="668"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a010462532362335b4db907f96c52abbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1094,7 +1094,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="603" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="603" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="655" bodyend="658"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ac2ff21ad40c219468e944e9b3aea6553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1123,7 +1123,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="604" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="604" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="660" bodyend="663"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad4b7e8b797816319531bdda2d4371e04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1156,11 +1156,11 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="605" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="605" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="634" bodyend="653"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aa604acbec82fc0365dba365fdeb7cedb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>ParaAttributeObject</type>
-        <definition>ParaAttributeObject ParaScripting::ParaCharacter::GetAttachmentAttObj</definition>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ada295d4a4fea8f320cd4cf6bc1dba63c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaCharacter::GetAttachmentAttObj</definition>
         <argsstring>(int nAttachmentID)</argsstring>
         <name>GetAttachmentAttObj</name>
         <param>
@@ -1173,7 +1173,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 <para>get the attachment object&apos;s attribute field. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="608" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="608" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="621" bodyend="632"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a4a33265441899e08faed8db40aa64eb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1206,7 +1206,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="615" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="615" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="670" bodyend="673"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a0e92cf46ef29e76a04b529034f9847c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1227,7 +1227,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="616" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="616" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="675" bodyend="682"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a20224968f7086f28687f62f596685ffd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1240,7 +1240,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 <para>stop the biped if it is moving. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="619" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="619" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="418" bodyend="423"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1aa1a5a48993fe8ac12cf55084e1f0b913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1265,7 +1265,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 <para>move (using the current style i.e. walk or run) to a position relative to the current position. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="621" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="621" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="425" bodyend="431"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a78bd7d4547da25e327c7dcf559158408" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1294,7 +1294,7 @@ sAICtrlerName = &quot;face&quot;: Face tracking controller: sParam1 = &quot;true
 <para>move (using the current style i.e. walk or run) to a position relative to the current position and turn. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="623" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="623" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="433" bodyend="439"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ae22233179e3cc67aa7fd7f33bd8dc817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1326,7 +1326,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="655" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="655" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1033" bodyend="1076"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ac7e6ca7efced2cc56e74014348626a50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -1357,7 +1357,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="667" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="667" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="927" bodyend="1026"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a9a0cb4d0d80a739807e635b730c64715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1383,7 +1383,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="671" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="671" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1078" bodyend="1150"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a463ad4e8e8e566c8d028dfa03a8bb0f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1409,7 +1409,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="675" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="675" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1028" bodyend="1031"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a6f86758efd75b187a5ab4df55c2fd3cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1422,7 +1422,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 <para>check whether the associated cartoon model supports cartoon face. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="678" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="678" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1152" bodyend="1163"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1af4105c566f8a23c721436c542df00502" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1447,7 +1447,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="685" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="685" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="882" bodyend="902"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ad81cf1fefd946b4ee1af6c6f082f4024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -1461,7 +1461,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="692" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="692" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="904" bodyend="925"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1a7c645c633ba83bc75224098932d821c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1475,7 +1475,7 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="697" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="697" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1179" bodyend="1189"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_character_1ae7f7d1d4c8142601d5d6a5de34c1842c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1489,14 +1489,14 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingCharacter.h" line="701" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="701" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.cpp" bodystart="1191" bodyend="1201"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>ParaObject class: it is used to control game scene objects from scripts. </para>    </detaileddescription>
-    <location file="ParaScriptingCharacter.h" line="242" column="1" bodyfile="ParaScriptingCharacter.h" bodystart="241" bodyend="703"/>
+<para><ref refid="class_para_scripting_1_1_para_object" kindref="compound">ParaObject</ref> class: it is used to control game scene objects from scripts. </para>    </detaileddescription>
+    <location file="ParaScriptBindings/ParaScriptingCharacter.h" line="242" column="1" bodyfile="ParaScriptBindings/ParaScriptingCharacter.h" bodystart="241" bodyend="703"/>
     <listofallmembers>
       <member refid="class_para_scripting_1_1_para_character_1ab11d6e82b6332a4812af6634a4830c8a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAction</name></member>
       <member refid="class_para_scripting_1_1_para_character_1add7504a5c7080e5e9e1c8b7d3fb6544f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>AddAction2</name></member>
@@ -1511,9 +1511,9 @@ CFS_TOTAL_NUM, };  SubType:<itemizedlist>
       <member refid="class_para_scripting_1_1_para_character_1a9b0d25612c81058b18abcf94f732f717" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>ClearAllAnimIDMap</name></member>
       <member refid="class_para_scripting_1_1_para_character_1a302c33e261651f16eb5933dad22df3cd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>EnableAnimIDMap</name></member>
       <member refid="class_para_scripting_1_1_para_character_1a9e36d75f31c0078b58c6cfdcacb23b99" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>FallDown</name></member>
-      <member refid="class_para_scripting_1_1_para_character_1aaddaadcfd49263fd80e5773c08467ccc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAnimFileName</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1a38c0cd8a8b61f61f8843d4dfaead645e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAnimFileName</name></member>
       <member refid="class_para_scripting_1_1_para_character_1ad45a56c672f17cd4be43f4504d2c2add" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAnimID</name></member>
-      <member refid="class_para_scripting_1_1_para_character_1aa604acbec82fc0365dba365fdeb7cedb" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAttachmentAttObj</name></member>
+      <member refid="class_para_scripting_1_1_para_character_1ada295d4a4fea8f320cd4cf6bc1dba63c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetAttachmentAttObj</name></member>
       <member refid="class_para_scripting_1_1_para_character_1add38b5aaad2e6ce1c813ea75a888861f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetBodyParams</name></member>
       <member refid="class_para_scripting_1_1_para_character_1ae22233179e3cc67aa7fd7f33bd8dc817" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetCartoonFaceComponent</name></member>
       <member refid="class_para_scripting_1_1_para_character_1ac7e6ca7efced2cc56e74014348626a50" prot="public" virt="non-virtual"><scope>ParaScripting::ParaCharacter</scope><name>GetCartoonFaceComponentCode</name></member>

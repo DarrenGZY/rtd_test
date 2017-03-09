@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="38" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="38" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ab6cf6316ca0f5e03a155bddc1a2e6843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -28,13 +28,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="39" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="39" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="43" bodyend="45"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ab2cee77e90154a10d4abfffcc65bf4b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a2454dabae842e909f55fa5255887438b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>object</type>
-        <definition>static object ParaScripting::ParaBlockWorld::GetWorld</definition>
+        <definition>luabind::object ParaScripting::ParaBlockWorld::GetWorld</definition>
         <argsstring>(const object &amp;sWorldName)</argsstring>
         <name>GetWorld</name>
         <param>
@@ -47,11 +47,11 @@
 <para>static function to create get a world instance </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="43" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="43" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="47" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aaaffa9dfb8a466a329912dfa38280b55" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ac806dfca704501c6744bb80764dac9f4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaBlockWorld::GetVersion</definition>
+        <definition>int ParaScripting::ParaBlockWorld::GetVersion</definition>
         <argsstring>(const object &amp;pWorld)</argsstring>
         <name>GetVersion</name>
         <param>
@@ -64,11 +64,11 @@
 <para>get version </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="46" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="46" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="460" bodyend="464"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a1bfeb2b1a47c94149db5046cf5e7425d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>ParaAttributeObject</type>
-        <definition>static ParaAttributeObject ParaScripting::ParaBlockWorld::GetBlockAttributeObject</definition>
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aa123a4c730e23e59a7d62841c4fba610" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_para_scripting_1_1_para_attribute_object" kindref="compound">ParaAttributeObject</ref></type>
+        <definition>ParaScripting::ParaAttributeObject ParaScripting::ParaBlockWorld::GetBlockAttributeObject</definition>
         <argsstring>(const object &amp;pWorld)</argsstring>
         <name>GetBlockAttributeObject</name>
         <param>
@@ -81,11 +81,11 @@
 <para>get block terrain manager&apos;s attribute object. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="49" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="49" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="472" bodyend="476"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a09f514e38eaee12acff20c9c458a8a1a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a0e1584c1e043f9941badf6853b8a930a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaBlockWorld::RegisterBlockTemplate</definition>
+        <definition>bool ParaScripting::ParaBlockWorld::RegisterBlockTemplate</definition>
         <argsstring>(const object &amp;pWorld, uint16_t templateId, const object &amp;params)</argsstring>
         <name>RegisterBlockTemplate</name>
         <param>
@@ -114,11 +114,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="56" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="56" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="81" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a932f5e86e77f29625e9a300fb39ece79" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a784258686f50a927764d36caa98646e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool ParaScripting::ParaBlockWorld::RegisterBlockTemplate_</definition>
+        <definition>bool ParaScripting::ParaBlockWorld::RegisterBlockTemplate_</definition>
         <argsstring>(CBlockWorld *pWorld, uint16_t templateId, const object &amp;params)</argsstring>
         <name>RegisterBlockTemplate_</name>
         <param>
@@ -139,11 +139,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="57" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="57" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="87" bodyend="279"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aaae81e0ac8b704835530bc0764c4ae9c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ac8f2c1c16af6a04de2a818c74a41489e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetBlockWorldYOffset</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetBlockWorldYOffset</definition>
         <argsstring>(const object &amp;pWorld, float offset)</argsstring>
         <name>SetBlockWorldYOffset</name>
         <param>
@@ -160,11 +160,11 @@
 <para>set Block world&apos;s y offset in real world coordinate. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="60" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="60" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="281" bodyend="285"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ab8cd4bd664fc91bf3981677e4c96144b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1af0052e7f25fb88e1a39c40dcb9dd5477" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::EnterWorld</definition>
+        <definition>void ParaScripting::ParaBlockWorld::EnterWorld</definition>
         <argsstring>(const object &amp;pWorld, const char *sWorldDir)</argsstring>
         <name>EnterWorld</name>
         <param>
@@ -178,7 +178,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>call this function after all block templates has been registered to initialize the world note this function can be called multiple times to load different world with the same block templates. call <ref refid="class_para_scripting_1_1_para_block_world_1abb53a33d080f92b8500e50215c02cad0" kindref="member">LeaveWorld()</ref> before EnterWorld again. <parameterlist kind="param"><parameteritem>
+<para>call this function after all block templates has been registered to initialize the world note this function can be called multiple times to load different world with the same block templates. call <ref refid="class_para_scripting_1_1_para_block_world_1ab52ef4329f531b1c6869727a02296a46" kindref="member">LeaveWorld()</ref> before EnterWorld again. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>sWorldDir</parametername>
 </parameternamelist>
@@ -189,11 +189,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="67" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="67" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="68" bodyend="72"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1abb53a33d080f92b8500e50215c02cad0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ab52ef4329f531b1c6869727a02296a46" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::LeaveWorld</definition>
+        <definition>void ParaScripting::ParaBlockWorld::LeaveWorld</definition>
         <argsstring>(const object &amp;pWorld)</argsstring>
         <name>LeaveWorld</name>
         <param>
@@ -206,11 +206,11 @@
 <para>call this function when leave the block world </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="70" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="70" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="74" bodyend="78"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ae8f317358933a69b4abe302fa5d8d05f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ae9b7dcaed0dba345ef329318ca624b1b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SaveBlockWorld</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SaveBlockWorld</definition>
         <argsstring>(const object &amp;pWorld, bool saveToTemp)</argsstring>
         <name>SaveBlockWorld</name>
         <param>
@@ -227,11 +227,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="72" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="72" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="466" bodyend="470"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a6a31b21f8e350c762098d7ac5047c078" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ab67ba782beada5535ccf90843e3d0dcd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::LoadRegion</definition>
+        <definition>void ParaScripting::ParaBlockWorld::LoadRegion</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z)</argsstring>
         <name>LoadRegion</name>
         <param>
@@ -256,11 +256,11 @@
 <para>load region at the given position. current implementation will load entire region rather than just chunk. one need to call load chunk before SetBlock/GetBlock api can be called in the region. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="77" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="77" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="448" bodyend="452"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a55f14925a8c3dcac29fc8b0f693352a0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1af4cbbef6cd08d3f544bed36052b8f530" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::UnloadRegion</definition>
+        <definition>void ParaScripting::ParaBlockWorld::UnloadRegion</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z)</argsstring>
         <name>UnloadRegion</name>
         <param>
@@ -285,11 +285,11 @@
 <para>unload data for a given region from memory </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="79" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="79" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="454" bodyend="458"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ac578a70c2e5527c2cd877d0671650406" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ac7afc8be7de5f2a12a41d56b30c959f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetBlockId</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetBlockId</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z, uint32_t templateId)</argsstring>
         <name>SetBlockId</name>
         <param>
@@ -335,11 +335,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="85" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="85" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="287" bodyend="291"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a7d4893adbdb8508ff6407acabca8857b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aa46e6a5f0b57a14ae66b6eb327416e49" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint32_t</type>
-        <definition>static uint32_t ParaScripting::ParaBlockWorld::GetBlockId</definition>
+        <definition>uint32_t ParaScripting::ParaBlockWorld::GetBlockId</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z)</argsstring>
         <name>GetBlockId</name>
         <param>
@@ -364,11 +364,11 @@
 <para>get block id at the given block position. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="88" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="88" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="293" bodyend="297"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ab16f1682bb386810970079c3f8bc76b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1af204ce2adcfbda9bab527a7197d4beaa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetBlockData</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetBlockData</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z, uint32_t data)</argsstring>
         <name>SetBlockData</name>
         <param>
@@ -397,11 +397,11 @@
 <para>set per block user data </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="93" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="93" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="299" bodyend="303"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1acd1d9a31f6c7d9a8912d031b745dda41" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a948958ffa30eac507f056728724cdf33" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint32_t</type>
-        <definition>static uint32_t ParaScripting::ParaBlockWorld::GetBlockData</definition>
+        <definition>uint32_t ParaScripting::ParaBlockWorld::GetBlockData</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z)</argsstring>
         <name>GetBlockData</name>
         <param>
@@ -426,11 +426,11 @@
 <para>get per block user data </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="98" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="98" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="305" bodyend="309"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ae174646407b7e6ac2043bf50e6cb27e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a18091d2654132df02e9256a94182ca6b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>object</type>
-        <definition>static object ParaScripting::ParaBlockWorld::GetBlocksInRegion</definition>
+        <definition>luabind::object ParaScripting::ParaBlockWorld::GetBlocksInRegion</definition>
         <argsstring>(const object &amp;pWorld, int32_t startChunkX, int32_t startChunkY, int32_t startChunkZ, int32_t endChunkX, int32_t endChunkY, int32_t endChunkZ, uint32_t matchType, const object &amp;result)</argsstring>
         <name>GetBlocksInRegion</name>
         <param>
@@ -492,11 +492,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="106" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="106" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="311" bodyend="315"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a5003bae5700cf9398652e0d8924d2c2a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a5b0018cb013c25933eca2b9337a3c2d0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetBlockWorldSunIntensity</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetBlockWorldSunIntensity</definition>
         <argsstring>(const object &amp;pWorld, float value)</argsstring>
         <name>SetBlockWorldSunIntensity</name>
         <param>
@@ -513,11 +513,11 @@
 <para>set current sun intensity in [0,1] range </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="110" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="110" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="317" bodyend="321"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a4c0365521d9af14289f211e8be393558" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a9c8065a108fde85944fb5f6912cdc239" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaBlockWorld::FindFirstBlock</definition>
+        <definition>int ParaScripting::ParaBlockWorld::FindFirstBlock</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z, uint16_t nSide=4, uint32_t max_dist=32, uint32_t attrFilter=0xffffffff, int nCategoryID=-1)</argsstring>
         <name>FindFirstBlock</name>
         <param>
@@ -585,11 +585,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="119" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="119" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="323" bodyend="327"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ad7a823d2933fd26b62f69ffd4e73a9d7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aa275b51358be7adc930b4e9dccc7e801" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ParaScripting::ParaBlockWorld::GetFirstBlock</definition>
+        <definition>int ParaScripting::ParaBlockWorld::GetFirstBlock</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z, int nBlockId, uint16_t nSide=4, uint32_t max_dist=32)</argsstring>
         <name>GetFirstBlock</name>
         <param>
@@ -628,11 +628,11 @@
 <para>get the y pos of the first block of nBlockID, start searching from x, y, z in the side direction </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="123" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="123" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="329" bodyend="333"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a74d10f863cb56a8ac99b7357dd4b90de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a84fc474251b4754213866f9088e39f4d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetTemplateTexture</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetTemplateTexture</definition>
         <argsstring>(const object &amp;pWorld, uint16_t templateId, const char *fileName)</argsstring>
         <name>SetTemplateTexture</name>
         <param>
@@ -653,11 +653,11 @@
 <para>set the template texture. only used on client side This function is deprecated. use RegisterBlockTemplate instead. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="131" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="131" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="335" bodyend="339"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a96b5d43c1e6e56a1e94159f4a470bd46" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a4c9dcc2852462112fd8d72df517ead97" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>object</type>
-        <definition>static object ParaScripting::ParaBlockWorld::GetVisibleChunkRegion</definition>
+        <definition>luabind::object ParaScripting::ParaBlockWorld::GetVisibleChunkRegion</definition>
         <argsstring>(const object &amp;pWorld, const object &amp;result)</argsstring>
         <name>GetVisibleChunkRegion</name>
         <param>
@@ -675,11 +675,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="138" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="138" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="341" bodyend="371"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aa7b29a431a6d7d73e0925b92b7ff26ec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a11eb3989d07edc2abe009b9b7476cc55" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>object</type>
-        <definition>static object ParaScripting::ParaBlockWorld::Pick</definition>
+        <definition>luabind::object ParaScripting::ParaBlockWorld::Pick</definition>
         <argsstring>(const object &amp;pWorld, float rayX, float rayY, float rayZ, float dirX, float dirY, float dirZ, float fMaxDistance, const object &amp;result, uint32_t filter=0xffffffff)</argsstring>
         <name>Pick</name>
         <param>
@@ -730,11 +730,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="154" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="154" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="373" bodyend="404"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1ae404434700b7fecd521e24dfc37e2990" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a0188ccc424dd74519bc218b174223156" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>object</type>
-        <definition>static object ParaScripting::ParaBlockWorld::MousePick</definition>
+        <definition>luabind::object ParaScripting::ParaBlockWorld::MousePick</definition>
         <argsstring>(const object &amp;pWorld, float fMaxDistance, const object &amp;result, uint32_t filter=0xffffffff)</argsstring>
         <name>MousePick</name>
         <param>
@@ -760,11 +760,11 @@
 <para>picking by current mouse position. only used on client world </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="160" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="160" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="406" bodyend="411"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a6126c4bd5af0725acc5777da667f8837" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1afe41f4f613548194ebd2898f6adc3c46" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SelectBlock</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SelectBlock</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z, bool isSelect)</argsstring>
         <name>SelectBlock</name>
         <param>
@@ -817,11 +817,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="169" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="169" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="413" bodyend="416"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a32f6492f0a8c4091ef255f7146c833ec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aefb8685c529a5269cc67b3bf6f79bd30" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SelectBlock1</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SelectBlock1</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z, bool isSelect, int nGroupID)</argsstring>
         <name>SelectBlock1</name>
         <param>
@@ -854,11 +854,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="170" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="170" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="418" bodyend="425"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a9f1e2cdb2b2e8dfc5bb703b2cd435ebc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a81daa75b6e6d89b24e4a86e40237c42d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::DeselectAllBlock1</definition>
+        <definition>void ParaScripting::ParaBlockWorld::DeselectAllBlock1</definition>
         <argsstring>(const object &amp;pWorld, int nGroupID)</argsstring>
         <name>DeselectAllBlock1</name>
         <param>
@@ -883,11 +883,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="175" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="175" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="427" bodyend="431"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a2029df55e40f217b4a24efee6225c941" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a1c1d9486e794fa517ac0b734dbdc77fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::DeselectAllBlock</definition>
+        <definition>void ParaScripting::ParaBlockWorld::DeselectAllBlock</definition>
         <argsstring>(const object &amp;pWorld)</argsstring>
         <name>DeselectAllBlock</name>
         <param>
@@ -900,11 +900,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="176" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="176" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="433" bodyend="436"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aa7119b2b658cfaae553cfb3fe82a2b02" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aa6463dd92db78d9eb4fa66ad536f8197" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetDamagedBlock</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetDamagedBlock</definition>
         <argsstring>(const object &amp;pWorld, uint16_t x, uint16_t y, uint16_t z)</argsstring>
         <name>SetDamagedBlock</name>
         <param>
@@ -939,11 +939,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="182" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="182" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="438" bodyend="441"/>
       </memberdef>
-      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1a9dbe88f8df7d079ba75e045ec4757991" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_para_scripting_1_1_para_block_world_1aac890e69224bf5dc76f84cf326a1f6f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void ParaScripting::ParaBlockWorld::SetDamageDegree</definition>
+        <definition>void ParaScripting::ParaBlockWorld::SetDamageDegree</definition>
         <argsstring>(const object &amp;pWorld, float damagedDegree)</argsstring>
         <name>SetDamageDegree</name>
         <param>
@@ -968,45 +968,45 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ParaScriptingBlockWorld.h" line="187" column="1"/>
+        <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="187" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.cpp" bodystart="443" bodyend="446"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Wrapper of internal CBlockWorld. may have multiple instance of the block world. </para>    </detaileddescription>
-    <location file="ParaScriptingBlockWorld.h" line="36" column="1" bodyfile="ParaScriptingBlockWorld.h" bodystart="35" bodyend="188"/>
+    <location file="ParaScriptBindings/ParaScriptingBlockWorld.h" line="36" column="1" bodyfile="ParaScriptBindings/ParaScriptingBlockWorld.h" bodystart="35" bodyend="188"/>
     <listofallmembers>
-      <member refid="class_para_scripting_1_1_para_block_world_1a2029df55e40f217b4a24efee6225c941" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>DeselectAllBlock</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a9f1e2cdb2b2e8dfc5bb703b2cd435ebc" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>DeselectAllBlock1</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ab8cd4bd664fc91bf3981677e4c96144b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>EnterWorld</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a4c0365521d9af14289f211e8be393558" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>FindFirstBlock</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a1bfeb2b1a47c94149db5046cf5e7425d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlockAttributeObject</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1acd1d9a31f6c7d9a8912d031b745dda41" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlockData</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a7d4893adbdb8508ff6407acabca8857b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlockId</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ae174646407b7e6ac2043bf50e6cb27e1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlocksInRegion</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ad7a823d2933fd26b62f69ffd4e73a9d7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetFirstBlock</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1aaaffa9dfb8a466a329912dfa38280b55" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetVersion</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a96b5d43c1e6e56a1e94159f4a470bd46" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetVisibleChunkRegion</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ab2cee77e90154a10d4abfffcc65bf4b5" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetWorld</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1abb53a33d080f92b8500e50215c02cad0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>LeaveWorld</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a6a31b21f8e350c762098d7ac5047c078" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>LoadRegion</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ae404434700b7fecd521e24dfc37e2990" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>MousePick</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a1c1d9486e794fa517ac0b734dbdc77fa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>DeselectAllBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a81daa75b6e6d89b24e4a86e40237c42d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>DeselectAllBlock1</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1af0052e7f25fb88e1a39c40dcb9dd5477" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>EnterWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a9c8065a108fde85944fb5f6912cdc239" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>FindFirstBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1aa123a4c730e23e59a7d62841c4fba610" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlockAttributeObject</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a948958ffa30eac507f056728724cdf33" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlockData</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1aa46e6a5f0b57a14ae66b6eb327416e49" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlockId</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a18091d2654132df02e9256a94182ca6b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetBlocksInRegion</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1aa275b51358be7adc930b4e9dccc7e801" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetFirstBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1ac806dfca704501c6744bb80764dac9f4" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetVersion</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a4c9dcc2852462112fd8d72df517ead97" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetVisibleChunkRegion</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a2454dabae842e909f55fa5255887438b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>GetWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1ab52ef4329f531b1c6869727a02296a46" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>LeaveWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1ab67ba782beada5535ccf90843e3d0dcd" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>LoadRegion</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a0188ccc424dd74519bc218b174223156" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>MousePick</name></member>
       <member refid="class_para_scripting_1_1_para_block_world_1a707382eba5534ac84ab590335d318bb7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>ParaBlockWorld</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1aa7b29a431a6d7d73e0925b92b7ff26ec" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>Pick</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a09f514e38eaee12acff20c9c458a8a1a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>RegisterBlockTemplate</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a932f5e86e77f29625e9a300fb39ece79" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>RegisterBlockTemplate_</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ae8f317358933a69b4abe302fa5d8d05f" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SaveBlockWorld</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a6126c4bd5af0725acc5777da667f8837" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SelectBlock</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a32f6492f0a8c4091ef255f7146c833ec" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SelectBlock1</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ab16f1682bb386810970079c3f8bc76b7" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockData</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1ac578a70c2e5527c2cd877d0671650406" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockId</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a5003bae5700cf9398652e0d8924d2c2a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockWorldSunIntensity</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1aaae81e0ac8b704835530bc0764c4ae9c" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockWorldYOffset</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1aa7119b2b658cfaae553cfb3fe82a2b02" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetDamagedBlock</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a9dbe88f8df7d079ba75e045ec4757991" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetDamageDegree</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a74d10f863cb56a8ac99b7357dd4b90de" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetTemplateTexture</name></member>
-      <member refid="class_para_scripting_1_1_para_block_world_1a55f14925a8c3dcac29fc8b0f693352a0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>UnloadRegion</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a11eb3989d07edc2abe009b9b7476cc55" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>Pick</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a0e1584c1e043f9941badf6853b8a930a" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>RegisterBlockTemplate</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a784258686f50a927764d36caa98646e1" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>RegisterBlockTemplate_</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1ae9b7dcaed0dba345ef329318ca624b1b" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SaveBlockWorld</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1afe41f4f613548194ebd2898f6adc3c46" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SelectBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1aefb8685c529a5269cc67b3bf6f79bd30" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SelectBlock1</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1af204ce2adcfbda9bab527a7197d4beaa" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockData</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1ac7afc8be7de5f2a12a41d56b30c959f6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockId</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a5b0018cb013c25933eca2b9337a3c2d0" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockWorldSunIntensity</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1ac8f2c1c16af6a04de2a818c74a41489e" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetBlockWorldYOffset</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1aa6463dd92db78d9eb4fa66ad536f8197" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetDamagedBlock</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1aac890e69224bf5dc76f84cf326a1f6f6" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetDamageDegree</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1a84fc474251b4754213866f9088e39f4d" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>SetTemplateTexture</name></member>
+      <member refid="class_para_scripting_1_1_para_block_world_1af4cbbef6cd08d3f544bed36052b8f530" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>UnloadRegion</name></member>
       <member refid="class_para_scripting_1_1_para_block_world_1ab6cf6316ca0f5e03a155bddc1a2e6843" prot="public" virt="non-virtual"><scope>ParaScripting::ParaBlockWorld</scope><name>~ParaBlockWorld</name></member>
     </listofallmembers>
   </compounddef>
