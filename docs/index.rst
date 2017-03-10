@@ -8,10 +8,10 @@ Welcome to NPL
    :caption: What is NPL
 
    wiki/WhatIsNPL
-   documentation/InstallGuide
-   documentation/projects
-   documentation/NPLVsLua
-   documentation/NPLArchitecture
+   wiki/InstallGuide
+   wiki/projects
+   wiki/NPLVsLua
+   wiki/NPLArchitecture
    
 .. _getstarted
 
@@ -19,22 +19,22 @@ Welcome to NPL
    :maxdepth: 1
    :caption: Getting Started
    
-   documentation/GettingStarted
-   documentation/TutorialHelloWorld
-   documentation/TutorialWebSite
-   documentation/TutorialParacraftMod
-   documentation/SourceCodeOverview
-   documentation/NPLCodeWiki
-   documentation/DebugAndLog
-   documentation/NPLVisualStudioIDE
-   documentation/EmbeddingNPLRuntime
-   documentation/Plugins
+   wiki/GettingStarted
+   wiki/TutorialHelloWorld
+   wiki/TutorialWebSite
+   wiki/TutorialParacraftMod
+   wiki/SourceCodeOverview
+   wiki/NPLCodeWiki
+   wiki/DebugAndLog
+   wiki/NPLVisualStudioIDE
+   wiki/EmbeddingNPLRuntime
+   wiki/Plugins
    
 .. toctree::
    :maxdepth: 1
    :caption: Basic Concepts
    
-   documentation/BasicConcept
+   wiki/BasicConcept
    documentation/bootstrapper
    documentation/NPLCommandLine
    documentation/LoadFile
