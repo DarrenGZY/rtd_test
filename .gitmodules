@@ -1,0 +1,3 @@
+[submodule "docs/wiki2"]
+	path = docs/wiki2
+	url = https://github.com/LiXizhi/NPLRuntime.wiki.git
