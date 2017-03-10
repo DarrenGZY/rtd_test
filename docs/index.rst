@@ -7,7 +7,7 @@ Welcome to NPL
    :maxdepth: 1
    :caption: What is NPL
 
-   documentation/WhatIsNPL
+   wiki/WhatIsNPL
    documentation/InstallGuide
    documentation/projects
    documentation/NPLVsLua
