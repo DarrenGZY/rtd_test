@@ -6,6 +6,7 @@ Welcome to NPL
    :caption: Table of Content
 
    wiki/_Sidebar
+   TestSearch
 
 .. toctree::
    :maxdepth: 1
