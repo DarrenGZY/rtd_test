@@ -1,7 +1,11 @@
 Welcome to NPL
 ========================
 
-.. _whatisnpl:
+.. toctree::
+   :maxdepth: 1
+   :caption: Table of Content
+
+   wiki/_Sidebar
 
 .. toctree::
    :maxdepth: 1
@@ -13,7 +17,6 @@ Welcome to NPL
    wiki/NPLVsLua
    wiki/NPLArchitecture
    
-.. _getstarted
 
 .. toctree::
    :maxdepth: 1
@@ -35,79 +38,79 @@ Welcome to NPL
    :caption: Basic Concepts
    
    wiki/BasicConcept
-   documentation/bootstrapper
-   documentation/NPLCommandLine
-   documentation/LoadFile
-   documentation/ActivationFile
-   documentation/Networking
-   documentation/MultiThreading
-   documentation/Concurrency
-   documentation/commonlib
-   documentation/ObjectOriented
-   documentation/DeployGuide
-   documentation/npl_packages
-   documentation/MetaProgramming
+   wiki/bootstrapper
+   wiki/NPLCommandLine
+   wiki/LoadFile
+   wiki/ActivationFile
+   wiki/Networking
+   wiki/MultiThreading
+   wiki/Concurrency
+   wiki/commonlib
+   wiki/ObjectOriented
+   wiki/DeployGuide
+   wiki/npl_packages
+   wiki/MetaProgramming
 
 .. toctree::
    :maxdepth: 1
    :caption: C/C++ NPL Runtime API
    
-   documentation/NPLRuntimeAPI
-   documentation/CoreAPI
-   documentation/AttributeSystem
-   documentation/AssetManifest
-   documentation/ParaObject
+   wiki/NPLRuntimeAPI
+   wiki/CoreAPI
+   wiki/AttributeSystem
+   wiki/AssetManifest
+   wiki/ParaObject
 
 .. toctree::
    :maxdepth: 1
    :caption: System Libraries
    
-   documentation/system
-   documentation/Timer
-   documentation/Serialization
-   documentation/HTTP
-   documentation/Networking
-   documentation/FilesAndIO
-   documentation/MouseAndKeyInput
-   documentation/FiltersAndEvents
-   documentation/Localization
+   wiki/system
+   wiki/Timer
+   wiki/Serialization
+   wiki/HTTP
+   wiki/Networking
+   wiki/FilesAndIO
+   wiki/MouseAndKeyInput
+   wiki/FiltersAndEvents
+   wiki/Localization
 
 .. toctree::
    :maxdepth: 1
    :caption: User Interface
    
-   documentation/UIOverview
-   documentation/DrawingAPI
-   documentation/System.Window
-   documentation/mcml 
+   wiki/UIOverview
+   wiki/DrawingAPI
+   wiki/System.Window
+   wiki/mcml 
 
 .. toctree::
    :maxdepth: 1
    :caption: 3D Programming
    
-   documentation/3DOverview
-   documentation/FileFormat
-   documentation/SceneManager
-   documentation/Camera
-   documentation/BlockEngine
+   wiki/3DOverview
+   wiki/FileFormat
+   wiki/SceneManager
+   wiki/Camera
+   wiki/BlockEngine
 
 .. toctree::
    :maxdepth: 1
    :caption: Web Server
    
-   documentation/WebServer
-   documentation/NPLServerPage
-   documentation/AdminSiteFramework
-   documentation/UsingTableDatabase
-   documentation/UsingMySql
-   documentation/SecureDeployServer
+   wiki/WebServer
+   wiki/NPLServerPage
+   wiki/AdminSiteFramework
+   wiki/UsingTableDatabase
+   wiki/UsingMySql
+   wiki/SecureDeployServer
    
 .. toctree::
    :maxdepth: 1
    :caption: Resources
    
-   documentation/Resources
-   documentation/NPLPerformance
+   wiki/Resources
+   wiki/NPLPerformance
    
    
 .. _references:
